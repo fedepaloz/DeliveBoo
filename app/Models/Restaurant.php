@@ -12,6 +12,10 @@ class Restaurant extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function items() {
+        return $this->hasMany('App\Models\Item');
+    }
+
     public function categories() {
         return $this->belongsToMany('App\Models\Category');
     }
