@@ -2,8 +2,10 @@
 
 use App\User;
 use App\Models\Restaurant;
+use App\Models\Category;
 use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Arr;
 
 class RestaurantSeeder extends Seeder
 {
@@ -15,7 +17,7 @@ class RestaurantSeeder extends Seeder
     public function run(Faker $faker)
     {
         $user_ids = User::pluck('id')->toArray();
-
+        $categories = Category::pluck('id')->toArray();
         $res_data = config('res_data');
 
         foreach ($user_ids as $index => $id) {
@@ -32,6 +34,17 @@ class RestaurantSeeder extends Seeder
             $restaurant->delivery_cost = $res_data[$index]['delivery_cost'];
             $restaurant->visible = $res_data[$index]['visible'];
             $restaurant->save();
+
+            $random_n = rand(1, 3);
+            $rest_cat = [];
+
+            while (count($rest_cat) < $random_n) {
+                $random_cat = Arr::random($categories);
+                if (!in_array($random_cat, $rest_cat)) {
+                    $rest_cat[] = $random_cat;
+                };
+            }
+            $restaurant->categories()->attach($rest_cat);
         }
     }
 }
