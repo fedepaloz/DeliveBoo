@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,21 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware('auth')
+->prefix('admin') //ulr iniziale
+->namespace('Admin') //controller folder
+// ->name('admin.') // aggiunge al nome
+->group(function () {
+        Route::get('/', 'HomeController@index')->name('home');
+        Route::resource('restaurants', 'RestaurantController');
+        Route::get('/{any}', function () {
+            abort('404');
+        })->where('any', '.*');
+    });
+
+
+
+// Route::get('/{any?}', function () {
+//     return view('guest.home');
+// })->where('any', '.*');
