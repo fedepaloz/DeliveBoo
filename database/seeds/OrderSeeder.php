@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Item;
 use App\Models\Order;
 use App\Models\Restaurant;
 use Illuminate\Database\Seeder;
@@ -14,6 +15,8 @@ class OrderSeeder extends Seeder
      */
     public function run()
     {
+        $items = Item::orderBy('id')->pluck('id')->toArray();
+
         $order = new Order();
         $restaurants = Restaurant::pluck('id')->toArray();
         $order->restaurant_id = Arr::random($restaurants);
@@ -25,5 +28,7 @@ class OrderSeeder extends Seeder
         $order->status = 'pending';
 
         $order->save();
+
+        $order->items()->attach($items);
     }
 }

@@ -9,4 +9,8 @@ class Item extends Model
     public function restaurant() {
         return $this->belongsTo('App\Models\Restaurant');
     }
+
+    public function orders() {
+        return $this->belongsToMany('App\Models\Order');
+    }
 }
