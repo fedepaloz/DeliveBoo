@@ -24,7 +24,7 @@ Auth::routes();
 Route::middleware('auth')
 ->prefix('admin') //ulr iniziale
 ->namespace('Admin') //controller folder
-// ->name('admin.') // aggiunge al nome
+->name('admin.') // aggiunge al nome
 ->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
         Route::resource('restaurants', 'RestaurantController');
@@ -33,8 +33,7 @@ Route::middleware('auth')
         })->where('any', '.*');
     });
 
+Route::get('/{any?}', function () {
+    return view('guest.home');
+})->where('any', '.*');
 
-
-// Route::get('/{any?}', function () {
-//     return view('guest.home');
-// })->where('any', '.*');
