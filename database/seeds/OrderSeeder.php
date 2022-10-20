@@ -29,6 +29,6 @@ class OrderSeeder extends Seeder
 
         $order->save();
 
-        $order->items()->attach($items);
+        $order->items()->attach($items, ['quantity' => 2]);
     }
 }
