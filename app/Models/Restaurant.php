@@ -16,6 +16,10 @@ class Restaurant extends Model
         return $this->hasMany('App\Models\Item');
     }
 
+    public function orders() {
+        return $this->hasMany('App\Models\Order');
+    }
+
     public function categories() {
         return $this->belongsToMany('App\Models\Category');
     }
