@@ -8,6 +8,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class RestaurantController extends Controller
 {
@@ -43,38 +44,51 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        // $op_time = Carbon::parse('opening_time')->format('00:00');
-        // $cl_time = Carbon::parse('closure_time')->format('00:00');
         $request->validate(
             [
-                'name' => 'required|string|min:1|max:50|unique:restaurants',
-                'category_id' => 'required|exists:categories,id',
+                'name' => 'required|string|min:1|max:50',
+                'category_id' => 'required',
                 'image' => 'nullable|image|mimes:jpeg,jpg,png',
-                'vat_number' => 'required|string|min:11|max:11|unique:vat_number',
-                'phone' => 'required|string|min:9|max:15|unique:phone',
-                'address' => 'required|string|max:100|unique:address',
+                'vat_number' => 'required|string|min:11|max:11',
+                'phone' => 'required|string|min:9|max:15',
+                'address' => 'required|string|min:10|max:100',
+                'opening_time' => 'required',
+                'closure_time' => 'required',
             ],
             [
-                'name.required' => 'Il campo è obbligatorio',
+                'name.required' => 'Il campo Nome Ristorante è obbligatorio',
                 'name.min' => 'Il nome deve avere almeno :min caratteri',
-                'name.max' => 'Lunghezza massima consentita :max caratteri',
+                'name.max' => 'La lunghezza massima consentita del nome è :max caratteri',
                 'name.unique' => "Esiste già un ristorante dal nome $request->name",
-                // 'category_id.exists' => "Non esiste una categoria associabile",
+                'category_id.required' => "La categoria è obbligatoria",
                 'image.image' => "Il file non e' del formato corretto",
                 'image.mimes' => "Estensioni ammesse : .png, .jpg e .jpeg",
                 'vat_number.min' => "Il campo Partita IVA deve avere :min caratteri",
                 'vat_number.max' => "Il campo Partita IVA deve avere :max caratteri",
-                'vat_number.required' => "Il campo è obbligatorio",
+                'vat_number.required' => "Il campo Partita IVA è obbligatorio",
                 'vat_number.unique' => "Partita IVA già esistente",
                 'phone.unique' => "Telefono già esistente",
-                'phone.required' => "Il campo è obbligatorio",
+                'phone.required' => "Il campo Telefono è obbligatorio",
                 'phone.min' => "Il campo Telefono deve avere :min caratteri",
                 'phone.max' => "Il campo Telefono deve avere :max caratteri",
-                'address.required' => "Il campo è obbligatorio",
+                'address.required' => "Il campo Indirizzo è obbligatorio",
                 'address.max' => "Lunghezza massima consentita :max caratteri",
                 'address.unique' => "Indirizzo già esistente",
+                'opening_time.required' => "Il campo Orario di apertura è obbligatorio",
+                'closure_time.required' => "Il campo Orario di chiusura è obbligatorio",
+
             ]
         );
+        $data = $request->all();
+        $restaurant = new Restaurant();
+        $restaurant->fill($data);
+        $restaurant->user_id = Auth::id();
+        if (array_key_exists('image', $data)) {
+            $img= Storage::put('restaurant_img', $data['image'] );
+            $restaurant->image = $img;
+        };
+        $restaurant->save();
+        return redirect()->route('admin.restaurants.index', $restaurant);
     }
 
     /**

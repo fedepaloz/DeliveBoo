@@ -15,13 +15,13 @@ class CreateRestaurantsTable extends Migration
     {
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 50);
+            $table->string('name', 50)->unique();
             $table->string('image')->nullable();
-            $table->string('address', 100);
+            $table->string('address', 100)->unique();
             $table->char('vat_number', 11)->unique();
             $table->string('phone', 15)->unique();
-            $table->time('opening_time')->default('11:30:00');
-            $table->time('closure_time')->default('24:00:00');
+            $table->time('opening_time')->required();
+            $table->time('closure_time')->required();
             $table->float('min_order', 4, 2)->default(10.00);
             $table->float('delivery_cost', 4, 2)->default(2.00);
             $table->boolean('visible')->default(true);
