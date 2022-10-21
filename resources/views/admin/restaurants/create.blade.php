@@ -10,14 +10,14 @@
         </div>
     @endif
 
-    <form action="" enctype="multipart/form-data" method="POST" novalidate>
+    <form action="{{ route('admin.restaurants.store') }}" enctype="multipart/form-data" method="POST" novalidate>
         @csrf
         <div class="row">
             <div class="col-8">
                 <div class="form-group">
-                    <label for="title">Nome ristorante *</label>
-                    <input type="text" class="form-control" id="title" name="title"
-                        value="{{ old('title', $restaurant->name) }}" required minlenght="5" maxlenght="50">
+                    <label for="name">Nome ristorante *</label>
+                    <input type="text" class="form-control" id="name" name="name"
+                        value="{{ old('name', $restaurant->name) }}">
                 </div>
             </div>
             <div class="col-4">
@@ -49,50 +49,49 @@
                 <div class="form-group">
                     <label for="vat_number">Partita IVA *</label>
                     <input type="text" class="form-control" id="vat_number" name="vat_number"
-                        value="{{ old('vat_number', $restaurant->vat_number) }}" required minlenght="5" maxlenght="50">
+                        value="{{ old('vat_number', $restaurant->vat_number) }}">
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label for="phone">Telefono *</label>
                     <input type="tel" class="form-control" id="phone" name="phone"
-                        value="{{ old('phone', $restaurant->phone) }}" required minlenght="5" maxlenght="50">
+                        value="{{ old('phone', $restaurant->phone) }}">
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label for="address">Indirizzo *</label>
                     <input type="text" class="form-control" id="address" name="address"
-                        value="{{ old('address', $restaurant->address) }}" required minlenght="5" maxlenght="50">
+                        value="{{ old('address', $restaurant->address) }}">
                 </div>
             </div>
             <div class="col-3">
                 <div class="form-group">
-                    <label for="opening_time">Orario di apertura</label>
+                    <label for="opening_time">Orario di apertura *</label>
                     <input type="time" class="form-control" id="opening_time" name="opening_time"
-                        value="{{ old('opening_time', $restaurant->opening_time) }}" required minlenght="5" maxlenght="50">
+                        value="{{ old('opening_time', $restaurant->opening_time) || '11:30' }}">
                 </div>
             </div>
             <div class="col-3">
                 <div class="form-group">
-                    <label for="closure_time">Orario di chiusura</label>
+                    <label for="closure_time">Orario di chiusura *</label>
                     <input type="time" class="form-control" id="closure_time" name="closure_time"
-                        value="{{ old('closure_time', $restaurant->closure_time) }}" required minlenght="5" maxlenght="50">
+                        value="{{ old('closure_time', $restaurant->closure_time) || '24:00' }}">
                 </div>
             </div>
             <div class="col-3">
                 <div class="form-group">
                     <label for="min_order">Ordine minimo (in euro)</label>
                     <input type="number" class="form-control" id="min_order" name="min_order"
-                        value="{{ old('min_order', $restaurant->min_order) }}" required minlenght="5" maxlenght="50">
+                        value="{{ old('min_order', $restaurant->min_order) }}">
                 </div>
             </div>
             <div class="col-3">
                 <div class="form-group">
                     <label for="delivery_cost">Spese di consegna (in euro)</label>
                     <input type="number" class="form-control" id="delivery_cost" name="delivery_cost"
-                        value="{{ old('delivery_cost', $restaurant->delivery_cost) }}" required minlenght="5"
-                        maxlenght="50">
+                        value="{{ old('delivery_cost', $restaurant->delivery_cost) }}">
                 </div>
             </div>
         </div>
