@@ -20,10 +20,10 @@ class CreateRestaurantsTable extends Migration
             $table->string('address', 100);
             $table->char('vat_number', 11)->unique();
             $table->string('phone', 15)->unique();
-            $table->string('opening_time')->default('11:30');
-            $table->string('closure_time')->default('24:00');
-            $table->float('min_order', 4, 2)->nullable();
-            $table->float('delivery_cost', 4, 2)->nullable();
+            $table->time('opening_time')->default('11:30:00');
+            $table->time('closure_time')->default('24:00:00');
+            $table->float('min_order', 4, 2)->default(10.00);
+            $table->float('delivery_cost', 4, 2)->default(2.00);
             $table->boolean('visible')->default(true);
             $table->timestamps();
         });

@@ -15,14 +15,14 @@
         <div class="row">
             <div class="col-8">
                 <div class="form-group">
-                    <label for="title">Nome ristorante</label>
+                    <label for="title">Nome ristorante *</label>
                     <input type="text" class="form-control" id="title" name="title"
                         value="{{ old('title', $restaurant->name) }}" required minlenght="5" maxlenght="50">
                 </div>
             </div>
             <div class="col-4">
                 <div class="form-group">
-                    <label for="category_id">Categoria</label>
+                    <label for="category_id">Categoria *</label>
                     <select class="form-control" id="category_id" name="category_id">
                         <option value="">Nessuna categoria</option>
                         @foreach ($categories as $category)
@@ -47,21 +47,21 @@
     </div> --}}
             <div class="col-6">
                 <div class="form-group">
-                    <label for="vat_number">Partita IVA</label>
+                    <label for="vat_number">Partita IVA *</label>
                     <input type="text" class="form-control" id="vat_number" name="vat_number"
                         value="{{ old('vat_number', $restaurant->vat_number) }}" required minlenght="5" maxlenght="50">
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
-                    <label for="phone">Telefono</label>
+                    <label for="phone">Telefono *</label>
                     <input type="tel" class="form-control" id="phone" name="phone"
                         value="{{ old('phone', $restaurant->phone) }}" required minlenght="5" maxlenght="50">
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
-                    <label for="address">Indirizzo</label>
+                    <label for="address">Indirizzo *</label>
                     <input type="text" class="form-control" id="address" name="address"
                         value="{{ old('address', $restaurant->address) }}" required minlenght="5" maxlenght="50">
                 </div>
@@ -96,6 +96,7 @@
                 </div>
             </div>
         </div>
+        <p><strong>N.B. I campi contrassegnati dall'asterisco * sono obbligatori.</strong></p>
         <hr />
 
         <footer class="d-flex justify-content-between">
