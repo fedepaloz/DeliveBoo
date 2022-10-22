@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 
+
+// ! POSSIBIBLE SOLUTION FOR USER CHECK IF ALREADY HAVE A RESTAURANT [change best article in restaurant] !
+// $saveddata = DB::table('savearticle')->where('user_id', $userID && 'article_id', $bestarticle->id)->get();
+
+
 class RestaurantController extends Controller
 {
     /**
