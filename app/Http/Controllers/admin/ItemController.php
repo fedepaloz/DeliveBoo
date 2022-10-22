@@ -75,8 +75,10 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(item $item)
+    public function show(Item $item)
     {
+        $current_restaurant_items = Item::where('restaurant_id', Auth::id())->get();
+        // $item = Item::all();
         return view('admin.items.show', compact('item'));
     }
 

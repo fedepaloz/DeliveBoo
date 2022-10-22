@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
+use App\Models\Item;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
@@ -25,9 +26,10 @@ class RestaurantController extends Controller
     public function index()
     {
         $category = Category::all();
-        
+        $item = Item::where('restaurant_id', Auth::id())->first();
+        $current_restaurant_id = Restaurant::where('user_id', Auth::id())->value('id');
         $restaurant = Restaurant::where('user_id', Auth::id())->first();
-        return view('admin.restaurants.index', compact('restaurant', 'category'));
+        return view('admin.restaurants.index', compact('restaurant', 'category', 'item'));
     }
 
     /**
@@ -37,6 +39,9 @@ class RestaurantController extends Controller
      */
     public function create()
     {
+        //se l'utente loggato ha gia' creato un ristorante non permettere ulteriore creazione
+        //altrimenti permetti
+        // if(Auth::id() ===  )
         $categories = Category::all();
         $restaurant = new Restaurant();
         return view('admin.restaurants.create', compact('restaurant', 'categories'));
