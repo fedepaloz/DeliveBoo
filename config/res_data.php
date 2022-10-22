@@ -1,18 +1,6 @@
 <?php
 return [
     [
-        'name' => 'The Queen\'s Place',
-        'image' => 'lh.googleusercontent.com/Uz39Ci0kUk5zoWAk9brpGzr5gWadX1bmKCUlFRxXMCIOvrybAgPNQkQ3OE5VPkF5QF4',
-        'address' => 'Viale Certosa, 63',
-        'vat_number' => '41956450138',
-        'phone' => '024586994',
-        'opening_time' => '12:00',
-        'closure_time' => '16:00',
-        'min_order' => 10,
-        'delivery_cost' => 2,
-        'visible' => true,
-    ],
-    [
         'name' => 'Red Lobster',
         'image' => 'https://cdn.freebiesupply.com/logos/large/2x/red-lobster-1-logo-png-transparent.png',
         'address' => 'Via Ludovico D\'Aragona, 10',
