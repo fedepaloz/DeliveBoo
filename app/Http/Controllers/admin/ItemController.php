@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\Auth;
-
 use App\Http\Controllers\Controller;
 use App\Models\Item;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
-use Symfony\Component\Finder\Finder;
+use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
@@ -43,7 +41,7 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        $restaurant_id = Restaurant::select('id')->where('user_id', Auth::id())->first()->toArray();
+        $current_restaurant_id = Restaurant::where('user_id', Auth::id())->value('id');
 
         $request->validate(
             [
@@ -65,7 +63,7 @@ class ItemController extends Controller
         );
         $data = $request->all();
         $item = new Item();
-        $item->restaurant_id = 1;
+        $item->restaurant_id = $current_restaurant_id;
         $item->fill($data);
         $item->save();
         return redirect()->route('admin.items.show', $item);
