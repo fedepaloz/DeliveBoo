@@ -18,6 +18,10 @@
                             <h6>Data creazione: {{ $item->created_at }}</h6>
                         </div>
                         <div class="d-flex justify-content-end mt-5">
+                            <div class="d-flex justify-content-end">
+                                <a href="{{ route('admin.items.show', $item) }}" class="btn btn-warning mr-3">
+                                    <i class="fa-solid fa-plus "></i> Dettagli articolo</a>
+                            </div>
 
                             {{-- correggere rotta edit --}}
                             <a href="{{ route('admin.items.index') }}" class="btn btn-primary mr-3"><i
