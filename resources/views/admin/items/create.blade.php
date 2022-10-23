@@ -49,7 +49,7 @@
                 <div class="form-group">
                     <label for="image">Inserisci il logo del tuo ristorante:</label>
                     <br>
-                    <input type="file"  id="image" name="image">
+                    <input type="file" id="image" name="image">
                 </div>
             </div>
             {{-- TODO --}}
@@ -60,15 +60,15 @@
     </div> --}}
         </div>
         <p><strong>N.B. I campi contrassegnati dall'asterisco * sono obbligatori.</strong></p>
-            <hr />
+        <hr />
 
-            <footer class="d-flex justify-content-end">
-                <a class="btn btn-secondary mr-3" href="{{ route('admin.items.index') }}">
-                    <i class="fa-solid fa-rotate-left mr-2"></i> Indietro
-                </a>
-                <button class="btn btn-success " type="submit">
-                    <i class="fa-solid fa-floppy-disk mr-2"></i> Salva
-                </button>
-            </footer>
+        <footer class="d-flex justify-content-end">
+            <a class="btn btn-secondary mr-3" href="{{ route('admin.items.index') }}">
+                <i class="fa-solid fa-rotate-left mr-2"></i> Indietro
+            </a>
+            <button class="btn btn-success " type="submit">
+                <i class="fa-solid fa-floppy-disk mr-2"></i> Salva
+            </button>
+        </footer>
     </form>
 @endsection
