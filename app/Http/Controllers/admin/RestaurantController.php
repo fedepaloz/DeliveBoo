@@ -59,7 +59,7 @@ class RestaurantController extends Controller
             [
                 'name' => 'required|string|min:1|max:50',
                 'category_id' => 'required',
-                'image' => 'nullable|image|mimes:jpeg,jpg,png',
+                'image' => 'nullable|mimes:jpeg,jpg,png',
                 'vat_number' => 'required|string|min:11|max:11',
                 'phone' => 'required|string|min:9|max:15',
                 'address' => 'required|string|min:5|max:100',
@@ -72,7 +72,6 @@ class RestaurantController extends Controller
                 'name.max' => 'La lunghezza massima consentita del nome è :max caratteri',
                 'name.unique' => "Esiste già un ristorante dal nome $request->name",
                 'category_id.required' => "La categoria è obbligatoria",
-                'image.image' => "Il file non e' del formato corretto",
                 'image.mimes' => "Estensioni ammesse : .png, .jpg e .jpeg",
                 'vat_number.min' => "Il campo Partita IVA deve avere :min caratteri",
                 'vat_number.max' => "Il campo Partita IVA deve avere :max caratteri",
@@ -91,12 +90,13 @@ class RestaurantController extends Controller
 
             ]
         );
+
         $data = $request->all();
         $restaurant = new Restaurant();
         $restaurant->fill($data);
         $restaurant->user_id = Auth::id();
         if (array_key_exists('image', $data)) {
-            $img= Storage::put('restaurant_img', $data['image'] );
+            $img= Storage::disk('public')->put('restaurant_img', $data['image'] );
             $restaurant->image = $img;
         };
         $restaurant->save();
