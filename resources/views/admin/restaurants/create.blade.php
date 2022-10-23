@@ -12,7 +12,7 @@
 
     <form action="{{ route('admin.restaurants.store') }}" enctype="multipart/form-data" method="POST" novalidate>
         @csrf
-        <div class="row">
+        <div class="row mt-5">
             <div class="col-8">
                 <div class="form-group">
                     <label for="name">Nome ristorante *</label>
@@ -34,25 +34,14 @@
                 </div>
             </div>
 
-            <div class="col-12">
-                <div class="form-group">
-                    <label for="image">Immagine</label>
-                    <input type="file" class="form-control" id="image" name="image">
-                </div>
-            </div>
-            {{-- <div class="col-1">
-        <img class="img-fluid pt-4"
-            src="{{ $post->image ? asset('storage/' . $post->image) : 'https://media.istockphoto.com/vectors/thumbnail-image-vector-graphic-vector-id1147544807?k=20&m=1147544807&s=612x612&w=0&h=pBhz1dkwsCMq37Udtp9sfxbjaMl27JUapoyYpQm0anc=' }}"
-            alt="{{$post->image ? $post->title : 'placeholder'}}">
-    </div> --}}
-            <div class="col-6">
+            <div class="col-3">
                 <div class="form-group">
                     <label for="vat_number">Partita IVA *</label>
                     <input type="text" class="form-control" id="vat_number" name="vat_number"
                         value="{{ old('vat_number', $restaurant->vat_number) }}">
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-3">
                 <div class="form-group">
                     <label for="phone">Telefono *</label>
                     <input type="tel" class="form-control" id="phone" name="phone"
@@ -94,7 +83,21 @@
                         value="{{ old('delivery_cost', $restaurant->delivery_cost) }}">
                 </div>
             </div>
+
+            <div class="col-10 my-4">
+                <div class="form-group">
+                    <label for="image">Inserisci il logo del tuo ristorante:</label>
+                    <br>
+                    <input type="file"  id="image" name="image">
+                </div>
+            </div>
+            <div class="col-1">
+        {{-- <img class="img-fluid pt-4"
+            src="{{ $post->image ? asset('storage/' . $post->image) : 'https://media.istockphoto.com/vectors/thumbnail-image-vector-graphic-vector-id1147544807?k=20&m=1147544807&s=612x612&w=0&h=pBhz1dkwsCMq37Udtp9sfxbjaMl27JUapoyYpQm0anc=' }}"
+            alt="{{$post->image ? $post->title : 'placeholder'}}"> --}}
+            </div>
         </div>
+
         <p><strong>N.B. I campi contrassegnati dall'asterisco * sono obbligatori.</strong></p>
         <hr />
 

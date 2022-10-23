@@ -1,9 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    @php
-        // dd($item);
-    @endphp
     <h1 class="my-5">I tuoi ristoranti:</h1>
 
     <div class="card mb-3" style="height:400px; max-width: 100%;">

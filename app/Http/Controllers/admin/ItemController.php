@@ -7,6 +7,7 @@ use App\Models\Item;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ItemController extends Controller
 {
@@ -65,6 +66,10 @@ class ItemController extends Controller
         $item = new Item();
         $item->restaurant_id = $current_restaurant_id;
         $item->fill($data);
+        if (array_key_exists('image', $data)) {
+            $img= Storage::disk('public')->put('restaurant_img', $data['image'] );
+            $item->image = $img;
+        };
         $item->save();
         return redirect()->route('admin.items.show', $item);
     }
@@ -91,6 +96,11 @@ class ItemController extends Controller
     public function edit($id)
     {
         //
+        // if (array_key_exists('image', $data)) {
+        //     if($item->image) Storage::delete($item->image);
+        //     $img= Storage::disk('public')->put('restaurant_img', $data['image'] );
+        //     $item->image = $img;
+        // };
     }
 
     /**
@@ -113,6 +123,6 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //  Delete img in storage !!! if($item->image) Storage::delete($item->image);
     }
 }
