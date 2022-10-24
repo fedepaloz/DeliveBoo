@@ -23,7 +23,7 @@
                         <a href="{{ route('admin.items.index', $item) }}" class="btn btn-success mr-3"><i
                                 class="fa-solid fa-bars"></i> Torna al menu</a>
                         {{-- correggere rotta edit --}}
-                        <a href="{{ route('admin.items.index') }}" class="btn btn-primary mr-3"><i
+                        <a href="{{ route('admin.items.edit', $item) }}" class="btn btn-primary mr-3"><i
                                 class="fa-solid fa-pen"></i> Modifica piatto</a>
 
                         <form action="{{ route('admin.items.destroy', $item->id) }} " method='POST'>
