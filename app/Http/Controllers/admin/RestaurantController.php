@@ -75,8 +75,8 @@ class RestaurantController extends Controller
                 'address' => 'required|string|min:5|max:100',
                 'opening_time' => 'required',
                 'closure_time' => 'required',
-                'min_order' => 'required',
-                'delivery_cost' => 'required|min:1|max:100',
+                'min_order' => 'required|numeric|gte:0',
+                'delivery_cost' => 'required|numeric|gt:0',
             ],
             [
                 'name.required' => 'Il campo Nome Ristorante è obbligatorio',
@@ -99,11 +99,10 @@ class RestaurantController extends Controller
                 'address.unique' => "Indirizzo già esistente",
                 'opening_time.required' => "Il campo Orario di apertura è obbligatorio",
                 'closure_time.required' => "Il campo Orario di chiusura è obbligatorio",
-                'min_order.required' => "Il campo Ordine minimo è obbligatorio",
-                'delivery_cost.required' => "Il campo Spese di consegna è obbligatorio",
-                'delivery_cost.min' => "Il campo Spese di consegna deve avere :min caratteri",
-                'delivery_cost.max' => "Il campo Spese di consegna deve avere :max caratteri",
-
+                'min_order.required' => "Il campo 'Ordine minimo' non può essere vuoto",
+                'min_order.gte' => "Il campo 'Ordine minimo' deve essere maggiore o uguale a 0",
+                'delivery_cost.required' => "Il campo 'Spese di consegna' non può essere vuoto",
+                'delivery_cost.gt' => "Il campo 'Spese di consegna' deve essere maggiore di 0",
             ]
         );
 
