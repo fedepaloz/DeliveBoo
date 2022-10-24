@@ -81,115 +81,61 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/res-form-validation.js":
-/*!*********************************************!*\
-  !*** ./resources/js/res-form-validation.js ***!
-  \*********************************************/
+/***/ "./resources/js/items-form-validation.js":
+/*!***********************************************!*\
+  !*** ./resources/js/items-form-validation.js ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var formField = document.getElementById("restaurant-form");
+var formField = document.getElementById("edit-item-form");
 var nameField = document.getElementById("name");
 var nameFeedbackField = document.getElementById("name-feedback");
-var categoryField = document.getElementById("category_id");
-var categoryFeedbackField = document.getElementById("category-feedback");
-var vatField = document.getElementById("vat_number");
-var vatFeedbackField = document.getElementById("vat-feedback");
-var phoneField = document.getElementById("phone");
-var phoneFeedbackField = document.getElementById("phone-feedback");
-var addressField = document.getElementById("address");
-var addressFeedbackField = document.getElementById("address-feedback");
-var openingField = document.getElementById("opening_time");
-var openingFeedbackField = document.getElementById("opening-feedback");
-var closureField = document.getElementById("closure_time");
-var closureFeedbackField = document.getElementById("closure-feedback");
-var minField = document.getElementById("min_order");
-var minFeedbackField = document.getElementById("min-feedback");
-var dcostField = document.getElementById("delivery_cost");
-var dcostFeedbackField = document.getElementById("dcost-feedback");
+var visibleField = document.getElementById("visible");
+var visibleFeedbackField = document.getElementById("visible-feedback");
+var priceField = document.getElementById("price");
+var priceFeedbackField = document.getElementById("price-feedback");
 formField.addEventListener("submit", function (event) {
   event.preventDefault();
   var isNameValid = false;
-  var isCategoryValid = false;
-  var isVatValid = false;
-  var isPhoneValid = false;
-  var isAddressValid = false;
-  var isOpeningValid = false;
-  var isClosureValid = false;
-  var isMinValid = false;
-  var isDcostValid = false;
+  var isVisibleValid = false;
+  var isPriceValid = false;
   if (nameField.value) {
     isNameValid = true;
     nameField.classList.remove("is-invalid");
   } else {
     nameField.classList.add("is-invalid");
   }
-  if (categoryField.value) {
-    isCategoryValid = true;
-    categoryField.classList.remove("is-invalid");
+  if (visibleField.value) {
+    isVisibleValid = true;
+    visibleField.classList.remove("is-invalid");
   } else {
-    categoryField.classList.add("is-invalid");
+    visibleField.classList.add("is-invalid");
   }
-  if (vatField.value) {
-    isVatValid = true;
-    vatField.classList.remove("is-invalid");
+  if (priceField.value) {
+    isPriceValid = true;
+    priceField.classList.remove("is-invalid");
   } else {
-    vatField.classList.add("is-invalid");
+    priceField.classList.add("is-invalid");
   }
-  if (phoneField.value) {
-    isPhoneValid = true;
-    phoneField.classList.remove("is-invalid");
-  } else {
-    phoneField.classList.add("is-invalid");
-  }
-  if (addressField.value) {
-    isAddressValid = true;
-    addressField.classList.remove("is-invalid");
-  } else {
-    addressField.classList.add("is-invalid");
-  }
-  if (openingField.value) {
-    isOpeningValid = true;
-    openingField.classList.remove("is-invalid");
-  } else {
-    openingField.classList.add("is-invalid");
-  }
-  if (closureField.value) {
-    isClosureValid = true;
-    closureField.classList.remove("is-invalid");
-  } else {
-    closureField.classList.add("is-invalid");
-  }
-  if (minField.value) {
-    isMinValid = true;
-    minField.classList.remove("is-invalid");
-  } else {
-    minField.classList.add("is-invalid");
-  }
-  if (dcostField.value) {
-    isDcostValid = true;
-    dcostField.classList.remove("is-invalid");
-  } else {
-    dcostField.classList.add("is-invalid");
-  }
-  if (isNameValid && isCategoryValid && isVatValid && isPhoneValid && isAddressValid && isOpeningValid && isClosureValid && isMinValid && isDcostValid) formField.submit();
+  if (isNameValid && isPriceValid && isVisibleValid) formField.submit();
 });
 
 /***/ }),
 
-/***/ 1:
-/*!***************************************************!*\
-  !*** multi ./resources/js/res-form-validation.js ***!
-  \***************************************************/
+/***/ 2:
+/*!*****************************************************!*\
+  !*** multi ./resources/js/items-form-validation.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\laravel\proj68-team2-deliveboo\resources\js\res-form-validation.js */"./resources/js/res-form-validation.js");
+module.exports = __webpack_require__(/*! C:\laravel\proj68-team2-deliveboo\resources\js\items-form-validation.js */"./resources/js/items-form-validation.js");
 
 
 /***/ })

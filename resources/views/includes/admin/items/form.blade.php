@@ -9,11 +9,12 @@
 @endif
 
 @if ($item->exists)
-    <form action="{{ route('admin.items.update', $item) }}" enctype="multipart/form-data" method="POST">
+    <form id="edit-item-form" action="{{ route('admin.items.update', $item) }}" enctype="multipart/form-data" method="POST">
         @method('PUT')
     @else
-        <form action="{{ route('admin.items.store') }}" enctype="multipart/form-data" method="POST" novalidate>
+        <form id="edit-item-form" action="{{ route('admin.items.store') }}" enctype="multipart/form-data" method="POST" novalidate>
 @endif
+
 @csrf
 <div class="row">
     <div class="col-12">
@@ -21,6 +22,7 @@
             <label for="name">Nome piatto *</label>
             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
                 value="{{ old('name', $item->name) }}" required minlenght="5" maxlenght="50">
+                <div id="name-feedback" class="invalid-feedback">Il campo "Nome piatto" non può essere vuoto</div>
         </div>
     </div>
     <div class="col-12">
@@ -39,6 +41,7 @@
                 <option {{ old('visible') == 1 ? 'selected' : '' }} value="1">Si</option>
                 <option {{ old('visible') == 0 ? 'selected' : '' }} value="0">No</option>
             </select>
+            <div id="visible-feedback" class="invalid-feedback">Selezionare Si o No</div>
         </div>
     </div>
     <div class="col-12">
@@ -46,6 +49,7 @@
             <label for="price">Prezzo</label>
             <input type="text" class="form-control @error('price') is-invalid @enderror" id="price"
                 name="price" value="{{ old('price', $item->price) }}" required minlenght="5" maxlenght="50">
+                <div id="price-feedback" class="invalid-feedback">Il campo "Prezzo" non può essere vuoto</div>
         </div>
     </div>
 
