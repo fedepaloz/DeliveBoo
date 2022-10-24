@@ -49,18 +49,20 @@ class ItemController extends Controller
             [
                 'name' => 'required|string|min:1|unique:items',
                 'description' => 'string',
-                'price' => 'numeric',
+                'price' => 'numeric|gt:0',
                 'image' => 'nullable|image|mimes:jpeg,jpg,png',
-                // TODO [REQUIRED]
-                'visible' => 'required',
+                'visible' => 'required|boolean',
             ],
             [
                 'name.required' => 'Il titolo è obbligatorio',
                 'name.min' => 'Il titolo deve avere almeno :min caratteri',
                 'name.unique' => "Esiste già un piatto dal nome $request->name",
+                'price.numeric' => 'Il prezzo deve essere un numero',
+                'price.gt' => 'Il prezzo deve essere maggiore di 0',
                 'image.image' => "Il file non e' del formato corretto",
                 'image.mimes' => "Estensioni ammesse : .png, .jpg e .jpeg",
                 'visible.required' => "Inserisci almeno uno dei campi",
+                'visible.boolean' => "Il campo 'Disponibile' accetta solo si o no",
             ],
         );
         $data = $request->all();
@@ -112,6 +114,27 @@ class ItemController extends Controller
      */
     public function update(Request $request, Item $item)
     {
+        $request->validate(
+            [
+                'name' => 'required|string|min:1|unique:items',
+                'description' => 'string',
+                'price' => 'numeric|gt:0',
+                'image' => 'nullable|image|mimes:jpeg,jpg,png',
+                'visible' => 'required|boolean',
+            ],
+            [
+                'name.required' => 'Il titolo è obbligatorio',
+                'name.min' => 'Il titolo deve avere almeno :min caratteri',
+                'name.unique' => "Esiste già un piatto dal nome $request->name",
+                'price.numeric' => 'Il prezzo deve essere un numero',
+                'price.gt' => 'Il prezzo deve essere maggiore di 0',
+                'image.image' => "Il file non e' del formato corretto",
+                'image.mimes' => "Estensioni ammesse : .png, .jpg e .jpeg",
+                'visible.required' => "Inserisci almeno uno dei campi",
+                'visible.boolean' => "Il campo 'Disponibile' accetta solo si o no",
+            ],
+        );
+
         $data = $request->all();
         // if (array_key_exists('image', $data)) {
         //     if($item->image) Storage::delete($item->image);
