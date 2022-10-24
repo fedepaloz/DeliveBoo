@@ -101,10 +101,10 @@
         <p><strong>N.B. I campi contrassegnati dall'asterisco * sono obbligatori.</strong></p>
         <hr />
 
-        <footer class="d-flex justify-content-between">
-            <a class="btn btn-secondary" href="{{ route('admin.restaurants.index') }}">
+        <footer class="d-flex justify-content-end">
+            {{-- <a class="btn btn-secondary" href="{{ route('admin.restaurants.index') }}">
                 <i class="fa-solid fa-rotate-left mr-2"></i> Indietro
-            </a>
+            </a> --}}
             <button class="btn btn-success" type="submit">
                 <i class="fa-solid fa-floppy-disk mr-2"></i> Salva
             </button>
