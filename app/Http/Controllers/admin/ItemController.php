@@ -124,6 +124,6 @@ class ItemController extends Controller
     public function destroy(Item $item)
     {
     $item->delete();
-    return redirect()->route('admin.items.index');
+    return redirect()->route('admin.items.index')->with('message', 'Il piatto è stato eliminato correttamente')->with('type', 'success');;
     }
 }
