@@ -71,14 +71,14 @@
             </div>
             <div class="col-3">
                 <div class="form-group">
-                    <label for="min_order">Ordine minimo (in euro)</label>
+                    <label for="min_order">Ordine minimo * (in euro)</label>
                     <input type="number" class="form-control" id="min_order" name="min_order"
                         value="{{ old('min_order', $restaurant->min_order) }}">
                 </div>
             </div>
             <div class="col-3">
                 <div class="form-group">
-                    <label for="delivery_cost">Spese di consegna (in euro)</label>
+                    <label for="delivery_cost">Spese di consegna * (in euro)</label>
                     <input type="number" class="form-control" id="delivery_cost" name="delivery_cost"
                         value="{{ old('delivery_cost', $restaurant->delivery_cost) }}">
                 </div>
