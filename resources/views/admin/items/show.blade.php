@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <h1>I tuoi piatti:</h1>
     <div class="card p-2" style="width: 18rem;">
         <img class="card-img-top" src="{{ $item->image }}" alt="Card image cap">
         <div class="card-body">
