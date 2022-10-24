@@ -1,5 +1,10 @@
 @extends('layouts.app')
 @section('content')
+@if (session('message'))
+<div class="alert alert-{{ session('type') ?? 'info' }}">
+    {{ session('message') }}
+</div>
+@endif
     @if ($errors->any())
         <div class='alert alert-danger'>
             @foreach ($errors->all() as $error)
