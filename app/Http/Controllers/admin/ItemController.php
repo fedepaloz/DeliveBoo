@@ -18,8 +18,8 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $items = Item::all();
-        return view('admin.items.index', compact('items'));
+        $current_restaurant_items = Item::where('restaurant_id', Auth::id())->get();
+        return view('admin.items.index', compact('current_restaurant_items'));
     }
 
     /**
@@ -67,7 +67,7 @@ class ItemController extends Controller
         $item->restaurant_id = $current_restaurant_id;
         $item->fill($data);
         if (array_key_exists('image', $data)) {
-            $img= Storage::disk('public')->put('restaurant_img', $data['image'] );
+            $img = Storage::disk('public')->put('restaurant_img', $data['image']);
             $item->image = $img;
         };
         $item->save();
@@ -82,7 +82,6 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        $current_restaurant_items = Item::where('restaurant_id', Auth::id())->get();
         // $item = Item::all();
         return view('admin.items.show', compact('item'));
     }

@@ -4,7 +4,7 @@
         <a href="{{ route('admin.items.create') }}" class="btn btn-success mr-3"><i class="fa-solid fa-plus "></i> Crea
             articolo</a>
     </div>
-    @foreach ($items as $item)
+    @foreach ($current_restaurant_items as $item)
         <div class="card my-3">
             <div class="row no-gutters">
                 <div class="col-md-5">
