@@ -41,19 +41,20 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        <div class="ml-3">
-                            <a href="{{ route('admin.restaurants.index') }}" class="text-muted">MyRestaurant</a>
-                        </div>
-                        <div class="ml-3">
-                            <a href="{{ route('admin.items.index') }}" class="text-muted">MyMenu</a>
-                        </div>
-                        <div class="ml-3">
-                            {{-- !!! Da compilare !!! --}}
-                            <a href="" class="text-muted">MyOrders</a>
-                        </div>
-                        
-                    </ul>
+                    @if (Auth::check() && Auth::user()->restaurant)
+                        <ul class="navbar-nav mr-auto">
+                            <div class="ml-3">
+                                <a href="{{ route('admin.restaurants.index') }}" class="text-muted">MyRestaurant</a>
+                            </div>
+                            <div class="ml-3">
+                                <a href="{{ route('admin.items.index') }}" class="text-muted">MyMenu</a>
+                            </div>
+                            <div class="ml-3">
+                                {{-- !!! Da compilare !!! --}}
+                                <a href="" class="text-muted">MyOrders</a>
+                            </div>
+                        </ul>
+                    @endif
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
