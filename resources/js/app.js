@@ -5,7 +5,7 @@
  */
 
 require('./bootstrap');
-require('./image_preview');
+// require('./image_preview');
 
 
 window.Vue = require('vue');
