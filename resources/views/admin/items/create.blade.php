@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('content')
-@if (session('message'))
-<div class="alert alert-{{ session('type') ?? 'info' }}">
-    {{ session('message') }}
-</div>
-@endif
+    @if (session('message'))
+        <div class="alert alert-{{ session('type') ?? 'info' }}">
+            {{ session('message') }}
+        </div>
+    @endif
     @if ($errors->any())
         <div class='alert alert-danger'>
             @foreach ($errors->all() as $error)
@@ -17,18 +17,30 @@
 
     <form action="{{ route('admin.items.store', $item) }}" enctype="multipart/form-data" method="POST" novalidate>
         @csrf
+
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
                     <label for="name">Nome piatto *</label>
-                    <input type="text" class="form-control" id="name" name="name"
-                        value="{{ old('name', $item->name) }}" required minlenght="5" maxlenght="50">
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
+                        name="name" value="{{ old('name', $item->name) }}" required minlenght="5" maxlenght="50">
+                    @error('name')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
             <div class="col-12">
                 <div class="form-group">
                     <label for="description">Descrizione</label>
-                    <textarea rows="6" class="form-control" id="description" name="description" required>{{ old('description', $item->description) }}</textarea>
+                    <textarea rows="6" class="form-control @error('description') is-invalid @enderror" id="description"
+                        name="description" required>{{ old('description', $item->description) }}</textarea>
+                        @error('description')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
 
@@ -36,26 +48,41 @@
             <div class="col-6">
                 <div class="form-group">
                     <label for="visible">Disponibile</label>
-                    <select class="form-control" id="visible" name="visible">
+                    <select class="form-control @error('visible') is-invalid @enderror" id="visible" name="visible">
                         <option value="1">Si</option>
                         <option value="0">No</option>
                     </select>
+                    @error('visible')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
             <div class="col-12">
                 <div class="form-group">
                     <label for="price">Prezzo</label>
-                    <input type="text" class="form-control" id="price" name="price"
-                        value="{{ old('price', $item->price) }}" required minlenght="5" maxlenght="50">
+                    <input type="text" class="form-control @error('price') is-invalid @enderror" id="price"
+                        name="price" value="{{ old('price', $item->price) }}" required minlenght="5" maxlenght="50">
+                        @error('price')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
 
             <div class="col-10 my-4">
-                <div class="form-group">
+                <div class="form-group @error('image') is-invalid @enderror">
                     <label for="image">Inserisci il logo del tuo ristorante:</label>
                     <br>
                     <input type="file" id="image" name="image">
                 </div>
+                @error('image')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
             </div>
             {{-- TODO --}}
             {{-- <div class="col-1">
