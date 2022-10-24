@@ -22,7 +22,7 @@
 
                 <div class="d-flex justify-content-end">
                     {{-- @dd($item) --}}
-                    <a href="{{ route('admin.items.show', $item) }}" class="btn btn-success mr-3"><i
+                    <a href="{{ route('admin.items.index') }}" class="btn btn-success mr-3"><i
                             class="fa-solid fa-bars"></i> Visualizza menu</a>
                     <a href="{{ route('admin.items.create') }}" class="btn btn-primary mr-5"><i
                             class="fa-solid fa-plus"></i> Aggiungi piatto</a>
