@@ -126,8 +126,9 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Item $item)
     {
-        //  Delete img in storage !!! if($item->image) Storage::delete($item->image);
+    $item->delete();
+    return redirect()->route('admin.items.index');
     }
 }

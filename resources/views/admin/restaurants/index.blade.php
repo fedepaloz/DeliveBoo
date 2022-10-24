@@ -1,8 +1,14 @@
+@php
+    
+
+@endphp
+
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="my-5">I tuoi ristoranti:</h1>
 
+
+    <h1 class="my-5">I tuoi ristoranti:</h1>
     <div class="card mb-3" style="height:400px;">
         <div class="row no-gutters">
             <div class="col-md-4 d-flex align-items-center">
@@ -16,6 +22,7 @@
                     <h5 class="card-text">Telefono: {{ $restaurant->phone }}</h5>
                     <h5 class="card-text">Orario di apertura: {{ $restaurant->opening_time }}</h5>
                     <h5 class="card-text">Orario di chiusura: {{ $restaurant->closure_time }}</h5>
+                    <h5 class="card-text">Categoria: {{ $categories_string }}</h5>
                     <h6 class="card-text">Ordine minimo: €{{ $restaurant->min_order }}</h6>
                     <h6 class="card-text">Spese di consegna: €{{ $restaurant->delivery_cost }}</h6>
                 </div>

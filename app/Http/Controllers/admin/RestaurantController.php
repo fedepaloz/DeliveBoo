@@ -21,8 +21,25 @@ class RestaurantController extends Controller
      */
     public function index()
     {
+        // Prendo il ristorante associato all'utente
         $restaurant = Restaurant::where('user_id', Auth::id())->first();
-        return view('admin.restaurants.index', compact('restaurant'));
+
+        // Prendo l'array con le categorie del ristorante
+        $res_categories = $restaurant->categories->toarray();
+
+        // Creo la stringa di categorie da mostrare in pagina
+        $categories_string = '';
+
+        foreach ($res_categories as $index => $category) {
+            if ($index === array_key_last($res_categories)) {
+                $categories_string .= $category['name'];
+            } else {
+                $categories_string .= $category['name'] . ' - ';
+            }
+        };
+
+        // Passo a @index il ristorante e la stringa
+        return view('admin.restaurants.index', compact('restaurant', 'categories_string'));
     }
 
     /**
