@@ -28,9 +28,7 @@
                             {{ $message }}
                         </div>
                     @enderror
-                    {{-- <input type="text" class="form-control" id="name" name="name"
-                        value="{{ old('name', $restaurant->name) }}">
-                    <div id="name-feedback" class="invalid-feedback">Il campo "Nome ristorante" non può essere vuoto</div> --}}
+                    <div id="name-feedback" class="invalid-feedback">Il campo "Nome ristorante" non può essere vuoto</div>
                 </div>
             </div>
             <div class="col-4">
@@ -64,10 +62,7 @@
                             {{ $message }}
                         </div>
                     @enderror
-
-                    {{-- <input type="text" class="form-control" id="vat_number" name="vat_number"
-                    value="{{ old('vat_number', $restaurant->vat_number) }}">
-                    <div id="vat-feedback" class="invalid-feedback">Il campo "Partita IVA" non può essere vuoto</div> --}}
+                    <div id="vat-feedback" class="invalid-feedback">Il campo "Partita IVA" non può essere vuoto</div>
 
                 </div>
             </div>
@@ -82,9 +77,7 @@
                             {{ $message }}
                         </div>
                     @enderror
-                    {{-- <input type="tel" class="form-control" id="phone" name="phone"
-                    value="{{ old('phone', $restaurant->phone) }}">
-                    <div id="phone-feedback" class="invalid-feedback">Il campo "Telefono" non può essere vuoto</div> --}}
+                    <div id="phone-feedback" class="invalid-feedback">Il campo "Telefono" non può essere vuoto</div>
 
                 </div>
             </div>
@@ -98,10 +91,7 @@
                             {{ $message }}
                         </div>
                     @enderror
-
-                    {{-- <input type="text" class="form-control" id="address" name="address"
-                    value="{{ old('address', $restaurant->address) }}">
-                    <div id="address-feedback" class="invalid-feedback">Il campo "Indirizzo" non può essere vuoto</div> --}}
+                    <div id="address-feedback" class="invalid-feedback">Il campo "Indirizzo" non può essere vuoto</div>
 
                 </div>
             </div>
@@ -115,10 +105,7 @@
                             {{ $message }}
                         </div>
                     @enderror
-
-                    {{-- <input type="time" class="form-control" id="opening_time" name="opening_time"
-                    value="{{ old('opening_time', $restaurant->opening_time) || '11:30' }}">
-                    <div id="opening-feedback" class="invalid-feedback">Il campo "Orario di apertura" non può essere vuoto</div> --}}
+                    <div id="opening-feedback" class="invalid-feedback">Il campo "Orario di apertura" non può essere vuoto</div>
 
                 </div>
             </div>
@@ -132,9 +119,7 @@
                             {{ $message }}
                         </div>
                     @enderror
-                    {{-- <input type="time" class="form-control" id="closure_time" name="closure_time"
-                    value="{{ old('closure_time', $restaurant->closure_time) || '24:00' }}">
-                    <div id="closure-feedback" class="invalid-feedback">Il campo "Orario di chiusura" non può essere vuoto</div> --}}
+                    <div id="closure-feedback" class="invalid-feedback">Il campo "Orario di chiusura" non può essere vuoto</div>
                 </div>
             </div>
             <div class="col-3">
@@ -147,9 +132,7 @@
                             {{ $message }}
                         </div>
                     @enderror
-                    {{-- <input type="number" class="form-control" id="min_order" name="min_order"
-                    value="{{ old('min_order', $restaurant->min_order) }}">
-                    <div id="min-feedback" class="invalid-feedback">Il campo "Ordine minimo" non può essere vuoto</div> --}}
+                    <div id="min-feedback" class="invalid-feedback">Il campo "Ordine minimo" non può essere vuoto</div>
                 </div>
             </div>
             <div class="col-3">
@@ -163,9 +146,7 @@
                             {{ $message }}
                         </div>
                     @enderror
-                    {{-- <input type="number" class="form-control" id="delivery_cost" name="delivery_cost"
-                    value="{{ old('delivery_cost', $restaurant->delivery_cost) }}">
-                    <div id="dcost-feedback" class="invalid-feedback">Il campo "Spese di consegna" non può essere vuoto</div> --}}
+                    <div id="dcost-feedback" class="invalid-feedback">Il campo "Spese di consegna" non può essere vuoto</div>
                 </div>
             </div>
 
