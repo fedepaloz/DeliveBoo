@@ -2,19 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-use App\Models\Restaurant;
-use App\Models\Item;
-use App\Models\Category;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
-use Carbon\Carbon;
+use App\Models\Category;
+use App\Models\Restaurant;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-
 
 // ! POSSIBIBLE SOLUTION FOR USER CHECK IF ALREADY HAVE A RESTAURANT [change best article in restaurant] !
 // $saveddata = DB::table('savearticle')->where('user_id', $userID && 'article_id', $bestarticle->id)->get();
-
 
 class RestaurantController extends Controller
 {
@@ -25,11 +21,8 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $category = Category::all();
-        $item = Item::where('restaurant_id', Auth::id())->first();
-        $current_restaurant_id = Restaurant::where('user_id', Auth::id())->value('id');
         $restaurant = Restaurant::where('user_id', Auth::id())->first();
-        return view('admin.restaurants.index', compact('restaurant', 'category', 'item'));
+        return view('admin.restaurants.index', compact('restaurant'));
     }
 
     /**
@@ -59,7 +52,7 @@ class RestaurantController extends Controller
             [
                 'name' => 'required|string|min:1|max:50',
                 'category_id' => 'required',
-                'image' => 'nullable|image|mimes:jpeg,jpg,png',
+                'image' => 'nullable|mimes:jpeg,jpg,png',
                 'vat_number' => 'required|string|min:11|max:11',
                 'phone' => 'required|string|min:9|max:15',
                 'address' => 'required|string|min:5|max:100',
@@ -72,7 +65,6 @@ class RestaurantController extends Controller
                 'name.max' => 'La lunghezza massima consentita del nome è :max caratteri',
                 'name.unique' => "Esiste già un ristorante dal nome $request->name",
                 'category_id.required' => "La categoria è obbligatoria",
-                'image.image' => "Il file non e' del formato corretto",
                 'image.mimes' => "Estensioni ammesse : .png, .jpg e .jpeg",
                 'vat_number.min' => "Il campo Partita IVA deve avere :min caratteri",
                 'vat_number.max' => "Il campo Partita IVA deve avere :max caratteri",
@@ -91,12 +83,13 @@ class RestaurantController extends Controller
 
             ]
         );
+
         $data = $request->all();
         $restaurant = new Restaurant();
         $restaurant->fill($data);
         $restaurant->user_id = Auth::id();
         if (array_key_exists('image', $data)) {
-            $img= Storage::put('restaurant_img', $data['image'] );
+            $img = Storage::disk('public')->put('restaurant_img', $data['image']);
             $restaurant->image = $img;
         };
         $restaurant->save();
