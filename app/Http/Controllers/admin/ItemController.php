@@ -93,14 +93,9 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Item $item)
     {
-        //
-        // if (array_key_exists('image', $data)) {
-        //     if($item->image) Storage::delete($item->image);
-        //     $img= Storage::disk('public')->put('restaurant_img', $data['image'] );
-        //     $item->image = $img;
-        // };
+        return view('admin.items.edit', compact('item'));
     }
 
     /**
@@ -110,9 +105,19 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Item $item)
     {
-        //
+        $data = $request->all();
+                // if (array_key_exists('image', $data)) {
+        //     if($item->image) Storage::delete($item->image);
+        //     $img= Storage::disk('public')->put('restaurant_img', $data['image'] );
+        //     $item->image = $img;
+        // };
+        $item->update($data);
+
+        return redirect()->route('admin.items.show', $item)
+        ->with('message', 'Piatto modificato con successo')
+        ->with('type', 'success');
     }
 
     /**
