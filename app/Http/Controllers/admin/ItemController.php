@@ -72,7 +72,7 @@ class ItemController extends Controller
             $item->image = $img;
         };
         $item->save();
-        return redirect()->route('admin.items.show', $item);
+        return redirect()->route('admin.items.show', $item)->with('message', 'Il piatto è stato creato correttamente')->with('type', 'success');
     }
 
     /**
