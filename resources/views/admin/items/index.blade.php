@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+@if (session('message'))
+<div class="alert alert-{{ session('type') ?? 'info' }}">
+    {{ session('message') }}
+</div>
+@endif
     <div class="d-flex justify-content-end">
         <a href="{{ route('admin.items.create') }}" class="btn btn-success mr-3"><i class="fa-solid fa-plus "></i> Crea
             articolo</a>
