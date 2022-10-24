@@ -18,7 +18,8 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $current_restaurant_items = Item::where('restaurant_id', Auth::id())->get();
+        $user_restaurant = Restaurant::where('user_id', Auth::id())->first();
+        $current_restaurant_items = Item::where('restaurant_id', $user_restaurant->id)->get();
         return view('admin.items.index', compact('current_restaurant_items'));
     }
 
@@ -82,7 +83,12 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        // $item = Item::all();
+        $user_restaurant = Restaurant::where('user_id', Auth::id())->first();
+        if ($item->restaurant_id !== $user_restaurant->id) {
+            return redirect()->route('admin.items.index')
+                ->with('message', 'Non sei autorizzato a visionare questo piatto')
+                ->with('type', 'danger');
+        }
         return view('admin.items.show', compact('item'));
     }
 
@@ -107,7 +113,7 @@ class ItemController extends Controller
     public function update(Request $request, Item $item)
     {
         $data = $request->all();
-                // if (array_key_exists('image', $data)) {
+        // if (array_key_exists('image', $data)) {
         //     if($item->image) Storage::delete($item->image);
         //     $img= Storage::disk('public')->put('restaurant_img', $data['image'] );
         //     $item->image = $img;
@@ -115,8 +121,8 @@ class ItemController extends Controller
         $item->update($data);
 
         return redirect()->route('admin.items.show', $item)
-        ->with('message', 'Piatto modificato con successo')
-        ->with('type', 'success');
+            ->with('message', 'Piatto modificato con successo')
+            ->with('type', 'success');
     }
 
     /**
@@ -127,7 +133,7 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
-    $item->delete();
-    return redirect()->route('admin.items.index')->with('message', 'Il piatto è stato eliminato correttamente')->with('type', 'success');;
+        $item->delete();
+        return redirect()->route('admin.items.index')->with('message', 'Il piatto è stato eliminato correttamente')->with('type', 'success');
     }
 }
