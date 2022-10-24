@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
     <div class="d-flex justify-content-end">
         <a href="{{ route('admin.items.create') }}" class="btn btn-success mr-3"><i class="fa-solid fa-plus "></i> Crea
@@ -23,14 +24,13 @@
                                     <i class="fa-solid fa-eye "></i> Dettagli articolo</a>
                             </div>
 
-                            {{-- correggere rotta edit --}}
-                            <a href="{{ route('admin.items.index') }}" class="btn btn-primary mr-3"><i
+                            <a href="{{ route('admin.items.edit', $item) }}" class="btn btn-primary mr-3"><i
                                     class="fa-solid fa-pen"></i> Modifica piatto</a>
 
                             <form action="{{ route('admin.items.destroy', $item->id) }} " method='POST'>
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-danger mr-3" type="submit">
+                                <button onclick="return confirm('Sei sicuro di voler eliminare il piatto?')" class="btn btn-danger mr-3" type="submit">
                                     <i class="fa-solid fa-trash"></i> Elimina articolo
                                 </button>
                             </form>
