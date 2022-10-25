@@ -1,20 +1,22 @@
 @extends('layouts.app')
-
+@section('extra-js')
+    <script async src="{{ asset('js/image_preview.js') }} " defer></script>
+@endsection
 @section('content')
-@if (session('message'))
-<div class="alert alert-{{ session('type') ?? 'info' }}">
-    {{ session('message') }}
-</div>
-@endif
+    @if (session('message'))
+        <div class="alert alert-{{ session('type') ?? 'info' }}">
+            {{ session('message') }}
+        </div>
+    @endif
 
     <div class="card my-5">
         <div class="row no-gutters">
             <div class="col-md-5">
-                <img src="{{ $item->image }}" alt="{{ $item->name }}" class="p-3 img-fluid">
+                <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}" class="p-3 img-fluid">
             </div>
             <div class="col-md-7">
                 <div class="card-body">
-                    <h1 class="card-title">{{ $item->name }} - €{{ $item->price }}</h1>
+                    <h1 class="card-title">{{ $item->name }} - <br> Prezzo: €{{ $item->price }}</h1>
                     <div class="card-text my-3">
                         <p>Descrizione: {{ $item->description }}</p>
                         <h6>Data creazione: {{ $item->created_at }}</h6>
@@ -29,7 +31,8 @@
                         <form action="{{ route('admin.items.destroy', $item->id) }} " method='POST'>
                             @csrf
                             @method('DELETE')
-                            <button onclick="return confirm('Sei sicuro di voler eliminare il piatto?')" class="btn btn-danger mr-3" type="submit">
+                            <button onclick="return confirm('Sei sicuro di voler eliminare il piatto?')"
+                                class="btn btn-danger mr-3" type="submit">
                                 <i class="fa-solid fa-trash"></i> Elimina articolo
                             </button>
                         </form>
@@ -37,7 +40,7 @@
 
                 </div>
             </div>
-           
+
         </div>
     </div>
 @endsection

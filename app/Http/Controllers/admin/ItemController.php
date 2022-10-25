@@ -70,9 +70,9 @@ class ItemController extends Controller
         $item->restaurant_id = $current_restaurant_id;
         $item->fill($data);
         if (array_key_exists('image', $data)) {
-            $img = Storage::disk('public')->put('restaurant_img', $data['image']);
-            $item->image = $img;
-        };
+            $image_url = Storage::put('item_img', $data['image']);
+            $item->image = $image_url;
+        }
         $item->save();
         return redirect()->route('admin.items.show', $item)->with('message', 'Il piatto è stato creato correttamente')->with('type', 'success');
     }
@@ -135,11 +135,10 @@ class ItemController extends Controller
         );
 
         $data = $request->all();
-        // if (array_key_exists('image', $data)) {
-        //     if($item->image) Storage::delete($item->image);
-        //     $img= Storage::disk('public')->put('restaurant_img', $data['image'] );
-        //     $item->image = $img;
-        // };
+        if (array_key_exists('image', $data)) {
+            $image_url = Storage::put('item_img', $data['image']);
+            $item->image = $image_url;
+        }
         $item->update($data);
 
         return redirect()->route('admin.items.show', $item)
