@@ -1,8 +1,8 @@
 @if ($errors->any())
-<div class='alert alert-danger'>
+    <div class='alert alert-danger'>
         @foreach ($errors->all() as $error)
-        <li>
-            {{ $error }}
+            <li>
+                {{ $error }}
             </li>
         @endforeach
     </div>
@@ -10,9 +10,9 @@
 
 @if ($item->exists)
     <form id="edit-item-form" action="{{ route('admin.items.update', $item) }}" enctype="multipart/form-data" method="POST" novalidate>
-    @method('PUT')
-@else
-    <form id="edit-item-form" action="{{ route('admin.items.store') }}" enctype="multipart/form-data" method="POST" novalidate>
+        @method('PUT')
+    @else
+        <form id="edit-item-form" action="{{ route('admin.items.store') }}" enctype="multipart/form-data" method="POST" novalidate>
 @endif
 
 @csrf
@@ -35,35 +35,35 @@
 
 
     <div class="col-6">
-        <div class="form-group">
-            <label for="visible">Disponibile</label>
-            <select class="form-control @error('visible') is-invalid @enderror" id="visible" name="visible">
-                <option {{ old('visible') == 1 ? 'selected' : '' }} value="1">Si</option>
-                <option {{ old('visible') == 0 ? 'selected' : '' }} value="0">No</option>
-            </select>
+        <div class="form-check">
+            <input class="form-check-input @error('visible') is-invalid @enderror" name="visible" type="checkbox"
+                value="1" id="visible">
+            <label class="form-check-label" for="flexCheckIndeterminate">
+                Disponibile
+            </label>
             <div id="visible-feedback" class="invalid-feedback">Selezionare Si o No</div>
         </div>
     </div>
     <div class="col-12">
         <div class="form-group">
             <label for="price">Prezzo</label>
-            <input type="text" class="form-control @error('price') is-invalid @enderror" id="price"
+            <input accept="','" type="text" class="form-control @error('price') is-invalid @enderror" id="price"
                 name="price" value="{{ old('price', $item->price) }}" required minlenght="5" maxlenght="50">
             <div id="price-feedback" class="invalid-feedback">Il campo "Prezzo" non può essere vuoto</div>
         </div>
     </div>
-    
+
     <div class="col-9">
         <div class="form-group">
             <label for="image">Immagine</label>
             <input type="file" id="image" name="image">
-            
+
         </div>
     </div>
     <div class="col-3">
         <img class="img-fluid"
             src="{{ $item->image ? asset('storage/' . $item->image) : 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png' }}"
-            alt="{{$item->name}}" id="preview">
+            alt="{{ $item->name }}" id="preview">
 
     </div>
     {{-- <div class="col-10 my-4">

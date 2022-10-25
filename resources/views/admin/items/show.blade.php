@@ -20,6 +20,7 @@
                     <div class="card-text my-3">
                         <p>Descrizione: {{ $item->description }}</p>
                         <h6>Data creazione: {{ $item->created_at }}</h6>
+                        <h6>Disponibile: {{ $item->visible }}</h6>
                     </div>
                     <div class="d-flex justify-content-end mt-5">
                         <a href="{{ route('admin.items.index', $item) }}" class="btn btn-success mr-3"><i

@@ -20,7 +20,7 @@ class ItemController extends Controller
     public function index()
     {
         $user_restaurant = Restaurant::where('user_id', Auth::id())->first();
-        $current_restaurant_items = Item::where('restaurant_id', $user_restaurant->id)->get();
+        $current_restaurant_items = Item::where('restaurant_id', $user_restaurant->id)->orderBy('name', 'asc')->get();
         return view('admin.items.index', compact('current_restaurant_items'));
     }
 
@@ -52,7 +52,7 @@ class ItemController extends Controller
                 'description' => 'string',
                 'price' => 'numeric',
                 'image' => 'nullable|image|mimes:jpeg,jpg,png',
-                'visible' => 'required|boolean',
+                'visible' => 'boolean',
             ],
             [
                 'name.required' => 'Il titolo è obbligatorio',
@@ -63,7 +63,7 @@ class ItemController extends Controller
                 // 'price.gt' => 'Il prezzo deve essere maggiore di 0',
                 'image.image' => "Il file non e' del formato corretto",
                 'image.mimes' => "Estensioni ammesse : .png, .jpg e .jpeg",
-                'visible.required' => "Inserisci almeno uno dei campi",
+                // 'visible.required' => "Inserisci almeno uno dei campi",
                 'visible.boolean' => "Il campo 'Disponibile' accetta solo si o no",
             ],
         );
