@@ -96,8 +96,6 @@
 var formField = document.getElementById("restaurant-form");
 var nameField = document.getElementById("name");
 var nameFeedbackField = document.getElementById("name-feedback");
-var categoryField = document.getElementById("category_id");
-var categoryFeedbackField = document.getElementById("category-feedback");
 var vatField = document.getElementById("vat_number");
 var vatFeedbackField = document.getElementById("vat-feedback");
 var phoneField = document.getElementById("phone");
@@ -115,7 +113,6 @@ var dcostFeedbackField = document.getElementById("dcost-feedback");
 formField.addEventListener("submit", function (event) {
   event.preventDefault();
   var isNameValid = false;
-  var isCategoryValid = false;
   var isVatValid = false;
   var isPhoneValid = false;
   var isAddressValid = false;
@@ -128,12 +125,6 @@ formField.addEventListener("submit", function (event) {
     nameField.classList.remove("is-invalid");
   } else {
     nameField.classList.add("is-invalid");
-  }
-  if (categoryField.value) {
-    isCategoryValid = true;
-    categoryField.classList.remove("is-invalid");
-  } else {
-    categoryField.classList.add("is-invalid");
   }
   if (vatField.value) {
     isVatValid = true;
@@ -177,7 +168,7 @@ formField.addEventListener("submit", function (event) {
   } else {
     dcostField.classList.add("is-invalid");
   }
-  if (isNameValid && isCategoryValid && isVatValid && isPhoneValid && isAddressValid && isOpeningValid && isClosureValid && isMinValid && isDcostValid) formField.submit();
+  if (isNameValid && isVatValid && isPhoneValid && isAddressValid && isOpeningValid && isClosureValid && isMinValid && isDcostValid) formField.submit();
 });
 
 /***/ }),

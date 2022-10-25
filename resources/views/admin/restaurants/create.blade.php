@@ -20,7 +20,7 @@
         novalidate>
         @csrf
         <div class="row mt-5">
-            <div class="col-8">
+            <div class="col-12">
                 <div class="form-group">
                     <label for="name">Nome ristorante *</label>
                     <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
@@ -33,31 +33,40 @@
                     <div id="name-feedback" class="invalid-feedback">Il campo "Nome ristorante" non può essere vuoto</div>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-6">
                 <div class="form-group">
                     <div>Categoria *</div>
 
                     @foreach ($categories as $category)
-                        <input
-                            type="checkbox"
-                            @if (in_array($category->id, old('categories_ids', $current_categories_ids ?? []))) checked @endif
-                            value="{{ $category->id }}"
-                            @error('category') is-invalid @enderror
-                            id="category-{{ $category->name }}"
-                            name="categories_ids[]"
-                            class="mr-1">
+                        <input type="checkbox" @if (in_array($category->id, old('categories_ids', $current_categories_ids ?? []))) checked @endif value="{{ $category->id }}"
+                            @error('category') is-invalid @enderror id="category-{{ $category->name }}"
+                            name="categories_ids[]">
                         <label for="category-{{ $category->name }}">{{ $category->name }}</label>
-
+                        <br>
                         @error('category')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                         @enderror
-
                     @endforeach
+
 
                     <div id="category-feedback" class="invalid-feedback">Selezionare una categoria</div>
                 </div>
+
+            </div>
+            <div class="col-4 mt-5">
+                <div class="form-group">
+                    <label for="image">Inserisci il Logo del tuo ristorante</label>
+                    <input type="file" id="image" name="image">
+
+                </div>
+            </div>
+            <div class="col-2 mt-5">
+                <img class="img-fluid"
+                    src="{{ $restaurant->image ? asset('storage/' . $restaurant->image) : 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png' }}"
+                    alt="{{ $restaurant->name }}" id="preview">
+
             </div>
 
             <div class="col-3">
@@ -161,19 +170,7 @@
                 </div>
             </div>
 
-            <div class="col-12">
-                <div class="form-group">
-                    <label for="image">Inserisci il Logo del tuo ristorante</label>
-                    <input type="file" id="image" name="image">
-                    
-                </div>
-            </div>
-            <div class="col-8">
-                <img class="img-fluid"
-                    src="{{ $restaurant->image ? asset('storage/' . $restaurant->image) : 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png' }}"
-                    alt="{{$restaurant->name}}" id="preview">
-        
-            </div>
+
         </div>
 
         <p><strong>N.B. I campi contrassegnati dall'asterisco * sono obbligatori.</strong></p>
