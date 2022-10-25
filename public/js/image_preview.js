@@ -116,7 +116,7 @@ image.addEventListener('input', function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Laravel\proj68-team2-deliveboo\resources\js\image_preview.js */"./resources/js/image_preview.js");
+module.exports = __webpack_require__(/*! C:\laravel\proj68-team2-deliveboo\resources\js\image_preview.js */"./resources/js/image_preview.js");
 
 
 /***/ })
