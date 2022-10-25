@@ -49812,13 +49812,12 @@ var root = new Vue({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-!(function webpackMissingModule() { var e = new Error("Cannot find module 'vue-router'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
-
+// import VueRouter from 'vue-router'
 // import HomePage from './components/pages/HomePage.vue'
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(!(function webpackMissingModule() { var e = new Error("Cannot find module 'vue-router'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-var routes = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'vue-router'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(VueRouter);
+var routes = new VueRouter({
   mode: 'history',
   // linkExactActiveClass: 'active',
   routes: [
@@ -49840,7 +49839,7 @@ var routes = new !(function webpackMissingModule() { var e = new Error("Cannot f
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Laravel\proj68-team2-deliveboo\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\laravel\proj68-team2-deliveboo\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
