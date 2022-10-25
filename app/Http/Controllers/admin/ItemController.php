@@ -7,6 +7,7 @@ use App\Models\Item;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
 class ItemController extends Controller
@@ -49,7 +50,7 @@ class ItemController extends Controller
             [
                 'name' => 'required|string|min:1|unique:items',
                 'description' => 'string',
-                'price' => 'numeric|gt:0',
+                'price' => 'numeric',
                 'image' => 'nullable|image|mimes:jpeg,jpg,png',
                 'visible' => 'required|boolean',
             ],
@@ -58,7 +59,7 @@ class ItemController extends Controller
                 'name.min' => 'Il titolo deve avere almeno :min caratteri',
                 'name.unique' => "Esiste già un piatto dal nome $request->name",
                 'price.numeric' => 'Il prezzo deve essere un numero',
-                'price.gt' => 'Il prezzo deve essere maggiore di 0',
+                // 'price.gt' => 'Il prezzo deve essere maggiore di 0',
                 'image.image' => "Il file non e' del formato corretto",
                 'image.mimes' => "Estensioni ammesse : .png, .jpg e .jpeg",
                 'visible.required' => "Inserisci almeno uno dei campi",
@@ -139,6 +140,8 @@ class ItemController extends Controller
             $image_url = Storage::put('item_img', $data['image']);
             $item->image = $image_url;
         }
+        // $data['price'] = Str::price($data['price'], ',');
+
         $item->update($data);
 
         return redirect()->route('admin.items.show', $item)

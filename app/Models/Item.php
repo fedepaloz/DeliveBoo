@@ -17,4 +17,9 @@ class Item extends Model
     {
         return $this->belongsToMany('App\Models\Order');
     }
+
+    public function getPriceAttribute($price)
+    {
+        return str_replace('.', ',', $price);
+    }
 }
