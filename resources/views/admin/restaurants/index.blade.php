@@ -8,7 +8,7 @@
 @section('content')
 
 
-    <h1 class="my-5">I tuoi ristoranti:</h1>
+    <h1 class="my-5 text-center">Il tuo ristorante</h1>
     <div class="card mb-3" style="height:400px;">
         <div class="row no-gutters">
             <div class="col-md-4 d-flex align-items-center">
