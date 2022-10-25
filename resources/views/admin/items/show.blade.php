@@ -12,7 +12,7 @@
     <div class="card my-5">
         <div class="row no-gutters">
             <div class="col-md-5">
-                <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}" class="p-3 img-fluid">
+                <img src="{{ asset('storage/'.$item->image) }}" alt="{{ $item->name }}" class="p-3 img-fluid">
             </div>
             <div class="col-md-7">
                 <div class="card-body">

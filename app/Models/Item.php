@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
-    protected $fillable = ['name', 'description', 'image', 'visible', 'price'];
+    protected $fillable = ['name', 'description', 'visible', 'price'];
 
     public function restaurant()
     {
