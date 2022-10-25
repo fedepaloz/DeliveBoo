@@ -47,7 +47,7 @@ class ItemController extends Controller
 
         $request->validate(
             [
-                'name' => 'required|string|min:1|unique:items',
+                'name' => 'required|string|min:1|unique:items|regex:/^[a-zA-Z0-9 ]+$/',
                 'description' => 'string',
                 'price' => 'numeric|gt:0',
                 'image' => 'nullable|image|mimes:jpeg,jpg,png',
