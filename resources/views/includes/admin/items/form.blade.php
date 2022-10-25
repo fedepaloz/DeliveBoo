@@ -47,7 +47,7 @@
     <div class="col-12">
         <div class="form-group">
             <label for="price">Prezzo</label>
-            <input type="text" class="form-control @error('price') is-invalid @enderror" id="price"
+            <input type="number" class="form-control @error('price') is-invalid @enderror" id="price"
                 name="price" value="{{ old('price', $item->price) }}" required minlenght="5" maxlenght="50">
             <div id="price-feedback" class="invalid-feedback">Il campo "Prezzo" non può essere vuoto</div>
         </div>
