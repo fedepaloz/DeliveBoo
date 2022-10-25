@@ -2,8 +2,6 @@ const formField = document.getElementById("restaurant-form");
 
 const nameField = document.getElementById("name");
 const nameFeedbackField = document.getElementById("name-feedback");
-const categoryField = document.getElementById("category_id");
-const categoryFeedbackField = document.getElementById("category-feedback");
 const vatField = document.getElementById("vat_number");
 const vatFeedbackField = document.getElementById("vat-feedback");
 const phoneField = document.getElementById("phone");
@@ -23,7 +21,6 @@ formField.addEventListener("submit", (event) => {
     event.preventDefault();
 
     let isNameValid = false;
-    let isCategoryValid = false;
     let isVatValid = false;
     let isPhoneValid = false;
     let isAddressValid = false;
@@ -37,13 +34,6 @@ formField.addEventListener("submit", (event) => {
         nameField.classList.remove("is-invalid");
     } else {
         nameField.classList.add("is-invalid");
-    }
-
-    if (categoryField.value) {
-        isCategoryValid = true;
-        categoryField.classList.remove("is-invalid");
-    } else {
-        categoryField.classList.add("is-invalid");
     }
 
     if (vatField.value) {
@@ -97,7 +87,6 @@ formField.addEventListener("submit", (event) => {
 
     if (
         isNameValid &&
-        isCategoryValid &&
         isVatValid &&
         isPhoneValid &&
         isAddressValid &&
