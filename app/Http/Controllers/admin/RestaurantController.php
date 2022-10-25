@@ -68,7 +68,7 @@ class RestaurantController extends Controller
         $request->validate(
             [
                 'name' => 'required|string|min:1|max:50',
-                'category_id' => 'required',
+                'categories_ids' => 'required|exists:categories,id',
                 'image' => 'nullable|mimes:jpeg,jpg,png',
                 'vat_number' => 'required|string|min:11|max:11',
                 'phone' => 'required|string|min:9|max:15',
@@ -83,7 +83,8 @@ class RestaurantController extends Controller
                 'name.min' => 'Il nome deve avere almeno :min caratteri',
                 'name.max' => 'La lunghezza massima consentita del nome è :max caratteri',
                 'name.unique' => "Esiste già un ristorante dal nome $request->name",
-                'category_id.required' => "La categoria è obbligatoria",
+                'categories_ids.required' => "Selezionare almeno una categoria",
+                'categories_ids.exists' => 'Le categorie selezionate non esistono',
                 'image.mimes' => "Estensioni ammesse : .png, .jpg e .jpeg",
                 'vat_number.min' => "Il campo Partita IVA deve avere :min caratteri",
                 'vat_number.max' => "Il campo Partita IVA deve avere :max caratteri",
@@ -115,6 +116,10 @@ class RestaurantController extends Controller
             $restaurant->image = $image_url;
         }
         $restaurant->save();
+        if (array_key_exists('categories_ids', $data)) {
+            $restaurant->categories()->attach($data['categories_ids']);
+        }
+
         return redirect()->route('admin.restaurants.index', $restaurant);
     }
 

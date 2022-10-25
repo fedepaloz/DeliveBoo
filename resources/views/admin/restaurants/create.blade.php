@@ -35,21 +35,27 @@
             </div>
             <div class="col-4">
                 <div class="form-group">
-                    <label for="category_id">Categoria *</label>
-                    <select class="form-control @error('category') is-invalid @enderror" id="category_id"
-                        name="category_id">
-                        <option value="">Nessuna categoria</option>
-                        @foreach ($categories as $category)
-                            <option @if (old('category_id', $restaurant->category_id) == $category->id) selected @endif value="{{ $category->id }}">
-                                {{ $category->name }}
-                            </option>
-                            @error('category')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        @endforeach
-                    </select>
+                    <div>Categoria *</div>
+
+                    @foreach ($categories as $category)
+                        <input
+                            type="checkbox"
+                            @if (in_array($category->id, old('categories_ids', $current_categories_ids ?? []))) checked @endif
+                            value="{{ $category->id }}"
+                            @error('category') is-invalid @enderror
+                            id="category-{{ $category->name }}"
+                            name="categories_ids[]"
+                            class="mr-1">
+                        <label for="category-{{ $category->name }}">{{ $category->name }}</label>
+
+                        @error('category')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+
+                    @endforeach
+
                     <div id="category-feedback" class="invalid-feedback">Selezionare una categoria</div>
                 </div>
             </div>

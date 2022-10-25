@@ -22,7 +22,7 @@
             <label for="name">Nome piatto *</label>
             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
                 value="{{ old('name', $item->name) }}" required minlenght="5" maxlenght="50">
-            <div id="name-feedback" class="invalid-feedback">Il campo "Nome piatto" non può essere vuoto</div>
+            <div id="name-feedback" class="invalid-feedback">Il campo "Nome piatto" non é corretto</div>
         </div>
     </div>
     <div class="col-12">

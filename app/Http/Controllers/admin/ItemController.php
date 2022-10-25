@@ -48,7 +48,7 @@ class ItemController extends Controller
 
         $request->validate(
             [
-                'name' => 'required|string|min:1|unique:items',
+                'name' => 'required|string|min:1|unique:items|regex:/^[a-zA-Z0-9 ]+$/',
                 'description' => 'string',
                 'price' => 'numeric',
                 'image' => 'nullable|image|mimes:jpeg,jpg,png',
@@ -58,6 +58,7 @@ class ItemController extends Controller
                 'name.required' => 'Il titolo è obbligatorio',
                 'name.min' => 'Il titolo deve avere almeno :min caratteri',
                 'name.unique' => "Esiste già un piatto dal nome $request->name",
+                'name.regex'=>"Il nome non può contenere caratteri speciali",
                 'price.numeric' => 'Il prezzo deve essere un numero',
                 // 'price.gt' => 'Il prezzo deve essere maggiore di 0',
                 'image.image' => "Il file non e' del formato corretto",
@@ -117,7 +118,7 @@ class ItemController extends Controller
     {
         $request->validate(
             [
-                'name' => 'required|string|min:1',
+                'name' => 'required|string|min:1|regex:/^[a-zA-Z0-9 ]+$/',
                 'description' => 'string',
                 'price' => 'numeric|gt:0',
                 'image' => 'nullable|image|mimes:jpeg,jpg,png',
@@ -126,6 +127,7 @@ class ItemController extends Controller
             [
                 'name.required' => 'Il titolo è obbligatorio',
                 'name.min' => 'Il titolo deve avere almeno :min caratteri',
+                'name.regex'=>"Il nome non può contenere caratteri speciali",
                 'price.numeric' => 'Il prezzo deve essere un numero',
                 'price.gt' => 'Il prezzo deve essere maggiore di 0',
                 'image.image' => "Il file non e' del formato corretto",
