@@ -31,10 +31,35 @@
                         <form action="{{ route('admin.items.destroy', $item->id) }} " method='POST'>
                             @csrf
                             @method('DELETE')
-                            <button onclick="return confirm('Sei sicuro di voler eliminare il piatto?')"
+                            {{-- <button onclick="return confirm('Sei sicuro di voler eliminare il piatto?')"
                                 class="btn btn-danger mr-3" type="submit">
                                 <i class="fa-solid fa-trash"></i> Elimina articolo
+                            </button> --}}
+                            <button type="button"
+                                class="btn btn-danger" type="submit" data-toggle="modal" data-target="#exampleModal">
+                                <i class="fa-solid fa-trash"></i> Elimina
                             </button>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Sei sicuro di voler eliminare il piatto?</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Questa azione e' IRREVERSIBILE
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-secondary"
+                                                data-dismiss="modal">Chiudi</button>
+                                            <button type="submit" class="btn btn-primary">Elimina</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
                     </div>
 
