@@ -9,10 +9,10 @@
 @endif
 
 @if ($item->exists)
-    <form id="edit-item-form" action="{{ route('admin.items.update', $item) }}" enctype="multipart/form-data" method="POST">
-        @method('PUT')
-    @else
-        <form id="edit-item-form" action="{{ route('admin.items.store') }}" enctype="multipart/form-data" method="POST" novalidate>
+    <form id="edit-item-form" action="{{ route('admin.items.update', $item) }}" enctype="multipart/form-data" method="POST" novalidate>
+    @method('PUT')
+@else
+    <form id="edit-item-form" action="{{ route('admin.items.store') }}" enctype="multipart/form-data" method="POST" novalidate>
 @endif
 
 @csrf
