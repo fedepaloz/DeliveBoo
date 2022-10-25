@@ -111,9 +111,9 @@ class RestaurantController extends Controller
         $restaurant->fill($data);
         $restaurant->user_id = Auth::id();
         if (array_key_exists('image', $data)) {
-            $img = Storage::disk('public')->put('restaurant_img', $data['image']);
-            $restaurant->image = $img;
-        };
+            $image_url = Storage::put('restaurant_img', $data['image']);
+            $restaurant->image = $image_url;
+        }
         $restaurant->save();
         return redirect()->route('admin.restaurants.index', $restaurant);
     }

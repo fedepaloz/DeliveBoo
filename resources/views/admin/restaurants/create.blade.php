@@ -2,6 +2,7 @@
 
 @section('extra-js')
     <script src="{{ asset('js/res-form-validation.js') }}" defer></script>
+    <script src="{{ asset('js/image_preview.js') }} " defer></script>
 @endsection
 
 @section('content')
@@ -15,7 +16,8 @@
         </div>
     @endif
 
-    <form id="restaurant-form" action="{{ route('admin.restaurants.store') }}" enctype="multipart/form-data" method="POST" novalidate>
+    <form id="restaurant-form" action="{{ route('admin.restaurants.store') }}" enctype="multipart/form-data" method="POST"
+        novalidate>
         @csrf
         <div class="row mt-5">
             <div class="col-8">
@@ -51,7 +53,7 @@
                     <div id="category-feedback" class="invalid-feedback">Selezionare una categoria</div>
                 </div>
             </div>
-            
+
             <div class="col-3">
                 <div class="form-group">
                     <label for="vat_number">Partita IVA *</label>
@@ -105,7 +107,8 @@
                             {{ $message }}
                         </div>
                     @enderror
-                    <div id="opening-feedback" class="invalid-feedback">Il campo "Orario di apertura" non può essere vuoto</div>
+                    <div id="opening-feedback" class="invalid-feedback">Il campo "Orario di apertura" non può essere vuoto
+                    </div>
 
                 </div>
             </div>
@@ -119,7 +122,8 @@
                             {{ $message }}
                         </div>
                     @enderror
-                    <div id="closure-feedback" class="invalid-feedback">Il campo "Orario di chiusura" non può essere vuoto</div>
+                    <div id="closure-feedback" class="invalid-feedback">Il campo "Orario di chiusura" non può essere vuoto
+                    </div>
                 </div>
             </div>
             <div class="col-3">
@@ -146,21 +150,23 @@
                             {{ $message }}
                         </div>
                     @enderror
-                    <div id="dcost-feedback" class="invalid-feedback">Il campo "Spese di consegna" non può essere vuoto</div>
+                    <div id="dcost-feedback" class="invalid-feedback">Il campo "Spese di consegna" non può essere vuoto
+                    </div>
                 </div>
             </div>
 
-            <div class="col-10 my-4">
+            <div class="col-12">
                 <div class="form-group">
-                    <label for="image">Inserisci il logo del tuo ristorante:</label>
-                    <br>
-                    <input class="" type="file" id="image" name="image">
+                    <label for="image">Inserisci il Logo del tuo ristorante</label>
+                    <input type="file" id="image" name="image">
+                    
                 </div>
             </div>
-            <div class="col-1">
-                {{-- <img class="img-fluid pt-4"
-            src="{{ $post->image ? asset('storage/' . $post->image) : 'https://media.istockphoto.com/vectors/thumbnail-image-vector-graphic-vector-id1147544807?k=20&m=1147544807&s=612x612&w=0&h=pBhz1dkwsCMq37Udtp9sfxbjaMl27JUapoyYpQm0anc=' }}"
-            alt="{{$post->image ? $post->title : 'placeholder'}}"> --}}
+            <div class="col-8">
+                <img class="img-fluid"
+                    src="{{ $restaurant->image ? asset('storage/' . $restaurant->image) : 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png' }}"
+                    alt="{{$restaurant->name}}" id="preview">
+        
             </div>
         </div>
 
