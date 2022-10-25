@@ -104,6 +104,12 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
+        $user_restaurant = Restaurant::where('user_id', Auth::id())->first();
+        if ($item->restaurant_id !== $user_restaurant->id) {
+            return redirect()->route('admin.items.index')
+                ->with('message', 'pagina non trovata')
+                ->with('type', 'danger');
+        }
         return view('admin.items.edit', compact('item'));
     }
 
