@@ -24,19 +24,17 @@ class RestaurantController extends Controller
         // Prendo il ristorante associato all'utente
         $restaurant = Restaurant::where('user_id', Auth::id())->first();
 
-        // Prendo l'array con le categorie del ristorante
-        $res_categories = $restaurant->categories->toarray();
-
-        // Creo la stringa di categorie da mostrare in pagina
+        //Prendo l'array con le categorie del ristorante
+        $res_categories = $restaurant->categories->toArray();
+        ///Creo la stringa di categorie da mostrare in pagina
         $categories_string = '';
-
         foreach ($res_categories as $index => $category) {
             if ($index === array_key_last($res_categories)) {
                 $categories_string .= $category['name'];
             } else {
                 $categories_string .= $category['name'] . ' - ';
             }
-        };
+        }; 
 
         // Passo a @index il ristorante e la stringa
         return view('admin.restaurants.index', compact('restaurant', 'categories_string'));
@@ -112,8 +110,8 @@ class RestaurantController extends Controller
         $restaurant->fill($data);
         $restaurant->user_id = Auth::id();
         if (array_key_exists('image', $data)) {
-            $image_url = Storage::put('restaurant_img', $data['image']);
-            $restaurant->image = $image_url;
+            $image = Storage::put('restaurant_img', $data['image']);
+            $restaurant->image = $image;
         }
         $restaurant->save();
         if (array_key_exists('categories_ids', $data)) {

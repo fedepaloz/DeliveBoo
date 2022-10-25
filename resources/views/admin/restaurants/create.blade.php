@@ -64,7 +64,7 @@
             </div>
             <div class="col-2 mt-5">
                 <img class="img-fluid"
-                    src="{{ $restaurant->image ? asset('storage/' . $restaurant->image) : 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png' }}"
+                    src="{{ asset('storage/'.$restaurant->image) }}"
                     alt="{{ $restaurant->name }}" id="preview">
 
             </div>

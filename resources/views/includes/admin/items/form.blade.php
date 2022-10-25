@@ -62,9 +62,8 @@
     </div>
     <div class="col-3">
         <img class="img-fluid"
-            src="{{ $item->image ? asset('storage/' . $item->image) : 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png' }}"
+            src="{{$item->image ? asset('storage/' . $item->image) : 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png' }}"
             alt="{{$item->name}}" id="preview">
-
     </div>
     {{-- <div class="col-10 my-4">
         <div class="form-group @error('image') is-invalid @enderror">
@@ -73,12 +72,7 @@
             <input type="file" id="image" name="image">
         </div>
     </div> --}}
-    {{-- TODO --}}
-    {{-- <div class="col-1">
-    <img class="img-fluid pt-4"
-        src="{{ $post->image ? asset('storage/' . $post->image) : 'https://media.istockphoto.com/vectors/thumbnail-image-vector-graphic-vector-id1147544807?k=20&m=1147544807&s=612x612&w=0&h=pBhz1dkwsCMq37Udtp9sfxbjaMl27JUapoyYpQm0anc=' }}"
-        alt="{{$post->image ? $post->title : 'placeholder'}}">
-</div> --}}
+
 </div>
 <p><strong>N.B. I campi contrassegnati dall'asterisco * sono obbligatori.</strong></p>
 <hr />
