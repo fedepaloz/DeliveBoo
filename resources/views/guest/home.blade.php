@@ -13,6 +13,7 @@
 
     {{-- ! CHECK --}}
     <script defer src="{{ asset('js/front.js') }}"></script>
+    <script src="{{ asset('js/cart.js') }}"></script>
 
 
     <!-- Styles -->

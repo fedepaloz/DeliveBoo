@@ -8,20 +8,12 @@
                     <div class="row g-3 mt-2">
                         <div class="col-md-3">
                             <div class="dropdown">
-                                <button
-                                    class="btn btn-secondary dropdown-toggle"
-                                    type="button"
-                                    id="dropdownMenuButton"
-                                    data-toggle="dropdown"
-                                    aria-expanded="false"
-                                >
-                                    Categorie
-                                </button>
-                                <ul
-                                    class="dropdown-menu"
+                                <select
+                                    v-model="category_id"
                                     aria-labelledby="dropdownMenuButton"
                                 >
-                                    <li
+                                    <option
+                                        :value="category.id"
                                         v-for="category in categories"
                                         :key="category.id"
                                     >
@@ -30,19 +22,16 @@
                                             href="#"
                                             >{{ category.name }}</a
                                         >
-                                    </li>
-                                </ul>
+                                    </option>
+                                </select>
                             </div>
-                            <!-- <p
-                                v-for="restaurant in restaurants"
-                                :key="restaurant.id"
-                            >
-                                {{ restaurant.name }}
-                            </p> -->
                         </div>
                         <p></p>
                         <div class="col-md-3">
-                            <button class="btn btn-secondary btn-block">
+                            <button
+                                @click="fetchRestaurants"
+                                class="btn btn-secondary btn-block"
+                            >
                                 Cerca risultato
                             </button>
                         </div>
@@ -50,35 +39,98 @@
                 </div>
             </div>
         </div>
+        <div class="card mb-3" style="max-width: 540px">
+            <!-- Ciclo "For" qui -->
+            <div class="row no-gutters">
+                <div class="col-md-12">
+                    <!-- <img src="restaurant.image" alt="..." /> -->
+                </div>
+                <div v-for="restaurant in restaurants" :key="restaurant.id" class="col-md-8">
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            Nome ristorante: {{ restaurant.name }}
+                        </h3>
+                        <p class="card-text">
+                            Indirizzo: {{ restaurant.address }}
+                        </p>
+                        <p class="card-text">
+                            Orario Apertura: {{ restaurant.opening_time }}
+                        </p>
+                        <p class="card-text">
+                            Costo consegna: {{ restaurant.delivery_cost }}
+                        </p>
+                        <p class="card-text">
+                            Minimo d'ordine: {{ restaurant.min_order }}
+                        </p>
+                        <button class="btn btn-success">
+                            <a href="">Ordina ora</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <ul>
+            <li v-for="restaurant in restaurants" :key="restaurant.id">
+                <RestaurantList :restaurants="restaurants" />
+                {{ restaurant.name }}
+                {{ restaurant.address }}
+                {{ restaurant.delivery_cost }}
+            </li>
+        </ul> -->
     </div>
 </template>
 <script>
+import RestaurantList from "./RestaurantList.vue";
+
 export default {
     name: "AdvancedSearch",
+    components:{
+        RestaurantList
+    },
     data() {
         return {
             categories: [],
             restaurants: [],
+            category_id: null,
         };
     },
     methods: {
         fetchCategories() {
             // this.isLoading = true;
             axios
-                .get(`http://localhost:8000/api/restaurants`)
+                .get(`http://localhost:8000/api/categories`)
                 .then((res) => {
                     this.categories = res.data;
-                    this.restaurants = res.data;
-                    // this.pagination.current = current_page;
-                    // this.pagination.last = last_page;
                 })
                 .catch((err) => {
-                    this.error = "Errore durante il fetch dei post";
+                    this.error = "Errore durante il fetch delle categorie";
                 })
                 .then(() => {
                     this.isLoading = false;
                 });
         },
+        fetchRestaurants() {
+            axios
+                .get(
+                    `http://localhost:8000/api/restaurants?categories=${this.category_id}`
+                )
+                .then((res) => {
+                    // console.log(res.data.response);
+
+                    this.restaurants = res.data;
+                    this.$emit("filteredRestaurants", this.restaurants);
+                })
+                .catch((err) => {
+                    this.error = "Errore durante il fetch dei ristoranti";
+                })
+                .then(() => {
+                    this.isLoading = false;
+                });
+        },
+
+        // filteredRestaurants() {
+
+        // },
     },
     mounted() {
         this.fetchCategories();
