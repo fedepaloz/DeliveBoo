@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Restaurant;
-
+use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
 {
@@ -14,9 +13,22 @@ class RestaurantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $restaurants = Restaurant::all();
+        $restaurants = Restaurant::with(['categories'])->get();
+
+        if ($request->categories) {
+            $raw_restaurants = [];
+            foreach ($restaurants as $restaurant) {
+                foreach ($restaurant->categories as $category) {
+                    if ($category->id == $request->categories) {
+                        $raw_restaurants[] = $restaurant;
+                    }
+                }
+            }
+            $restaurants = $raw_restaurants;
+        }
+
         return response()->json($restaurants);
     }
 
