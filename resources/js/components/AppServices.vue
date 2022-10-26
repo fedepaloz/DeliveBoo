@@ -1,7 +1,7 @@
 <template>
     <div>
-      <h1 class="font-weight-bold">I nostri servizi</h1>
-      <p>
+      <h1 class="font-weight-bold text-success">I nostri servizi</h1>
+      <p class="text-justify my-3">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam deserunt,
         eaque iure illum qui iste quaerat voluptates molestias alias veniam
         beatae exercitationem suscipit. Perferendis sit quos optio ratione
@@ -21,7 +21,9 @@ export default {
 
 <style scoped>
 a {
-    border: 1.5px solid lightgreen;
-    padding: 5px 3px;
+    border: 2px solid lightgreen;
+    padding: 8px 8px;
+    border-radius: 20px;
+    margin-top: 10px;
 }
 </style>

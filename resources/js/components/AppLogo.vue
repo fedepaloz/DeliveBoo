@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <img class="img-fluid" src="https://s3.amazonaws.com/cdn.designcrowd.com/blog/39-Food-Delivery-Logos-That-Will-Leave-You-Hungry-For-More/food-delivery-app-logo-by-lepchik-dribbble.png" alt="Deliveboo logo">
+    <div class="justify-content-center">
+        <img class="img-fluid" src="https://png.pngtree.com/template/20191024/ourmid/pngtree-food-delivery-logo-design-fast-delivery-service-sign-image_323015.jpg" alt="Deliveboo logo">
     </div>
 </template>
 <script>
