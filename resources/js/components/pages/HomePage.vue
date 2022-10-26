@@ -1,7 +1,6 @@
 <template>
     <div>
-        <h1>prova test palozzi</h1>
-        <h2>test palozzi 2</h2>
+        
         <!-- Jumbotron -->
         <section id="services">
             <div class="container-fluid">
