@@ -2,16 +2,13 @@
     <div class="container mt-5">
         <div class="row d-flex justify-content-center">
             <div class="col-md-10">
-                <div class="card p-3 py-4">
-                    <h5>Cerca i ristoranti</h5>
-
-                    <div class="row g-3 mt-2">
-                        <div class="col-md-3">
-                            <div class="dropdown">
-                                <select
-                                    v-model="category_id"
-                                    aria-labelledby="dropdownMenuButton"
-                                >
+                <div class="card select-bg p-3 py-4">
+                    <div
+                        class="row justify-content-center align-items-center g-3 mt-2"
+                    >
+                        <div class="col-6 col-md-3" style="width: 200px">
+                            <div>
+                                <select v-model="category_id">
                                     <option
                                         :value="category.id"
                                         v-for="category in categories"
@@ -26,46 +23,45 @@
                                 </select>
                             </div>
                         </div>
-                        <p></p>
-                        <div class="col-md-3">
+                        <div class="col-6 col-md-3">
                             <button
                                 @click="fetchRestaurants"
-                                class="btn btn-secondary btn-block"
+                                class="btn btn-search"
                             >
-                                Cerca risultato
+                                Cerca
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card mb-3" style="max-width: 540px">
-            <!-- Ciclo "For" qui -->
-            <div class="row no-gutters">
-                <div class="col-md-12">
-                    <!-- <img src="restaurant.image" alt="..." /> -->
-                </div>
-                <div v-for="restaurant in restaurants" :key="restaurant.id" class="col-md-8">
-                    <div class="card-body">
-                        <h3 class="card-title">
-                            Nome ristorante: {{ restaurant.name }}
-                        </h3>
-                        <p class="card-text">
-                            Indirizzo: {{ restaurant.address }}
-                        </p>
-                        <p class="card-text">
-                            Orario Apertura: {{ restaurant.opening_time }}
-                        </p>
-                        <p class="card-text">
-                            Costo consegna: {{ restaurant.delivery_cost }}
-                        </p>
-                        <p class="card-text">
-                            Minimo d'ordine: {{ restaurant.min_order }}
-                        </p>
-                        <button class="btn btn-success">
-                            <a href="">Ordina ora</a>
-                        </button>
-                    </div>
+        <!-- Ciclo "For" qui -->
+        <div class="row no-gutters">
+            <div class="col-md-12">
+                <!-- <img src="restaurant.image" alt="..." /> -->
+            </div>
+            <div
+                v-for="restaurant in restaurants"
+                :key="restaurant.id"
+                class="col-md-8"
+            >
+                <div class="card-body">
+                    <h3 class="card-title">
+                        Nome ristorante: {{ restaurant.name }}
+                    </h3>
+                    <p class="card-text">Indirizzo: {{ restaurant.address }}</p>
+                    <p class="card-text">
+                        Orario Apertura: {{ restaurant.opening_time }}
+                    </p>
+                    <p class="card-text">
+                        Costo consegna: {{ restaurant.delivery_cost }}
+                    </p>
+                    <p class="card-text">
+                        Minimo d'ordine: {{ restaurant.min_order }}
+                    </p>
+                    <button class="btn btn-success">
+                        <a href="">Ordina ora</a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -84,8 +80,8 @@ import RestaurantList from "./RestaurantList.vue";
 
 export default {
     name: "AdvancedSearch",
-    components:{
-        RestaurantList
+    components: {
+        RestaurantList,
     },
     data() {
         return {
@@ -138,7 +134,150 @@ export default {
 };
 </script>
 <style>
+.select-bg {
+    background-size: cover;
+    background-image: url("https://png.pngtree.com/thumb_back/fh260/back_our/20190621/ourmid/pngtree-black-atmosphere-simple-meal-food-food-banner-image_176553.jpg");
+    background-repeat: no-repeat;
+}
 .drop {
     color: #000;
+}
+
+/* CSS */
+.btn-search {
+    align-items: center;
+    appearance: none;
+    background-clip: padding-box;
+    background-color: initial;
+    background-image: none;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    flex-direction: row;
+    flex-shrink: 0;
+    font-family: Eina01, sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    justify-content: center;
+    line-height: 24px;
+    margin: 0;
+    min-height: 64px;
+    outline: none;
+    overflow: visible;
+    padding: 19px 26px;
+    pointer-events: auto;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    width: auto;
+    word-break: keep-all;
+    z-index: 0;
+}
+
+@media (min-width: 768px) {
+    .btn-search {
+        padding: 19px 32px;
+    }
+}
+
+.btn-search:before,
+.btn-search:after {
+    border-radius: 80px;
+}
+
+.btn-search:before {
+    background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -2;
+}
+
+.btn-search:after {
+    background-color: initial;
+    background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
+    bottom: 4px;
+    content: "";
+    display: block;
+    left: 4px;
+    overflow: hidden;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    transition: all 100ms ease-out;
+    z-index: -1;
+}
+
+.btn-search:hover:not(:disabled):before {
+    background: linear-gradient(
+        92.83deg,
+        rgb(255, 116, 38) 0%,
+        rgb(249, 58, 19) 100%
+    );
+}
+
+.btn-search:hover:not(:disabled):after {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    transition-timing-function: ease-in;
+    opacity: 0;
+}
+
+.btn-search:active:not(:disabled) {
+    color: #ccc;
+}
+
+.btn-search:active:not(:disabled):before {
+    background-image: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.2),
+            rgba(0, 0, 0, 0.2)
+        ),
+        linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+}
+
+.btn-search:active:not(:disabled):after {
+    background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
+    top: 4px;
+}
+
+.btn-search:disabled {
+    cursor: default;
+    opacity: 0.24;
+}
+
+select {
+    width: 100%;
+    height: 50px;
+    font-size: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0;
+    background-color: #ff7426;
+    border: none;
+    border-bottom: 2px solid #962d22;
+    color: white;
+    padding: 10px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 10px;
 }
 </style>
