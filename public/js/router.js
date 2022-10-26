@@ -776,9 +776,45 @@ var render = function render() {
     on: {
       click: _vm.fetchRestaurants
     }
-  }, [_vm._v("\n                            Cerca risultato\n                        ")])])])])])])]);
+  }, [_vm._v("\n                            Cerca risultato\n                        ")])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "card mb-3",
+    staticStyle: {
+      "max-width": "540px"
+    }
+  }, [_c("div", {
+    staticClass: "row no-gutters"
+  }, [_c("div", {
+    staticClass: "col-md-12"
+  }), _vm._v(" "), _vm._l(_vm.restaurants, function (restaurant) {
+    return _c("div", {
+      key: restaurant.id,
+      staticClass: "col-md-8"
+    }, [_c("div", {
+      staticClass: "card-body"
+    }, [_c("h3", {
+      staticClass: "card-title"
+    }, [_vm._v("\n                        Nome ristorante: " + _vm._s(restaurant.name) + "\n                    ")]), _vm._v(" "), _c("p", {
+      staticClass: "card-text"
+    }, [_vm._v("\n                        Indirizzo: " + _vm._s(restaurant.address) + "\n                    ")]), _vm._v(" "), _c("p", {
+      staticClass: "card-text"
+    }, [_vm._v("\n                        Orario Apertura: " + _vm._s(restaurant.opening_time) + "\n                    ")]), _vm._v(" "), _c("p", {
+      staticClass: "card-text"
+    }, [_vm._v("\n                        Costo consegna: " + _vm._s(restaurant.delivery_cost) + "\n                    ")]), _vm._v(" "), _c("p", {
+      staticClass: "card-text"
+    }, [_vm._v("\n                        Minimo d'ordine: " + _vm._s(restaurant.min_order) + "\n                    ")]), _vm._v(" "), _vm._m(0, true)])]);
+  })], 2)])]);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("button", {
+    staticClass: "btn btn-success"
+  }, [_c("a", {
+    attrs: {
+      href: ""
+    }
+  }, [_vm._v("Ordina ora")])]);
+}];
 render._withStripped = true;
 
 
@@ -812,33 +848,7 @@ var render = function render() {
     on: {
       "filtered-restaurants": _vm.filteredRestaurants
     }
-  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)], 1)])]), _vm._v(" "), _c("AppPartners"), _vm._v(" "), _c("AppCart"), _vm._v(" "), _c("div", {
-    staticClass: "card mb-3",
-    staticStyle: {
-      "max-width": "540px"
-    }
-  }, [_c("div", {
-    staticClass: "row no-gutters"
-  }, [_c("div", {
-    staticClass: "col-md-12"
-  }), _vm._v(" "), _vm._l(_vm.restaurants, function (restaurant) {
-    return _c("div", {
-      key: restaurant.id,
-      staticClass: "col-md-8"
-    }, [_c("div", {
-      staticClass: "card-body"
-    }, [_c("h3", {
-      staticClass: "card-title"
-    }, [_vm._v("\n                        Nome ristorante: " + _vm._s(restaurant.name) + "\n                    ")]), _vm._v(" "), _c("p", {
-      staticClass: "card-text"
-    }, [_vm._v("\n                        Indirizzo: " + _vm._s(restaurant.address) + "\n                    ")]), _vm._v(" "), _c("p", {
-      staticClass: "card-text"
-    }, [_vm._v("\n                        Orario Apertura: " + _vm._s(restaurant.opening_time) + "\n                    ")]), _vm._v(" "), _c("p", {
-      staticClass: "card-text"
-    }, [_vm._v("\n                        Costo consegna: " + _vm._s(restaurant.delivery_cost) + "\n                    ")]), _vm._v(" "), _c("p", {
-      staticClass: "card-text"
-    }, [_vm._v("\n                        Minimo d'ordine: " + _vm._s(restaurant.min_order) + "\n                    ")]), _vm._v(" "), _vm._m(2, true)])]);
-  })], 2)])], 1);
+  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)], 1)])]), _vm._v(" "), _c("AppPartners"), _vm._v(" "), _c("AppCart")], 1);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -860,16 +870,6 @@ var staticRenderFns = [function () {
       alt: "servizi"
     }
   })]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("button", {
-    staticClass: "btn btn-success"
-  }, [_c("a", {
-    attrs: {
-      href: ""
-    }
-  }, [_vm._v("Ordina ora")])]);
 }];
 render._withStripped = true;
 

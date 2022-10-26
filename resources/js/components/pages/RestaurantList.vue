@@ -37,7 +37,7 @@ export default {
     name: "RestaurantList",
 
     props: {
-        restaurants: Object,
+        restaurants: Array,
     },
 };
 </script>
