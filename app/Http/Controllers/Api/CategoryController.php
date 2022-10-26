@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Restaurant;
+use App\Models\Category;
 
 
-class RestaurantController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::all();
-        return response()->json($restaurants);
+        $categories = Category::all();
+        return response()->json($categories);
     }
 
     /**
@@ -39,8 +39,7 @@ class RestaurantController extends Controller
      */
     public function show($id)
     {
-        $restaurant = Restaurant::find($id);
-        return response()->json($restaurant);
+        //
     }
 
     /**
@@ -65,17 +64,4 @@ class RestaurantController extends Controller
     {
         //
     }
-
-    public function filter($category_id)
-    {
-        // $restaurants = Restaurant::all()->categories()->where('category_id', $category_id)->get();
-        // return response()->json($restaurants);
-        // $restaurants = App\Models\Restaurant::whereHas('comments', function (Builder $query) {
-        //     $query->where('content', 'like', 'foo%');
-        // }, '>=', 10)->get();
-        $restaurants = Restaurant::whereHas('category_id', $category_id)->categories()->get();
-        return response()->json($restaurants);
-    }
-
-
 }
