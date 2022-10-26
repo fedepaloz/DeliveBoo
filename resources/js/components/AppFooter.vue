@@ -43,7 +43,7 @@
                 <div class="col py-2 py-md-0 px-2">
                     <div class="footer-card">
                         <h4>Porta Deliveboo con te</h4>
-                        <div>
+                        <div class="mt-4">
                             <a href="">
                                 <div class="mb-3" id="app-store"></div>
                             </a>
@@ -86,11 +86,11 @@ a {
 }
 footer {
     color: #fff;
-    background-color: #2e3333;
+    background-color: #60c442;
 }
 
 .footer-card {
-    background-color: #434848;
+    background-color: #44813e;
     height: 100%;
     border-radius: 3px;
     padding: 25px 22px;
@@ -101,13 +101,13 @@ footer {
     a {
         &:hover {
             text-decoration: none;
-            color: #00b8a9;
+            color: #009688;
         }
     }
 }
 
 #copyright {
-    color: #585c5c;
+    color: green;
 }
 
 #app-store {
