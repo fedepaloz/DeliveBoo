@@ -1,10 +1,14 @@
 <template>
-    <div>
-        <img src="../../images/deliveboo-logo.png" alt="Deliveboo logo">
-    </div>
+  <div>
+    <img
+      class="img-fluid"
+      src="../../images/deliveboo-logo.png"
+      alt="Deliveboo logo"
+    />
+</div>
 </template>
 <script>
 export default {
-    name: "AppLogo"
-}
+  name: "AppLogo",
+};
 </script>
