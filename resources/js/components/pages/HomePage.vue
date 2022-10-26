@@ -37,13 +37,14 @@
             </div>
         </section>
         <AppPartners />
-
-        <ul>
+        <RestaurantList />
+        <!-- <ul>
             <li v-for="restaurant in restaurants" :key="restaurant.id">
                 <RestaurantList :restaurant="restaurant" />
                 {{ restaurant.name }}
             </li>
-        </ul>
+        </ul> -->
+        
     </div>
 </template>
 <script>
@@ -82,7 +83,7 @@ export default {
         },
 
         filteredRestaurants(value) {
-            return this.restaurants = value;
+            return (this.restaurants = value);
         },
     },
     mounted() {

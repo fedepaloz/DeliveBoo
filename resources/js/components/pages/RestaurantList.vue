@@ -6,7 +6,7 @@
                 <div class="col-md-12">
                     <!-- <img src="restaurant.image" alt="..." /> -->
                 </div>
-                <div class="col-md-8">
+                <div v-for="restaurant in restaurants" :key="restaurant.id" class="col-md-8">
                     <div class="card-body">
                         <h3 class="card-title">
                             Nome ristorante: {{ restaurant.name }}
@@ -37,7 +37,7 @@ export default {
     name: "RestaurantList",
 
     props: {
-        restaurant: Object,
+        restaurants: Object,
     },
 };
 </script>

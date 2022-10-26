@@ -123,8 +123,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _RestaurantList_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RestaurantList.vue */ "./resources/js/components/pages/RestaurantList.vue");
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AdvancedSearch",
+  components: {
+    RestaurantList: _RestaurantList_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   data: function data() {
     return {
       categories: [],
@@ -147,7 +152,8 @@ __webpack_require__.r(__webpack_exports__);
     fetchRestaurants: function fetchRestaurants() {
       var _this2 = this;
       axios.get("http://localhost:8000/api/restaurants?categories=".concat(this.category_id)).then(function (res) {
-        console.log(res.data.response);
+        // console.log(res.data.response);
+
         _this2.restaurants = res.data;
         _this2.$emit("filteredRestaurants", _this2.restaurants);
       })["catch"](function (err) {
@@ -155,8 +161,8 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function () {
         _this2.isLoading = false;
       });
-    },
-    filteredRestaurants: function filteredRestaurants() {}
+    } // filteredRestaurants() {
+    // },
   },
   mounted: function mounted() {
     this.fetchCategories();
@@ -230,7 +236,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantList",
   props: {
-    restaurant: Object
+    restaurants: Object
   }
 });
 
@@ -529,15 +535,7 @@ var render = function render() {
     on: {
       "filtered-restaurants": _vm.filteredRestaurants
     }
-  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)], 1)])]), _vm._v(" "), _c("AppPartners"), _vm._v(" "), _c("ul", _vm._l(_vm.restaurants, function (restaurant) {
-    return _c("li", {
-      key: restaurant.id
-    }, [_c("RestaurantList", {
-      attrs: {
-        restaurant: restaurant
-      }
-    }), _vm._v("\n            " + _vm._s(restaurant.name) + "\n        ")], 1);
-  }), 0)], 1);
+  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)], 1)])]), _vm._v(" "), _c("AppPartners"), _vm._v(" "), _c("RestaurantList")], 1);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -588,21 +586,24 @@ var render = function render() {
     staticClass: "row no-gutters"
   }, [_c("div", {
     staticClass: "col-md-12"
-  }), _vm._v(" "), _c("div", {
-    staticClass: "col-md-8"
-  }, [_c("div", {
-    staticClass: "card-body"
-  }, [_c("h3", {
-    staticClass: "card-title"
-  }, [_vm._v("\n                        Nome ristorante: " + _vm._s(_vm.restaurant.name) + "\n                    ")]), _vm._v(" "), _c("p", {
-    staticClass: "card-text"
-  }, [_vm._v("\n                        Indirizzo: " + _vm._s(_vm.restaurant.address) + "\n                    ")]), _vm._v(" "), _c("p", {
-    staticClass: "card-text"
-  }, [_vm._v("\n                        Orario Apertura: " + _vm._s(_vm.restaurant.opening_time) + "\n                    ")]), _vm._v(" "), _c("p", {
-    staticClass: "card-text"
-  }, [_vm._v("\n                        Costo consegna: " + _vm._s(_vm.restaurant.delivery_cost) + "\n                    ")]), _vm._v(" "), _c("p", {
-    staticClass: "card-text"
-  }, [_vm._v("\n                        Minimo d'ordine: " + _vm._s(_vm.restaurant.min_order) + "\n                    ")]), _vm._v(" "), _vm._m(0)])])])])]);
+  }), _vm._v(" "), _vm._l(_vm.restaurants, function (restaurant) {
+    return _c("div", {
+      key: restaurant.id,
+      staticClass: "col-md-8"
+    }, [_c("div", {
+      staticClass: "card-body"
+    }, [_c("h3", {
+      staticClass: "card-title"
+    }, [_vm._v("\n                        Nome ristorante: " + _vm._s(restaurant.name) + "\n                    ")]), _vm._v(" "), _c("p", {
+      staticClass: "card-text"
+    }, [_vm._v("\n                        Indirizzo: " + _vm._s(restaurant.address) + "\n                    ")]), _vm._v(" "), _c("p", {
+      staticClass: "card-text"
+    }, [_vm._v("\n                        Orario Apertura: " + _vm._s(restaurant.opening_time) + "\n                    ")]), _vm._v(" "), _c("p", {
+      staticClass: "card-text"
+    }, [_vm._v("\n                        Costo consegna: " + _vm._s(restaurant.delivery_cost) + "\n                    ")]), _vm._v(" "), _c("p", {
+      staticClass: "card-text"
+    }, [_vm._v("\n                        Minimo d'ordine: " + _vm._s(restaurant.min_order) + "\n                    ")]), _vm._v(" "), _vm._m(0, true)])]);
+  })], 2)])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,

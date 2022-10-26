@@ -25,12 +25,6 @@
                                     </option>
                                 </select>
                             </div>
-                            <!-- <p
-                                v-for="restaurant in restaurants"
-                                :key="restaurant.id"
-                            >
-                                {{ restaurant.name }}
-                            </p> -->
                         </div>
                         <p></p>
                         <div class="col-md-3">
@@ -45,11 +39,24 @@
                 </div>
             </div>
         </div>
+        <!-- <ul>
+            <li v-for="restaurant in restaurants" :key="restaurant.id">
+                <RestaurantList :restaurants="restaurants" />
+                {{ restaurant.name }}
+                {{ restaurant.address }}
+                {{ restaurant.delivery_cost }}
+            </li>
+        </ul> -->
     </div>
 </template>
 <script>
+import RestaurantList from "./RestaurantList.vue";
+
 export default {
     name: "AdvancedSearch",
+    components:{
+        RestaurantList
+    },
     data() {
         return {
             categories: [],
@@ -78,7 +85,7 @@ export default {
                     `http://localhost:8000/api/restaurants?categories=${this.category_id}`
                 )
                 .then((res) => {
-                    console.log(res.data.response);
+                    // console.log(res.data.response);
 
                     this.restaurants = res.data;
                     this.$emit("filteredRestaurants", this.restaurants);
@@ -91,7 +98,9 @@ export default {
                 });
         },
 
-        filteredRestaurants() {},
+        // filteredRestaurants() {
+
+        // },
     },
     mounted() {
         this.fetchCategories();
