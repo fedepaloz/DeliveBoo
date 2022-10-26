@@ -1,88 +1,77 @@
 <template>
-    <div class="container-sm">
+    <div class="container my-5">
+        <hr class="hr">
         <section
             id="partners-section"
             class="d-flex flex-column align-items-center"
         >
-            <h1 class="font-weight-bold my-5">I nostri Partner</h1>
+            <h1 class="font-weight-bold my-5 text-success">I nostri Partner</h1>
             <ul
                 class="d-flex align-items-center justify-content-center flex-wrap"
             >
-                <li class="m-5">
+                <li class="m-3">
                     <a href="https://www.mcdonalds.it/" target="_blank"
                         ><img
                             src="https://www.mcdonalds.it/themes/mcd/build/images/mcd_logo.svg"
-                            alt="McDonald's"
+                            alt="McDonald's" class="rounded-circle img-effects"
                     /></a>
                 </li>
-                <li class="m-5">
+                <li class="m-3">
                     <a
                         href="https://www.rossopomodoro.it/default.aspx"
                         target="_blank"
                         ><img
                             src="https://www.rossopomodoro.it/web/img/app-ico.png"
-                            alt="Rosso Pomodoro"
+                            alt="Rosso Pomodoro" class="rounded-circle img-effects"
                     /></a>
                 </li>
-                <li class="m-5">
-                    <a href="https://www.mcdonalds.it/" target="_blank"
+                <li class="m-3">
+                    <a
+                        href="https://www.kfc.it"
+                        target="_blank"
                         ><img
-                            src="https://loghi-famosi.com/wp-content/uploads/2020/08/Burger-King-Logo-1969-1994.png"
-                            alt="Burger King"
+                            src="https://www.centrocommercialeaura.it/wp-content/uploads/2018/01/KFC_logo.svg_.png"
+                            alt="KFC" class="rounded-circle img-effects"
                     /></a>
                 </li>
-                <li class="m-5">
+                <li class="m-3">
+                    <a href="https://www.dominos.it/" target="_blank"
+                        ><img
+                            src="https://dominosfranchising.it/wp-content/uploads/2020/07/dominos_social_logo.jpg"
+                            alt="Dominos" class="rounded-circle img-effects"
+                    /></a>
+                </li>
+                <li class="m-3">
                     <a href="https://www.sushicorner.it/" target="_blank"
                         ><img
                             src="https://static.xmenu.it/cache/restaurants/192/Logo-Brand_h300.png"
-                            alt="Sushi Corner"
+                            alt="Sushi Corner" class="rounded-circle img-effects"
+                    /></a>
+                </li>
+                <li class="m-3">
+                    <a href="https://www.starbucks.it/" target="_blank"
+                        ><img
+                            src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png"
+                            alt="Starbucks" class="rounded-circle img-effects"
                     /></a>
                 </li>
             </ul>
         </section>
-        <section id="become-partner" class="my-5">
-            <div
-                class="row align-items-center justify-content-center justify-content-md-between"
-            >
-                <div class="col-md-4 p-3">
-                    <img
-                        class="img-fluid"
-                        src="https://spremutedigitali.com/wp-content/uploads/2017/12/partenrship.png"
-                        alt="Partnership"
-                    />
-                </div>
-                <div class="col-md-7 my-3 my-md-0">
-                    <h1>Diventa nostro Partner</h1>
-                    <p>Contattaci per avere maggiori informazioni su come diventare un nostro partner!</p>
-                    <form>
-                        <div class="form-row">
-                            <div class="form-group col">
-                                <label for="">Nome</label>
-                                <input type="text" class="form-control" id=""/>
-                            </div>
-                            <div class="form-group col">
-                                <label for="">Email</label>
-                                <input type="email" class="form-control" id=""/>
-                            </div>
-                            <div class="form-group col">
-                                <label for="">Telefono</label>
-                                <input type="text" class="form-control" id=""/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Messaggio</label>
-                            <textarea class="form-control" id="" rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Invia</button>
-                    </form>
-                </div>
+        <hr class="hr">
+                <AppContacts />
             </div>
-        </section>
-    </div>
+
 </template>
 
 <script>
-export default {};
+import AppContacts from "./AppContacts.vue";
+export default {
+    name: "AppPartners",
+    components: {
+       AppContacts
+    }
+
+};
 </script>
 
 <style lang="scss" scoped>
@@ -95,9 +84,18 @@ export default {};
         }
     }
 }
-#become-partner {
-    border: 1px solid black;
-    border-radius: 20px;
-    padding: 30px;
+.hr {
+    border-top: 1px solid green;
+    margin: 30px 0 0 0;
 }
+
+.img-effects {
+    transition: 0.6s;
+
+    &:hover {
+    border: 2px solid green;
+    padding: 5px;
+}
+}
+
 </style>
