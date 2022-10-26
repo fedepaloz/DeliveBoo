@@ -1,6 +1,7 @@
 <template>
     <div>
         <!-- Jumbotron -->
+<<<<<<< HEAD
         <section id="services">
             <div class="container-fluid">
                 <div class="row justify-content-center mt-5">
@@ -31,6 +32,10 @@
             </div>
         </section>
         <AppPartners />
+=======
+
+        aaaaaa
+>>>>>>> 80ea36a99e5c585b298bec8486968617ee783a33
     </div>
 </template>
 <script>
@@ -38,6 +43,7 @@ import AppPartners from "../AppPartners.vue";
 import AppLogo from "../AppLogo.vue";
 export default {
     name: "HomePage",
+<<<<<<< HEAD
     components: {
         AppLogo,
         AppPartners,
@@ -47,3 +53,8 @@ export default {
 <style lang="scss" scoped>
 
 </style>
+=======
+};
+</script>
+<style lang=""></style>
+>>>>>>> 80ea36a99e5c585b298bec8486968617ee783a33
