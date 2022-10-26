@@ -8,12 +8,15 @@
                 <!-- ! Prima sezione (I nostri servizi) -->
                 <div class="container">
                     <!-- logo -->
-                    <div class="row justify-content-center my-5">
+                    <div class="row justify-content-center align-items-center my-5">
                         <div class="col-sm-3 col-lg-3">
                             <AppLogo />
                         </div>
                     <div class="col-sm-9 col-lg-9 text-center d-flex align-items-center">
                         <AppServices />
+                    </div>
+                    <div class="col-12">
+                        <div id="bg-Services"></div>
                     </div>
                     </div>
                 </div>
@@ -22,7 +25,7 @@
             </div>
         </section>
         <AppPartners />
-        <AppCart />
+        <!-- <AppCart /> -->
         
     </div>
         <!-- <ul>
@@ -81,4 +84,12 @@ export default {
     },
 };
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#bg-Services {
+    margin-top: 30px;
+    height: 220px;
+    background-position: 60% 43%;
+    background-size: cover;
+    background-image: url(https://cdn4.vectorstock.com/i/1000x1000/86/23/online-food-order-and-delivery-process-vector-27208623.jpg);
+}
+</style>
