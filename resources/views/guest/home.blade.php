@@ -15,7 +15,7 @@
     <script defer src="{{ asset('js/front.js') }}"></script>
     <script src="{{ asset('js/cart.js') }}"></script>
 
-
+    
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     {{-- Font-Awesome --}}
