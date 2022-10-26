@@ -1,5 +1,6 @@
-<template lang="">
+<template>
     <div>
+        <!-- Jumbotron -->
         
     </div>
 </template>
