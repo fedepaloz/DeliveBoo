@@ -1,6 +1,8 @@
 <template>
     <div>
+        
         <!-- Jumbotron -->
+        <h1>test palozzi 3</h1>
         <section id="services">
             <div class="container-fluid">
                 <div class="row justify-content-center mt-5">
