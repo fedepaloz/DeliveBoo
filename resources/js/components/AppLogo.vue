@@ -8,3 +8,6 @@ export default {
     name: "AppLogo"
 }
 </script>
+<style lang="scss">
+
+</style>

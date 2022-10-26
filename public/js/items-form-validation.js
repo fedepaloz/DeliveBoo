@@ -135,7 +135,7 @@ formField.addEventListener("submit", function (event) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\laravel\proj68-team2-deliveboo\resources\js\items-form-validation.js */"./resources/js/items-form-validation.js");
+module.exports = __webpack_require__(/*! C:\Laravel\proj68-team2-deliveboo\resources\js\items-form-validation.js */"./resources/js/items-form-validation.js");
 
 
 /***/ })
