@@ -51,7 +51,8 @@ class RestaurantController extends Controller
      */
     public function show($id)
     {
-        //
+        $restaurant = Restaurant::find($id);
+        return response()->json($restaurant);
     }
 
     /**
@@ -76,4 +77,17 @@ class RestaurantController extends Controller
     {
         //
     }
+
+    public function filter($category_id)
+    {
+        // $restaurants = Restaurant::all()->categories()->where('category_id', $category_id)->get();
+        // return response()->json($restaurants);
+        // $restaurants = App\Models\Restaurant::whereHas('comments', function (Builder $query) {
+        //     $query->where('content', 'like', 'foo%');
+        // }, '>=', 10)->get();
+        $restaurants = Restaurant::whereHas('category_id', $category_id)->categories()->get();
+        return response()->json($restaurants);
+    }
+
+
 }

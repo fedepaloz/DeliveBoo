@@ -1,14 +1,13 @@
 <template>
     <div>
         <!-- Jumbotron -->
-        
+
+        aaaaaa
     </div>
 </template>
 <script>
 export default {
-    name: "HomePage"
-}
+    name: "HomePage",
+};
 </script>
-<style lang="">
-    
-</style>
+<style lang=""></style>

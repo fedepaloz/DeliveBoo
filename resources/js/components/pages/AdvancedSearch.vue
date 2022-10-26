@@ -3,7 +3,7 @@
         <div class="row d-flex justify-content-center">
             <div class="col-md-10">
                 <div class="card p-3 py-4">
-                    <h5>An Easier way to find your Housing</h5>
+                    <h5>Cerca i ristoranti</h5>
 
                     <div class="row g-3 mt-2">
                         <div class="col-md-3">
@@ -15,87 +15,36 @@
                                     data-toggle="dropdown"
                                     aria-expanded="false"
                                 >
-                                    Any Status
+                                    Categorie
                                 </button>
                                 <ul
                                     class="dropdown-menu"
                                     aria-labelledby="dropdownMenuButton"
                                 >
-                                    <li>
-                                        <a class="dropdown-item" href="#"
-                                            >Rural</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#"
-                                            >Urban</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#"
-                                            >All</a
+                                    <li
+                                        v-for="category in categories"
+                                        :key="category.id"
+                                    >
+                                        <a
+                                            class="drop dropdown-item"
+                                            href="#"
+                                            >{{ category.name }}</a
                                         >
                                     </li>
                                 </ul>
                             </div>
+                            <!-- <p
+                                v-for="restaurant in restaurants"
+                                :key="restaurant.id"
+                            >
+                                {{ restaurant.name }}
+                            </p> -->
                         </div>
-
-                        <div class="col-md-6">
-                            <input
-                                type="text"
-                                class="form-control"
-                                placeholder="Enter address e.g. street, city and state or zip"
-                            />
-                        </div>
-
+                        <p></p>
                         <div class="col-md-3">
                             <button class="btn btn-secondary btn-block">
-                                Search Results
+                                Cerca risultato
                             </button>
-                        </div>
-                    </div>
-
-                    <div class="mt-3">
-                        <a
-                            data-toggle="collapse"
-                            href="#collapseExample"
-                            role="button"
-                            aria-expanded="false"
-                            aria-controls="collapseExample"
-                            class="advanced"
-                        >
-                            Advance Search With Filters
-                            <i class="fa fa-angle-down"></i>
-                        </a>
-
-                        <div class="collapse" id="collapseExample">
-                            <div class="card card-body">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <input
-                                            type="text"
-                                            placeholder="Property ID"
-                                            class="form-control"
-                                        />
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="Search by MAP"
-                                        />
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="Search by Country"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -106,6 +55,38 @@
 <script>
 export default {
     name: "AdvancedSearch",
+    data() {
+        return {
+            categories: [],
+            restaurants: [],
+        };
+    },
+    methods: {
+        fetchCategories() {
+            // this.isLoading = true;
+            axios
+                .get(`http://localhost:8000/api/restaurants`)
+                .then((res) => {
+                    this.categories = res.data;
+                    this.restaurants = res.data;
+                    // this.pagination.current = current_page;
+                    // this.pagination.last = last_page;
+                })
+                .catch((err) => {
+                    this.error = "Errore durante il fetch dei post";
+                })
+                .then(() => {
+                    this.isLoading = false;
+                });
+        },
+    },
+    mounted() {
+        this.fetchCategories();
+    },
 };
 </script>
-<style lang=""></style>
+<style>
+.drop {
+    color: #000;
+}
+</style>
