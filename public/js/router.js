@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -97,6 +97,21 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AppCart"
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AppContacts.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AppContacts.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "AppContacts"
 });
 
 /***/ }),
@@ -125,7 +140,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony import */ var _AppContacts_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AppContacts.vue */ "./resources/js/components/AppContacts.vue");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "AppPartners",
+  components: {
+    AppContacts: _AppContacts_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
 
 /***/ }),
 
@@ -537,6 +559,61 @@ render._withStripped = true;
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AppContacts.vue?vue&type=template&id=781b9e79&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AppContacts.vue?vue&type=template&id=781b9e79&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _vm._m(0);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("section", {
+    staticClass: "my-5",
+    attrs: {
+      id: "become-partner"
+    }
+  }, [_c("div", {
+    staticClass: "row align-items-center justify-content-center justify-content-between"
+  }, [_c("div", {
+    staticClass: "col-s-12 col-sm-8 col-l-9 col-10"
+  }, [_c("h1", {
+    staticClass: "text-success"
+  }, [_vm._v(" Diventa nostro Partner")]), _vm._v(" "), _c("a", [_c("i", {
+    staticClass: "fa-solid fa-phone text-success"
+  }), _vm._v(" 092 456 444")]), _vm._v(" "), _c("a", [_c("i", {
+    staticClass: "fa-solid fa-envelope text-success"
+  }), _vm._v("  Deliveboo@food.it")]), _vm._v(" "), _c("a", [_c("i", {
+    staticClass: "fa-brands fa-square-facebook text-success"
+  }), _vm._v(" DeliveBoo")]), _vm._v(" "), _c("a", [_c("i", {
+    staticClass: "fa-brands fa-twitter text-success"
+  }), _vm._v(" DeliveBoo")]), _vm._v(" "), _c("a", [_c("i", {
+    staticClass: "fa-brands fa-instagram text-success"
+  }), _vm._v(" DeliveBoo")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-s-12 col-sm-4 col-l-3 col-2"
+  }, [_c("img", {
+    staticClass: "img-fluid",
+    attrs: {
+      src: "https://static.vecteezy.com/system/resources/previews/005/548/794/original/3-green-people-or-human-teamwork-logo-symbol-icon-graphic-design-illustration-vector.jpg",
+      alt: "Partnership"
+    }
+  })])])]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AppLogo.vue?vue&type=template&id=7ceb4ed1&":
 /*!****************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AppLogo.vue?vue&type=template&id=7ceb4ed1& ***!
@@ -585,143 +662,105 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
+  return _c("div", {
+    staticClass: "container my-5"
+  }, [_c("hr", {
+    staticClass: "hr"
+  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("hr", {
+    staticClass: "hr"
+  }), _vm._v(" "), _c("AppContacts")], 1);
 };
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "container-sm"
-  }, [_c("section", {
+  return _c("section", {
     staticClass: "d-flex flex-column align-items-center",
     attrs: {
       id: "partners-section"
     }
   }, [_c("h1", {
-    staticClass: "font-weight-bold my-5"
+    staticClass: "font-weight-bold my-5 text-success"
   }, [_vm._v("I nostri Partner")]), _vm._v(" "), _c("ul", {
     staticClass: "d-flex align-items-center justify-content-center flex-wrap"
   }, [_c("li", {
-    staticClass: "m-5"
+    staticClass: "m-3"
   }, [_c("a", {
     attrs: {
       href: "https://www.mcdonalds.it/",
       target: "_blank"
     }
   }, [_c("img", {
+    staticClass: "rounded-circle img-effects",
     attrs: {
       src: "https://www.mcdonalds.it/themes/mcd/build/images/mcd_logo.svg",
       alt: "McDonald's"
     }
   })])]), _vm._v(" "), _c("li", {
-    staticClass: "m-5"
+    staticClass: "m-3"
   }, [_c("a", {
     attrs: {
       href: "https://www.rossopomodoro.it/default.aspx",
       target: "_blank"
     }
   }, [_c("img", {
+    staticClass: "rounded-circle img-effects",
     attrs: {
       src: "https://www.rossopomodoro.it/web/img/app-ico.png",
       alt: "Rosso Pomodoro"
     }
   })])]), _vm._v(" "), _c("li", {
-    staticClass: "m-5"
+    staticClass: "m-3"
   }, [_c("a", {
     attrs: {
-      href: "https://www.mcdonalds.it/",
+      href: "https://www.kfc.it",
       target: "_blank"
     }
   }, [_c("img", {
+    staticClass: "rounded-circle img-effects",
     attrs: {
-      src: "https://loghi-famosi.com/wp-content/uploads/2020/08/Burger-King-Logo-1969-1994.png",
-      alt: "Burger King"
+      src: "https://www.centrocommercialeaura.it/wp-content/uploads/2018/01/KFC_logo.svg_.png",
+      alt: "KFC"
     }
   })])]), _vm._v(" "), _c("li", {
-    staticClass: "m-5"
+    staticClass: "m-3"
+  }, [_c("a", {
+    attrs: {
+      href: "https://www.dominos.it/",
+      target: "_blank"
+    }
+  }, [_c("img", {
+    staticClass: "rounded-circle img-effects",
+    attrs: {
+      src: "https://dominosfranchising.it/wp-content/uploads/2020/07/dominos_social_logo.jpg",
+      alt: "Dominos"
+    }
+  })])]), _vm._v(" "), _c("li", {
+    staticClass: "m-3"
   }, [_c("a", {
     attrs: {
       href: "https://www.sushicorner.it/",
       target: "_blank"
     }
   }, [_c("img", {
+    staticClass: "rounded-circle img-effects",
     attrs: {
       src: "https://static.xmenu.it/cache/restaurants/192/Logo-Brand_h300.png",
       alt: "Sushi Corner"
     }
-  })])])])]), _vm._v(" "), _c("section", {
-    staticClass: "my-5",
+  })])]), _vm._v(" "), _c("li", {
+    staticClass: "m-3"
+  }, [_c("a", {
     attrs: {
-      id: "become-partner"
+      href: "https://www.starbucks.it/",
+      target: "_blank"
     }
-  }, [_c("div", {
-    staticClass: "row align-items-center justify-content-center justify-content-md-between"
-  }, [_c("div", {
-    staticClass: "col-md-4 p-3"
   }, [_c("img", {
-    staticClass: "img-fluid",
+    staticClass: "rounded-circle img-effects",
     attrs: {
-      src: "https://spremutedigitali.com/wp-content/uploads/2017/12/partenrship.png",
-      alt: "Partnership"
+      src: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png",
+      alt: "Starbucks"
     }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-7 my-3 my-md-0"
-  }, [_c("h1", [_vm._v("Diventa nostro Partner")]), _vm._v(" "), _c("p", [_vm._v("Contattaci per avere maggiori informazioni su come diventare un nostro partner!")]), _vm._v(" "), _c("form", [_c("div", {
-    staticClass: "form-row"
-  }, [_c("div", {
-    staticClass: "form-group col"
-  }, [_c("label", {
-    attrs: {
-      "for": ""
-    }
-  }, [_vm._v("Nome")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
-    attrs: {
-      type: "text",
-      id: ""
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "form-group col"
-  }, [_c("label", {
-    attrs: {
-      "for": ""
-    }
-  }, [_vm._v("Email")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
-    attrs: {
-      type: "email",
-      id: ""
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "form-group col"
-  }, [_c("label", {
-    attrs: {
-      "for": ""
-    }
-  }, [_vm._v("Telefono")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
-    attrs: {
-      type: "text",
-      id: ""
-    }
-  })])]), _vm._v(" "), _c("div", {
-    staticClass: "form-group"
-  }, [_c("label", {
-    attrs: {
-      "for": ""
-    }
-  }, [_vm._v("Messaggio")]), _vm._v(" "), _c("textarea", {
-    staticClass: "form-control",
-    attrs: {
-      id: "",
-      rows: "3"
-    }
-  })]), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-primary",
-    attrs: {
-      type: "submit"
-    }
-  }, [_vm._v("Invia")])])])])])]);
+  })])])])]);
 }];
 render._withStripped = true;
 
@@ -778,20 +817,13 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "container mt-5"
+    staticClass: "container"
   }, [_c("div", {
-    staticClass: "row d-flex justify-content-center"
+    staticClass: "row justify-content-center align-items-center mt-4"
   }, [_c("div", {
-    staticClass: "col-md-10"
+    staticClass: "select-bg p-3 col-12 py-4 row justify-content-center align-items-center g-3"
   }, [_c("div", {
-    staticClass: "card select-bg p-3 py-4"
-  }, [_c("div", {
-    staticClass: "row justify-content-center align-items-center g-3 mt-2"
-  }, [_c("div", {
-    staticClass: "col-6 col-md-3",
-    staticStyle: {
-      width: "200px"
-    }
+    staticClass: "col-6 col-md-3"
   }, [_c("div", [_c("select", {
     directives: [{
       name: "model",
@@ -829,34 +861,43 @@ var render = function render() {
     on: {
       click: _vm.fetchRestaurants
     }
-  }, [_vm._v("\n                            Cerca\n                        ")])])])])])]), _vm._v(" "), _c("div", {
-    staticClass: "row no-gutters"
-  }, [_c("div", {
-    staticClass: "col-md-12"
-  }), _vm._v(" "), _vm._l(_vm.restaurants, function (restaurant) {
+  }, [_vm._v("\n                    Cerca\n                ")])])])]), _vm._v(" "), _vm._l(_vm.restaurants, function (restaurant) {
     return _c("div", {
       key: restaurant.id,
-      staticClass: "col-md-8"
-    }, [_c("div", {
-      staticClass: "card-body"
+      staticClass: "row justify-content-center bg-light mt-4 py-3"
+    }, [_vm._m(0, true), _vm._v(" "), _c("div", {
+      staticClass: "col-7"
     }, [_c("h3", {
       staticClass: "card-title"
-    }, [_vm._v("\n                    Nome ristorante: " + _vm._s(restaurant.name) + "\n                ")]), _vm._v(" "), _c("p", {
+    }, [_vm._v("\n                Nome ristorante: " + _vm._s(restaurant.name) + "\n            ")]), _vm._v(" "), _c("p", {
       staticClass: "card-text"
     }, [_vm._v("Indirizzo: " + _vm._s(restaurant.address))]), _vm._v(" "), _c("p", {
       staticClass: "card-text"
-    }, [_vm._v("\n                    Orario Apertura: " + _vm._s(restaurant.opening_time) + "\n                ")]), _vm._v(" "), _c("p", {
+    }, [_vm._v("\n                Orario Apertura: " + _vm._s(restaurant.opening_time) + "\n            ")]), _vm._v(" "), _c("p", {
       staticClass: "card-text"
-    }, [_vm._v("\n                    Costo consegna: " + _vm._s(restaurant.delivery_cost) + "\n                ")]), _vm._v(" "), _c("p", {
+    }, [_vm._v("\n                Costo consegna: " + _vm._s(restaurant.delivery_cost) + "\n            ")]), _vm._v(" "), _c("p", {
       staticClass: "card-text"
-    }, [_vm._v("\n                    Minimo d'ordine: " + _vm._s(restaurant.min_order) + "\n                ")]), _vm._v(" "), _vm._m(0, true)])]);
-  })], 2)]);
+    }, [_vm._v("\n                Minimo d'ordine: " + _vm._s(restaurant.min_order) + "\n            ")]), _vm._v(" "), _vm._m(1, true)])]);
+  })], 2);
 };
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "col-5"
+  }, [_c("img", {
+    staticClass: "img-fluid",
+    attrs: {
+      width: "300px",
+      src: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YnVyZ2VyfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+      alt: "..."
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
   return _c("button", {
-    staticClass: "btn btn-success"
+    staticClass: "btn btn-search"
   }, [_c("a", {
     attrs: {
       href: ""
@@ -988,7 +1029,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#partners-section ul[data-v-35970ed1] {\n  list-style-type: none;\n  -webkit-padding-start: 0;\n          padding-inline-start: 0;\n}\n#partners-section ul img[data-v-35970ed1] {\n  width: 150px;\n}\n#become-partner[data-v-35970ed1] {\n  border: 1px solid black;\n  border-radius: 20px;\n  padding: 30px;\n}", ""]);
+exports.push([module.i, "#partners-section ul[data-v-35970ed1] {\n  list-style-type: none;\n  -webkit-padding-start: 0;\n          padding-inline-start: 0;\n}\n#partners-section ul img[data-v-35970ed1] {\n  width: 150px;\n}\n.hr[data-v-35970ed1] {\n  border-top: 1px solid green;\n  margin: 30px 0 0 0;\n}\n.img-effects[data-v-35970ed1] {\n  transition: 0.6s;\n}\n.img-effects[data-v-35970ed1]:hover {\n  border: 2px solid green;\n  padding: 5px;\n}", ""]);
 
 // exports
 
@@ -1033,6 +1074,25 @@ exports.push([module.i, "\n@media (min-width: 1025px) {\n.h-custom {\r\n        
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AppContacts.vue?vue&type=style&index=0&id=781b9e79&scoped=true&lang=css&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AppContacts.vue?vue&type=style&index=0&id=781b9e79&scoped=true&lang=css& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\nh1[data-v-781b9e79] {\r\n    text-align: center;\r\n    margin-bottom: 45px;\n}\na[data-v-781b9e79] {\r\n    text-decoration: none;\r\n    display:block;\r\n    margin: 5px;\r\n    font-size: 20px;\r\n    text-align: center\n};\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AppServices.vue?vue&type=style&index=0&id=41665104&scoped=true&lang=css&":
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AppServices.vue?vue&type=style&index=0&id=41665104&scoped=true&lang=css& ***!
@@ -1064,7 +1124,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.select-bg {\r\n    background-size: cover;\r\n    background-image: url(\"https://png.pngtree.com/thumb_back/fh260/back_our/20190621/ourmid/pngtree-black-atmosphere-simple-meal-food-food-banner-image_176553.jpg\");\r\n    background-repeat: no-repeat;\n}\n.drop {\r\n    color: #000;\n}\r\n\r\n/* CSS */\n.btn-search {\r\n    align-items: center;\r\n    -webkit-appearance: none;\r\n       -moz-appearance: none;\r\n            appearance: none;\r\n    background-clip: padding-box;\r\n    background-color: initial;\r\n    background-image: none;\r\n    border-style: none;\r\n    box-sizing: border-box;\r\n    color: #fff;\r\n    cursor: pointer;\r\n    display: inline-block;\r\n    flex-direction: row;\r\n    flex-shrink: 0;\r\n    font-family: Eina01, sans-serif;\r\n    font-size: 16px;\r\n    font-weight: 800;\r\n    justify-content: center;\r\n    line-height: 24px;\r\n    margin: 0;\r\n    min-height: 64px;\r\n    outline: none;\r\n    overflow: visible;\r\n    padding: 19px 26px;\r\n    pointer-events: auto;\r\n    position: relative;\r\n    text-align: center;\r\n    text-decoration: none;\r\n    text-transform: none;\r\n    -moz-user-select: none;\r\n         user-select: none;\r\n    -webkit-user-select: none;\r\n    touch-action: manipulation;\r\n    vertical-align: middle;\r\n    width: auto;\r\n    word-break: keep-all;\r\n    z-index: 0;\n}\n@media (min-width: 768px) {\n.btn-search {\r\n        padding: 19px 32px;\n}\n}\n.btn-search:before,\r\n.btn-search:after {\r\n    border-radius: 80px;\n}\n.btn-search:before {\r\n    background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);\r\n    content: \"\";\r\n    display: block;\r\n    height: 100%;\r\n    left: 0;\r\n    overflow: hidden;\r\n    position: absolute;\r\n    top: 0;\r\n    width: 100%;\r\n    z-index: -2;\n}\n.btn-search:after {\r\n    background-color: initial;\r\n    background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);\r\n    bottom: 4px;\r\n    content: \"\";\r\n    display: block;\r\n    left: 4px;\r\n    overflow: hidden;\r\n    position: absolute;\r\n    right: 4px;\r\n    top: 4px;\r\n    transition: all 100ms ease-out;\r\n    z-index: -1;\n}\n.btn-search:hover:not(:disabled):before {\r\n    background: linear-gradient(\r\n        92.83deg,\r\n        rgb(255, 116, 38) 0%,\r\n        rgb(249, 58, 19) 100%\r\n    );\n}\n.btn-search:hover:not(:disabled):after {\r\n    bottom: 0;\r\n    left: 0;\r\n    right: 0;\r\n    top: 0;\r\n    transition-timing-function: ease-in;\r\n    opacity: 0;\n}\n.btn-search:active:not(:disabled) {\r\n    color: #ccc;\n}\n.btn-search:active:not(:disabled):before {\r\n    background-image: linear-gradient(\r\n            0deg,\r\n            rgba(0, 0, 0, 0.2),\r\n            rgba(0, 0, 0, 0.2)\r\n        ),\r\n        linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);\n}\n.btn-search:active:not(:disabled):after {\r\n    background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);\r\n    bottom: 4px;\r\n    left: 4px;\r\n    right: 4px;\r\n    top: 4px;\n}\n.btn-search:disabled {\r\n    cursor: default;\r\n    opacity: 0.24;\n}\nselect {\r\n    width: 100%;\r\n    height: 50px;\r\n    font-size: 100%;\r\n    font-weight: bold;\r\n    cursor: pointer;\r\n    border-radius: 0;\r\n    background-color: #ff7426;\r\n    border: none;\r\n    border-bottom: 2px solid #962d22;\r\n    color: white;\r\n    padding: 10px;\r\n    appearance: none;\r\n    -webkit-appearance: none;\r\n    -moz-appearance: none;\r\n    padding: 10px;\n}\r\n", ""]);
+exports.push([module.i, "\n.select-bg {\r\n    background-size: cover;\r\n    background-image: url(\"https://png.pngtree.com/thumb_back/fh260/back_our/20190621/ourmid/pngtree-black-atmosphere-simple-meal-food-food-banner-image_176553.jpg\");\r\n    background-repeat: no-repeat;\n}\r\n\r\n/* CSS */\n.btn-search {\r\n    align-items: center;\r\n    -webkit-appearance: none;\r\n       -moz-appearance: none;\r\n            appearance: none;\r\n    background-clip: padding-box;\r\n    background-color: initial;\r\n    background-image: none;\r\n    border-style: none;\r\n    box-sizing: border-box;\r\n    color: #fff;\r\n    cursor: pointer;\r\n    display: inline-block;\r\n    flex-direction: row;\r\n    flex-shrink: 0;\r\n    font-family: Eina01, sans-serif;\r\n    font-size: 16px;\r\n    font-weight: 800;\r\n    justify-content: center;\r\n    line-height: 24px;\r\n    margin: 0;\r\n    min-height: 64px;\r\n    outline: none;\r\n    overflow: visible;\r\n    padding: 19px 26px;\r\n    pointer-events: auto;\r\n    position: relative;\r\n    text-align: center;\r\n    text-decoration: none;\r\n    text-transform: none;\r\n    -moz-user-select: none;\r\n         user-select: none;\r\n    -webkit-user-select: none;\r\n    touch-action: manipulation;\r\n    vertical-align: middle;\r\n    width: auto;\r\n    word-break: keep-all;\r\n    z-index: 0;\n}\n@media (min-width: 768px) {\n.btn-search {\r\n        padding: 19px 32px;\n}\n}\n.btn-search:before,\r\n.btn-search:after {\r\n    border-radius: 80px;\n}\n.btn-search:before {\r\n    background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);\r\n    content: \"\";\r\n    display: block;\r\n    height: 100%;\r\n    left: 0;\r\n    overflow: hidden;\r\n    position: absolute;\r\n    top: 0;\r\n    width: 100%;\r\n    z-index: -2;\n}\n.btn-search:after {\r\n    background-color: initial;\r\n    background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);\r\n    bottom: 4px;\r\n    content: \"\";\r\n    display: block;\r\n    left: 4px;\r\n    overflow: hidden;\r\n    position: absolute;\r\n    right: 4px;\r\n    top: 4px;\r\n    transition: all 100ms ease-out;\r\n    z-index: -1;\n}\n.btn-search:hover:not(:disabled):before {\r\n    background: linear-gradient(\r\n        92.83deg,\r\n        rgb(255, 116, 38) 0%,\r\n        rgb(249, 58, 19) 100%\r\n    );\n}\n.btn-search:hover:not(:disabled):after {\r\n    bottom: 0;\r\n    left: 0;\r\n    right: 0;\r\n    top: 0;\r\n    transition-timing-function: ease-in;\r\n    opacity: 0;\n}\n.btn-search a {\r\n    text-decoration: none;\r\n    color: white;\n}\n.btn-search:active:not(:disabled) {\r\n    color: #ccc;\n}\n.btn-search:active:not(:disabled):before {\r\n    background-image: linear-gradient(\r\n            0deg,\r\n            rgba(0, 0, 0, 0.2),\r\n            rgba(0, 0, 0, 0.2)\r\n        ),\r\n        linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);\n}\n.btn-search:active:not(:disabled):after {\r\n    background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);\r\n    bottom: 4px;\r\n    left: 4px;\r\n    right: 4px;\r\n    top: 4px;\n}\n.btn-search:disabled {\r\n    cursor: default;\r\n    opacity: 0.24;\n}\nselect {\r\n    width: 100%;\r\n    height: 50px;\r\n    font-size: 100%;\r\n    font-weight: bold;\r\n    cursor: pointer;\r\n    border-radius: 0;\r\n    background-color: #ff7426;\r\n    border: none;\r\n    border-bottom: 2px solid #962d22;\r\n    color: white;\r\n    padding: 10px;\r\n    appearance: none;\r\n    -webkit-appearance: none;\r\n    -moz-appearance: none;\r\n    padding: 10px;\n}\r\n", ""]);
 
 // exports
 
@@ -1620,6 +1680,36 @@ if(false) {}
 
 
 var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./AppCart.vue?vue&type=style&index=0&id=047541c6&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AppCart.vue?vue&type=style&index=0&id=047541c6&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AppContacts.vue?vue&type=style&index=0&id=781b9e79&scoped=true&lang=css&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AppContacts.vue?vue&type=style&index=0&id=781b9e79&scoped=true&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./AppContacts.vue?vue&type=style&index=0&id=781b9e79&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AppContacts.vue?vue&type=style&index=0&id=781b9e79&scoped=true&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -17504,6 +17594,93 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/AppContacts.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/components/AppContacts.vue ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AppContacts_vue_vue_type_template_id_781b9e79_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AppContacts.vue?vue&type=template&id=781b9e79&scoped=true& */ "./resources/js/components/AppContacts.vue?vue&type=template&id=781b9e79&scoped=true&");
+/* harmony import */ var _AppContacts_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AppContacts.vue?vue&type=script&lang=js& */ "./resources/js/components/AppContacts.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _AppContacts_vue_vue_type_style_index_0_id_781b9e79_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AppContacts.vue?vue&type=style&index=0&id=781b9e79&scoped=true&lang=css& */ "./resources/js/components/AppContacts.vue?vue&type=style&index=0&id=781b9e79&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _AppContacts_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AppContacts_vue_vue_type_template_id_781b9e79_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AppContacts_vue_vue_type_template_id_781b9e79_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "781b9e79",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/AppContacts.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/AppContacts.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/AppContacts.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AppContacts_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./AppContacts.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AppContacts.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AppContacts_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/AppContacts.vue?vue&type=style&index=0&id=781b9e79&scoped=true&lang=css&":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/js/components/AppContacts.vue?vue&type=style&index=0&id=781b9e79&scoped=true&lang=css& ***!
+  \**********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AppContacts_vue_vue_type_style_index_0_id_781b9e79_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./AppContacts.vue?vue&type=style&index=0&id=781b9e79&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AppContacts.vue?vue&type=style&index=0&id=781b9e79&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AppContacts_vue_vue_type_style_index_0_id_781b9e79_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AppContacts_vue_vue_type_style_index_0_id_781b9e79_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AppContacts_vue_vue_type_style_index_0_id_781b9e79_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AppContacts_vue_vue_type_style_index_0_id_781b9e79_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/components/AppContacts.vue?vue&type=template&id=781b9e79&scoped=true&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/AppContacts.vue?vue&type=template&id=781b9e79&scoped=true& ***!
+  \********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_AppContacts_vue_vue_type_template_id_781b9e79_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../node_modules/vue-loader/lib??vue-loader-options!./AppContacts.vue?vue&type=template&id=781b9e79&scoped=true& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AppContacts.vue?vue&type=template&id=781b9e79&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_AppContacts_vue_vue_type_template_id_781b9e79_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_AppContacts_vue_vue_type_template_id_781b9e79_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/AppLogo.vue":
 /*!*********************************************!*\
   !*** ./resources/js/components/AppLogo.vue ***!
@@ -18026,7 +18203,7 @@ var routes = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 
 /***/ }),
 
-/***/ 7:
+/***/ 6:
 /*!**************************************!*\
   !*** multi ./resources/js/router.js ***!
   \**************************************/

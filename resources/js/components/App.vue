@@ -1,5 +1,5 @@
 <template lang="">
-    <div>
+    <div class="body-bg">
         <AppHeader />
         <HomePage />
         <AppFooter />
@@ -19,4 +19,8 @@ export default {
     },
 };
 </script>
-<style lang=""></style>
+<style>
+.body-bg {
+    background-image: url("https://cdn.discordapp.com/attachments/1030396020250648618/1034950385389031584/60-charming-food-background-thumb.png");
+}
+</style>
