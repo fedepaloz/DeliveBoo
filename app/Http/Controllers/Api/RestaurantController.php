@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 
@@ -15,18 +16,11 @@ class RestaurantController extends Controller
      */
     public function index(Request $request)
     {
-        $restaurants = Restaurant::with(['categories'])->get();
-
         if ($request->categories) {
-            $raw_restaurants = [];
-            foreach ($restaurants as $restaurant) {
-                foreach ($restaurant->categories as $category) {
-                    if ($category->id == $request->categories) {
-                        $raw_restaurants[] = $restaurant;
-                    }
-                }
-            }
-            $restaurants = $raw_restaurants;
+            $restaurants = Category::find($request->categories)->restaurants()->with('categories')->get();
+            return response()->json($restaurants);
+        } else {
+            $restaurants = Restaurant::with(['categories'])->get();
         }
 
         return response()->json($restaurants);
@@ -88,6 +82,5 @@ class RestaurantController extends Controller
         $restaurants = Restaurant::whereHas('category_id', $category_id)->categories()->get();
         return response()->json($restaurants);
     }
-
 
 }
