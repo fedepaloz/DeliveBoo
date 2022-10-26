@@ -6,6 +6,5 @@
     "/js/image_preview.js": "/js/image_preview.js",
     "/js/items-form-validation.js": "/js/items-form-validation.js",
     "/js/res-form-validation.js": "/js/res-form-validation.js",
-    "/js/router.js": "/js/router.js",
-    "/js/select-style.js": "/js/select-style.js"
+    "/js/router.js": "/js/router.js"
 }

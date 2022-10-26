@@ -1,68 +1,63 @@
 <template lang="">
-    <div class="container mt-5">
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-10">
-                <div class="card select-bg p-3 py-4">
-                    <div
-                        class="row justify-content-center align-items-center g-3 mt-2"
-                    >
-                        <div class="col-6 col-md-3" style="width: 200px">
-                            <div>
-                                <select v-model="category_id">
-                                    <option
-                                        :value="category.id"
-                                        v-for="category in categories"
-                                        :key="category.id"
-                                    >
-                                        <a
-                                            class="drop dropdown-item"
-                                            href="#"
-                                            >{{ category.name }}</a
-                                        >
-                                    </option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <button
-                                @click="fetchRestaurants"
-                                class="btn btn-search"
+    <div class="container">
+        <div class="row justify-content-center align-items-center mt-4">
+            <div
+                class="select-bg p-3 col-12 py-4 row justify-content-center align-items-center g-3"
+            >
+                <div class="col-6 col-md-3">
+                    <div>
+                        <select v-model="category_id">
+                            <option
+                                :value="category.id"
+                                v-for="category in categories"
+                                :key="category.id"
                             >
-                                Cerca
-                            </button>
-                        </div>
+                                <a class="drop dropdown-item" href="#">{{
+                                    category.name
+                                }}</a>
+                            </option>
+                        </select>
                     </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <button @click="fetchRestaurants" class="btn btn-search">
+                        Cerca
+                    </button>
                 </div>
             </div>
         </div>
         <!-- Ciclo "For" qui -->
-        <div class="row no-gutters">
-            <div class="col-md-12">
-                <!-- <img src="restaurant.image" alt="..." /> -->
+        <div
+            class="row justify-content-center bg-light mt-4 py-3"
+            v-for="restaurant in restaurants"
+            :key="restaurant.id"
+        >
+            <div class="col-5">
+                <img
+                    class="img-fluid"
+                    width="300px"
+                    src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YnVyZ2VyfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+                    alt="..."
+                />
             </div>
-            <div
-                v-for="restaurant in restaurants"
-                :key="restaurant.id"
-                class="col-md-8"
-            >
-                <div class="card-body">
-                    <h3 class="card-title">
-                        Nome ristorante: {{ restaurant.name }}
-                    </h3>
-                    <p class="card-text">Indirizzo: {{ restaurant.address }}</p>
-                    <p class="card-text">
-                        Orario Apertura: {{ restaurant.opening_time }}
-                    </p>
-                    <p class="card-text">
-                        Costo consegna: {{ restaurant.delivery_cost }}
-                    </p>
-                    <p class="card-text">
-                        Minimo d'ordine: {{ restaurant.min_order }}
-                    </p>
-                    <button class="btn btn-success">
-                        <a href="">Ordina ora</a>
-                    </button>
-                </div>
+
+            <div class="col-7">
+                <h3 class="card-title">
+                    Nome ristorante: {{ restaurant.name }}
+                </h3>
+                <p class="card-text">Indirizzo: {{ restaurant.address }}</p>
+                <p class="card-text">
+                    Orario Apertura: {{ restaurant.opening_time }}
+                </p>
+                <p class="card-text">
+                    Costo consegna: {{ restaurant.delivery_cost }}
+                </p>
+                <p class="card-text">
+                    Minimo d'ordine: {{ restaurant.min_order }}
+                </p>
+                <button class="btn btn-search">
+                    <a href="">Ordina ora</a>
+                </button>
             </div>
         </div>
         <!-- <ul>
@@ -138,9 +133,6 @@ export default {
     background-size: cover;
     background-image: url("https://png.pngtree.com/thumb_back/fh260/back_our/20190621/ourmid/pngtree-black-atmosphere-simple-meal-food-food-banner-image_176553.jpg");
     background-repeat: no-repeat;
-}
-.drop {
-    color: #000;
 }
 
 /* CSS */
@@ -235,6 +227,10 @@ export default {
     top: 0;
     transition-timing-function: ease-in;
     opacity: 0;
+}
+.btn-search a {
+    text-decoration: none;
+    color: white;
 }
 
 .btn-search:active:not(:disabled) {
