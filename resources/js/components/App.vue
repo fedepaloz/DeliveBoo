@@ -1,19 +1,19 @@
 <template lang="">
     <div>
         <AppHeader />
-        
+        <AppFooter />
     </div>
 </template>
 <script>
 import AppHeader from "./AppHeader.vue";
+import AppFooter from "./AppFooter.vue";
 export default {
     name: "App",
 
     components: {
-        AppHeader
-    }
+        AppHeader,
+        AppFooter,
+    },
 };
 </script>
-<style lang="">
-
-</style>
+<style lang=""></style>
