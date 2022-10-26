@@ -4,9 +4,9 @@
     <section id="servizi">
       <div class="container-fluid">
         <div class="row align-items-center justify-content-around">
-          <div class="col-2"><AppLogo></AppLogo></div>
+          <div class="col-sm col-lg-2"><AppLogo></AppLogo></div>
 
-          <div class="col-6 text-center">
+          <div class="col-sm col-lg-6 text-center">
             <h2 class="bold">I nostri servizi</h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
@@ -15,9 +15,9 @@
               optio ratione laboriosam aspernatur?
             </p>
           </div>
-          <div class="col-3">
-            <img class="img-fluid"
-              src="https://www.baraldi.it/wp-content/uploads/2021/03/Servizi.jpg"
+          <div class="col-sm col-lg-3">
+            <img class="img-fluid p-3"
+              src="https://images.prismic.io/deliveroo/2ad27cdc-9c5a-4136-85b4-349f9ba1344f_nan_25+%281%29.JPG?auto=compress,format"
               alt="servizi"
             />
           </div>
