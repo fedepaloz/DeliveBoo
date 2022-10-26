@@ -1,7 +1,6 @@
 <template lang="">
     <div>
         <AppHeader />
-        <AdvancedSearch />
         <HomePage />
         <AppFooter />
     </div>
@@ -10,7 +9,6 @@
 import AppHeader from "./AppHeader.vue";
 import HomePage from "./pages/HomePage.vue";
 import AppFooter from "./AppFooter.vue";
-import AdvancedSearch from "./pages/AdvancedSearch.vue";
 export default {
     name: "App",
 
@@ -18,7 +16,6 @@ export default {
         AppHeader,
         HomePage,
         AppFooter,
-        AdvancedSearch,
     },
 };
 </script>

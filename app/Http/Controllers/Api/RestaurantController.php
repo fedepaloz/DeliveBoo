@@ -22,7 +22,6 @@ class RestaurantController extends Controller
         } else {
             $restaurants = Restaurant::with(['categories'])->get();
         }
-
         return response()->json($restaurants);
     }
 

@@ -8,20 +8,12 @@
                     <div class="row g-3 mt-2">
                         <div class="col-md-3">
                             <div class="dropdown">
-                                <button
-                                    class="btn btn-secondary dropdown-toggle"
-                                    type="button"
-                                    id="dropdownMenuButton"
-                                    data-toggle="dropdown"
-                                    aria-expanded="false"
-                                >
-                                    Categorie
-                                </button>
-                                <ul
-                                    class="dropdown-menu"
+                                <select
+                                    v-model="category_id"
                                     aria-labelledby="dropdownMenuButton"
                                 >
-                                    <li
+                                    <option
+                                        :value="category.id"
                                         v-for="category in categories"
                                         :key="category.id"
                                     >
@@ -30,8 +22,8 @@
                                             href="#"
                                             >{{ category.name }}</a
                                         >
-                                    </li>
-                                </ul>
+                                    </option>
+                                </select>
                             </div>
                             <!-- <p
                                 v-for="restaurant in restaurants"
@@ -42,7 +34,10 @@
                         </div>
                         <p></p>
                         <div class="col-md-3">
-                            <button class="btn btn-secondary btn-block">
+                            <button
+                                @click="fetchRestaurants"
+                                class="btn btn-secondary btn-block"
+                            >
                                 Cerca risultato
                             </button>
                         </div>
@@ -59,26 +54,44 @@ export default {
         return {
             categories: [],
             restaurants: [],
+            category_id: null,
         };
     },
     methods: {
         fetchCategories() {
             // this.isLoading = true;
             axios
-                .get(`http://localhost:8000/api/restaurants`)
+                .get(`http://localhost:8000/api/categories`)
                 .then((res) => {
                     this.categories = res.data;
-                    this.restaurants = res.data;
-                    // this.pagination.current = current_page;
-                    // this.pagination.last = last_page;
                 })
                 .catch((err) => {
-                    this.error = "Errore durante il fetch dei post";
+                    this.error = "Errore durante il fetch delle categorie";
                 })
                 .then(() => {
                     this.isLoading = false;
                 });
         },
+        fetchRestaurants() {
+            axios
+                .get(
+                    `http://localhost:8000/api/restaurants?categories=${this.category_id}`
+                )
+                .then((res) => {
+                    console.log(res.data.response);
+
+                    this.restaurants = res.data;
+                    this.$emit("filteredRestaurants", this.restaurants);
+                })
+                .catch((err) => {
+                    this.error = "Errore durante il fetch dei ristoranti";
+                })
+                .then(() => {
+                    this.isLoading = false;
+                });
+        },
+
+        filteredRestaurants() {},
     },
     mounted() {
         this.fetchCategories();
