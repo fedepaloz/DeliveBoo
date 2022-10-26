@@ -4,15 +4,15 @@
             <div class="container-fluid">
                 <AdvancedSearch @filtered-restaurants="filteredRestaurants"/>
                 <!-- <RestaurantList :restaurants="restaurants" /> -->
-                
                 <!-- ! Prima sezione (I nostri servizi) -->
                 <div class="container">
+                    <hr class="hr">
                     <!-- logo -->
                     <div class="row justify-content-center align-items-center my-5">
-                        <div class="col-sm-3 col-lg-3">
+                        <div>
                             <AppLogo />
                         </div>
-                    <div class="col-sm-9 col-lg-9 text-center d-flex align-items-center">
+                    <div class="col">
                         <AppServices />
                     </div>
                     <div class="col-12">
@@ -39,7 +39,6 @@
 <script>
 import AppPartners from "../AppPartners.vue";
 import RestaurantList from "./RestaurantList.vue";
-import AppLogo from "../AppLogo.vue";
 import AppServices from "../AppServices.vue";
 import AppCart from "../AppCart.vue";
 import AdvancedSearch from "./AdvancedSearch.vue";
@@ -52,7 +51,7 @@ export default {
         };
     },
     components: {
-        AppLogo,
+
         AppServices,
         AppCart,
         AppPartners,
@@ -91,5 +90,9 @@ export default {
     background-position: 60% 43%;
     background-size: cover;
     background-image: url(https://cdn4.vectorstock.com/i/1000x1000/86/23/online-food-order-and-delivery-process-vector-27208623.jpg);
+}
+.hr {
+    border-top: 1px solid green;
+    margin: 30px 0 0 0;
 }
 </style>
