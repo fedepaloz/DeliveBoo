@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img src="../../images/deliveboo-logo.png" alt="Deliveboo logo">
+        <img class="img-fluid" src="../../images/deliveboo-logo.png" alt="Deliveboo logo">
     </div>
 </template>
 <script>
