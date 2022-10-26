@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -784,23 +784,21 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "col-md-10"
   }, [_c("div", {
-    staticClass: "card p-3 py-4"
-  }, [_c("h5", [_vm._v("Cerca i ristoranti")]), _vm._v(" "), _c("div", {
-    staticClass: "row g-3 mt-2"
+    staticClass: "card select-bg p-3 py-4"
   }, [_c("div", {
-    staticClass: "col-md-3"
+    staticClass: "row justify-content-center align-items-center g-3 mt-2"
   }, [_c("div", {
-    staticClass: "dropdown"
-  }, [_c("select", {
+    staticClass: "col-6 col-md-3",
+    staticStyle: {
+      width: "200px"
+    }
+  }, [_c("div", [_c("select", {
     directives: [{
       name: "model",
       rawName: "v-model",
       value: _vm.category_id,
       expression: "category_id"
     }],
-    attrs: {
-      "aria-labelledby": "dropdownMenuButton"
-    },
     on: {
       change: function change($event) {
         var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
@@ -824,19 +822,14 @@ var render = function render() {
         href: "#"
       }
     }, [_vm._v(_vm._s(category.name))])]);
-  }), 0)])]), _vm._v(" "), _c("p"), _vm._v(" "), _c("div", {
-    staticClass: "col-md-3"
+  }), 0)])]), _vm._v(" "), _c("div", {
+    staticClass: "col-6 col-md-3"
   }, [_c("button", {
-    staticClass: "btn btn-secondary btn-block",
+    staticClass: "btn btn-search",
     on: {
       click: _vm.fetchRestaurants
     }
-  }, [_vm._v("\n                            Cerca risultato\n                        ")])])])])])]), _vm._v(" "), _c("div", {
-    staticClass: "card mb-3",
-    staticStyle: {
-      "max-width": "540px"
-    }
-  }, [_c("div", {
+  }, [_vm._v("\n                            Cerca\n                        ")])])])])])]), _vm._v(" "), _c("div", {
     staticClass: "row no-gutters"
   }, [_c("div", {
     staticClass: "col-md-12"
@@ -848,16 +841,16 @@ var render = function render() {
       staticClass: "card-body"
     }, [_c("h3", {
       staticClass: "card-title"
-    }, [_vm._v("\n                        Nome ristorante: " + _vm._s(restaurant.name) + "\n                    ")]), _vm._v(" "), _c("p", {
+    }, [_vm._v("\n                    Nome ristorante: " + _vm._s(restaurant.name) + "\n                ")]), _vm._v(" "), _c("p", {
       staticClass: "card-text"
-    }, [_vm._v("\n                        Indirizzo: " + _vm._s(restaurant.address) + "\n                    ")]), _vm._v(" "), _c("p", {
+    }, [_vm._v("Indirizzo: " + _vm._s(restaurant.address))]), _vm._v(" "), _c("p", {
       staticClass: "card-text"
-    }, [_vm._v("\n                        Orario Apertura: " + _vm._s(restaurant.opening_time) + "\n                    ")]), _vm._v(" "), _c("p", {
+    }, [_vm._v("\n                    Orario Apertura: " + _vm._s(restaurant.opening_time) + "\n                ")]), _vm._v(" "), _c("p", {
       staticClass: "card-text"
-    }, [_vm._v("\n                        Costo consegna: " + _vm._s(restaurant.delivery_cost) + "\n                    ")]), _vm._v(" "), _c("p", {
+    }, [_vm._v("\n                    Costo consegna: " + _vm._s(restaurant.delivery_cost) + "\n                ")]), _vm._v(" "), _c("p", {
       staticClass: "card-text"
-    }, [_vm._v("\n                        Minimo d'ordine: " + _vm._s(restaurant.min_order) + "\n                    ")]), _vm._v(" "), _vm._m(0, true)])]);
-  })], 2)])]);
+    }, [_vm._v("\n                    Minimo d'ordine: " + _vm._s(restaurant.min_order) + "\n                ")]), _vm._v(" "), _vm._m(0, true)])]);
+  })], 2)]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -1071,7 +1064,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.drop {\r\n    color: #000;\n}\r\n", ""]);
+exports.push([module.i, "\n.select-bg {\r\n    background-size: cover;\r\n    background-image: url(\"https://png.pngtree.com/thumb_back/fh260/back_our/20190621/ourmid/pngtree-black-atmosphere-simple-meal-food-food-banner-image_176553.jpg\");\r\n    background-repeat: no-repeat;\n}\n.drop {\r\n    color: #000;\n}\r\n\r\n/* CSS */\n.btn-search {\r\n    align-items: center;\r\n    -webkit-appearance: none;\r\n       -moz-appearance: none;\r\n            appearance: none;\r\n    background-clip: padding-box;\r\n    background-color: initial;\r\n    background-image: none;\r\n    border-style: none;\r\n    box-sizing: border-box;\r\n    color: #fff;\r\n    cursor: pointer;\r\n    display: inline-block;\r\n    flex-direction: row;\r\n    flex-shrink: 0;\r\n    font-family: Eina01, sans-serif;\r\n    font-size: 16px;\r\n    font-weight: 800;\r\n    justify-content: center;\r\n    line-height: 24px;\r\n    margin: 0;\r\n    min-height: 64px;\r\n    outline: none;\r\n    overflow: visible;\r\n    padding: 19px 26px;\r\n    pointer-events: auto;\r\n    position: relative;\r\n    text-align: center;\r\n    text-decoration: none;\r\n    text-transform: none;\r\n    -moz-user-select: none;\r\n         user-select: none;\r\n    -webkit-user-select: none;\r\n    touch-action: manipulation;\r\n    vertical-align: middle;\r\n    width: auto;\r\n    word-break: keep-all;\r\n    z-index: 0;\n}\n@media (min-width: 768px) {\n.btn-search {\r\n        padding: 19px 32px;\n}\n}\n.btn-search:before,\r\n.btn-search:after {\r\n    border-radius: 80px;\n}\n.btn-search:before {\r\n    background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);\r\n    content: \"\";\r\n    display: block;\r\n    height: 100%;\r\n    left: 0;\r\n    overflow: hidden;\r\n    position: absolute;\r\n    top: 0;\r\n    width: 100%;\r\n    z-index: -2;\n}\n.btn-search:after {\r\n    background-color: initial;\r\n    background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);\r\n    bottom: 4px;\r\n    content: \"\";\r\n    display: block;\r\n    left: 4px;\r\n    overflow: hidden;\r\n    position: absolute;\r\n    right: 4px;\r\n    top: 4px;\r\n    transition: all 100ms ease-out;\r\n    z-index: -1;\n}\n.btn-search:hover:not(:disabled):before {\r\n    background: linear-gradient(\r\n        92.83deg,\r\n        rgb(255, 116, 38) 0%,\r\n        rgb(249, 58, 19) 100%\r\n    );\n}\n.btn-search:hover:not(:disabled):after {\r\n    bottom: 0;\r\n    left: 0;\r\n    right: 0;\r\n    top: 0;\r\n    transition-timing-function: ease-in;\r\n    opacity: 0;\n}\n.btn-search:active:not(:disabled) {\r\n    color: #ccc;\n}\n.btn-search:active:not(:disabled):before {\r\n    background-image: linear-gradient(\r\n            0deg,\r\n            rgba(0, 0, 0, 0.2),\r\n            rgba(0, 0, 0, 0.2)\r\n        ),\r\n        linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);\n}\n.btn-search:active:not(:disabled):after {\r\n    background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);\r\n    bottom: 4px;\r\n    left: 4px;\r\n    right: 4px;\r\n    top: 4px;\n}\n.btn-search:disabled {\r\n    cursor: default;\r\n    opacity: 0.24;\n}\nselect {\r\n    width: 100%;\r\n    height: 50px;\r\n    font-size: 100%;\r\n    font-weight: bold;\r\n    cursor: pointer;\r\n    border-radius: 0;\r\n    background-color: #ff7426;\r\n    border: none;\r\n    border-bottom: 2px solid #962d22;\r\n    color: white;\r\n    padding: 10px;\r\n    appearance: none;\r\n    -webkit-appearance: none;\r\n    -moz-appearance: none;\r\n    padding: 10px;\n}\r\n", ""]);
 
 // exports
 
@@ -18033,7 +18026,7 @@ var routes = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 
 /***/ }),
 
-/***/ 5:
+/***/ 7:
 /*!**************************************!*\
   !*** multi ./resources/js/router.js ***!
   \**************************************/
