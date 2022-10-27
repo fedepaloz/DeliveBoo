@@ -1,7 +1,7 @@
 <template lang="">
     <div class="container">
         <div class="container">
-            <!-- Dettagli ristorante -->
+            <AppRestaurantDetails />
             <div class="row">
                 <div class="col-12 py-4">
                     <!-- ! Qui inserire componente dettagli ristorante -->
@@ -33,10 +33,14 @@
 
 <script>
 import RestaurantMenu from "../RestaurantMenu.vue";
+import AppRestaurantDetails from "../AppRestaurantDetails.vue";
 
 export default {
     name: "RestaurantPage",
-    components: { RestaurantMenu },
+    components: { 
+        RestaurantMenu,
+        AppRestaurantDetails,
+     },
     data() {
         return {
             restaurant: {},
