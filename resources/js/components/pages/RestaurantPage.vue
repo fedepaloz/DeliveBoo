@@ -14,12 +14,12 @@
 
             <div class="row">
                 <!-- Menu ristorante -->
-                <div class="col-8">
+                <div class="col-7">
                    
                     <RestaurantMenu :items="restaurant.items" />
                 </div>
                 <!-- Carrello sticky -->
-                <div class="col-4">
+                <div class="col-5">
                    <AppCart></AppCart> 
                 </div>
             </div>
