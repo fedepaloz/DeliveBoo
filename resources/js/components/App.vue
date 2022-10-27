@@ -21,6 +21,8 @@ export default {
 </script>
 <style>
 .body-bg {
-    background-image: url("https://cdn.discordapp.com/attachments/1030396020250648618/1034950385389031584/60-charming-food-background-thumb.png");
+    background-size: 50%;
+    background-repeat: repeat;
+    background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/0f845043109755.57e3972eb7c0f.png");
 }
 </style>
