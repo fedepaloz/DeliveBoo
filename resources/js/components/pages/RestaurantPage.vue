@@ -16,10 +16,7 @@
                 <!-- Menu ristorante -->
                 <div class="col-8">
                     <!-- ! Qui inserire componente menu -->
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Porro explicabo eligendi cumque impedit? Quae deleniti
-                    tempore soluta harum, dolorum molestias? Odio, fugit
-                    doloribus similique autem a nesciunt in consequatur nostrum.
+                    <RestaurantMenu :items="restaurant.items" />
                 </div>
                 <!-- Carrello sticky -->
                 <div class="col-4">
@@ -33,9 +30,39 @@
         </div>
     </div>
 </template>
+
 <script>
+import RestaurantMenu from "../RestaurantMenu.vue";
+
 export default {
     name: "RestaurantPage",
+    components: { RestaurantMenu },
+    data() {
+        return {
+            restaurant: {},
+        };
+    },
+    methods: {
+        fetchRestaurant() {
+            // this.isLoading = true;
+            axios
+                .get(
+                    `http://127.0.0.1:8000/api/restaurants/${this.$route.params.id}`
+                )
+                .then((res) => {
+                    this.restaurant = res.data;
+                })
+                .catch((err) => {
+                    this.error = "Errore durante il fetch dei post";
+                })
+                .then(() => {
+                    this.isLoading = false;
+                });
+        },
+    },
+    mounted() {
+        this.fetchRestaurant();
+    },
 };
 </script>
 <style lang="scss" scoped></style>
