@@ -1,5 +1,7 @@
 <template>
     <div>
+
+       
         <section id="services">
             <div class="container-fluid">
                 <AdvancedSearch @filtered-restaurants="filteredRestaurants" />
@@ -41,6 +43,7 @@ import AppServices from "../AppServices.vue";
 import AppCart from "../AppCart.vue";
 import AdvancedSearch from "./AdvancedSearch.vue";
 
+
 export default {
     name: "HomePage",
     data() {
@@ -54,6 +57,9 @@ export default {
         AppPartners,
         RestaurantList,
         AdvancedSearch,
+
+        
+
     },
     methods: {
         fetchRestaurants() {
