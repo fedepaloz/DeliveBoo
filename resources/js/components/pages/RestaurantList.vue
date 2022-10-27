@@ -42,7 +42,14 @@
                     }}</span>
                 </p>
                 <button class="btn btn-search">
-                    <a href="">Ordina ora</a>
+                    <router-link
+                        :to="{
+                            name: 'restaurant-page',
+                            params: { id: restaurant.id },
+                        }"
+                        class="btn btn-primary"
+                        >Ordina ora</router-link
+                    >
                 </button>
             </div>
         </div>
@@ -190,5 +197,4 @@ export default {
     cursor: default;
     opacity: 0.24;
 }
-
 </style>

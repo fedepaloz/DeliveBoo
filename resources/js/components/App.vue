@@ -1,6 +1,7 @@
 <template lang="">
     <div class="body-bg">
         <AppHeader />
+        <router-view></router-view>
         <HomePage />
         <AppFooter />
     </div>

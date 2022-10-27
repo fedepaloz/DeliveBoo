@@ -6,7 +6,7 @@
                 <ul class="list-group">
                     <li class="list-group-item disabled" aria-disabled="true">
                         <div class="card mb-3">
-                            <img src="..." class="card-img-top" alt="...">
+                            <img src="" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h4 class="card-title">Nome Piatto: ...</h4>
                                 <p class="card-text">descrizione lunga piattooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo.</p>
