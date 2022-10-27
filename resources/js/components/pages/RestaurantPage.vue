@@ -1,14 +1,9 @@
 <template lang="">
     <div class="container">
         <div class="container">
-            <AppRestaurantDetails />
             <div class="row">
                 <div class="col-12 py-4">
-                    <!-- ! Qui inserire componente dettagli ristorante -->
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Porro explicabo eligendi cumque impedit? Quae deleniti
-                    tempore soluta harum, dolorum molestias? Odio, fugit
-                    doloribus similique autem a nesciunt in consequatur nostrum.
+                    <AppRestaurantDetails />
                 </div>
             </div>
 
