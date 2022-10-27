@@ -19,7 +19,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-6 col-md-3">
+                <div class="col-6 pl-5 col-md-3">
                     <button @click="fetchRestaurants" class="btn btn-search">
                         Cerca
                     </button>
@@ -143,7 +143,7 @@ export default {
 }
 
 .btn-search:before {
-    background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+    background-image: linear-gradient(92.83deg, #60c442 0, #f93a13 100%);
     content: "";
     display: block;
     height: 100%;
@@ -201,7 +201,7 @@ export default {
             rgba(0, 0, 0, 0.2),
             rgba(0, 0, 0, 0.2)
         ),
-        linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+        linear-gradient(92.83deg, #60c442 0, #f93a13 100%);
 }
 
 .btn-search:active:not(:disabled):after {
@@ -224,9 +224,8 @@ select {
     font-weight: bold;
     cursor: pointer;
     border-radius: 0;
-    background-color: #ff7426;
+    background-color: #60c442;
     border: none;
-    border-bottom: 2px solid #962d22;
     color: white;
     padding: 10px;
     appearance: none;
