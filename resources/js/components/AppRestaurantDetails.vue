@@ -2,7 +2,7 @@
         <div class="row my-5">
             <div class="col-12 d-flex">
                 <div class="row align-items-md-center justify-content-md-between">
-                    <div class="col-12 col-md-3">
+                    <div class="col-12 col-md-4">
                         <img
                         class="img-fluid"
                         src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YnVyZ2VyfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
