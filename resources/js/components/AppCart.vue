@@ -1,6 +1,6 @@
 <template>
   
-    <div class="container h-100 py-5">
+    <div class="h-100 py-5">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-10">
           <div class="d-flex justify-content-between align-items-center mb-4">
@@ -8,7 +8,7 @@
           </div>
 
           <div class="card rounded-3 mb-4">
-            <div class="card-body p-4">
+            <div class="card-body">
               <div
                 class="row d-flex justify-content-between align-items-center"
               >

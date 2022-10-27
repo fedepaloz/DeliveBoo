@@ -1,6 +1,6 @@
 <template lang="">
     
-        <div class="container-fluid">
+        <div class="container">
             <!-- Dettagli ristorante -->
             <div class="row">
                 <div class="col-12 py-4">
