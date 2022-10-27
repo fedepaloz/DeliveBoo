@@ -26,48 +26,6 @@
                 </div>
             </div>
         </div>
-        <!-- Ciclo "For" qui -->
-        <div
-            class="row justify-content-center bg-light mt-4 py-3"
-            v-for="restaurant in restaurants"
-            :key="restaurant.id"
-        >
-            <div class="col-5">
-                <img
-                    class="img-fluid"
-                    width="300px"
-                    src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YnVyZ2VyfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
-                    alt="..."
-                />
-            </div>
-
-            <div class="col-7">
-                <h3 class="card-title">
-                    Nome ristorante: {{ restaurant.name }}
-                </h3>
-                <p class="card-text">Indirizzo: {{ restaurant.address }}</p>
-                <p class="card-text">
-                    Orario Apertura: {{ restaurant.opening_time }}
-                </p>
-                <p class="card-text">
-                    Costo consegna: {{ restaurant.delivery_cost }}
-                </p>
-                <p class="card-text">
-                    Minimo d'ordine: {{ restaurant.min_order }}
-                </p>
-                <button class="btn btn-search">
-                    <a href="">Ordina ora</a>
-                </button>
-            </div>
-        </div>
-        <!-- <ul>
-            <li v-for="restaurant in restaurants" :key="restaurant.id">
-                <RestaurantList :restaurants="restaurants" />
-                {{ restaurant.name }}
-                {{ restaurant.address }}
-                {{ restaurant.delivery_cost }}
-            </li>
-        </ul> -->
     </div>
 </template>
 <script>
@@ -109,7 +67,7 @@ export default {
                     // console.log(res.data.response);
 
                     this.restaurants = res.data;
-                    this.$emit("filteredRestaurants", this.restaurants);
+                    this.$emit("filtered-restaurants", this.restaurants);
                 })
                 .catch((err) => {
                     this.error = "Errore durante il fetch dei ristoranti";

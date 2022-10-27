@@ -1,12 +1,12 @@
 <template lang="">
-    <div>
+    <div class="container">
         <div class="card mb-3" style="max-width: 540px">
             <!-- Ciclo "For" qui -->
             <div class="row no-gutters">
                 <div class="col-md-12">
-                    <!-- <img src="restaurant.image" alt="..." /> -->
+                    <!-- <img :src="require({{restaurant.image}})" alt="..." /> -->
                 </div>
-                <div v-for="restaurant in restaurants" :key="restaurant.id" class="col-md-8">
+                <div class="col-md-8">
                     <div class="card-body">
                         <h3 class="card-title">
                             Nome ristorante: {{ restaurant.name }}
@@ -37,7 +37,7 @@ export default {
     name: "RestaurantList",
 
     props: {
-        restaurants: Array,
+        restaurant: Object,
     },
 };
 </script>
