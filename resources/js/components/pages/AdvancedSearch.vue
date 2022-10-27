@@ -19,7 +19,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-6 col-md-3">
+                <div class="pl-5 col-6 col-md-3">
                     <button @click="fetchRestaurants" class="btn btn-search">
                         Cerca
                     </button>
@@ -28,14 +28,14 @@
         </div>
         <!-- Ciclo "For" qui -->
         <div
-            class="row justify-content-center bg-light mt-4 py-3"
+            class="row justify-content-center align-items-center text-center bg-light mt-4 py-3"
             v-for="restaurant in restaurants"
             :key="restaurant.id"
         >
             <div class="col-5">
                 <img
                     class="img-fluid"
-                    width="300px"
+                    width="250px"
                     src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YnVyZ2VyfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
                     alt="..."
                 />
@@ -43,23 +43,39 @@
 
             <div class="col-7">
                 <h3 class="card-title">
-                    Nome ristorante: {{ restaurant.name }}
+                    Nome ristorante:
+                    <span class="riepilogue-text"> {{ restaurant.name }} </span>
                 </h3>
-                <p class="card-text">Indirizzo: {{ restaurant.address }}</p>
                 <p class="card-text">
-                    Orario Apertura: {{ restaurant.opening_time }}
+                    Indirizzo:
+                    <span class="riepilogue-text">
+                        {{ restaurant.address }}
+                    </span>
                 </p>
                 <p class="card-text">
-                    Costo consegna: {{ restaurant.delivery_cost }}
+                    Orario Apertura:
+                    <span class="riepilogue-text">{{
+                        restaurant.opening_time
+                    }}</span>
                 </p>
                 <p class="card-text">
-                    Minimo d'ordine: {{ restaurant.min_order }}
+                    Costo consegna:
+                    <span class="riepilogue-text">{{
+                        restaurant.delivery_cost
+                    }}</span>
+                </p>
+                <p class="card-text">
+                    Minimo d'ordine:
+                    <span class="riepilogue-text">{{
+                        restaurant.min_order
+                    }}</span>
                 </p>
                 <button class="btn btn-search">
                     <a href="">Ordina ora</a>
                 </button>
             </div>
         </div>
+
         <!-- <ul>
             <li v-for="restaurant in restaurants" :key="restaurant.id">
                 <RestaurantList :restaurants="restaurants" />
@@ -135,6 +151,10 @@ export default {
     background-repeat: no-repeat;
 }
 
+.riepilogue-text {
+    color: #60c442;
+}
+
 /* CSS */
 .btn-search {
     align-items: center;
@@ -185,7 +205,7 @@ export default {
 }
 
 .btn-search:before {
-    background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+    background-image: linear-gradient(92.83deg, #60c442 0, #f93a13 100%);
     content: "";
     display: block;
     height: 100%;
@@ -243,7 +263,7 @@ export default {
             rgba(0, 0, 0, 0.2),
             rgba(0, 0, 0, 0.2)
         ),
-        linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+        linear-gradient(92.83deg, #60c442 0, #f93a13 100%);
 }
 
 .btn-search:active:not(:disabled):after {
@@ -266,9 +286,8 @@ select {
     font-weight: bold;
     cursor: pointer;
     border-radius: 0;
-    background-color: #ff7426;
+    background-color: #60c442;
     border: none;
-    border-bottom: 2px solid #962d22;
     color: white;
     padding: 10px;
     appearance: none;
