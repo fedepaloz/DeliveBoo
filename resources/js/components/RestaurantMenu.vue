@@ -23,7 +23,7 @@
 
 <script>
 export default {
-    name: "AdvancedSearch",
+    name: "RestaurantMenu",
     props: {
         items: Array,
     },
