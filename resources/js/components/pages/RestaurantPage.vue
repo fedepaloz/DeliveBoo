@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 py-4">
-                    <AppRestaurantDetails />
+                    <AppRestaurantDetails :restaurant="restaurant" />
                 </div>
             </div>
 
@@ -52,15 +52,17 @@ export default {
                     this.restaurant = res.data;
                 })
                 .catch((err) => {
-                    this.error = "Errore durante il fetch dei post";
+                    this.error = "Errore durante il fetch dei ristoranti";
                 })
                 .then(() => {
                     this.isLoading = false;
                 });
         },
+        
     },
     mounted() {
         this.fetchRestaurant();
+
     },
 };
 </script>

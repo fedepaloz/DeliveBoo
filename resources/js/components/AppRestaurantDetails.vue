@@ -5,18 +5,18 @@
                     <div class="col-12 col-md-4">
                         <img
                         class="img-fluid"
-                        src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YnVyZ2VyfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
-                        alt="..."
+                        :src="restaurant.image"
+                        :alt="restaurant.name"
                         />
                     </div>
                     
                     <div class="col-md-7 col-12">
-                        <h3 class="card-title"><strong>Nome ristorante: </strong><span class="riepilogue-text"> Restaurant </span></h3>
-                        <p class="card-text"><strong>Indirizzo: </strong><span class="riepilogue-text">Address</span></p>
-                        <p class="card-text"><strong>Orario Apertura: </strong><span class="riepilogue-text">Opening Time</span></p>
-                        <p class="card-text"><strong>Orario Chiusura: </strong><span class="riepilogue-text">Closure Time</span></p>
-                        <p class="card-text"><strong>Costo consegna: </strong><span class="riepilogue-text">Delivery Cost</span></p>
-                        <p class="card-text"><strong>Minimo d'ordine: </strong><span class="riepilogue-text">Min Order</span></p>
+                        <h3 class="card-title"><strong>Nome ristorante: </strong><span class="riepilogue-text">{{ restaurant.name }}</span></h3>
+                        <p class="card-text"><strong>Indirizzo: </strong><span class="riepilogue-text">{{ restaurant.address }}</span></p>
+                        <p class="card-text"><strong>Orario Apertura: </strong><span class="riepilogue-text">{{ restaurant.opening_time }}</span></p>
+                        <p class="card-text"><strong>Orario Chiusura: </strong><span class="riepilogue-text">{{ restaurant.closure_time }}</span></p>
+                        <p class="card-text"><strong>Costo consegna: </strong><span class="riepilogue-text">{{ restaurant.delivery_cost }}</span></p>
+                        <p class="card-text"><strong>Minimo d'ordine: </strong><span class="riepilogue-text">{{ restaurant.min_order }}</span></p>
                     </div>
                 </div>
             </div>
@@ -26,6 +26,9 @@
 <script>
 export default {
     name: "AppRestaurantDetails",
+    props: {
+        restaurant: Object,
+    }
 }
 </script>
 
