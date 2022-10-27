@@ -1,6 +1,6 @@
 <template lang="">
-    <div class="container">
-        <div class="container">
+    
+        <div class="container-fluid">
             <!-- Dettagli ristorante -->
             <div class="row">
                 <div class="col-12 py-4">
@@ -15,28 +15,26 @@
             <div class="row">
                 <!-- Menu ristorante -->
                 <div class="col-8">
-                    <!-- ! Qui inserire componente menu -->
+                   
                     <RestaurantMenu :items="restaurant.items" />
                 </div>
                 <!-- Carrello sticky -->
                 <div class="col-4">
-                    <!-- ! Qui inserire componente carrello -->
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Porro explicabo eligendi cumque impedit? Quae deleniti
-                    tempore soluta harum, dolorum molestias? Odio, fugit
-                    doloribus similique autem a nesciunt in consequatur nostrum.
+                   <AppCart></AppCart> 
                 </div>
             </div>
         </div>
-    </div>
+    
 </template>
 
 <script>
 import RestaurantMenu from "../RestaurantMenu.vue";
+import AppCart from "../AppCart.vue";
 
 export default {
+    name:"AppCart",
     name: "RestaurantPage",
-    components: { RestaurantMenu },
+    components: { RestaurantMenu , AppCart },
     data() {
         return {
             restaurant: {},
