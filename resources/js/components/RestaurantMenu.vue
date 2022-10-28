@@ -17,17 +17,17 @@
                         class="btn btn-primary"
                         @click="addToCart(item)"
                         type="button"
-                        >+</span
-                    >
+                        ><i data-v-047541c6="" class="fas fa-plus"></i
+                    ></span>
                     <span
                         class="btn btn-primary"
-                        @click="removeFromCart"
+                        @click="removeFromCart(item)"
                         type="button"
-                        >-</span
-                    >
-                    <span class="btn btn-primary" @click="clear" type="button"
-                        >Delete</span
-                    >
+                        ><i data-v-047541c6="" class="fas fa-minus"></i
+                    ></span>
+                    <span class="btn btn-danger" @click="clear" type="button"
+                        ><i class="fa-solid fa-trash"></i
+                    ></span>
                 </div>
             </div>
         </li>
@@ -79,15 +79,23 @@ export default {
                 localStorage.setItem("ordine", JSON.stringify(order));
             }
         },
-        removeFromCart() {
-            const order = JSON.parse(localStorage.getItem("ordine"));
-            const myOrder = order["0"];
+        removeFromCart(item) {
+            if (localStorage.ordine) {
+                const order = JSON.parse(localStorage.getItem("ordine"));
 
-            if (myOrder.quantity > 0) {
-                --myOrder.quantity;
+                const exist = order.find((prod) => {
+                    return prod.id == item.id;
+                });
+
+                if (exist) {
+                    order.forEach((prod) => {
+                        if (prod.id == item.id) {
+                            console.log(prod.quantity);
+                            prod.quantity -= 1;
+                        }
+                    });
+                }
             }
-
-            localStorage.setItem("ordine", JSON.stringify(order));
         },
         clear() {
             localStorage.clear();
