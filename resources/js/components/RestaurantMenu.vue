@@ -21,11 +21,14 @@
                     ></span>
                     <span
                         class="btn btn-primary"
-                        @click="removeFromCart(item)"
+                        @click="reduceFromCart(item)"
                         type="button"
                         ><i data-v-047541c6="" class="fas fa-minus"></i
                     ></span>
-                    <span class="btn btn-danger" @click="clear" type="button"
+                    <span
+                        class="btn btn-danger"
+                        @click="removeFromCart(item)"
+                        type="button"
                         ><i class="fa-solid fa-trash"></i
                     ></span>
                 </div>
@@ -79,7 +82,7 @@ export default {
                 localStorage.setItem("ordine", JSON.stringify(order));
             }
         },
-        removeFromCart(item) {
+        reduceFromCart(item) {
             if (localStorage.ordine) {
                 const order = JSON.parse(localStorage.getItem("ordine"));
 
@@ -105,7 +108,25 @@ export default {
                 }
             }
         },
-        clear() {
+        removeFromCart(item) {
+            if (localStorage.ordine) {
+                const order = JSON.parse(localStorage.getItem("ordine"));
+
+                const exist = order.find((prod) => {
+                    return prod.id == item.id;
+                });
+
+                if (exist) {
+                    order.forEach((prod, index) => {
+                        if (prod.id == item.id) {
+                            order.splice(index, 1);
+                        }
+                        localStorage.setItem("ordine", JSON.stringify(order));
+                    });
+                }
+            }
+        },
+        clearCart() {
             localStorage.clear();
         },
     },
