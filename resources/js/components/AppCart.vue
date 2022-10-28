@@ -45,7 +45,7 @@
                                 </button>
                             </div>
                             <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                <h5 class="mb-0">25$</h5>
+                                <h5 class="mb-0">{{ item.total }} €</h5>
                             </div>
                             <div class="col-md-1 col-lg-1 col-xl-1 mr-1">
                                 <a
@@ -87,6 +87,7 @@ export default {
             order.forEach((prod) => {
                 if (prod.id == item.id) {
                     ++prod.quantity;
+                    prod.total += prod.price;
                 }
             });
 
@@ -101,6 +102,7 @@ export default {
                         order.splice(index, 1);
                     } else {
                         --prod.quantity;
+                        prod.total -= prod.price;
                     }
 
                     this.$emit("change-items", order);

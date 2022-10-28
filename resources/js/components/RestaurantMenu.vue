@@ -48,7 +48,13 @@ export default {
             if (localStorage.ordine) {
                 const order = JSON.parse(localStorage.getItem("ordine"));
 
-                const isAnother = order[0].restaurant !== item.restaurant_id;
+                let isAnother;
+
+                if (order[0] && order[0].restaurant !== item.restaurant_id) {
+                    isAnother = true;
+                } else {
+                    isAnother = false;
+                }
 
                 if (isAnother) {
                     const order = [];
@@ -59,6 +65,7 @@ export default {
                         price: item.price,
                         restaurant: item.restaurant_id,
                         quantity: 1,
+                        total: item.price,
                     };
 
                     order.push(newProduct);
@@ -72,6 +79,7 @@ export default {
                         order.forEach((prod) => {
                             if (prod.id == item.id) {
                                 ++prod.quantity;
+                                prod.total += prod.price;
                             }
                         });
                     } else {
@@ -81,6 +89,7 @@ export default {
                             price: item.price,
                             restaurant: item.restaurant_id,
                             quantity: 1,
+                            total: item.price,
                         };
 
                         order.push(newProduct);
@@ -116,6 +125,7 @@ export default {
                                 order.splice(index, 1);
                             } else {
                                 --prod.quantity;
+                                prod.total -= prod.price;
                             }
 
                             this.$emit("change-items", order);
