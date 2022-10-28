@@ -5,7 +5,7 @@
             <div class="col-sm-12 col-md-6" v-for="restaurant in restaurants" :key="restaurant.id">
             <div class="card p-2  my-3">
                 <div>
-                    <img class="p-1 card-img-top" :src="restaurant.image" alt="...">
+                    <img class="p-1 card-img-top img-fluid image" :src="restaurant.image" alt="...">
                 </div>
                 <div class="text-center">
                     <h4 class="card-title text-danger my-3">{{ restaurant.name }} </h4> 
@@ -43,5 +43,7 @@ export default {
   color: #b1291b;
   text-align: left;
 }
-
+.image {
+  max-height: 330px;
+}
 </style>
