@@ -1,3 +1,3 @@
 <?php
 
-return ['Americano', 'Libanese', 'Vegetariano', 'Thai', 'Cinese', 'Sushi', 'Greca', 'Italiano', 'Pizza', 'Giapponese'];
+return ['Americano', 'Vegetariano', 'Thai', 'Cinese', 'Sushi', 'Italiano', 'Pizza', 'Giapponese'];
