@@ -126,9 +126,6 @@ export default {
                 }
             }
         },
-        clearCart() {
-            localStorage.clear();
-        },
     },
 };
 </script>
