@@ -4,6 +4,7 @@
        
         <section id="services">
             <div class="container-fluid">
+                <AppLoader v-if="isLoading" />
                 <AdvancedSearch @filtered-restaurants="filteredRestaurants" />
                 <RestaurantList
                     v-for="restaurant in restaurants"
@@ -41,6 +42,7 @@ import AppPartners from "../AppPartners.vue";
 import RestaurantList from "./RestaurantList.vue";
 import AppServices from "../AppServices.vue";
 import AppCart from "../AppCart.vue";
+import AppLoader from "../AppLoader.vue";
 import AdvancedSearch from "./AdvancedSearch.vue";
 
 
@@ -49,11 +51,13 @@ export default {
     data() {
         return {
             restaurants: [],
+            isLoading: false,
         };
     },
     components: {
         AppServices,
         AppCart,
+        AppLoader,
         AppPartners,
         RestaurantList,
         AdvancedSearch,
@@ -63,7 +67,7 @@ export default {
     },
     methods: {
         fetchRestaurants() {
-            // this.isLoading = true;
+            this.isLoading = true;
             axios
                 .get(`http://localhost:8000/api/restaurants/`)
                 .then((res) => {

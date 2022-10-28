@@ -1,6 +1,7 @@
 <template lang="">
     <div class="container">
         <div class="container">
+            <AppLoader v-if="isLoading" />
             <div class="row">
                 <div class="col-12 py-4">
                     <AppRestaurantDetails :restaurant="restaurant" />
@@ -32,6 +33,7 @@
 import RestaurantMenu from "../RestaurantMenu.vue";
 import AppRestaurantDetails from "../AppRestaurantDetails.vue";
 import AppCart from "../AppCart.vue";
+import AppLoader from "../AppLoader.vue";
 
 export default {
     name: "AppCart",
@@ -40,16 +42,18 @@ export default {
         AppCart,
         RestaurantMenu,
         AppRestaurantDetails,
+        AppLoader,
      },
     data() {
         return {
+            isLoading: false,
             restaurant: {},
             items: [],
         };
     },
     methods: {
         fetchRestaurant() {
-            // this.isLoading = true;
+            this.isLoading = true;
             axios
                 .get(
                     `http://127.0.0.1:8000/api/restaurants/${this.$route.params.id}`

@@ -1,5 +1,6 @@
 <template lang="">
     <div class="container">
+        <AppLoader v-if="isLoading" />
         <div class="row justify-content-center align-items-center mt-4">
             <div
                 class="select-bg p-3 col-12 py-4 row justify-content-center align-items-center g-3"
@@ -30,22 +31,24 @@
 </template>
 <script>
 import RestaurantList from "./RestaurantList.vue";
+import AppLoader from "../AppLoader.vue";
 
 export default {
     name: "AdvancedSearch",
     components: {
         RestaurantList,
+        AppLoader,
     },
     data() {
         return {
             categories: [],
+            isLoading: false,
             restaurants: [],
             category_id: null,
         };
     },
     methods: {
         fetchCategories() {
-            // this.isLoading = true;
             axios
                 .get(`http://localhost:8000/api/categories`)
                 .then((res) => {
@@ -59,7 +62,9 @@ export default {
                 });
         },
         fetchRestaurants() {
+            this.isLoading = true
             axios
+
                 .get(
                     `http://localhost:8000/api/restaurants?categories=${this.category_id}`
                 )
