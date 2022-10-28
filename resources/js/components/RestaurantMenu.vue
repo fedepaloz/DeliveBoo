@@ -13,8 +13,24 @@
                     <div class="h5 mb-0">{{ item.price }} €</div>
                 </div>
                 <div class="col-9 offset-3 mb-2">
-                    <span class="btn btn-primary" type="button">+</span>
-                    <span class="btn btn-primary" type="button">-</span>
+                    <span
+                        class="btn btn-primary"
+                        @click="addToCart(item)"
+                        type="button"
+                        ><i data-v-047541c6="" class="fas fa-plus"></i
+                    ></span>
+                    <span
+                        class="btn btn-primary"
+                        @click="reduceFromCart(item)"
+                        type="button"
+                        ><i data-v-047541c6="" class="fas fa-minus"></i
+                    ></span>
+                    <span
+                        class="btn btn-danger"
+                        @click="removeFromCart(item)"
+                        type="button"
+                        ><i class="fa-solid fa-trash"></i
+                    ></span>
                 </div>
             </div>
         </li>
@@ -26,6 +42,94 @@ export default {
     name: "RestaurantMenu",
     props: {
         items: Array,
+    },
+    methods: {
+        addToCart(item) {
+            if (localStorage.ordine) {
+                const order = JSON.parse(localStorage.getItem("ordine"));
+
+                const exist = order.find((prod) => {
+                    return prod.id == item.id;
+                });
+
+                if (exist) {
+                    order.forEach((prod) => {
+                        if (prod.id == item.id) {
+                            ++prod.quantity;
+                        }
+                    });
+                } else {
+                    const newProduct = {
+                        id: item.id,
+                        name: item.name,
+                        price: item.price,
+                        quantity: 1,
+                    };
+
+                    order.push(newProduct);
+                }
+
+                this.$emit("change-items", order);
+                localStorage.setItem("ordine", JSON.stringify(order));
+            } else {
+                const product = {
+                    id: item.id,
+                    name: item.name,
+                    price: item.price,
+                    quantity: 1,
+                };
+                const order = [];
+                order.push(product);
+                this.$emit("change-items", order);
+                localStorage.setItem("ordine", JSON.stringify(order));
+            }
+        },
+        reduceFromCart(item) {
+            if (localStorage.ordine) {
+                const order = JSON.parse(localStorage.getItem("ordine"));
+
+                const exist = order.find((prod) => {
+                    return prod.id == item.id;
+                });
+
+                if (exist) {
+                    order.forEach((prod, index) => {
+                        if (prod.id == item.id) {
+                            if (prod.quantity == 1) {
+                                order.splice(index, 1);
+                            } else {
+                                --prod.quantity;
+                            }
+
+                            this.$emit("change-items", order);
+                            localStorage.setItem(
+                                "ordine",
+                                JSON.stringify(order)
+                            );
+                        }
+                    });
+                }
+            }
+        },
+        removeFromCart(item) {
+            if (localStorage.ordine) {
+                const order = JSON.parse(localStorage.getItem("ordine"));
+
+                const exist = order.find((prod) => {
+                    return prod.id == item.id;
+                });
+
+                if (exist) {
+                    order.forEach((prod, index) => {
+                        if (prod.id == item.id) {
+                            order.splice(index, 1);
+                        }
+                        this.$emit("change-items", order);
+                        localStorage.setItem("ordine", JSON.stringify(order));
+                    });
+                }
+            }
+        },
     },
 };
 </script>

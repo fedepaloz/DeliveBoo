@@ -6,21 +6,23 @@
                     <AppRestaurantDetails :restaurant="restaurant" />
                 </div>
             </div>
+        </div>
 
-            <div class="row">
-                <!-- Menu ristorante -->
-                <div class="col-8">
-                    <!-- ! Qui inserire componente menu -->
-                    <RestaurantMenu :items="restaurant.items" />
-                </div>
-                <!-- Carrello sticky -->
-                <div class="col-4">
-                    <!-- ! Qui inserire componente carrello -->
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Porro explicabo eligendi cumque impedit? Quae deleniti
-                    tempore soluta harum, dolorum molestias? Odio, fugit
-                    doloribus similique autem a nesciunt in consequatur nostrum.
-                </div>
+        <div class="row">
+            <!-- Menu ristorante -->
+            <div class="col-7">
+                <RestaurantMenu
+                    :items="restaurant.items"
+                    @change-items="getItems"
+                />
+            </div>
+            <!-- Carrello sticky -->
+            <div class="col-5">
+                <AppCart
+                    v-if="items.length > 0"
+                    :items="items"
+                    @change-items="getItems"
+                ></AppCart>
             </div>
         </div>
     </div>
@@ -29,16 +31,20 @@
 <script>
 import RestaurantMenu from "../RestaurantMenu.vue";
 import AppRestaurantDetails from "../AppRestaurantDetails.vue";
+import AppCart from "../AppCart.vue";
 
 export default {
+    name: "AppCart",
     name: "RestaurantPage",
     components: { 
+        AppCart,
         RestaurantMenu,
         AppRestaurantDetails,
      },
     data() {
         return {
             restaurant: {},
+            items: [],
         };
     },
     methods: {
@@ -58,11 +64,13 @@ export default {
                     this.isLoading = false;
                 });
         },
-        
+        getItems(value) {
+            this.items = value;
+        },
     },
     mounted() {
         this.fetchRestaurant();
-
+        this.items = JSON.parse(localStorage.getItem("ordine"));
     },
 };
 </script>
