@@ -69,6 +69,7 @@ export default {
                     order.push(newProduct);
                 }
 
+                this.$emit("change-items", order);
                 localStorage.setItem("ordine", JSON.stringify(order));
             } else {
                 const product = {
@@ -79,6 +80,7 @@ export default {
                 };
                 const order = [];
                 order.push(product);
+                this.$emit("change-items", order);
                 localStorage.setItem("ordine", JSON.stringify(order));
             }
         },
@@ -99,6 +101,7 @@ export default {
                                 --prod.quantity;
                             }
 
+                            this.$emit("change-items", order);
                             localStorage.setItem(
                                 "ordine",
                                 JSON.stringify(order)
@@ -121,6 +124,7 @@ export default {
                         if (prod.id == item.id) {
                             order.splice(index, 1);
                         }
+                        this.$emit("change-items", order);
                         localStorage.setItem("ordine", JSON.stringify(order));
                     });
                 }
