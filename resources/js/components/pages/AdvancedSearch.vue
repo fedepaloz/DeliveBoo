@@ -91,7 +91,7 @@ export default {
     },
 };
 </script>
-<style>
+<style scoped>
 .select-bg {
     background-size: cover;
     background-image: url("https://png.pngtree.com/thumb_back/fh260/back_our/20190621/ourmid/pngtree-black-atmosphere-simple-meal-food-food-banner-image_176553.jpg");

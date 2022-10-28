@@ -35,6 +35,8 @@ a {
     font-size: 17px;
     font-weight: bold;
     transition: 0.6s;
+    color: green;
+    text-decoration: none;
 
     &:hover{
         font-size: 18px;
