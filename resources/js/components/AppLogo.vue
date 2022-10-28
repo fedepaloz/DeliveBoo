@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex justify-content-center">
-        <img class="img-fluid" src="https://cdn-icons-png.flaticon.com/512/5503/5503207.png" alt="Deliveboo logo">
+        <img class="img-fluid" src="https://cdn1.iconfinder.com/data/icons/hotel-168/32/1_restaurant_cloche-512.png" alt="Deliveboo logo">
     </div>
 </template>
 <script>

@@ -8,12 +8,12 @@
                     <img class="p-1 card-img-top" src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YnVyZ2VyfGVufDB8fDB8fA%3D%3D&w=1000&q=80" alt="...">
                 </div>
                 <div class="text-center">
-                    <h4 class="card-title text-success">{{ restaurant.name }} </h4> 
+                    <h4 class="card-title text-danger my-3">{{ restaurant.name }} </h4> 
                     <h6 class="card-title"> {{ restaurant.address }}</h6>
                     <p class="card-text">Costo consegna: €{{ restaurant.delivery_cost}}</p>
                     <p class="card-text">Mimino ordine: €{{ restaurant.min_order }}</p>
                     <p class="card-text">Orari: {{restaurant.opening_time}} - {{restaurant.closure_time}}</p>
-                    <router-link :to="{ name: 'restaurant-page', params: { id: restaurant.id }}" class="btn btn-success">
+                    <router-link :to="{ name: 'restaurant-page', params: { id: restaurant.id }}" class="btn btn-danger">
                         Ordina da {{restaurant.name}} ora
                     </router-link>
                 </div>
@@ -40,7 +40,7 @@ export default {
 }
 
 .riepilogue-text {
-  color: #60c442;
+  color: #b1291b;
   text-align: left;
 }
 

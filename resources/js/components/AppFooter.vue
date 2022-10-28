@@ -83,14 +83,16 @@ export default {
 <style lang="scss" scoped>
 a {
     color: #fff;
+    font-size: 18px;
+    transition: 0.3s;
 }
 footer {
     color: #fff;
-    background-color: #60c442;
+    background-color: #b1291b;
 }
 
 .footer-card {
-    background-color: #44813e;
+    background-color: #f0482e;
     height: 100%;
     border-radius: 3px;
     padding: 25px 22px;
@@ -101,13 +103,13 @@ footer {
     a {
         &:hover {
             text-decoration: none;
-            color: #009688;
+            font-size: 20px;
         }
     }
 }
 
 #copyright {
-    color: green;
+    color: #f00075;
 }
 
 #app-store {

@@ -5,7 +5,7 @@
       id="partners-section"
       class="d-flex flex-column align-items-center"
     >
-      <h1 class="font-weight-bold my-5 text-success">I nostri Partner</h1>
+      <h1 class="font-weight-bold my-5 text-danger">I nostri Partner</h1>
       <ul class="d-flex align-items-center justify-content-center flex-wrap">
         <li class="m-3">
           <a href="https://www.mcdonalds.it/" target="_blank"
@@ -84,7 +84,7 @@ export default {
   }
 }
 .hr {
-  border-top: 1px solid green;
+  border-top: 1px solid #b1291b;
   margin: 30px 0 30px 0;
 }
 
@@ -92,7 +92,7 @@ export default {
   transition: 0.6s;
 
   &:hover {
-    border: 2px solid green;
+    border: 2px solid #b1291b;
     padding: 5px;
   }
 }

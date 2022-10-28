@@ -86,7 +86,7 @@ export default {
   background-image: url("https://cdn4.vectorstock.com/i/1000x1000/86/23/online-food-order-and-delivery-process-vector-27208623.jpg");
 }
 .hr {
-  border-top: 1px solid green;
+  border-top: 1px solid #b1291b;
   margin: 30px 0 30px 0;
 }
 </style>
