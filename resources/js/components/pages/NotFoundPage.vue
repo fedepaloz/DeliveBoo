@@ -9,7 +9,7 @@
 
 <script>
 export default {
-    name: "NotFound"
+    name: "NotFoundPage"
 }
 </script>
 
@@ -23,19 +23,20 @@ export default {
 }
 
 a {
-    border: 3px solid lightgreen;
+    border: 3px solid #b1291b;
     padding: 8px 8px;
     border-radius: 24px;
     font-size: 17px;
     font-weight: bold;
     transition: 0.6s;
-    color: green;
+    color: #b1291b;
     text-decoration: none;
 
     &:hover{
         font-size: 18px;
-        background-color: #60c442;
+        background-color: #b1291b;
         color:white;
+        
     }
 }
 </style>

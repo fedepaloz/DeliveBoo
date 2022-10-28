@@ -2,44 +2,90 @@
   <header>
     <nav class="navbar navbar-expand-lg bg-navbar">
       <div class="container">
-        <!-- ! rotta da correggere ! -->
-        <a class="navbar-brand" href="#">
-          <i class="fa-solid fa-drumstick-bite"></i>
-          Deliveboo
-          <i class="fa-solid fa-pizza-slice"></i
-        ></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <!-- <li v-for="link in links" :key="link.name" class="nav-item">
-                        <router-link class="nav-link" :to="{ name: link.name }"
-                            >{{ link.title }}
-                        </router-link>
-                    </li> -->
-          </ul>
+        <div class="row">
+          <a class="navbar-brand" href="/" id="deliveboo">
+            <div class="row align-items-center">
+              <AppLogo id="header-logo" class="mr-3" />Deliveboo
+            </div>
+          </a>
         </div>
+
+        <!-- ! Visibile al md ! -->
+        <div class="d-none d-md-block">
+          <div class="row">
+            <router-link class="nav-link d-" :to="{ name: 'about' }">
+              <i class="fa-regular fa-comment"></i> Dicono di noi
+            </router-link>
+            <router-link class="nav-link" :to="{ name: 'policy' }">
+              <i class="fa-solid fa-scale-balanced"></i> Policy aziendale
+            </router-link>
+            <router-link class="nav-link" :to="{ name: 'home' }">
+              <i class="fa-solid fa-house-user"></i>Torna alla Home
+            </router-link>
+          </div>
+        </div>
+        <!-- ! Visibile sotto il md ! -->
+        <div class="d-block d-md-none">
+        <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+          <i class="fa-solid fa-bars" id="menu"></i>
+        </a>
+        <div class="dropdown-menu menu-personalized">
+          <router-link class="nav-link dropdown-item text-danger" :to="{ name: 'about' }">
+              <i class="fa-regular fa-comment"></i> Dicono di noi
+            </router-link>
+            <router-link class="nav-link dropdown-item text-danger" :to="{ name: 'policy' }">
+              <i class="fa-solid fa-scale-balanced"></i> Policy aziendale
+            </router-link>
+            <router-link class="nav-link dropdown-item text-danger" :to="{ name: 'home' }">
+              <i class="fa-solid fa-house-user"></i>Torna alla Home
+            </router-link>
+        </div>
+        </div>
+      </div>
       </div>
     </nav>
   </header>
 </template>
 <script>
-export default {};
+import AppLogo from "./AppLogo.vue";
+export default {
+  name: "AppHeader",
+  components: {
+    AppLogo,
+  },
+};
 </script>
 <style lang="scss" scoped>
 .bg-navbar {
-    height: 100px;
-    background-color: #60c442;
+  height: 100px;
+  background-color: #b1291b;
 
   a {
     color: white;
-    font-size: 25px;
+    font-size:16px;
+    transition: 0.3s;
+    margin-left: 5px;
+
+    &:hover {
+      font-size: 17px;
+    }
   }
+
+  #deliveboo {
+    font-size: 35px;
+  }
+
+  #header-logo {
+    width: 40px;
+  }
+}
+
+#menu {
+  font-size: 25px;
+}
+.menu-personalized{
+  left: -40px;
+  min-width: 12rem;
 }
 </style>

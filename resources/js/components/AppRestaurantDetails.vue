@@ -34,6 +34,6 @@ export default {
 
 <style scoped>
 .riepilogue-text {
-    color: #60c442;
+    color: #b1291b;
 }
 </style>
