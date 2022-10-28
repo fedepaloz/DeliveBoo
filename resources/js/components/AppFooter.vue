@@ -8,15 +8,15 @@
                     <div class="footer-card">
                         <h4>Scopri Deliveboo</h4>
                         <ul class="list-unstyled">
-                            <li><a href="#">Investitori</a></li>
-                            <li><a href="#">Chi siamo</a></li>
-                            <li><a href="#">Ristoranti</a></li>
-                            <li><a href="#">Altro</a></li>
-                            <li><a href="#">Pressroom</a></li>
-                            <li><a href="#">Programmazione</a></li>
-                            <li><a href="#">Design</a></li>
-                            <li><a href="#">Lavora con noi</a></li>
-                            <li><a href="#">Diventa nostro partner</a></li>
+                            <li><a href="/about">Investitori</a></li>
+                            <li><a href="/about">Chi siamo</a></li>
+                            <li><a href="/about">Ristoranti</a></li>
+                            <li><a href="/about">Altro</a></li>
+                            <li><a href="/about">Pressroom</a></li>
+                            <li><a href="/about">Programmazione</a></li>
+                            <li><a href="/about">Design</a></li>
+                            <li><a href="/about">Lavora con noi</a></li>
+                            <li><a href="/about">Diventa nostro partner</a></li>
                         </ul>
                     </div>
                 </div>
@@ -24,9 +24,9 @@
                     <div class="footer-card">
                         <h4>Note legali</h4>
                         <ul class="list-unstyled">
-                            <li><a href="#">Termini & Condizioni</a></li>
-                            <li><a href="#">Informativa sulla privacy</a></li>
-                            <li><a href="#">Cookies</a></li>
+                            <li><a href="/about">Termini & Condizioni</a></li>
+                            <li><a href="/about">Informativa sulla privacy</a></li>
+                            <li><a href="/about">Cookies</a></li>
                         </ul>
                     </div>
                 </div>
@@ -34,9 +34,9 @@
                     <div class="footer-card">
                         <h4>Aiuto</h4>
                         <ul class="list-unstyled">
-                            <li><a href="#">Contatti</a></li>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Tipi di cucina</a></li>
+                            <li><a href="/about">Contatti</a></li>
+                            <li><a href="/about">FAQ</a></li>
+                            <li><a href="/about">Tipi di cucina</a></li>
                         </ul>
                     </div>
                 </div>
@@ -44,10 +44,10 @@
                     <div class="footer-card">
                         <h4>Porta Deliveboo con te</h4>
                         <div class="mt-4">
-                            <a href="">
+                            <a href="https://www.apple.com/app-store/">
                                 <div class="mb-3" id="app-store"></div>
                             </a>
-                            <a href="">
+                            <a href="https://play.google.com/store">
                                 <div id="google-play"></div>
                             </a>
                         </div>
@@ -130,16 +130,19 @@ i {
     &.fa-facebook {
         &:hover {
             color: #1877f2;
+            font-size: 25px;
         }
     }
     &.fa-twitter {
         &:hover {
             color: #55acee;
+            font-size: 25px;
         }
     }
     &.fa-instagram {
         &:hover {
             color: #f00075;
+            font-size: 25px;
         }
     }
 }

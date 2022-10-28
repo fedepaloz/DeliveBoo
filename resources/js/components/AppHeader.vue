@@ -11,13 +11,13 @@
         </div>
         <div class="row">
           <router-link class="nav-link" :to="{ name: 'about' }">
-            Dicono di noi
+            <i class="fa-regular fa-comment"></i> Dicono di noi
           </router-link>
           <router-link class="nav-link" :to="{ name: 'about' }">
-            Dicono di noi
+            <i class="fa-solid fa-scale-balanced"></i> Policy aziendale
           </router-link>
-          <router-link class="nav-link" :to="{ name: 'about' }">
-            Dicono di noi
+          <router-link class="nav-link" :to="{ name: 'home' }">
+            <i class="fa-solid fa-house-user"></i>Torna alla Home
           </router-link>
         </div>
       </div>
@@ -40,6 +40,15 @@ export default {
 
   a {
     color: white;
+    font-size:16px;
+    transition: 0.3s;
+    margin-left: 5px;
+
+    &:hover {
+      font-size: 18px;
+      border: 2px solid white;
+      border-radius: 25px;
+    }
   }
 
   #deliveboo {
