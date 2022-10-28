@@ -5,7 +5,7 @@
             <div class="col-sm-12 col-md-6" v-for="restaurant in restaurants" :key="restaurant.id">
             <div class="card p-2  my-3">
                 <div>
-                    <img class="p-1 card-img-top" src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YnVyZ2VyfGVufDB8fDB8fA%3D%3D&w=1000&q=80" alt="...">
+                    <img class="p-1 card-img-top" :src="restaurant.image" alt="...">
                 </div>
                 <div class="text-center">
                     <h4 class="card-title text-danger my-3">{{ restaurant.name }} </h4> 
