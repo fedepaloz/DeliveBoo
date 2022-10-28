@@ -4,27 +4,29 @@
       <div class="container">
         <AppLoader v-if="isLoading" />
         <AdvancedSearch @filtered-restaurants="filteredRestaurants" />
-        <div v-if="restaurants.length >=1 ">
-
-          <RestaurantList :restaurants="restaurants"/>
-          </div>
-        <!-- ! Prima sezione (I nostri servizi) -->
+        <div v-if="restaurants.length >= 1">
+          <RestaurantList :restaurants="restaurants" />
+        </div>
         <div v-else>
           <div class="container card my-5">
             <hr class="hr" />
-            <!-- logo -->
             <div class="row justify-content-center align-items-center my-5">
               <div class="col">
                 <AppServices />
               </div>
-              <div class="col-12">
-                <div id="bg-Services"></div>
-              </div>
             </div>
             <hr class="hr" />
           </div>
-          <!-- ! Fine prima sezione -->
+          <div class="container card my-5">
+            <hr class="hr" />
           <AppPartners />
+          <hr class="hr" />
+          </div>
+          <div class="container card my-5">
+            <hr class="hr" />
+          <AppContacts />
+          <hr class="hr" />
+          </div>
         </div>
       </div>
     </section>
@@ -38,6 +40,7 @@ import AppServices from "../AppServices.vue";
 import AppCart from "../AppCart.vue";
 import AppLoader from "../AppLoader.vue";
 import AdvancedSearch from "./AdvancedSearch.vue";
+import AppContacts from "../AppContacts.vue";
 
 export default {
   name: "HomePage",
@@ -53,6 +56,7 @@ export default {
     AppLoader,
     AppPartners,
     RestaurantList,
+    AppContacts,
     AdvancedSearch,
   },
   methods: {

@@ -12,11 +12,6 @@
                             <li><a href="/about">Chi siamo</a></li>
                             <li><a href="/about">Ristoranti</a></li>
                             <li><a href="/about">Altro</a></li>
-                            <li><a href="/about">Pressroom</a></li>
-                            <li><a href="/about">Programmazione</a></li>
-                            <li><a href="/about">Design</a></li>
-                            <li><a href="/about">Lavora con noi</a></li>
-                            <li><a href="/about">Diventa nostro partner</a></li>
                         </ul>
                     </div>
                 </div>

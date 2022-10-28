@@ -1,6 +1,6 @@
 <template>
   <div class="container my-5">
-    <h1 class="text-danger">About us</h1>
+    <h1 class="text-danger font-weight-bold">About us</h1>
 
     <div class="my-5">
     <h4 class="text-danger"><i class="fa-solid fa-carrot"></i> Chi siamo:</h4>

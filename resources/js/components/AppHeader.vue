@@ -10,10 +10,10 @@
           </a>
         </div>
         <div class="row">
-          <router-link class="nav-link" :to="{ name: 'about' }">
+          <router-link class="nav-link d-" :to="{ name: 'about' }">
             <i class="fa-regular fa-comment"></i> Dicono di noi
           </router-link>
-          <router-link class="nav-link" :to="{ name: 'about' }">
+          <router-link class="nav-link" :to="{ name: 'policy' }">
             <i class="fa-solid fa-scale-balanced"></i> Policy aziendale
           </router-link>
           <router-link class="nav-link" :to="{ name: 'home' }">
@@ -45,9 +45,7 @@ export default {
     margin-left: 5px;
 
     &:hover {
-      font-size: 18px;
-      border: 2px solid white;
-      border-radius: 25px;
+      font-size: 17px;
     }
   }
 
