@@ -88,10 +88,18 @@ export default {
                 });
 
                 if (exist) {
-                    order.forEach((prod) => {
+                    order.forEach((prod, index) => {
                         if (prod.id == item.id) {
-                            console.log(prod.quantity);
-                            prod.quantity -= 1;
+                            if (prod.quantity == 1) {
+                                order.splice(index, 1);
+                            } else {
+                                --prod.quantity;
+                            }
+
+                            localStorage.setItem(
+                                "ordine",
+                                JSON.stringify(order)
+                            );
                         }
                     });
                 }
