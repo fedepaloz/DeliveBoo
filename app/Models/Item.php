@@ -8,6 +8,10 @@ class Item extends Model
 {
     protected $fillable = ['name', 'description', 'visible', 'price'];
 
+    protected $casts = [
+        'price' => 'float',
+    ];
+
     public function restaurant()
     {
         return $this->belongsTo('App\Models\Restaurant');

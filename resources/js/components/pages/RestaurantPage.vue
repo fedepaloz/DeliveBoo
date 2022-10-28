@@ -77,6 +77,7 @@ export default {
                 )
                 .then((res) => {
                     this.restaurant = res.data;
+                    console.log(this.restaurant.items);
                 })
                 .catch((err) => {
                     this.error = "Errore durante il fetch dei ristoranti";
