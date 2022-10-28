@@ -9,17 +9,40 @@
             </div>
           </a>
         </div>
-        <div class="row">
-          <router-link class="nav-link d-" :to="{ name: 'about' }">
-            <i class="fa-regular fa-comment"></i> Dicono di noi
-          </router-link>
-          <router-link class="nav-link" :to="{ name: 'policy' }">
-            <i class="fa-solid fa-scale-balanced"></i> Policy aziendale
-          </router-link>
-          <router-link class="nav-link" :to="{ name: 'home' }">
-            <i class="fa-solid fa-house-user"></i>Torna alla Home
-          </router-link>
+
+        <!-- ! Visibile al md ! -->
+        <div class="d-none d-md-block">
+          <div class="row">
+            <router-link class="nav-link d-" :to="{ name: 'about' }">
+              <i class="fa-regular fa-comment"></i> Dicono di noi
+            </router-link>
+            <router-link class="nav-link" :to="{ name: 'policy' }">
+              <i class="fa-solid fa-scale-balanced"></i> Policy aziendale
+            </router-link>
+            <router-link class="nav-link" :to="{ name: 'home' }">
+              <i class="fa-solid fa-house-user"></i>Torna alla Home
+            </router-link>
+          </div>
         </div>
+        <!-- ! Visibile sotto il md ! -->
+        <div class="d-block d-md-none">
+        <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+          <i class="fa-solid fa-bars" id="menu"></i>
+        </a>
+        <div class="dropdown-menu menu-personalized">
+          <router-link class="nav-link dropdown-item text-danger" :to="{ name: 'about' }">
+              <i class="fa-regular fa-comment"></i> Dicono di noi
+            </router-link>
+            <router-link class="nav-link dropdown-item text-danger" :to="{ name: 'policy' }">
+              <i class="fa-solid fa-scale-balanced"></i> Policy aziendale
+            </router-link>
+            <router-link class="nav-link dropdown-item text-danger" :to="{ name: 'home' }">
+              <i class="fa-solid fa-house-user"></i>Torna alla Home
+            </router-link>
+        </div>
+        </div>
+      </div>
       </div>
     </nav>
   </header>
@@ -56,5 +79,13 @@ export default {
   #header-logo {
     width: 40px;
   }
+}
+
+#menu {
+  font-size: 25px;
+}
+.menu-personalized{
+  left: -40px;
+  min-width: 12rem;
 }
 </style>
