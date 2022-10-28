@@ -11,7 +11,7 @@
                 <div class="card rounded-3 mb-4">
                     <div class="card-body">
                         <div
-                            v-for="item in items"
+                            v-for="item in order"
                             :key="item.id"
                             class="row d-flex justify-content-between align-items-center"
                         >
@@ -78,7 +78,7 @@
 export default {
     name: "AppCart",
     props: {
-        items: Array,
+        order: Array,
     },
     methods: {
         addToCart(item) {
@@ -91,7 +91,6 @@ export default {
             });
 
             this.$emit("change-items", order);
-            localStorage.setItem("ordine", JSON.stringify(order));
         },
         reduceFromCart(item) {
             const order = JSON.parse(localStorage.getItem("ordine"));
@@ -105,7 +104,6 @@ export default {
                     }
 
                     this.$emit("change-items", order);
-                    localStorage.setItem("ordine", JSON.stringify(order));
                 }
             });
         },
@@ -117,7 +115,6 @@ export default {
                     order.splice(index, 1);
                 }
                 this.$emit("change-items", order);
-                localStorage.setItem("ordine", JSON.stringify(order));
             });
         },
     },

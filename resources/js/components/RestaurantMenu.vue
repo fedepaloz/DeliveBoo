@@ -48,40 +48,57 @@ export default {
             if (localStorage.ordine) {
                 const order = JSON.parse(localStorage.getItem("ordine"));
 
-                const exist = order.find((prod) => {
-                    return prod.id == item.id;
-                });
+                const isAnother = order[0].restaurant !== item.restaurant_id;
 
-                if (exist) {
-                    order.forEach((prod) => {
-                        if (prod.id == item.id) {
-                            ++prod.quantity;
-                        }
-                    });
-                } else {
+                if (isAnother) {
+                    const order = [];
+
                     const newProduct = {
                         id: item.id,
                         name: item.name,
                         price: item.price,
+                        restaurant: item.restaurant_id,
                         quantity: 1,
                     };
 
                     order.push(newProduct);
-                }
+                    this.$emit("change-items", order);
+                } else {
+                    const exist = order.find((prod) => {
+                        return prod.id == item.id;
+                    });
 
-                this.$emit("change-items", order);
-                localStorage.setItem("ordine", JSON.stringify(order));
+                    if (exist) {
+                        order.forEach((prod) => {
+                            if (prod.id == item.id) {
+                                ++prod.quantity;
+                            }
+                        });
+                    } else {
+                        const newProduct = {
+                            id: item.id,
+                            name: item.name,
+                            price: item.price,
+                            restaurant: item.restaurant_id,
+                            quantity: 1,
+                        };
+
+                        order.push(newProduct);
+                    }
+
+                    this.$emit("change-items", order);
+                }
             } else {
                 const product = {
                     id: item.id,
                     name: item.name,
                     price: item.price,
+                    restaurant: item.restaurant_id,
                     quantity: 1,
                 };
                 const order = [];
                 order.push(product);
                 this.$emit("change-items", order);
-                localStorage.setItem("ordine", JSON.stringify(order));
             }
         },
         reduceFromCart(item) {
@@ -102,10 +119,6 @@ export default {
                             }
 
                             this.$emit("change-items", order);
-                            localStorage.setItem(
-                                "ordine",
-                                JSON.stringify(order)
-                            );
                         }
                     });
                 }
@@ -125,7 +138,6 @@ export default {
                             order.splice(index, 1);
                         }
                         this.$emit("change-items", order);
-                        localStorage.setItem("ordine", JSON.stringify(order));
                     });
                 }
             }
