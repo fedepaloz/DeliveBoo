@@ -1,40 +1,43 @@
 <template>
-    <ul class="list-unstyled">
-        <li v-for="item in items" :key="item.id" class="item-card col-12 mb-3">
-            <div class="row">
-                <div class="col-3">
-                    <img :src="item.image" alt="" class="img-fluid py-2" />
-                </div>
-                <div class="col-9 py-2 d-flex flex-column">
-                    <div>
-                        <h3>{{ item.name }}</h3>
-                        <div class="mb-1">{{ item.description }}</div>
+    <div>
+        <ul class="list-unstyled">
+            <li
+                v-for="item in items"
+                :key="item.id"
+                class="item-card col-12 mb-3"
+            >
+                <div class="row">
+                    <div class="col-3">
+                        <img :src="item.image" alt="" class="img-fluid py-2" />
                     </div>
-                    <div class="h5 mb-0">{{ item.price }} €</div>
+                    <div class="col-9 py-2 d-flex flex-column">
+                        <div>
+                            <h3>{{ item.name }}</h3>
+                            <div class="mb-1">{{ item.description }}</div>
+                        </div>
+                        <div class="h5 mb-0">{{ item.price }} €</div>
+                    </div>
+                    <div class="col-9 offset-3 mb-2">
+                        <span
+                            class="btn btn-outline-danger btn-sm"
+                            @click="removeFromCart(item)"
+                            ><i class="fa-solid fa-trash"></i
+                        ></span>
+                        <span
+                            class="btn btn-outline-primary btn-sm"
+                            @click="reduceFromCart(item)"
+                            ><i data-v-047541c6="" class="fas fa-minus"></i
+                        ></span>
+                        <span
+                            class="btn btn-outline-primary btn-sm"
+                            @click="addToCart(item)"
+                            ><i data-v-047541c6="" class="fas fa-plus"></i
+                        ></span>
+                    </div>
                 </div>
-                <div class="col-9 offset-3 mb-2">
-                    <span
-                        class="btn btn-primary"
-                        @click="addToCart(item)"
-                        type="button"
-                        ><i data-v-047541c6="" class="fas fa-plus"></i
-                    ></span>
-                    <span
-                        class="btn btn-primary"
-                        @click="reduceFromCart(item)"
-                        type="button"
-                        ><i data-v-047541c6="" class="fas fa-minus"></i
-                    ></span>
-                    <span
-                        class="btn btn-danger"
-                        @click="removeFromCart(item)"
-                        type="button"
-                        ><i class="fa-solid fa-trash"></i
-                    ></span>
-                </div>
-            </div>
-        </li>
-    </ul>
+            </li>
+        </ul>
+    </div>
 </template>
 
 <script>
@@ -57,19 +60,41 @@ export default {
                 }
 
                 if (isAnother) {
-                    const order = [];
+                    document.body.classList.add("overflow-hidden");
+                    document
+                        .getElementById("new-cart-modal")
+                        .classList.add("d-block");
 
-                    const newProduct = {
-                        id: item.id,
-                        name: item.name,
-                        price: item.price,
-                        restaurant: item.restaurant_id,
-                        quantity: 1,
-                        total: item.price,
-                    };
+                    document
+                        .getElementById("new-cart-modal-yes")
+                        .addEventListener("click", () => {
+                            const order = [];
 
-                    order.push(newProduct);
-                    this.$emit("change-items", order);
+                            const newProduct = {
+                                id: item.id,
+                                name: item.name,
+                                price: item.price,
+                                restaurant: item.restaurant_id,
+                                quantity: 1,
+                                total: item.price,
+                            };
+
+                            order.push(newProduct);
+                            this.$emit("change-items", order);
+                            document.body.classList.remove("overflow-hidden");
+                            document
+                                .getElementById("new-cart-modal")
+                                .classList.remove("d-block");
+                        });
+
+                    document
+                        .getElementById("new-cart-modal-no")
+                        .addEventListener("click", function () {
+                            document.body.classList.remove("overflow-hidden");
+                            document
+                                .getElementById("new-cart-modal")
+                                .classList.remove("d-block");
+                        });
                 } else {
                     const exist = order.find((prod) => {
                         return prod.id == item.id;
@@ -159,15 +184,10 @@ export default {
 <style lang="scss" scoped>
 .item-card {
     border: 1px solid #0000000a;
-    box-shadow: none;
-    cursor: pointer;
     height: 100%;
-    outline: none;
     overflow: hidden;
-    position: relative;
     transition: box-shadow 0.2s ease-in-out;
     width: 100%;
-    word-break: break-word;
 
     &:hover {
         box-shadow: 0 22px 24px 0 #00000014;
