@@ -16,8 +16,19 @@ class RestaurantController extends Controller
     public function index(Request $request)
     {
         if ($request->categories) {
-            // $restaurants = Category::find($request->categories)->restaurants()->with('categories')->get();
-            return response()->json($request->categories);
+            // ! Da eliminare dopo $restaurants = Category::find($request->categories)->restaurants()->with('categories')->get();
+
+            // Prendo tutti i ristoranti
+
+            // Prendo gli ID delle categorie su cui filtrare
+
+            // Per ogni ristorante controllo che in categories siano presenti tutti gli ID delle categorie
+
+            // Ritorno al front-end i ristoranti filtrati
+
+            $filtered_restaurants = []; // NUOVO ARRAY CON RISTORANTI FILTRATI
+
+            return response()->json($filtered_restaurants);
         } else {
             $restaurants = Restaurant::with(['categories'])->get();
         }
