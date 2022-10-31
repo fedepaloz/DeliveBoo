@@ -9,21 +9,19 @@
                     :key="item.id"
                     class="list-group-item"
                 >
-                    <label for="">
-                        <input
-                            type="checkbox"
-                            class="form-check-input"
-                            @click="filter($event)"
-                            :id="item.id"
-                            :checked="item.checked"
-                        />
-                        {{ item.name }}
-                    </label>
+                    <input
+                        type="checkbox"
+                        class="form-check-input"
+                        :value="item.id"
+                        v-model="select_categories"
+                        :id="item.id"
+                    />
+                    <label :for="item.id">{{ item.name }}</label>
                 </div>
                 <button
                     type="button"
+                    @click="fetchRestaurants"
                     class="btn btn-light mt-4"
-                    @click="getFilterData"
                 >
                     Filtra
                 </button>
@@ -83,10 +81,7 @@
                                 Orari: {{ data.opening_time }} -
                                 {{ data.closure_time }}
                             </p>
-                            <div
-                                
-                                class="btn btn-danger"
-                            >
+                            <div class="btn btn-danger">
                                 Ordina da {{ data.name }} oraa
                             </div>
                         </div>
@@ -118,20 +113,6 @@ export default {
     },
 
     methods: {
-        filter(event) {
-            if (event.target.checked) {
-                this.select_categories.push(event.target.id);
-            } else {
-                const id = event.target.id;
-                for (let data of this.select_categories) {
-                    if (data === id) {
-                        const index = this.select_categories.indexOf(data);
-                        console.log(index);
-                        this.select_categories.splice(index, 1);
-                    }
-                }
-            }
-        },
         fetchCategories() {
             axios
                 .get(`http://localhost:8000/api/categories`)
@@ -147,13 +128,15 @@ export default {
         },
         fetchRestaurants() {
             this.isLoading = true;
-            axios
 
+            axios
                 .get(
-                    `http://localhost:8000/api/restaurants?categories=${this.category_id}`
+                    `http://localhost:8000/api/restaurants?${this.select_categories
+                        .map((n, index) => `categories[${index}]=${n}`)
+                        .join("&")}`
                 )
                 .then((res) => {
-                    // console.log(res.data.response);
+                    console.log(res.data);
 
                     this.restaurants = res.data;
                     this.$emit("filtered-restaurants", this.restaurants);
@@ -165,23 +148,6 @@ export default {
                     this.isLoading = false;
                 });
         },
-        getFilterData() {
-            const pars = this.select_categories.map((str) => {
-                return parseInt(str);
-            });
-            const data = {
-                select_categories: pars,
-            };
-            axios
-                .post(`http://localhost:8000/api/restaurants?categories=${this.select_categories}`,data,
-                    { headers: { "Access-Control-Allow-Origin": "*" } }
-                    )
-                .then((response) => {
-                    this.filter_data = response.data;
-                    console.log(response)
-                });
-        },
-        
     },
     mounted() {
         this.fetchCategories();
