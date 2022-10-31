@@ -61,12 +61,9 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <button
-                            type="button"
-                            class="btn btn-success btn-block btn-lg"
-                        >
-                            Procedi al pagamento
-                        </button>
+                        <router-link class="nav-link d-" :to="{ name: 'checkout' }">
+                            <button type="button" class="btn btn-success">Procedi al pagamento</button>
+            </router-link>
                     </div>
                 </div>
             </div>
