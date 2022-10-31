@@ -54,17 +54,17 @@
           <form class="needs-validation" novalidate="">
             <div class="row">
               <div class="col-md-6 mb-3">
-                <label for="firstName">First name</label>
+                <label for="firstName">Nome Cognome</label>
                 <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
                 <div class="invalid-feedback">
-                  Valid first name is required.
+                  Il nome deve essere inserito
                 </div>
               </div>
               <div class="col-md-6 mb-3">
-                <label for="lastName">Last name</label>
+                <label for="lastName">Cognome</label>
                 <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
                 <div class="invalid-feedback">
-                  Valid last name is required.
+                  Il cognome deve essere inserito
                 </div>
               </div>
             </div>
@@ -75,15 +75,15 @@
               <label for="email">Email <span class="text-muted">(Optional)</span></label>
               <input type="email" class="form-control" id="email" placeholder="you@example.com">
               <div class="invalid-feedback">
-                Please enter a valid email address for shipping updates.
+                Inserire una mail valida
               </div>
             </div>
 
             <div class="mb-3">
-              <label for="address">Address</label>
+              <label for="address">Indirizzo</label>
               <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
               <div class="invalid-feedback">
-                Please enter your shipping address.
+                Inserire l'indirizzo di consegna 
               </div>
             </div>
 
@@ -91,19 +91,19 @@
 
             <div class="row">
               <div class="col-md-5 mb-3">
-                <label for="country">Country</label>
+                <label for="country">Nazione</label>
                 <select class="custom-select d-block w-100" id="country" required="">
-                  <option value="">Choose...</option>
-                  <option>United States</option>
+                  <option value="">Scegli...</option>
+                  <option>Italia</option>
                 </select>
                 <div class="invalid-feedback">
-                  Please select a valid country.
+                  Selezionare una nazione valida
                 </div>
               </div>
               <div class="col-md-4 mb-3">
-                <label for="state">State</label>
+                <label for="state">Regione</label>
                 <select class="custom-select d-block w-100" id="state" required="">
-                  <option value="">Choose...</option>
+                  <option value="">Scegli...</option>
                   <option>California</option>
                 </select>
                 <div class="invalid-feedback">
@@ -111,21 +111,21 @@
                 </div>
               </div>
               <div class="col-md-3 mb-3">
-                <label for="zip">Zip</label>
+                <label for="zip">Codice postale</label>
                 <input type="text" class="form-control" id="zip" placeholder="" required="">
                 <div class="invalid-feedback">
-                  Zip code required.
+                  Il codice postale deve essere inserito
                 </div>
               </div>
             </div>
            
 
-            <h4 class="mb-3">Payment</h4>
+            <h4 class="mb-3">Pagamento</h4>
 
             <div class="d-block my-3">
               <div class="custom-control custom-radio">
                 <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
-                <label class="custom-control-label" for="credit">Credit card</label>
+                <label class="custom-control-label" for="credit">Carta di credito</label>
               </div>
               <div class="custom-control custom-radio">
                 <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
@@ -138,39 +138,39 @@
             </div>
             <div class="row">
               <div class="col-md-6 mb-3">
-                <label for="cc-name">Name on card</label>
+                <label for="cc-name">Nome sulla carta</label>
                 <input type="text" class="form-control" id="cc-name" placeholder="" required="">
-                <small class="text-muted">Full name as displayed on card</small>
+                <small class="text-muted">Nome completo come viene mostrato sulla carta</small>
                 <div class="invalid-feedback">
-                  Name on card is required
+                  Il nome della carta deve essere inserito
                 </div>
               </div>
               <div class="col-md-6 mb-3">
-                <label for="cc-number">Credit card number</label>
+                <label for="cc-number">Numero carta di credito</label>
                 <input type="text" class="form-control" id="cc-number" placeholder="" required="">
                 <div class="invalid-feedback">
-                  Credit card number is required
+                  Il numero della carta di credito deve essere inserito
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-3 mb-3">
-                <label for="cc-expiration">Expiration</label>
+                <label for="cc-expiration">Scadenza</label>
                 <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
                 <div class="invalid-feedback">
-                  Expiration date required
+                  La data di scadenza deve essere inserita
                 </div>
               </div>
               <div class="col-md-3 mb-3">
                 <label for="cc-expiration">CVV</label>
                 <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
                 <div class="invalid-feedback">
-                  Security code required
+                  Il codice di sicurezza deve essere inserito
                 </div>
               </div>
             </div>
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Continua per il checkout</button>
           </form>
         </div>
       </div>
