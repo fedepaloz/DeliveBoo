@@ -1,72 +1,59 @@
 <template>
-    <div class="py-5">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col">
-                <div
-                    class="d-flex justify-content-between align-items-center mb-4"
+    <div id="main-cart" class="p-3">
+        <div id="cart-top" v-if="order.length > 0">
+            <h4>Ordine in corso</h4>
+            <ul class="list-unstyled">
+                <li
+                    v-for="item in order"
+                    :key="item.id"
+                    class="row d-flex justify-content-between align-items-center py-2"
                 >
-                    <h3 class="fw-normal mb-0 text-black">Carrello</h3>
-                </div>
-
-                <div class="card rounded-3 mb-4">
-                    <div class="card-body">
-                        <div
-                            v-for="item in order"
-                            :key="item.id"
-                            class="row d-flex justify-content-between align-items-center"
-                        >
-                            <div class="col-md-2 col-lg-2 col-xl-2">
-                                <img
-                                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
-                                    class="img-fluid rounded-3"
-                                    alt="Cotton T-shirt"
-                                />
-                            </div>
-                            <div class="col-md-3 col-lg-3 col-xl-3">
-                                <p class="lead fw-normal mb-2">
-                                    {{ item.name }}
-                                </p>
-                            </div>
-                            <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                                <button
-                                    class="btn btn-link px-2"
-                                    @click="reduceFromCart(item)"
-                                >
-                                    <i class="fas fa-minus"></i>
-                                </button>
-
-                                <span>{{ item.quantity }}</span>
-
-                                <button
-                                    class="btn btn-link px-2"
-                                    @click="addToCart(item)"
-                                >
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                            <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                <h5 class="mb-0">{{ item.total }} €</h5>
-                            </div>
-                            <div class="col-md-1 col-lg-1 col-xl-1 mr-1">
-                                <a
-                                    @click="removeFromCart(item)"
-                                    href="#!"
-                                    class="text-danger"
-                                    ><i class="fas fa-trash fa-lg"></i
-                                ></a>
-                            </div>
+                    <!-- Item name -->
+                    <div class="col-12 col-xl-6">
+                        <div>
+                            {{ item.name }}
                         </div>
                     </div>
-                </div>
 
-                <div class="card">
-                    <div class="card-body">
-                        <router-link class="nav-link d-" :to="{ name: 'checkout' }">
-                            <button type="button" class="btn btn-success">Procedi al pagamento</button>
-            </router-link>
+                    <!-- Item add/remove -->
+                    <div class="col-6 col-xl-3 d-flex align-items-center">
+                        <div
+                            class="btn btn-outline-primary btn-sm mr-2"
+                            @click="reduceFromCart(item)"
+                        >
+                            <i class="fas fa-minus"></i>
+                        </div>
+
+                        <div class="mr-2">{{ item.quantity }}</div>
+
+                        <div
+                            class="btn btn-outline-primary btn-sm"
+                            @click="addToCart(item)"
+                        >
+                            <i class="fas fa-plus"></i>
+                        </div>
                     </div>
-                </div>
-            </div>
+
+                    <!-- Item total -->
+                    <div class="col-6 col-xl-3 text-right">
+                        <div>{{ item.total }} €</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div v-else id="cart-top" class="pt-3 pb-4 text-center">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <div class="empty-cart-text">Il carrello è vuoto</div>
+        </div>
+
+        <div id="cart-bottom">
+            <router-link :to="{ name: 'checkout' }">
+                <a v-if="order.length > 0" class="btn btn-success w-100"
+                    >Procedi al pagamento</a
+                >
+                <a v-else class="btn btn-locked w-100">Procedi al pagamento</a>
+            </router-link>
         </div>
     </div>
 </template>
@@ -106,18 +93,31 @@ export default {
                 }
             });
         },
-        removeFromCart(item) {
-            const order = JSON.parse(localStorage.getItem("ordine"));
-
-            order.forEach((prod, index) => {
-                if (prod.id == item.id) {
-                    order.splice(index, 1);
-                }
-                this.$emit("change-items", order);
-            });
-        },
     },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#main-cart {
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+#cart-top {
+    li {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    }
+}
+.empty-cart-text {
+    color: #abadad;
+}
+
+.btn-locked {
+    background-color: #e2e5e5;
+    color: #abadad;
+}
+
+.fa-solid.fa-cart-shopping {
+    font-size: 36px;
+    color: #e2e5e5;
+}
+</style>

@@ -11,38 +11,44 @@
 
         <div class="row">
             <!-- Menu ristorante -->
-            <div class="col-7">
+            <div class="col-12 col-md-7">
                 <RestaurantMenu
                     :items="restaurant.items"
                     @change-items="getOrder"
                 />
             </div>
             <!-- Carrello sticky -->
-            <div class="col-5">
-                <AppCart
-                    v-if="order"
-                    :order="order"
-                    @change-items="getOrder"
-                ></AppCart>
+            <div class="col-12 col-md-5">
+                <AppCart :order="order" @change-items="getOrder"></AppCart>
             </div>
         </div>
 
         <!-- ! MODALE DA AGGIUNGERE DOPO -->
-        <!-- <div class="layover">
-            <div class="card" id="new-cart-modal">
+        <div id="new-cart-modal">
+            <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Vuoi creare un nuovo carrello?</h5>
                     <p class="card-text">
                         In questo modo cancelli il carrello esistente e crei un
                         nuovo carrello.
                     </p>
-                    <a href="#" class="btn btn-primary mr-2"
-                        >Visualizza il menù</a
+                    <div
+                        href="#"
+                        class="btn btn-primary mr-2"
+                        id="new-cart-modal-no"
                     >
-                    <a href="#" class="btn btn-success">Nuovo carrello</a>
+                        Visualizza il menù
+                    </div>
+                    <div
+                        href="#"
+                        class="btn btn-success"
+                        id="new-cart-modal-yes"
+                    >
+                        Nuovo carrello
+                    </div>
                 </div>
             </div>
-        </div> -->
+        </div>
     </div>
 </template>
 
@@ -98,9 +104,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.layover {
-    overflow: hidden;
-    position: absolute;
+#new-cart-modal {
+    display: none;
+    position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
@@ -112,6 +118,8 @@ export default {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        background-color: #fff;
+        z-index: 10;
     }
 }
 </style>
