@@ -87,7 +87,7 @@
                                 
                                 class="btn btn-danger"
                             >
-                                Ordina da {{ data.name }} ora
+                                Ordina da {{ data.name }} oraa
                             </div>
                         </div>
                     </div>
