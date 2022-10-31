@@ -5,6 +5,7 @@ import RestaurantPage from './components/pages/RestaurantPage.vue'
 import AboutPage from './components/pages/AboutPage.vue'
 import NotFoundPage from './components/pages/NotFoundPage.vue'
 import PolicyPage from './components/pages/PolicyPage.vue'
+import CheckoutPage from './components/pages/CheckoutPage.vue'
 
 Vue.use(VueRouter)
 
@@ -19,6 +20,7 @@ const routes = new VueRouter({
         { path: '*', component: NotFoundPage, name: 'not-found' },
         { path: '/about', component: AboutPage, name: 'about' },
         { path: '/policy', component: PolicyPage, name: 'policy' },
+        {path:'/checkout', component: CheckoutPage, name: 'checkout'}
     ]
 });
 
