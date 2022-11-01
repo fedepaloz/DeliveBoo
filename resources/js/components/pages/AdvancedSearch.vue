@@ -2,7 +2,31 @@
     <div class="container">
         <AppLoader v-if="isLoading" />
         <div class="row justify-content-center align-items-center mt-4">
-            <div
+            <div class="col-md-3 m-auto mt-4">
+                <div class="list-group">Categories</div>
+                <div
+                    v-for="item in categories"
+                    :key="item.id"
+                    class="list-group-item"
+                >
+                    <input
+                        type="checkbox"
+                        class="form-check-input"
+                        :value="item.id"
+                        v-model="select_categories"
+                        :id="item.id"
+                    />
+                    <label :for="item.id">{{ item.name }}</label>
+                </div>
+                <button
+                    type="button"
+                    @click="fetchRestaurants"
+                    class="btn btn-light mt-4"
+                >
+                    Filtra
+                </button>
+            </div>
+            <!-- <div
                 class="select-bg p-3 col-12 py-4 row justify-content-center align-items-center g-3"
             >
                 <div class="col-6 col-md-3">
@@ -25,6 +49,44 @@
                         Cerca
                     </button>
                 </div>
+            </div> -->
+        </div>
+        <div class="container my-5">
+            <div class="row justify-content-between flex-wrap">
+                <div
+                    class="col-sm-12 col-md-6"
+                    v-for="data in filter_data"
+                    :key="data.id"
+                >
+                    <div class="card p-2 my-3">
+                        <div>
+                            <img
+                                class="p-1 card-img-top img-fluid image"
+                                :src="data.image"
+                                alt="..."
+                            />
+                        </div>
+                        <div class="text-center">
+                            <h4 class="card-title text-danger my-3">
+                                {{ data.name }}
+                            </h4>
+                            <h6 class="card-title">{{ data.address }}</h6>
+                            <p class="card-text">
+                                Costo consegna: €{{ data.delivery_cost }}
+                            </p>
+                            <p class="card-text">
+                                Mimino ordine: €{{ data.min_order }}
+                            </p>
+                            <p class="card-text">
+                                Orari: {{ data.opening_time }} -
+                                {{ data.closure_time }}
+                            </p>
+                            <div class="btn btn-danger">
+                                Ordina da {{ data.name }} oraa
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -44,9 +106,12 @@ export default {
             categories: [],
             isLoading: false,
             restaurants: [],
+            filter_data: [],
             category_id: null,
+            select_categories: [],
         };
     },
+
     methods: {
         fetchCategories() {
             axios
@@ -62,14 +127,16 @@ export default {
                 });
         },
         fetchRestaurants() {
-            this.isLoading = true
-            axios
+            this.isLoading = true;
 
+            axios
                 .get(
-                    `http://localhost:8000/api/restaurants?categories=${this.category_id}`
+                    `http://localhost:8000/api/restaurants?${this.select_categories
+                        .map((n, index) => `categories[${index}]=${n}`)
+                        .join("&")}`
                 )
                 .then((res) => {
-                    // console.log(res.data.response);
+                    console.log(res.data);
 
                     this.restaurants = res.data;
                     this.$emit("filtered-restaurants", this.restaurants);
@@ -81,10 +148,6 @@ export default {
                     this.isLoading = false;
                 });
         },
-
-        // filteredRestaurants() {
-
-        // },
     },
     mounted() {
         this.fetchCategories();

@@ -16,12 +16,45 @@ class RestaurantController extends Controller
      */
     public function index(Request $request)
     {
+
         if ($request->categories) {
-            $restaurants = Category::find($request->categories)->restaurants()->with('categories')->get();
-            return response()->json($restaurants);
+            $categories_ids = $request->categories;
+
+            if (count($categories_ids) === 1) {
+                $restaurants = Category::find($categories_ids[0])->restaurants()->get();
+            } else {
+                $not_unique_restaurants = [];
+
+                foreach ($categories_ids as $category) {
+                    $single_category_restaurants = Category::find($category)->restaurants()->get();
+
+                    foreach ($single_category_restaurants as $restaurant) {
+                        $not_unique_restaurants[] = $restaurant->id;
+                    }
+                }
+
+                $restaurants_ids_count_values = array_count_values($not_unique_restaurants);
+
+                $unique_restaurants_ids = [];
+                foreach ($restaurants_ids_count_values as $key => $count) {
+                    if ($count === count($categories_ids)) {
+                        $unique_restaurants_ids[] = $key;
+                    }
+                }
+
+                $restaurants = [];
+
+                foreach ($unique_restaurants_ids as $id) {
+                    $single_category_restaurant = Restaurant::find($id);
+                    $restaurants[] = $single_category_restaurant;
+                }
+
+            }
+
         } else {
-            $restaurants = Restaurant::with(['categories'])->get();
+            $restaurants = Restaurant::with('categories')->get();
         }
+
         return response()->json($restaurants);
     }
 
