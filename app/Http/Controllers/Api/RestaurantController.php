@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 
@@ -15,23 +16,45 @@ class RestaurantController extends Controller
      */
     public function index(Request $request)
     {
+
         if ($request->categories) {
-            // ! Da eliminare dopo $restaurants = Category::find($request->categories)->restaurants()->with('categories')->get();
+            $categories_ids = $request->categories;
 
-            // Prendo tutti i ristoranti
+            if (count($categories_ids) === 1) {
+                $restaurants = Category::find($categories_ids[0])->restaurants()->get();
+            } else {
+                $not_unique_restaurants = [];
 
-            // Prendo gli ID delle categorie su cui filtrare
+                foreach ($categories_ids as $category) {
+                    $single_category_restaurants = Category::find($category)->restaurants()->get();
 
-            // Per ogni ristorante controllo che in categories siano presenti tutti gli ID delle categorie
+                    foreach ($single_category_restaurants as $restaurant) {
+                        $not_unique_restaurants[] = $restaurant->id;
+                    }
+                }
 
-            // Ritorno al front-end i ristoranti filtrati
+                $restaurants_ids_count_values = array_count_values($not_unique_restaurants);
 
-            $filtered_restaurants = []; // NUOVO ARRAY CON RISTORANTI FILTRATI
+                $unique_restaurants_ids = [];
+                foreach ($restaurants_ids_count_values as $key => $count) {
+                    if ($count === count($categories_ids)) {
+                        $unique_restaurants_ids[] = $key;
+                    }
+                }
 
-            return response()->json($filtered_restaurants);
+                $restaurants = [];
+
+                foreach ($unique_restaurants_ids as $id) {
+                    $single_category_restaurant = Restaurant::find($id);
+                    $restaurants[] = $single_category_restaurant;
+                }
+
+            }
+
         } else {
-            $restaurants = Restaurant::with(['categories'])->get();
+            $restaurants = Restaurant::with('categories')->get();
         }
+
         return response()->json($restaurants);
     }
 
