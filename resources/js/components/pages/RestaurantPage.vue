@@ -59,7 +59,6 @@ import AppCart from "../AppCart.vue";
 import AppLoader from "../AppLoader.vue";
 
 export default {
-    name: "AppCart",
     name: "RestaurantPage",
     components: {
         AppCart,

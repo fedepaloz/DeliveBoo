@@ -9,11 +9,12 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
-
-
+    <script defer src="https://js.braintreegateway.com/web/dropin/1.33.4/js/dropin.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    
     {{-- ! CHECK --}}
     <script defer src="{{ asset('js/front.js') }}"></script>
-    <script src="{{ asset('js/cart.js') }}"></script>
+    <script defer src="{{ asset('js/cart.js') }}"></script>
 
     
     <!-- Styles -->
