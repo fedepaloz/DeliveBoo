@@ -12,12 +12,13 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        $names = config('res_categories');
+        $categories = config('res_categories');
 
-        foreach ($names as $name) {
-            $category = new Category();
-            $category->name = $name;
-            $category->save();
+        foreach($categories as $category) {
+            $new_category = new Category();
+            $new_category->name = $category['name'];
+            $new_category->image = $category['image'];
+            $new_category->save();
         }
     }
 }
