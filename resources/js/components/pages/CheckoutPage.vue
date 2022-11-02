@@ -48,6 +48,7 @@
                                 placeholder=""
                                 value="Alessio"
                                 required=""
+                                v-model="customer.first_name"
                             />
                             <div class="invalid-feedback">
                                 Il nome deve essere inserito
@@ -178,6 +179,12 @@ export default {
             order: [],
             resId: null,
             deliveryCost: null,
+            customer: {
+                first_name: "",
+                last_name: "",
+                address: "",
+                email: "",
+            },
         };
     },
     computed: {
@@ -236,8 +243,10 @@ export default {
                         axios
                             .post(`http://127.0.0.1:8000/api/payment/`, {
                                 payloadNonce: this.payloadNonce,
+                                customer: this.customer,
                                 order: this.order,
                                 total: this.total,
+                                resId: this.resId,
                             })
                             .then((res) => {
                                 if (res.data) {

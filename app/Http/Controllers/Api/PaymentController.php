@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
@@ -20,7 +21,7 @@ class PaymentController extends Controller
         ]);
 
         $result = $gateway->transaction()->sale([
-            'amount' => '2000.00',
+            'amount' => '100.00',
             'paymentMethodNonce' => $nonceFromTheClient,
             'options' => [
                 'submitForSettlement' => true,
@@ -28,6 +29,30 @@ class PaymentController extends Controller
         ]);
 
         if ($result->success) {
+
+            // Creo il nuovo ordine
+            $new_order = new Order;
+            $new_order->restaurant_id = $request->resId;
+            $new_order->first_name = $request->customer->first_name;
+            $new_order->last_name = $request->customer->last_name;
+            $new_order->email = $request->customer->email;
+            $new_order->delivery_address = $request->customer->address;
+            $new_order->total = $request->total;
+            $new_order->save();
+
+            // Attacco gli items all'ordine con attach()
+
+            $order = $request->order;
+
+            $item_ids = [];
+            $quantities = [];
+
+            foreach ($order as $item) {
+                $item_ids[] = $item->id;
+                $quantities[] = $item->quantity;
+            }
+
+            $new_order->items()->attach($item_ids, ['quantity' => $quantities]);
 
             // # Tabella orders, tabella items (1-to-1 con orders)
 
