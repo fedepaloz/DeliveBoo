@@ -6,78 +6,47 @@
                     class="d-flex justify-content-between align-items-center mb-3"
                 >
                     <span class="text-muted">Riepilogo</span>
-                    <span class="badge badge-secondary badge-pill">3</span>
+                    <span class="badge badge-secondary badge-pill">{{
+                        order.length
+                    }}</span>
                 </h4>
                 <ul class="list-group mb-3">
                     <li
+                        v-for="item in order"
+                        :key="item.id"
                         class="list-group-item d-flex justify-content-between lh-condensed"
                     >
                         <div>
-                            <h6 class="my-0">Product name</h6>
-                            <small class="text-muted">Brief description</small>
+                            <h6 class="my-0">{{ item.name }}</h6>
+                            <small class="text-muted"
+                                >x{{ item.quantity }}</small
+                            >
                         </div>
-                        <span class="text-muted">$12</span>
-                    </li>
-                    <li
-                        class="list-group-item d-flex justify-content-between lh-condensed"
-                    >
-                        <div>
-                            <h6 class="my-0">Second product</h6>
-                            <small class="text-muted">Brief description</small>
-                        </div>
-                        <span class="text-muted">$8</span>
-                    </li>
-                    <li
-                        class="list-group-item d-flex justify-content-between lh-condensed"
-                    >
-                        <div>
-                            <h6 class="my-0">Third item</h6>
-                            <small class="text-muted">Brief description</small>
-                        </div>
-                        <span class="text-muted">$5</span>
-                    </li>
-                    <li
-                        class="list-group-item d-flex justify-content-between bg-light"
-                    >
-                        <div class="text-success">
-                            <h6 class="my-0">Promo code</h6>
-                            <small>EXAMPLECODE</small>
-                        </div>
-                        <span class="text-success">-$5</span>
+                        <span class="text-muted">{{ item.total }} €</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
-                        <span>Total (USD)</span>
-                        <strong>$20</strong>
+                        <span>Spese di spedizione</span>
+                        <small class="text-muted">{{ deliveryCost }} €</small>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Totale</span>
+                        <strong>{{ total }} €</strong>
                     </li>
                 </ul>
-
-                <form class="card p-2">
-                    <div class="input-group">
-                        <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Promo code"
-                        />
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-secondary">
-                                Redeem
-                            </button>
-                        </div>
-                    </div>
-                </form>
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">Indirizzo di fatturazione</h4>
-                <form class="needs-validation" novalidate="">
+                <form id="payment-form" action="/api/payment" method="POST">
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="firstName">Nome Cognome</label>
+                            <label for="firstName">Nome</label>
                             <input
+                                name="firstName"
                                 type="text"
                                 class="form-control"
                                 id="firstName"
                                 placeholder=""
-                                value=""
+                                value="Alessio"
                                 required=""
                             />
                             <div class="invalid-feedback">
@@ -87,11 +56,12 @@
                         <div class="col-md-6 mb-3">
                             <label for="lastName">Cognome</label>
                             <input
+                                name="lastName"
                                 type="text"
                                 class="form-control"
                                 id="lastName"
                                 placeholder=""
-                                value=""
+                                value="Cordari"
                                 required=""
                             />
                             <div class="invalid-feedback">
@@ -103,10 +73,12 @@
                     <div class="mb-3">
                         <label for="email">Email</label>
                         <input
+                            name="email"
                             type="email"
                             class="form-control"
                             id="email"
                             placeholder="user@gmail.com"
+                            value="ale@ale.ale"
                         />
                         <div class="invalid-feedback">
                             Inserire una mail valida
@@ -116,11 +88,13 @@
                     <div class="mb-3">
                         <label for="address">Indirizzo</label>
                         <input
+                            name="address"
                             type="text"
                             class="form-control"
                             id="address"
                             placeholder=""
                             required=""
+                            value="vialemanidalnaso 21"
                         />
                         <div class="invalid-feedback">
                             Inserire l'indirizzo di consegna
@@ -131,11 +105,13 @@
                         <div class="col-md-3 mb-3">
                             <label for="zip">Codice postale</label>
                             <input
+                                name="zip"
                                 type="text"
                                 class="form-control"
                                 id="zip"
                                 placeholder=""
                                 required=""
+                                value="00100"
                             />
                             <div class="invalid-feedback">
                                 Il codice postale deve essere inserito
@@ -148,13 +124,18 @@
                     <div id="dropin-container"></div>
 
                     <hr class="mb-4" />
-                    <button
+                    <div
+                        type="button"
                         id="payment-form"
                         class="btn btn-primary btn-lg btn-block"
-                        type="submit"
                     >
                         Continua per il checkout
-                    </button>
+                    </div>
+                    <input
+                        type="hidden"
+                        id="nonce"
+                        name="payment_method_nonce"
+                    />
                 </form>
             </div>
         </div>
@@ -193,9 +174,45 @@ export default {
     data() {
         return {
             clientToken: "",
+            payloadNonce: "",
+            order: [],
+            resId: null,
+            deliveryCost: null,
         };
     },
+    computed: {
+        total() {
+            let total = 0;
+
+            this.order.forEach((item) => {
+                total += item.total;
+            });
+
+            total += this.deliveryCost;
+
+            return total;
+        },
+    },
+    methods: {
+        fetchDeliveryCost() {
+            this.resId = this.order[0].restaurant;
+            axios
+                .get(
+                    `http://127.0.0.1:8000/api/restaurants/deliverycost/${this.resId}`
+                )
+                .then((res) => {
+                    this.deliveryCost = res.data;
+                })
+                .catch(() => {})
+                .then(() => {});
+        },
+        getOrder() {
+            this.order = JSON.parse(localStorage.getItem("ordine"));
+        },
+    },
     mounted() {
+        this.getOrder();
+        this.fetchDeliveryCost();
         const form = document.getElementById("payment-form");
 
         braintree.dropin.create(
@@ -206,19 +223,31 @@ export default {
             (error, dropinInstance) => {
                 if (error) console.error(error);
 
-                form.addEventListener("submit", (event) => {
-                    event.preventDefault();
-
+                form.addEventListener("click", () => {
                     dropinInstance.requestPaymentMethod((error, payload) => {
                         if (error) console.error(error);
-
                         // Step four: when the user is ready to complete their
                         //   transaction, use the dropinInstance to get a payment
                         //   method nonce for the user's selected payment method, then add
                         //   it a the hidden field before submitting the complete form to
                         //   a server-side integration
-                        document.getElementById("nonce").value = payload.nonce;
-                        form.submit();
+                        this.payloadNonce = payload.nonce;
+
+                        axios
+                            .post(`http://127.0.0.1:8000/api/payment/`, {
+                                payloadNonce: this.payloadNonce,
+                                order: this.order,
+                                total: this.total,
+                            })
+                            .then((res) => {
+                                if (res.data) {
+                                    console.log(res.data);
+                                    // this.$router.push("/");
+                                } else {
+                                }
+                            })
+                            .catch(() => {})
+                            .then(() => {});
                     });
                 });
             }

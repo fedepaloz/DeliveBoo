@@ -115,4 +115,11 @@ class RestaurantController extends Controller
         return response()->json($restaurants);
     }
 
+    public function getDeliveryCost($restaurant_id)
+    {
+        $restaurant = Restaurant::find($restaurant_id);
+        $delivery_cost = $restaurant->delivery_cost;
+        return response()->json($delivery_cost);
+    }
+
 }
