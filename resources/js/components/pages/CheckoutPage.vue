@@ -6,48 +6,31 @@
                     class="d-flex justify-content-between align-items-center mb-3"
                 >
                     <span class="text-muted">Riepilogo</span>
-                    <span class="badge badge-secondary badge-pill">3</span>
+                    <span class="badge badge-secondary badge-pill">{{
+                        order.length
+                    }}</span>
                 </h4>
                 <ul class="list-group mb-3">
                     <li
+                        v-for="item in order"
+                        :key="item.id"
                         class="list-group-item d-flex justify-content-between lh-condensed"
                     >
                         <div>
-                            <h6 class="my-0">Product name</h6>
-                            <small class="text-muted">Brief description</small>
+                            <h6 class="my-0">{{ item.name }}</h6>
+                            <small class="text-muted"
+                                >x{{ item.quantity }}</small
+                            >
                         </div>
-                        <span class="text-muted">$12</span>
-                    </li>
-                    <li
-                        class="list-group-item d-flex justify-content-between lh-condensed"
-                    >
-                        <div>
-                            <h6 class="my-0">Second product</h6>
-                            <small class="text-muted">Brief description</small>
-                        </div>
-                        <span class="text-muted">$8</span>
-                    </li>
-                    <li
-                        class="list-group-item d-flex justify-content-between lh-condensed"
-                    >
-                        <div>
-                            <h6 class="my-0">Third item</h6>
-                            <small class="text-muted">Brief description</small>
-                        </div>
-                        <span class="text-muted">$5</span>
-                    </li>
-                    <li
-                        class="list-group-item d-flex justify-content-between bg-light"
-                    >
-                        <div class="text-success">
-                            <h6 class="my-0">Promo code</h6>
-                            <small>EXAMPLECODE</small>
-                        </div>
-                        <span class="text-success">-$5</span>
+                        <span class="text-muted">{{ item.total }} €</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
-                        <span>Total (USD)</span>
-                        <strong>$20</strong>
+                        <span>Spese di spedizione</span>
+                        <small class="text-muted">{{ deliveryCost }} €</small>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Totale</span>
+                        <strong>{{ total }} €</strong>
                     </li>
                 </ul>
             </div>
@@ -192,9 +175,45 @@ export default {
         return {
             clientToken: "",
             payloadNonce: "",
+            order: [],
+            resId: null,
+            deliveryCost: null,
         };
     },
+    computed: {
+        total() {
+            let total = 0;
+
+            this.order.forEach((item) => {
+                total += item.total;
+            });
+
+            total += this.deliveryCost;
+
+            return total;
+        },
+    },
+    methods: {
+        fetchDeliveryCost() {
+            this.resId = this.order[0].restaurant;
+            axios
+                .get(
+                    `http://127.0.0.1:8000/api/restaurants/deliverycost/${this.resId}`
+                )
+                .then((res) => {
+                    console.log(res.data);
+                    this.deliveryCost = res.data;
+                })
+                .catch(() => {})
+                .then(() => {});
+        },
+        getOrder() {
+            this.order = JSON.parse(localStorage.getItem("ordine"));
+        },
+    },
     mounted() {
+        this.getOrder();
+        this.fetchDeliveryCost();
         const form = document.getElementById("payment-form");
 
         braintree.dropin.create(
@@ -220,12 +239,9 @@ export default {
                                 payloadNonce: this.payloadNonce,
                             })
                             .then((res) => {
-                                console.log(res.data);
                                 if (res.data) {
                                     // this.$router.push("/");
-                                    console.log("è andata bene");
                                 } else {
-                                    console.log("Non è andata bene");
                                 }
                             })
                             .catch(() => {})
