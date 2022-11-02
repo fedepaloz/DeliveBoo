@@ -128,8 +128,6 @@ export default {
                         .join("&")}`
                 )
                 .then((res) => {
-                    console.log(res.data);
-
                     this.restaurants = res.data;
                     this.$emit("filtered-restaurants", this.restaurants);
                 })

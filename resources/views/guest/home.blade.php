@@ -14,7 +14,6 @@
     
     {{-- ! CHECK --}}
     <script defer src="{{ asset('js/front.js') }}"></script>
-    <script defer src="{{ asset('js/cart.js') }}"></script>
 
     
     <!-- Styles -->

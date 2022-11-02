@@ -104,22 +104,4 @@ class RestaurantController extends Controller
         //
     }
 
-    public function filter($category_id)
-    {
-        // $restaurants = Restaurant::all()->categories()->where('category_id', $category_id)->get();
-        // return response()->json($restaurants);
-        // $restaurants = App\Models\Restaurant::whereHas('comments', function (Builder $query) {
-        //     $query->where('content', 'like', 'foo%');
-        // }, '>=', 10)->get();
-        $restaurants = Restaurant::whereHas('category_id', $category_id)->categories()->get();
-        return response()->json($restaurants);
-    }
-
-    public function getDeliveryCost($restaurant_id)
-    {
-        $restaurant = Restaurant::find($restaurant_id);
-        $delivery_cost = $restaurant->delivery_cost;
-        return response()->json($delivery_cost);
-    }
-
 }
