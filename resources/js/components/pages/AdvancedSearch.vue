@@ -1,14 +1,14 @@
 <template lang="">
-    <div class="container">
+    <div>
         <AppLoader v-if="isLoading" />
         <div class="mt-4">
             <div class=" m-auto mt-4">
                 <div class="list-group"> <h2 class="text-danger mt-5"> Fame? Di cosa hai voglia?</h2> </div>
-                    
+                        <div class="row justify-content-center">
                             <div
                                 v-for="item in categories"
                                 :key="item.id"
-                                class="list-item"
+                                class="list-item col-2 m-1 "
                             >
                             <div class="text-center">
                                 <input
@@ -19,10 +19,11 @@
                                     :id="item.id"
                                 />
                                 <label :for="item.id">
-                                    <img :src="item.image" :alt="item.name" class="img-fluid cat-img">
-                                    <h4 class="mt-3">{{ item.name }}</h4>
+                                    <h6 class="mt-3">{{ item.name }}</h6>
+                                    <img :src="item.image" :alt="item.name" class=" ml-2 img-fluid cat-img d-none d-md-block">
                                 </label>
                             </div>
+                        </div>
                     </div>
                
             </div>
@@ -147,24 +148,20 @@ export default {
   background-image: url("https://png.pngtree.com/thumb_back/fh260/back_our/20190621/ourmid/pngtree-black-atmosphere-simple-meal-food-food-banner-image_176553.jpg");
   background-repeat: no-repeat;
 }
-.cat-img {
-    width: 150px;
-    height: 75px;
+
+.cat-img{
+    width: 94%;
+    height: 80%;
+    margin-top: 5px;
 }
 .list-item {
     padding: 7px;
-    margin: 10px 14.9px;
-    width: 150px;
-    height:140px;
-    display:inline-block;
     color: white;
     background-color: #b1291b;
     border-radius: 8px;
     transition : 0.3s;
 
     &:hover{
-        width:160px;
-        height: 145px;
         margin: 10px 10px;
         background-color: white;
         color: #b1291b;

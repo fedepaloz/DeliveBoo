@@ -7,7 +7,7 @@ return [
     ],
     [
         'name' => 'Vegetariano',
-        'image' => 'https://images.ctfassets.net/bffxiku554r1/5MAFeA66RfBSky4sFFDt0R/1cc78ac3477e95d2f52b55eb473097cd/GRO-Campaign_Dietary-Requirements_Vegetarian-Hero.jpg?fm=jpg&q=60&w=600&h=338',
+        'image' => 'https://www.eatright.org/-/media/eatrightimages/food/nutrition/vegetarianandspecialdiets/vegetarianism-basic-facts-878734076.jpg',
     ],
     [
         'name' => 'Thai',
