@@ -1,174 +1,214 @@
 <template lang="">
-    <section class="slide-wrapper">
-        <div class="container">
-            <div id="myCarousel" class="carousel slide">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                 </ol>
+    <div id="homepage-slider" class="st-slider">
+        <input type="radio" class="cs_anchor radio" name="slider" id="slide1" />
+        <input type="radio" class="cs_anchor radio" name="slider" id="slide2" />
+        <input type="radio" class="cs_anchor radio" name="slider" id="slide3" />
+        <input
+            type="radio"
+            class="cs_anchor radio"
+            name="slider"
+            id="play1"
+            checked=""
+        />
 
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner">
-                    <div class="item item1 active">
-                        <div class="fill" style=" background-color:#48c3af;">
-                            <div class="inner-content">
-                                <div class="carousel-img">
-                                    <img src="http://cdn.homedit.com/wp-content/uploads/2011/08/137CLUB2ST.png" alt="sofa" class="img img-responsive" />
-                                </div>
-                                <div class="carousel-desc">
-
-                                    <h2>Modern Designer Sofa</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis elit ipsum, scelerisque non semper eu, aliquet vel odio. Sed auctor id purus nec tristique. Donec euismod, urna vel dapibus tristique, dolor arcu ultrices lectus, nec pulvinar est turpis sit amet felis. Duis interdum purus quam, vitae cursus erat ornare at. Donec congue mi a ipsum tincidunt, imperdiet vehicula odio rutrum. Nam porta vulputate magna, id pretium lectus iaculis eu. Ut ut viverra libero.</p>
-
-                                </div>
-                            </div>
-                        </div>
+        <div class="images">
+            <div class="images-inner">
+                <div class="image-slide">
+                    <div
+                        class="first-bg-slide image bg-yellow"
+                        style="background-color: yellow"
+                    >
+                        
                     </div>
-                    <div class="item item2">
-                        <div class="fill" style="background-color:#b33f4a;">
-                            <div class="inner-content">
-                                <div class="carousel-img">
-                                    <img src="http://cdn.homedit.com/wp-content/uploads/2011/08/137CLUB2ST.png" alt="white-sofa" class="img img-responsive" />
-                                </div>
-                                <div class="carousel-desc">
-
-                                    <h2>Vintage Style Sofa</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis elit ipsum, scelerisque non semper eu, aliquet vel odio. Sed auctor id purus nec tristique. Donec euismod, urna vel dapibus tristique, dolor arcu ultrices lectus, nec pulvinar est turpis sit amet felis. Duis interdum purus quam, vitae cursus erat ornare at. Donec congue mi a ipsum tincidunt, imperdiet vehicula odio rutrum. Nam porta vulputate magna, id pretium lectus iaculis eu. Ut ut viverra libero.</p>
-
-                                </div>
-                            </div>
-                        </div>
+                </div>
+                <div class="image-slide">
+                    <div class="second-bg-slide image bg-blue" style="background-color: pink">
                     </div>
-                    <div class="item item3">
-                        <div class="fill" style="background-color:#7fc2f4;">
-                            <div class="inner-content">
-                                <div class="col-md-6">
-
-                                    <div class="carousel-img">
-                                        <img src="http://cdn.homedit.com/wp-content/uploads/2011/08/137CLUB2ST.png" alt="sofa" class="img img-responsive" />
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 text-left">
-                                    <div class="carousel-desc">
-
-                                        <h2>Stylish Sofa</h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis elit ipsum, scelerisque non semper eu, aliquet vel odio. Sed auctor id purus nec tristique. Donec euismod, urna vel dapibus tristique, dolor arcu ultrices lectus, nec pulvinar est turpis sit amet felis. Duis interdum purus quam, vitae cursus erat ornare at. Donec congue mi a ipsum tincidunt, imperdiet vehicula odio rutrum. Nam porta vulputate magna, id pretium lectus iaculis eu. Ut ut viverra libero.</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+                <div class="image-slide">
+                    <div class="third-bg-slide image bg-red" style="background-color: orange">
                     </div>
-
                 </div>
             </div>
         </div>
-    </section>
+
+        
+    </div>
 </template>
 <script>
 export default {
     name: "AppSlider",
 };
-
 </script>
 <style lang="scss" scoped>
-html, body{
-    width:100%;
-    height:100%;
-    background-color:#fff;
-  font-family: 'Sansita', sans-serif;
-    }
-.carousel-inner,.carousel,.item,.container,.fill {
-  height:100%;
-  width:100%;
-  background-position:center center;
-  background-size:cover;
+.first-bg-slide{
+    background-image: url('https://www.neopolitanpizza.in/images/slider.jpg');
+    background-size: cover;
+    background-position-y:center;
+    background-repeat: no-repeat;
+
 }
-.slide-wrapper{display:inline;}
-.slide-wrapper .container{padding:0px;}
+.second-bg-slide{
+    background-image: url('https://www.burgerking.it/site/assets/files/slide-baconking3.png');
+    background-size: cover;
+    background-position-y:center;
+    background-repeat: no-repeat;
 
-/*------------------------------ vertical bootstrap slider----------------------------*/
-
-.carousel-inner> .item.next ,  .carousel-inner > .item.active.right{ transform: translateY(100%); -webkit-transform: translateY(100%); -ms-transform: translateY(100%);
--moz-transform: translateY(100%); -o-transform: translateY(100%);  top: 0;left:0;}
-.carousel-inner > .item.prev ,.carousel-inner > .item.active.left{ transform: translateY(-100%); -webkit-transform: translateY(-100%);  -moz-transform: translateY(-100%);
--ms-transform: translateY(-100%); -o-transform: translateY(-100%); top: 0; left:0;}
-.carousel-inner > .item.next.left , .carousel-inner > .item.prev.right , .carousel-inner > .item.active{transform:translateY(0); -webkit-transform:translateY(0);
--ms-transform:translateY(0);-moz-transform:translateY(0); -o-transform:translateY(0); top:0; left:0;}
-
-/*------------------------------- vertical carousel indicators ------------------------------*/
-.carousel-indicators{
-position:absolute;
-top:0;
-bottom:0;
-margin:auto;
-height:20px;
-right:10px; left:auto;
-width:auto;
 }
-.carousel-indicators li{display:block; margin-bottom:5px; border:1px solid #00a199; }
-.carousel-indicators li.active{margin-bottom:5px; background:#00a199;}
-/*-------- Animation slider ------*/
+.third-bg-slide{
+    background-image: url('https://www.mcdonalds.it/sites/default/files/styles/compressed/public/product_category/menu--hero-dsk.jpg?itok=YEX__Uhj');
+    background-size: cover;
+    background-position-y:center;
+    background-repeat: no-repeat;
 
-.animated{
-  animation-duration:3s;
-  -webkit-animation-duration:3s;
-  -moz-animation-duration:3s;
-  -ms-animation-duration:3s;
-  -o-animation-duration:3s;
-  visibility:visible;
-  opacity:1;
-  transition:all 0.3s ease;
 }
-.carousel-img{   
-   display: inline-block;
-    margin: 0 auto;
+
+.image {
     width: 100%;
-    text-align: center;
-  }
-.item img{margin:auto;visibility:hidden; opacity:0; transition:all 0.3s ease; -webkit-transition:all 0.3s ease; -moz-transition:all 0.3s ease; -ms-transition:all 0.3s ease; -o-transition:all 0.3s ease;}
-.item1 .carousel-img img , .item1.active .carousel-img img{max-height:300px;}
-.item1.active .carousel-img img.animated{visibility:visible; opacity:1; transition:all 1s ease; -webkit-transition:all 1s ease; -moz-transition:all 1s ease; -ms-transition:all 1s ease; -o-transition:all 1s ease;
-animation-duration:2s; -webkit-animation-duration:2s; -moz-animation-duration:2s; -ms-animation-duration:2s; -o-animation-duration:2s; animation-delay:0.3s ; -webkit-animation-delay:0.3s;
--moz-animation-delay:0.3s;-ms-animation-delay:0.3s; }
-.item .carousel-desc{color:#fff; text-align:center;}
-.item  h2{font-size:50px; animation-delay:1.5s;animation-duration:1s; }
-.item  p{animation-delay:2.5s;animation-duration:1s; width:50%; margin:auto;}
-
-.item2 .carousel-img img , .item2.active .carousel-img img{max-height:300px;}
-.item2.active .carousel-img img.animated{visibility:visible; opacity:1; transition:all 0.3s ease; animation-duration:3s; animation-delay:0.3s}
-.item2 h2 , item2.active h2{visibility:hidden; opacity:0; transition:all 5s ease;}
-.item2.active h2.animated{visibility:visible; opacity:1;  animation-delay:3s;}
-
-.item .fill{padding:0px 30px; display:table; }
-.item .inner-content{display: table-cell;vertical-align: middle;}
-.item3 .col-md-6{float:none; display:inline-block; vertical-align:middle; width:49%;}
-
-.item3.active .carousel-img img.animated{visibility:visible; opacity:1; transition:all 0.3s ease; animation-duration:2s; animation-delay:0.3s}
-.item3 h2 , item3.active h2{visibility:hidden; opacity:0; transition:all 5s ease; }
-.item.item3 .carousel-desc{text-align:left;}
-.item3.active h2.animated{visibility:visible; opacity:1;  animation-delay:1.5s}
-.item3 p , item3.active p{visibility:hidden; opacity:0; transition:all 5s ease; width:100%;  }
-.item3.active p.animated{visibility:visible; opacity:1;  animation-delay:2.5s;}
-
-@media(max-width:991px)
-{
-  .item .carousel-desc , .item.item3 .carousel-desc{text-align:center;}
-  .item .carousel-desc p {width:80%;}
-  .item3 .col-md-6{width:100%; text-align:center;}
+    height: 350px;
 }
-@media(max-width:768px)
-{
-.item .carousel-img img, .item.active .carousel-img img{max-height:155px;}
-.item  h2{font-size:30px; margin-top:0px;}
-.item .carousel-desc p{width:100%; font-size:12px;}
+.radio {
+    display: none;
 }
-@media(max-width:480px)
-{
-.item  h2{font-size:30px;}
-.item .carousel-desc p{width:100%;}
+.images {
+    overflow: hidden;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
 }
+.images-inner {
+    width: 500%;
+    transition: all 800ms cubic-bezier(0.77, 0, 0.175, 1);
+    transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+.image-slide {
+    width: 20%;
+    float: left;
+}
+.image-slide,
+.fake-radio,
+.radio-btn {
+    transition: all 0.5s ease-out;
+}
+.fake-radio {
+    float: right;
+}
+
+.carousel-image {
+    object-position: center
+}
+
+/* Move slides overflowed container */
+#slide1:checked ~ .images .images-inner {
+    margin-left: 0;
+}
+#slide2:checked ~ .images .images-inner {
+    margin-left: -100%;
+}
+#slide3:checked ~ .images .images-inner {
+    margin-left: -200%;
+}
+
+/* Color of bullets */
+#slide1:checked ~ div .fake-radio .radio-btn:nth-child(1),
+#slide2:checked ~ div .fake-radio .radio-btn:nth-child(2),
+#slide3:checked ~ div .fake-radio .radio-btn:nth-child(3) {
+    background: red;
+}
+.radio-btn {
+    width: 9px;
+    height: 9px;
+    border-radius: 5px;
+    background: gray;
+    display: inline-block !important;
+    margin: 0 1px;
+    cursor: pointer;
+}
+/* Color of bullets - END */
+
+/* Text of slides */
+#slide1:checked ~ .labels .label:nth-child(1),
+#slide2:checked ~ .labels .label:nth-child(2),
+#slide3:checked ~ .labels .label:nth-child(3) {
+    opacity: 1;
+}
+
+.label {
+    opacity: 0;
+    position: absolute;
+}
+/* Text of slides - END */
+
+/* Calculate AUTOPLAY for BULLETS */
+@keyframes bullet {
+    0%,
+    33.32333333333334% {
+        background: red;
+    }
+    33.333333333333336%,
+    100% {
+        background: gray;
+    }
+}
+
+#play1:checked ~ div .fake-radio .radio-btn:nth-child(1) {
+    animation: bullet 12300ms infinite -1000ms;
+}
+
+#play1:checked ~ div .fake-radio .radio-btn:nth-child(2) {
+    animation: bullet 12300ms infinite 3100ms;
+}
+
+#play1:checked ~ div .fake-radio .radio-btn:nth-child(3) {
+    animation: bullet 12300ms infinite 7200ms;
+}
+/* Calculate AUTOPLAY for BULLETS - END */
+
+/* Calculate AUTOPLAY for SLIDES */
+@keyframes slide {
+    0%,
+    25.203252032520325% {
+        margin-left: 0;
+    }
+    33.333333333333336%,
+    58.53658536585366% {
+        margin-left: -100%;
+    }
+    66.66666666666667%,
+    91.869918699187% {
+        margin-left: -200%;
+    }
+}
+
+.st-slider > #play1:checked ~ .images .images-inner {
+    animation: slide 12300ms infinite;
+}
+/* Calculate AUTOPLAY for SLIDES - END */
+
+/* Calculate AUTOPLAY for CAPTION */
+@keyframes caption {
+    0%,
+    33.32333333333334% {
+        opacity: 1;
+    }
+    33.333333333333336%,
+    100% {
+        opacity: 0;
+    }
+}
+
+#play1:checked ~ .labels .label:nth-child(1) {
+    animation: caption 12300ms infinite -1000ms;
+}
+
+#play1:checked ~ .labels .label:nth-child(2) {
+    animation: caption 12300ms infinite 3100ms;
+}
+
+#play1:checked ~ .labels .label:nth-child(3) {
+    animation: caption 12300ms infinite 7200ms;
+}
+/* Calculate AUTOPLAY for CAPTION - END */
 </style>
