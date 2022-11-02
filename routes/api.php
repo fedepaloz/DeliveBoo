@@ -18,9 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::namespace ('Api')->group(function () {
+Route::namespace('Api')->group(function () {
     Route::get('/restaurants', 'RestaurantController@index');
     Route::get('/restaurants/{id}', 'RestaurantController@show');
     Route::get('/categories', 'CategoryController@index');
-    Route::get('/token', 'PaymentController@token');
+    Route::post('/payment', 'PaymentController@payment');
 });

@@ -50,34 +50,19 @@
                         <strong>$20</strong>
                     </li>
                 </ul>
-
-                <form class="card p-2">
-                    <div class="input-group">
-                        <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Promo code"
-                        />
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-secondary">
-                                Redeem
-                            </button>
-                        </div>
-                    </div>
-                </form>
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">Indirizzo di fatturazione</h4>
-                <form class="needs-validation" novalidate="">
+                <form id="payment-form" action="/api/payment" method="POST">
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="firstName">Nome Cognome</label>
-                            <input
+                            <label for="firstName">Nome</label>
+                            <input name="firstName"
                                 type="text"
                                 class="form-control"
                                 id="firstName"
                                 placeholder=""
-                                value=""
+                                value="Alessio"
                                 required=""
                             />
                             <div class="invalid-feedback">
@@ -86,12 +71,12 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="lastName">Cognome</label>
-                            <input
+                            <input name="lastName"
                                 type="text"
                                 class="form-control"
                                 id="lastName"
                                 placeholder=""
-                                value=""
+                                value="Cordari"
                                 required=""
                             />
                             <div class="invalid-feedback">
@@ -102,11 +87,12 @@
 
                     <div class="mb-3">
                         <label for="email">Email</label>
-                        <input
+                        <input name="email"
                             type="email"
                             class="form-control"
                             id="email"
                             placeholder="user@gmail.com"
+                            value="ale@ale.ale"
                         />
                         <div class="invalid-feedback">
                             Inserire una mail valida
@@ -115,12 +101,13 @@
 
                     <div class="mb-3">
                         <label for="address">Indirizzo</label>
-                        <input
+                        <input name="address"
                             type="text"
                             class="form-control"
                             id="address"
                             placeholder=""
                             required=""
+                            value="vialemanidalnaso 21"
                         />
                         <div class="invalid-feedback">
                             Inserire l'indirizzo di consegna
@@ -130,12 +117,13 @@
                     <div class="row">
                         <div class="col-md-3 mb-3">
                             <label for="zip">Codice postale</label>
-                            <input
+                            <input name="zip"
                                 type="text"
                                 class="form-control"
                                 id="zip"
                                 placeholder=""
                                 required=""
+                                value="00100"
                             />
                             <div class="invalid-feedback">
                                 Il codice postale deve essere inserito
@@ -155,6 +143,11 @@
                     >
                         Continua per il checkout
                     </button>
+                    <input
+                        type="hidden"
+                        id="nonce"
+                        name="payment_method_nonce"
+                    />
                 </form>
             </div>
         </div>

@@ -21,7 +21,7 @@
                 <button
                     type="button"
                     @click="fetchRestaurants"
-                    class="btn btn-light mt-4"
+                    class="btn btn-search btn btn-light mt-4"
                 >
                     Filtra
                 </button>
