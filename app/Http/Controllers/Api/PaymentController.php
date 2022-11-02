@@ -27,7 +27,16 @@ class PaymentController extends Controller
             ],
         ]);
 
-        return response()->json($result->success);
+        if ($result->success) {
+
+            // # Tabella orders, tabella items (1-to-1 con orders)
+
+            // Inseriamo l'ordine nel DB, svuotiamo il local storage, rimandiamo alla pagina di successo (usando res.data per scrivere il riepilogo ordine) e mandiamo l'email
+        } else {
+            // Mandiamo gli errori e li mostriamo in pagina
+        }
+
+        return response()->json($request);
 
     }
 }

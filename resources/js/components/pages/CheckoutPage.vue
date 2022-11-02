@@ -201,7 +201,6 @@ export default {
                     `http://127.0.0.1:8000/api/restaurants/deliverycost/${this.resId}`
                 )
                 .then((res) => {
-                    console.log(res.data);
                     this.deliveryCost = res.data;
                 })
                 .catch(() => {})
@@ -237,9 +236,12 @@ export default {
                         axios
                             .post(`http://127.0.0.1:8000/api/payment/`, {
                                 payloadNonce: this.payloadNonce,
+                                order: this.order,
+                                total: this.total,
                             })
                             .then((res) => {
                                 if (res.data) {
+                                    console.log(res.data);
                                     // this.$router.push("/");
                                 } else {
                                 }
