@@ -105,24 +105,6 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-3 mb-3">
-                            <label for="zip">Codice postale</label>
-                            <input
-                                name="zip"
-                                type="text"
-                                class="form-control"
-                                id="zip"
-                                placeholder=""
-                                required=""
-                                value="00100"
-                            />
-                            <div class="invalid-feedback">
-                                Il codice postale deve essere inserito
-                            </div>
-                        </div>
-                    </div>
-
                     <h4 class="mb-3">Pagamento</h4>
 
                     <div id="dropin-container"></div>
@@ -252,11 +234,7 @@ export default {
                                 resId: this.resId,
                             })
                             .then((res) => {
-                                if (res.data) {
-                                    console.log(res.data);
-                                    // this.$router.push("/");
-                                } else {
-                                }
+                                console.log(res.data);
                             })
                             .catch(() => {})
                             .then(() => {});

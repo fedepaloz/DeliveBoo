@@ -15,10 +15,10 @@ class CreateItemOrderTable extends Migration
     {
         Schema::create('item_order', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('item_id');
-            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
             $table->unsignedBigInteger('order_id');
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
+            $table->unsignedBigInteger('item_id');
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
             $table->tinyInteger('quantity')->default(1);
             $table->timestamps();
         });
