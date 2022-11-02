@@ -57,7 +57,8 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="firstName">Nome</label>
-                            <input name="firstName"
+                            <input
+                                name="firstName"
                                 type="text"
                                 class="form-control"
                                 id="firstName"
@@ -71,7 +72,8 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="lastName">Cognome</label>
-                            <input name="lastName"
+                            <input
+                                name="lastName"
                                 type="text"
                                 class="form-control"
                                 id="lastName"
@@ -87,7 +89,8 @@
 
                     <div class="mb-3">
                         <label for="email">Email</label>
-                        <input name="email"
+                        <input
+                            name="email"
                             type="email"
                             class="form-control"
                             id="email"
@@ -101,7 +104,8 @@
 
                     <div class="mb-3">
                         <label for="address">Indirizzo</label>
-                        <input name="address"
+                        <input
+                            name="address"
                             type="text"
                             class="form-control"
                             id="address"
@@ -117,7 +121,8 @@
                     <div class="row">
                         <div class="col-md-3 mb-3">
                             <label for="zip">Codice postale</label>
-                            <input name="zip"
+                            <input
+                                name="zip"
                                 type="text"
                                 class="form-control"
                                 id="zip"
@@ -136,13 +141,13 @@
                     <div id="dropin-container"></div>
 
                     <hr class="mb-4" />
-                    <button
+                    <div
+                        type="button"
                         id="payment-form"
                         class="btn btn-primary btn-lg btn-block"
-                        type="submit"
                     >
                         Continua per il checkout
-                    </button>
+                    </div>
                     <input
                         type="hidden"
                         id="nonce"
@@ -186,6 +191,7 @@ export default {
     data() {
         return {
             clientToken: "",
+            payloadNonce: "",
         };
     },
     mounted() {
@@ -199,19 +205,31 @@ export default {
             (error, dropinInstance) => {
                 if (error) console.error(error);
 
-                form.addEventListener("submit", (event) => {
-                    event.preventDefault();
-
+                form.addEventListener("click", () => {
                     dropinInstance.requestPaymentMethod((error, payload) => {
                         if (error) console.error(error);
-
                         // Step four: when the user is ready to complete their
                         //   transaction, use the dropinInstance to get a payment
                         //   method nonce for the user's selected payment method, then add
                         //   it a the hidden field before submitting the complete form to
                         //   a server-side integration
-                        document.getElementById("nonce").value = payload.nonce;
-                        form.submit();
+                        this.payloadNonce = payload.nonce;
+
+                        axios
+                            .post(`http://127.0.0.1:8000/api/payment/`, {
+                                payloadNonce: this.payloadNonce,
+                            })
+                            .then((res) => {
+                                console.log(res.data);
+                                if (res.data) {
+                                    // this.$router.push("/");
+                                    console.log("è andata bene");
+                                } else {
+                                    console.log("Non è andata bene");
+                                }
+                            })
+                            .catch(() => {})
+                            .then(() => {});
                     });
                 });
             }
