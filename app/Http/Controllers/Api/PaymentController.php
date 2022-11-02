@@ -33,10 +33,10 @@ class PaymentController extends Controller
             // Creo il nuovo ordine
             $new_order = new Order;
             $new_order->restaurant_id = $request->resId;
-            $new_order->first_name = $request->customer->first_name;
-            $new_order->last_name = $request->customer->last_name;
-            $new_order->email = $request->customer->email;
-            $new_order->delivery_address = $request->customer->address;
+            $new_order->first_name = $request->customer['first_name'];
+            $new_order->last_name = $request->customer['last_name'];
+            $new_order->email = $request->customer['email'];
+            $new_order->delivery_address = $request->customer['address'];
             $new_order->total = $request->total;
             $new_order->save();
 
@@ -48,8 +48,8 @@ class PaymentController extends Controller
             $quantities = [];
 
             foreach ($order as $item) {
-                $item_ids[] = $item->id;
-                $quantities[] = $item->quantity;
+                $item_ids[] = $item['id'];
+                $quantities[] = $item['quantity'];
             }
 
             $new_order->items()->attach($item_ids, ['quantity' => $quantities]);
@@ -57,11 +57,9 @@ class PaymentController extends Controller
             // # Tabella orders, tabella items (1-to-1 con orders)
 
             // Inseriamo l'ordine nel DB, svuotiamo il local storage, rimandiamo alla pagina di successo (usando res.data per scrivere il riepilogo ordine) e mandiamo l'email
-        } else {
-            // Mandiamo gli errori e li mostriamo in pagina
         }
 
-        return response()->json($request);
+        return response()->json($new_order);
 
     }
 }

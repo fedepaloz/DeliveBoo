@@ -36,7 +36,7 @@
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">Indirizzo di fatturazione</h4>
-                <form id="payment-form" action="/api/payment" method="POST">
+                <form action="/api/payment" method="POST">
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="firstName">Nome</label>
@@ -64,6 +64,7 @@
                                 placeholder=""
                                 value="Cordari"
                                 required=""
+                                v-model="customer.last_name"
                             />
                             <div class="invalid-feedback">
                                 Il cognome deve essere inserito
@@ -80,6 +81,7 @@
                             id="email"
                             placeholder="user@gmail.com"
                             value="ale@ale.ale"
+                            v-model="customer.email"
                         />
                         <div class="invalid-feedback">
                             Inserire una mail valida
@@ -96,6 +98,7 @@
                             placeholder=""
                             required=""
                             value="vialemanidalnaso 21"
+                            v-model="customer.address"
                         />
                         <div class="invalid-feedback">
                             Inserire l'indirizzo di consegna
@@ -224,7 +227,7 @@ export default {
 
         braintree.dropin.create(
             {
-                authorization: "sandbox_x6shqqj4_754btzw6qy3x4bbx",
+                authorization: "sandbox_nd542y7m_754btzw6qy3x4bbx",
                 container: "#dropin-container",
             },
             (error, dropinInstance) => {
