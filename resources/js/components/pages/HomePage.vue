@@ -11,7 +11,8 @@
                 <div v-if="restaurants.length >= 1">
                     <RestaurantList :restaurants="restaurants" />
                 </div>
-                <div v-else>
+                
+                <div>
                     <div class="container card my-5">
                         <hr class="hr" />
                         <div
