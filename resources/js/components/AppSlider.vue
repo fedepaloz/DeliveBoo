@@ -17,22 +17,22 @@
                     <div
                         class="first-bg-slide image bg-yellow"
                         style="background-color: yellow"
-                    >
-                        
-                    </div>
+                    ></div>
                 </div>
                 <div class="image-slide">
-                    <div class="second-bg-slide image bg-blue" style="background-color: pink">
-                    </div>
+                    <div
+                        class="second-bg-slide image bg-blue"
+                        style="background-color: pink"
+                    ></div>
                 </div>
                 <div class="image-slide">
-                    <div class="third-bg-slide image bg-red" style="background-color: orange">
-                    </div>
+                    <div
+                        class="third-bg-slide image bg-red"
+                        style="background-color: orange"
+                    ></div>
                 </div>
             </div>
         </div>
-
-        
     </div>
 </template>
 <script>
@@ -41,31 +41,35 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.first-bg-slide{
-    background-image: url('https://www.neopolitanpizza.in/images/slider.jpg');
+.first-bg-slide {
+    background-image: url("https://www.neopolitanpizza.in/images/slider.jpg");
     background-size: cover;
-    background-position-y:center;
+    background-position-y: center;
     background-repeat: no-repeat;
-
 }
-.second-bg-slide{
-    background-image: url('https://www.burgerking.it/site/assets/files/slide-baconking3.png');
+.second-bg-slide {
+    background-image: url("https://www.burgerking.it/site/assets/files/slide-baconking3.png");
     background-size: cover;
-    background-position-y:center;
+    background-position-y: center;
     background-repeat: no-repeat;
-
 }
-.third-bg-slide{
-    background-image: url('https://www.mcdonalds.it/sites/default/files/styles/compressed/public/product_category/menu--hero-dsk.jpg?itok=YEX__Uhj');
+.third-bg-slide {
+    background-image: url("https://www.mcdonalds.it/sites/default/files/styles/compressed/public/product_category/menu--hero-dsk.jpg?itok=YEX__Uhj");
     background-size: cover;
-    background-position-y:center;
+    background-position-y: center;
     background-repeat: no-repeat;
-
 }
 
 .image {
     width: 100%;
-    height: 350px;
+    height: 600px;
+    opacity: 0.8;
+    position: static;
+    top: 100px;
+    left: 0;
+    right: 0;
+
+    z-index: -1;
 }
 .radio {
     display: none;
@@ -97,7 +101,7 @@ export default {
 }
 
 .carousel-image {
-    object-position: center
+    object-position: center;
 }
 
 /* Move slides overflowed container */
