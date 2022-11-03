@@ -57,9 +57,12 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+
 .bg-navbar {
   height: 100px;
   background-color: #b1291b;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
 
   a {
     color: white;
@@ -88,4 +91,13 @@ export default {
   left: -40px;
   min-width: 12rem;
 }
+
+header{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+
 </style>
