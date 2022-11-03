@@ -61,7 +61,7 @@ export default {
 .bg-navbar {
   height: 100px;
   background-color: #b1291b;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
 
 
   a {
@@ -93,10 +93,10 @@ export default {
 }
 
 header{
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 3;
 }
 
 
