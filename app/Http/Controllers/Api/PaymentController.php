@@ -74,15 +74,15 @@ class PaymentController extends Controller
 
             $order = $request->order;
 
+            
             for ($i = 0; $i < count($order); $i++) {
                 $new_order->items()->attach($order[$i]['id'], ['quantity' => $order[$i]['quantity']]);
             }
-
+            
             // mail of confirmation of publication
-            $mail= new NewOrderMail($request);
-            $order_mail = $request->customer['email'];
-            Mail::to($order_mail)->send($mail);
-            // fine
+            $mail= new NewOrderMail($order);
+            $costumer = $request->customer['email'];
+            Mail::to($costumer)->send($mail);
 
             return response()->json($new_order);
         }
