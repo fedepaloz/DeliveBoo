@@ -37304,8 +37304,6 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 // require('./image_preview');
 
-'bella zi0';
-
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

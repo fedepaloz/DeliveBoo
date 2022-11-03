@@ -18,20 +18,11 @@
                         <div class="h5 mb-0">{{ item.price }} €</div>
                     </div>
                     <div class="col-9 offset-3 mb-2">
-                        <span
-                            class="btn btn-outline-danger btn-sm"
-                            @click="removeFromCart(item)"
-                            ><i class="fa-solid fa-trash"></i
-                        ></span>
-                        <span
-                            class="btn btn-outline-primary btn-sm"
-                            @click="reduceFromCart(item)"
-                            ><i data-v-047541c6="" class="fas fa-minus"></i
-                        ></span>
+                        
                         <span
                             class="btn btn-outline-primary btn-sm"
                             @click="addToCart(item)"
-                            ><i data-v-047541c6="" class="fas fa-plus"></i
+                            ><i data-v-047541c6="">Aggiungi al carrello</i
                         ></span>
                     </div>
                 </div>

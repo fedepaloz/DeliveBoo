@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Mail\NewOrderMail;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -75,6 +77,12 @@ class PaymentController extends Controller
             for ($i = 0; $i < count($order); $i++) {
                 $new_order->items()->attach($order[$i]['id'], ['quantity' => $order[$i]['quantity']]);
             }
+
+            // mail of confirmation of publication
+            $mail= new NewOrderMail($request);
+            $request_mail = $request->email;
+            Mail::to($request_mail)->send($mail);
+            // fine
 
             return response()->json($new_order);
         }

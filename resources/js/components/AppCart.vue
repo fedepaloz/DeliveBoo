@@ -10,13 +10,13 @@
                 >
                     <!-- Item name -->
                     <div class="col-12 col-xl-6">
-                        <div>
+                        <span>
                             {{ item.name }}
-                        </div>
+                        </span>
                     </div>
 
                     <!-- Item add/remove -->
-                    <div class="col-6 col-xl-3 d-flex align-items-center">
+                    <div class="col-6 col-xl-3 d-flex align-items-center my-2">
                         <div
                             class="btn btn-outline-primary btn-sm mr-2"
                             @click="reduceFromCart(item)"
@@ -32,6 +32,11 @@
                         >
                             <i class="fas fa-plus"></i>
                         </div>
+                        <span
+                            class="btn btn-outline-danger btn-sm ml-3"
+                            @click="removeFromCart(item)"
+                            ><i class="fa-solid fa-trash"></i
+                        ></span>
                     </div>
 
                     <!-- Item total -->
@@ -39,6 +44,9 @@
                         <div>{{ item.total }} €</div>
                     </div>
                 </li>
+                <div class="col-12 col-xl-3 text-right py-2 px-0">
+                    <div>Totale ordine: {{ total }} €</div>
+                </div>
             </ul>
         </div>
 
@@ -49,10 +57,15 @@
 
         <div id="cart-bottom">
             <router-link :to="{ name: 'checkout' }">
-                <a v-if="order.length > 0" class="btn btn-success w-100"
-                    >Procedi al pagamento</a
+                <button
+                    v-if="total > restaurant.min_order"
+                    class="btn btn-success w-100"
                 >
-                <a v-else class="btn btn-locked w-100">Procedi al pagamento</a>
+                    Procedi al pagamento
+                </button>
+                <button v-else disabled class="btn btn-locked w-100">
+                    Procedi al pagamento
+                </button>
             </router-link>
         </div>
     </div>
@@ -63,6 +76,18 @@ export default {
     name: "AppCart",
     props: {
         order: Array,
+        restaurant: Array,
+    },
+    computed: {
+        total() {
+            let total = 0;
+
+            this.order.forEach((item) => {
+                total += item.total;
+            });
+
+            return total;
+        },
     },
     methods: {
         addToCart(item) {
