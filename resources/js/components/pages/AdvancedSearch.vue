@@ -4,7 +4,7 @@
         <div class="mt-4">
             <div class="m-auto mt-4">
                 <div class="list-group">
-                    <h2 class="text-danger mt-5">Fame? Di cosa hai voglia?</h2>
+                    <h2 class="text-danger text-center mt-5">Fame? Di cosa hai voglia?</h2>
                 </div>
                 <div class="row justify-content-center">
                     <div
@@ -171,5 +171,9 @@ export default {
         color: #b1291b;
         border: 1.5px solid #b1291b;
     }
+}
+
+.check{
+    display: none;
 }
 </style>
