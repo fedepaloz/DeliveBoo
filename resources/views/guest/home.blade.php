@@ -16,7 +16,7 @@
     <link href="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     {{-- ! CHECK --}}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> --}}
     <script defer src="{{ asset('js/front.js') }}"></script>
 
     
@@ -27,7 +27,6 @@
     integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer src="{{ asset('js/front.js') }}"></script>
-    <script defer src="{{ asset('js/cart.js') }}"></script>
     <script defer src="{{ asset('js/slider.js') }}"></script>
     <style>
 
