@@ -5,12 +5,43 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PaymentController extends Controller
 {
 
     public function payment(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'customer.first_name' => 'required|string|max:20',
+            'customer.last_name' => 'required|string|max:20',
+            'customer.email' => 'required|string|max:50',
+            'customer.address' => 'required|string|max:100',
+            'order.*.name' => 'required|exists:items,name',
+            'order.*.quantity' => 'required|numeric',
+        ], [
+            'customer.first_name.required' => 'Il campo Nome è obbligatorio',
+            'customer.first_name.string' => 'Il campo Nome deve essere del testo',
+            'customer.first_name.max' => 'Il campo Nome deve essere di massimo 20 caratteri',
+            'customer.last_name.required' => 'Il campo Cognome è obbligatorio',
+            'customer.last_name.string' => 'Il campo Cognome deve essere del testo',
+            'customer.last_name.max' => 'Il campo Cognome deve essere di massimo 20 caratteri',
+            'customer.email.required' => 'Il campo Email è obbligatorio',
+            'customer.email.string' => 'Il campo Email deve essere del testo',
+            'customer.email.max' => 'Il campo Email deve essere di massimo 50 caratteri',
+            'customer.address.required' => 'Il campo Indirizzo è obbligatorio',
+            'customer.address.string' => 'Il campo Indirizzo deve essere del testo',
+            'customer.address.max' => 'Il campo Indirizzo deve essere di massimo 100 caratteri',
+            'order.*.name.required' => 'Non possono essere inseriti piatti senza nome',
+            'order.*.name.exists' => 'Il nome del piatto deve esistere nel database',
+            'order.*.quantity.required' => 'La quantità dei piatti è obbligatoria',
+            'order.*.quantity.numeric' => 'La quantità dei piatti deve essere numerabile',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()]);
+        }
+
         $nonceFromTheClient = $request->payloadNonce;
 
         $gateway = new \Braintree\Gateway([
@@ -21,7 +52,7 @@ class PaymentController extends Controller
         ]);
 
         $result = $gateway->transaction()->sale([
-            'amount' => '50.00',
+            'amount' => $request->total,
             'paymentMethodNonce' => $nonceFromTheClient,
             'options' => [
                 'submitForSettlement' => true,

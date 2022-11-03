@@ -2,11 +2,14 @@
     <div class="container">
         <AppLoader v-if="isLoading" />
         <div
-            v-if="transactionError"
+            v-if="transactionErrors"
             class="alert alert-danger alert-dismissible fade show my-3"
             role="alert"
         >
-            {{ transactionError }}
+            <ul>
+                <li v-for="error in transactionErrors">{{ error }}</li>
+            </ul>
+
             <button
                 type="button"
                 class="close"
@@ -162,7 +165,7 @@ export default {
             order: [],
             resId: null,
             deliveryCost: null,
-            transactionError: undefined,
+            transactionErrors: undefined,
             hasOrdered: undefined,
             isLoading: false,
             customer: {
@@ -199,10 +202,10 @@ export default {
         },
         completedOrder() {
             this.hasOrdered =
-                "L'ordine è stato inserito correttamente nei nostri sistemi. Tra pochi secondi verrai reindirizzato alla homepage del sito!";
+                "L'ordine è stato inserito correttamente nei nostri sistemi. Controlla l'email per tutte le informazioni sulla consegna. Tra pochi secondi verrai reindirizzato alla homepage del sito!";
             setTimeout(() => {
                 this.$router.push("/");
-            }, 4000);
+            }, 6000);
         },
         performPayment() {
             braintree.dropin.create(
@@ -232,11 +235,15 @@ export default {
                                     )
                                     .then((res) => {
                                         this.isLoading = false;
-                                        if (typeof res.data === "string") {
-                                            this.transactionError = res.data;
+                                        if (res.data.errors) {
+                                            this.transactionErrors =
+                                                res.data.errors;
+                                        } else if (
+                                            typeof res.data === "string"
+                                        ) {
+                                            this.transactionErrors = [res.data];
                                         } else {
-                                            // this.completedOrder();
-                                            console.log(res.data);
+                                            this.completedOrder();
                                         }
                                     })
                                     .catch(() => {})
