@@ -126,48 +126,7 @@ export default {
                 this.$emit("change-items", order);
             }
         },
-        reduceFromCart(item) {
-            if (localStorage.ordine) {
-                const order = JSON.parse(localStorage.getItem("ordine"));
-
-                const exist = order.find((prod) => {
-                    return prod.id == item.id;
-                });
-
-                if (exist) {
-                    order.forEach((prod, index) => {
-                        if (prod.id == item.id) {
-                            if (prod.quantity == 1) {
-                                order.splice(index, 1);
-                            } else {
-                                --prod.quantity;
-                                prod.total -= prod.price;
-                            }
-
-                            this.$emit("change-items", order);
-                        }
-                    });
-                }
-            }
-        },
-        removeFromCart(item) {
-            if (localStorage.ordine) {
-                const order = JSON.parse(localStorage.getItem("ordine"));
-
-                const exist = order.find((prod) => {
-                    return prod.id == item.id;
-                });
-
-                if (exist) {
-                    order.forEach((prod, index) => {
-                        if (prod.id == item.id) {
-                            order.splice(index, 1);
-                        }
-                        this.$emit("change-items", order);
-                    });
-                }
-            }
-        },
+        
     },
 };
 </script>

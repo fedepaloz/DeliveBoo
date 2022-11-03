@@ -118,6 +118,24 @@ export default {
                 }
             });
         },
+        removeFromCart(item) {
+            if (localStorage.ordine) {
+                const order = JSON.parse(localStorage.getItem("ordine"));
+
+                const exist = order.find((prod) => {
+                    return prod.id == item.id;
+                });
+
+                if (exist) {
+                    order.forEach((prod, index) => {
+                        if (prod.id == item.id) {
+                            order.splice(index, 1);
+                        }
+                        this.$emit("change-items", order);
+                    });
+                }
+            }
+        },
     },
 };
 </script>
