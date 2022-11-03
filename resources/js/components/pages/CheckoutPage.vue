@@ -1,5 +1,38 @@
 <template>
     <div class="container">
+        <AppLoader v-if="isLoading" />
+        <div
+            v-if="transactionError"
+            class="alert alert-danger alert-dismissible fade show my-3"
+            role="alert"
+        >
+            {{ transactionError }}
+            <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+            >
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div
+            v-if="hasOrdered"
+            class="alert alert-success alert-dismissible fade show my-3"
+            role="alert"
+        >
+            {{ hasOrdered }}
+            <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+            >
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
         <div class="row py-4">
             <div class="col-12 col-md-7">
                 <h4 class="mb-3">Indirizzo di spedizione</h4>
@@ -114,8 +147,14 @@
 </template>
 
 <script>
+import { setTimeout } from "timers";
+import AppLoader from "../AppLoader";
+
 export default {
     name: "CheckoutPage",
+    components: {
+        AppLoader,
+    },
     data() {
         return {
             clientToken: "",
@@ -123,6 +162,9 @@ export default {
             order: [],
             resId: null,
             deliveryCost: null,
+            transactionError: undefined,
+            hasOrdered: undefined,
+            isLoading: false,
             customer: {
                 first_name: "",
                 last_name: "",
@@ -155,6 +197,13 @@ export default {
                 .catch(() => {})
                 .then(() => {});
         },
+        completedOrder() {
+            this.hasOrdered =
+                "L'ordine è stato inserito correttamente nei nostri sistemi. Tra pochi secondi verrai reindirizzato alla homepage del sito!";
+            setTimeout(() => {
+                this.$router.push("/");
+            }, 4000);
+        },
         performPayment() {
             braintree.dropin.create(
                 {
@@ -169,7 +218,7 @@ export default {
                             (error, payload) => {
                                 if (error) console.error(error);
                                 this.payloadNonce = payload.nonce;
-
+                                this.isLoading = true;
                                 axios
                                     .post(
                                         `http://127.0.0.1:8000/api/payment/`,
@@ -182,7 +231,13 @@ export default {
                                         }
                                     )
                                     .then((res) => {
-                                        console.log(res.data);
+                                        this.isLoading = false;
+                                        if (typeof res.data === "string") {
+                                            this.transactionError = res.data;
+                                        } else {
+                                            // this.completedOrder();
+                                            console.log(res.data);
+                                        }
                                     })
                                     .catch(() => {})
                                     .then(() => {});

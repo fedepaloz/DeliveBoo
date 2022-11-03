@@ -21,7 +21,7 @@ class PaymentController extends Controller
         ]);
 
         $result = $gateway->transaction()->sale([
-            'amount' => '100.00',
+            'amount' => '50.00',
             'paymentMethodNonce' => $nonceFromTheClient,
             'options' => [
                 'submitForSettlement' => true,
@@ -48,5 +48,36 @@ class PaymentController extends Controller
             return response()->json($new_order);
         }
 
+        $error = $result->transaction->processorResponseCode;
+
+        if ($error === '2000') {
+            return response()->json('La banca non è disposta ad accettare la transazione. Si prega di contattare la propria banca per maggiori dettagli.');
+        }
+
+        if ($error === '2001') {
+            return response()->json("La carta non dispone di fondi sufficienti per coprire l'importo della transazione: si prega di ricaricare la carta o cambiare metodo di pagamento.");
+        }
+
+        if ($error === '2003') {
+            return response()->json("La transazione supera il limite di attività dell'account. Si prega di contattare la propria banca per modificare i limiti del conto o utilizzare un metodo di pagamento diverso.");
+        }
+
+        if ($error === '2004') {
+            return response()->json("La carta è scaduta. Si prega di utilizzare un metodo di pagamento diverso.");
+        }
+
+        if ($error === '2005') {
+            return response()->json("Metodo di pagamento non valido o è stato commesso un errore di battitura nei dati della carta di credito. Si prega di correggere le informazioni di pagamento e di tentare di nuovo la transazione: se l'errore persiste, contattare la propria banca.");
+        }
+
+        if ($error === '2006') {
+            return response()->json("Metodo di pagamento non valido o è stato commesso un errore di battitura nella data di scadenza della carta. Si prega di correggere le informazioni di pagamento e di tentare di nuovo la transazione: se l'errore persiste, contattare la propria banca.");
+        }
+
+        if ($error === '3000') {
+            return response()->json('Problema con il network di pagamento. Si prega di ripetere la transazione: in caso di ripetuti errori, contattaci per maggiori informazioni.');
+        }
+
     }
+
 }
