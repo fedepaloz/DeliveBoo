@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <div class="row my-5 align-items-center">
-      <div class="col-s-12 col-3">
+      <div class=" col-4">
         <AppLogo id="logo-policy"/>
       </div>
-      <div class="my-5 col-s-12 col-9">
+      <div class="my-5 col-8">
         <h1 class="text-danger font-weight-bold">La nostra policy aziendale:</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
@@ -38,5 +38,6 @@ export default {
 
 p {
     font-size: 17px;
+    text-align: justify;
 }
 </style>

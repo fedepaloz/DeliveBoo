@@ -201,7 +201,7 @@ return [
     [
         'name' => 'Filetti di salmone alla mediterranea',
         'description' => 'Succosi pomodorini macerati, olive nere e i capperi donano una nota decisa al piatto.',
-        'price' => 9.70,
+        'price' => 9.50,
         'image' => 'https://www.giallozafferano.it/images/161-16169/Filetti-di-salmone-alla-mediterranea_780x520_wm.jpg',
         'visible' => true,
     ],

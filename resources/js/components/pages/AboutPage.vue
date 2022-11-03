@@ -1,6 +1,5 @@
 <template>
   <div class="container my-5">
-    <h1 class="text-danger font-weight-bold">About us</h1>
 
     <div class="my-5">
     <h4 class="text-danger"><i class="fa-solid fa-carrot"></i> Chi siamo:</h4>
@@ -22,6 +21,14 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped lang="scss">
+h4 {
+  font-size: 24px;
+  margin-top: 20px;
+}
+p{
+ font-size: 18px;
+ text-align: justify;
+ display:inline-block;
+}
 </style>
