@@ -7,7 +7,7 @@
             role="alert"
         >
             <ul>
-                <li v-for="error in transactionErrors">{{ error }}</li>
+                <li v-for="error in transactionErrors" :key="error">{{ error }}</li>
             </ul>
 
             <button
