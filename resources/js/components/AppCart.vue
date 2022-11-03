@@ -39,6 +39,9 @@
                         <div>{{ item.total }} €</div>
                     </div>
                 </li>
+                <div class="col-6 col-xl-3 text-right">
+                    <div>{{ total }} €</div>
+                </div>
             </ul>
         </div>
 
@@ -49,10 +52,10 @@
 
         <div id="cart-bottom">
             <router-link :to="{ name: 'checkout' }">
-                <a v-if="order.length > 0" class="btn btn-success w-100"
-                    >Procedi al pagamento</a
+                <button v-if="total > restaurant.min_order" class="btn btn-success w-100"
+                    >Procedi al pagamento</button
                 >
-                <a v-else class="btn btn-locked w-100">Procedi al pagamento</a>
+                <button v-else disabled class="btn btn-locked w-100">Procedi al pagamento</button>
             </router-link>
         </div>
     </div>
@@ -63,6 +66,18 @@ export default {
     name: "AppCart",
     props: {
         order: Array,
+        restaurant: Array,
+    },
+    computed: {
+        total() {
+            let total = 0;
+
+            this.order.forEach((item) => {
+                total += item.total;
+            });
+
+            return total;
+        },
     },
     methods: {
         addToCart(item) {
