@@ -21,7 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::namespace ('Api')->group(function () {
     Route::get('/restaurants', 'RestaurantController@index');
     Route::get('/restaurants/{id}', 'RestaurantController@show');
-    Route::get('/restaurants/deliverycost/{id}', 'RestaurantController@getDeliveryCost');
     Route::get('/categories', 'CategoryController@index');
     Route::post('/payment', 'PaymentController@payment');
 });

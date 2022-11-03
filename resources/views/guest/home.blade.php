@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     {{-- ! CHECK --}}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script defer src="{{ asset('js/front.js') }}"></script>
+
     
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">

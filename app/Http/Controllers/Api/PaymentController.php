@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
@@ -20,7 +21,7 @@ class PaymentController extends Controller
         ]);
 
         $result = $gateway->transaction()->sale([
-            'amount' => '2000.00',
+            'amount' => '100.00',
             'paymentMethodNonce' => $nonceFromTheClient,
             'options' => [
                 'submitForSettlement' => true,
@@ -29,14 +30,23 @@ class PaymentController extends Controller
 
         if ($result->success) {
 
-            // # Tabella orders, tabella items (1-to-1 con orders)
+            $new_order = new Order;
+            $new_order->restaurant_id = $request->resId;
+            $new_order->first_name = $request->customer['first_name'];
+            $new_order->last_name = $request->customer['last_name'];
+            $new_order->email = $request->customer['email'];
+            $new_order->delivery_address = $request->customer['address'];
+            $new_order->total = $request->total;
+            $new_order->save();
 
-            // Inseriamo l'ordine nel DB, svuotiamo il local storage, rimandiamo alla pagina di successo (usando res.data per scrivere il riepilogo ordine) e mandiamo l'email
-        } else {
-            // Mandiamo gli errori e li mostriamo in pagina
+            $order = $request->order;
+
+            for ($i = 0; $i < count($order); $i++) {
+                $new_order->items()->attach($order[$i]['id'], ['quantity' => $order[$i]['quantity']]);
+            }
+
+            return response()->json($new_order);
         }
-
-        return response()->json($request);
 
     }
 }
