@@ -19,7 +19,7 @@
             </div>
             <!-- Carrello sticky -->
             <div class="col-12 col-md-5">
-                <AppCart :order="order" @change-items="getOrder"></AppCart>
+                <AppCart :restaurant="restaurant" :order="order" @change-items="getOrder"></AppCart>
             </div>
         </div>
 
