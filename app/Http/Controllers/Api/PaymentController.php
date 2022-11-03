@@ -80,8 +80,8 @@ class PaymentController extends Controller
 
             // mail of confirmation of publication
             $mail= new NewOrderMail($request);
-            $request_mail = $request->email;
-            Mail::to($request_mail)->send($mail);
+            $order_mail = $request->customer['email'];
+            Mail::to($order_mail)->send($mail);
             // fine
 
             return response()->json($new_order);
