@@ -1,10 +1,11 @@
 <template>
     <div>
+        <AppSlider/>
         <section id="services">
             <div class="container">
                 <AdvancedSearch @filtered-restaurants="filteredRestaurants" />
             </div>
-            <AppSlider />
+           
             <div class="container">
                 <AppLoader v-if="isLoading" />
                 <div v-if="restaurants.length >= 1">
@@ -85,6 +86,9 @@ export default {
         filteredRestaurants(value) {
             this.restaurants = value;
         },
+    },
+    mounted() {
+        this.fetchRestaurants();
     },
 };
 </script>

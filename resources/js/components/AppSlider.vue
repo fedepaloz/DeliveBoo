@@ -41,6 +41,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+
 .first-bg-slide {
     background-image: url("https://www.neopolitanpizza.in/images/slider.jpg");
     background-size: cover;
@@ -62,7 +63,7 @@ export default {
 
 .image {
     width: 100%;
-    height: 600px;
+    height: 400px;
     opacity: 0.8;
     position: static;
     top: 100px;
