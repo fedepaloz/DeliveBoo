@@ -1,9 +1,9 @@
 <template lang="">
-    <div class="container">
+    <div class="container my-5 p-5 rounded border-bottom-0">
         <div class="container">
             <AppLoader v-if="isLoading" />
             <div class="row">
-                <div class="col-12 py-4">
+                <div class="col-12">
                     <AppRestaurantDetails :restaurant="restaurant" />
                 </div>
             </div>
@@ -119,5 +119,8 @@ export default {
         background-color: #fff;
         z-index: 10;
     }
+}
+.container{
+    background-color: rgb(255, 255, 255);
 }
 </style>
