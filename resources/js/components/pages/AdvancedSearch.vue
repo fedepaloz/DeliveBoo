@@ -4,19 +4,16 @@
         <div class="mt-4">
             <div class="m-auto mt-4">
                 <div class="list-group">
-                    <h2 class="text-danger text-center my-5">Fame? Di cosa hai voglia?</h2>
+                    <h2 class="text-danger text-center my-5">
+                        Fame? Di cosa hai voglia?
+                    </h2>
                 </div>
                 <div class="row justify-content-center">
-                    <div v-for="item in categories":key="item.id" class="list-item col-6 col-md-2 m-1">
-                    
-                    
-
-                       
-                    
-
-
-
-
+                    <div
+                        v-for="item in categories"
+                        :key="item.id"
+                        class="list-item col-6 col-md-2 m-1"
+                    >
                         <div class="text-center">
                             <input
                                 type="checkbox"
@@ -150,58 +147,56 @@ export default {
 };
 </script>
 
-
 <style scoped lang="scss">
 label {
-  
-  padding: 5px;
-  display: block;
-  position: relative;
-  margin: 10px;
-  cursor: pointer;
+    padding: 5px;
+    display: block;
+    position: relative;
+    margin: 10px;
+    cursor: pointer;
 }
 
 label:before {
-  background-color: white;
-  color: white;
-  content: " ";
-  display: block;
-  border-radius: 50%;
-  border: 1px solid grey;
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  width: 25px;
-  height: 25px;
-  text-align: center;
-  line-height: 28px;
-  transition-duration: 0.4s;
-  transform: scale(0);
+    background-color: white;
+    color: white;
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    border: 1px solid grey;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 28px;
+    transition-duration: 0.4s;
+    transform: scale(0);
 }
 
 label img {
-  height: 100px;
-  width: 100px;
-  transition-duration: 0.2s;
-  transform-origin: 50% 50%;
+    height: 100px;
+    width: 100px;
+    transition-duration: 0.2s;
+    transform-origin: 50% 50%;
 }
 
 :checked + label {
-  border-color: #ddd;
+    border-color: #ddd;
 }
 
 :checked + label:before {
-  content: "✓";
-  background-color: grey;
-  transform: scale(1);
+    content: "✓";
+    background-color: grey;
+    transform: scale(1);
 }
 
 :checked + label img {
-  transform: scale(0.9);
-  box-shadow: 0 0 5px #333;
-  z-index: -1;
+    transform: scale(0.9);
+    box-shadow: 0 0 5px #333;
+    z-index: -1;
 }
-input{
+input {
     display: none;
 }
 
@@ -221,6 +216,7 @@ input{
     background-color: #b1291b;
     border-radius: 8px;
     transition: 0.3s;
+    border: 1px solid black;
 
     &:hover {
         margin: 10px 10px;
@@ -230,7 +226,7 @@ input{
     }
 }
 
-.check{
+.check {
     display: none;
 }
 </style>

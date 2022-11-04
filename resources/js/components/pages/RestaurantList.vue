@@ -63,7 +63,7 @@ export default {
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     width: 300px;
-    border: 2px solid black;
+    border: 1px solid black;
 }
 .card-header img {
     width: 100%;
