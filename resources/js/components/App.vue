@@ -17,4 +17,12 @@ export default {
     },
 };
 </script>
-<style></style>
+<style>
+.body-bg {
+    background-image: url('/../images/bg-bg-bg-bg-bg.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position-y: 50%;    
+}
+</style>
