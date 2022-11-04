@@ -283,6 +283,3 @@ return [
         'visible' => true,
     ],
 ];
-];
-];
-
