@@ -9,14 +9,14 @@
                     class="row d-flex justify-content-between align-items-center py-2"
                 >
                     <!-- Item name -->
-                    <div class="col-12 col-xl-6">
+                    <div class="col-12 col-xl-12">
                         <span>
                             {{ item.name }}
                         </span>
                     </div>
 
                     <!-- Item add/remove -->
-                    <div class="col-6 col-xl-3 d-flex align-items-center my-2">
+                    <div class="col-6 col-xl-9 d-flex align-items-center my-2">
                         <div
                             class="btn btn-outline-primary btn-sm mr-2"
                             @click="reduceFromCart(item)"
