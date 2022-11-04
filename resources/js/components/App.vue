@@ -19,6 +19,7 @@ export default {
 </script>
 <style>
 .body-bg {
+    padding-top: 98px;
     background-image: url('/../images/bg-bg-bg-bg-bg.webp');
     background-repeat: no-repeat;
     background-size: cover;
