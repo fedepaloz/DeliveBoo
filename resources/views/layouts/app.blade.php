@@ -53,7 +53,7 @@
                             </div>
                             <div class="ml-3">
                                 {{-- !!! Da compilare !!! --}}
-                                <a href="" class="text-muted">MyOrders</a>
+                                <a href="{{ route('admin.orders.index') }}" class="text-muted">MyOrders</a>
                             </div>
                         </ul>
                     @endif
