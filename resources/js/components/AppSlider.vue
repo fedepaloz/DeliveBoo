@@ -17,6 +17,7 @@
                     <div
                         class="first-bg-slide image bg-yellow"
                         style="background-color: yellow"
+                        
                     ></div>
                 </div>
                 <div class="image-slide">
@@ -29,6 +30,13 @@
                     <div
                         class="third-bg-slide image bg-red"
                         style="background-color: orange"
+                    >
+                    </div>
+                </div>
+                <div class="image-slide">
+                    <div
+                        class="fourth-bg-slide image bg-red"
+                        style="background-color: blue"
                     ></div>
                 </div>
             </div>
@@ -43,7 +51,7 @@ export default {
 <style lang="scss" scoped>
 
 .first-bg-slide {
-    background-image: url("https://www.neopolitanpizza.in/images/slider.jpg");
+    background-image: url("https://i.pinimg.com/originals/7c/a2/97/7ca297fa04822482371852ee91fed401.jpg");
     background-size: cover;
     background-position-y: center;
     background-repeat: no-repeat;
@@ -58,6 +66,12 @@ export default {
     background-image: url("https://www.mcdonalds.it/sites/default/files/styles/compressed/public/product_category/menu--hero-dsk.jpg?itok=YEX__Uhj");
     background-size: cover;
     background-position-y: center;
+    background-repeat: no-repeat;
+}
+.fourth-bg-slide {
+    background-image: url("https://www.collater.al/wp-content/uploads/2021/04/mother_kfc_borrowed_slogans_advertising_itsni.width-1440_te9lBFsG7vyNZiZg.jpg");
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
 }
 
@@ -113,11 +127,15 @@ export default {
 #slide3:checked ~ .images .images-inner {
     margin-left: -200%;
 }
+#slide4:checked ~ .images .images-inner {
+    margin-left: -300%;
+}
 
 /* Color of bullets */
 #slide1:checked ~ div .fake-radio .radio-btn:nth-child(1),
 #slide2:checked ~ div .fake-radio .radio-btn:nth-child(2),
-#slide3:checked ~ div .fake-radio .radio-btn:nth-child(3) {
+#slide3:checked ~ div .fake-radio .radio-btn:nth-child(3)
+#slide4:checked ~ div .fake-radio .radio-btn:nth-child(4) {
     background: red;
 }
 .radio-btn {
@@ -167,21 +185,29 @@ export default {
 #play1:checked ~ div .fake-radio .radio-btn:nth-child(3) {
     animation: bullet 12300ms infinite 7200ms;
 }
+
+#play1:checked ~ div .fake-radio .radio-btn:nth-child(4) {
+    animation: bullet 12300ms infinite 7200ms;
+}
 /* Calculate AUTOPLAY for BULLETS - END */
 
 /* Calculate AUTOPLAY for SLIDES */
 @keyframes slide {
     0%,
-    25.203252032520325% {
+    20% {
         margin-left: 0;
     }
-    33.333333333333336%,
-    58.53658536585366% {
+    28.333333333333336%,
+    48.53658536585366% {
         margin-left: -100%;
     }
-    66.66666666666667%,
-    91.869918699187% {
+    54.66666666666667%,
+    72.869918699187% {
         margin-left: -200%;
+    }
+    78.66666666666667%,
+    94.869918699187% {
+        margin-left: -300%;
     }
 }
 
@@ -212,6 +238,10 @@ export default {
 
 #play1:checked ~ .labels .label:nth-child(3) {
     animation: caption 12300ms infinite 7200ms;
+}
+
+#play1:checked ~ .labels .label:nth-child(4) {
+    animation: caption 12300ms infinite 11130ms;
 }
 /* Calculate AUTOPLAY for CAPTION - END */
 </style>

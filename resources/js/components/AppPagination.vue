@@ -51,3 +51,9 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.page-link{
+    transition: background-color 1s;
+}
+</style>
