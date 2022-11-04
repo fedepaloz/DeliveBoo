@@ -1,5 +1,5 @@
 <template>
-        <div class="row my-5">
+        <div class="row my-5 border border-dark rounded">
             <div class="col-12 d-flex">
                 <div class="row align-items-md-center justify-content-md-between">
                     <div class="col-12 col-md-4">
