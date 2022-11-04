@@ -276,10 +276,24 @@ return [
         'visible' => true,
     ],
     [
-        'name' => 'Riso alla cantonese',
-        'description' => 'Riso basmati bollito e poi saltato in padella o Wok con uova strapazzate, piselli, prosciutto.',
-        'price' => 7.50,
-        'image' => 'https://www.ilcuoreinpentola.it/wp-content/uploads/2020/05/riso-alla-cantonese.jpeg',
+        'name' => 'Lasagne vegetariane',
+        'description' => 'Con i suoi gustosi strati di verdure e besciamella, intervallati da sottili veli di buona pasta sfoglia fatta in casa, le lasagne vegetariane sapranno conquistare anche i palati più difficili!',
+        'price' => 8.00,
+        'image' => 'https://blog.giallozafferano.it/melacannellaefantasia/wp-content/uploads/2018/03/lasagne-vegetariane-1.jpg',
+        'visible' => true,
+    ],
+    [
+        'name' => 'Insalata di riso integrale',
+        'description' => 'Speciale riso integrale ricco di fibre e dall’alto potere saziante, con piccoli e croccanti semi di zucca, zucchine, carote e pomodorini.',
+        'price' => 8.50,
+        'image' => 'https://www.dueamicheincucina.it/wp-content/uploads/2018/06/Insalata-di-riso-integrale-nero-con-verdure-e-pollo-e.jpg',
+        'visible' => true,
+    ],
+    [
+        'name' => 'Hummus',
+        'description' => 'Salsa a base di pasta di ceci e pasta di semi di sesamo (tahina) aromatizzata con olio di oliva, aglio, succo di limone e paprika, semi di cumino in polvere e prezzemolo finemente tritato.',
+        'price' => 4.50,
+        'image' => 'https://cdn.shopify.com/s/files/1/0568/1541/9601/articles/Hummus_1600x.jpg?v=1660781103',
         'visible' => true,
     ],
 ];
