@@ -1,17 +1,22 @@
 <template>
     <div>
-        <AppSlider/>
+        <AppSlider />
         <section id="services">
             <div class="container">
                 <AdvancedSearch @filtered-restaurants="filteredRestaurants" />
             </div>
-           
+
             <div class="container">
                 <AppLoader v-if="isLoading" />
                 <div v-if="restaurants.length >= 1">
                     <RestaurantList :restaurants="restaurants" />
+                    <AppPagination
+                    @change-page="fetchRestaurants"
+                    :lastPage="pagination.last"
+                    :currentPage="pagination.current"
+                />
                 </div>
-                
+
                 <div>
                     <div class="container card my-5">
                         <hr class="hr" />
@@ -35,6 +40,7 @@
                         <hr class="hr" />
                     </div>
                 </div>
+                
             </div>
         </section>
         <!-- <AppCart /> -->
@@ -45,6 +51,7 @@ import AppPartners from "../AppPartners.vue";
 import RestaurantList from "./RestaurantList.vue";
 import AppServices from "../AppServices.vue";
 import AppCart from "../AppCart.vue";
+import AppPagination from "../AppPagination.vue";
 import AppLoader from "../AppLoader.vue";
 import AdvancedSearch from "./AdvancedSearch.vue";
 import AppContacts from "../AppContacts.vue";
@@ -56,6 +63,10 @@ export default {
         return {
             restaurants: [],
             isLoading: false,
+            pagination: {
+                current: null,
+                last: null,
+            },
         };
     },
     components: {
@@ -67,14 +78,18 @@ export default {
         AppContacts,
         AppSlider,
         AdvancedSearch,
+        AppPagination,
     },
     methods: {
-        fetchRestaurants() {
+        fetchRestaurants(page = 1) {
             this.isLoading = true;
             axios
-                .get(`http://localhost:8000/api/restaurants/`)
+                .get(`http://localhost:8000/api/restaurants?page=${page}`)
                 .then((res) => {
-                    this.restaurants = res.data;
+                    const { data, current_page, last_page } = res.data;
+                    this.restaurants = data;
+                    this.pagination.current = current_page;
+                    this.pagination.last = last_page;
                 })
                 .catch((err) => {
                     this.error = "Errore durante il fetch dei post";

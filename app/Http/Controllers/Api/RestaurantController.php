@@ -52,7 +52,7 @@ class RestaurantController extends Controller
             }
 
         } else {
-            $restaurants = Restaurant::with('categories')->get();
+            $restaurants = Restaurant::with('categories')->paginate(6);
         }
 
         return response()->json($restaurants);

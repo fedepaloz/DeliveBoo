@@ -1,6 +1,6 @@
 <template lang="">
     <div class="container my-5">
-        <div class="row justify-content-between flex-wrap">
+        <div class="row justify-content-center flex-wrap">
             <div
                 class="col-sm-12 col-md-6 col-lg-4"
                 v-for="restaurant in restaurants"
@@ -38,18 +38,23 @@
                             }"
                             class="btn btn-danger mt-2"
                         >
-                            Ordina da {{ restaurant.name }} ora
+                            Ordina ora
                         </router-link>
                     </div>
                 </div>
             </div>
         </div>
+        
     </div>
 </template>
 <script>
+import AppPagination from "../AppPagination.vue";
+
 export default {
     name: "RestaurantList",
-
+    componets: {
+        AppPagination,
+    },
     props: {
         restaurants: Array,
     },
