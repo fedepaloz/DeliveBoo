@@ -7,7 +7,9 @@
             role="alert"
         >
             <ul>
-                <li v-for="error in transactionErrors" :key="error">{{ error }}</li>
+                <li v-for="error in transactionErrors" :key="error">
+                    {{ error }}
+                </li>
             </ul>
 
             <button
@@ -201,6 +203,7 @@ export default {
                 .then(() => {});
         },
         completedOrder() {
+            localStorage.clear();
             this.hasOrdered =
                 "L'ordine è stato inserito correttamente nei nostri sistemi. Controlla l'email per tutte le informazioni sulla consegna. Tra pochi secondi verrai reindirizzato alla homepage del sito!";
             setTimeout(() => {
