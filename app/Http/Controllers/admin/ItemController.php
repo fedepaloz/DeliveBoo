@@ -58,7 +58,7 @@ class ItemController extends Controller
                 'name.required' => 'Il titolo è obbligatorio',
                 'name.min' => 'Il titolo deve avere almeno :min caratteri',
                 'name.unique' => "Esiste già un piatto dal nome $request->name",
-                'name.regex'=>"Il nome non può contenere caratteri speciali",
+                'name.regex' => "Il nome non può contenere caratteri speciali",
                 'price.numeric' => 'Il prezzo deve essere un numero',
                 'price.gt' => 'Il prezzo deve essere maggiore di 0',
                 'image.image' => "Il file non e' del formato corretto",
@@ -90,7 +90,7 @@ class ItemController extends Controller
         $user_restaurant = Restaurant::where('user_id', Auth::id())->first();
         if ($item->restaurant_id !== $user_restaurant->id) {
             return redirect()->route('admin.items.index')
-                ->with('message', 'Non sei autorizzato a visionare questo piatto')
+                ->with('message', 'La pagina richiesta non esiste')
                 ->with('type', 'danger');
         }
         return view('admin.items.show', compact('item'));
@@ -133,7 +133,7 @@ class ItemController extends Controller
             [
                 'name.required' => 'Il titolo è obbligatorio',
                 'name.min' => 'Il titolo deve avere almeno :min caratteri',
-                'name.regex'=>"Il nome non può contenere caratteri speciali",
+                'name.regex' => "Il nome non può contenere caratteri speciali",
                 'price.numeric' => 'Il prezzo deve essere un numero',
                 'price.gt' => 'Il prezzo deve essere maggiore di 0',
                 'image.image' => "Il file non e' del formato corretto",
