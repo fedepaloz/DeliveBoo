@@ -64,12 +64,10 @@ export default {
 .image {
     width: 100%;
     height: 400px;
-    opacity: 0.8;
     position: static;
     top: 100px;
     left: 0;
     right: 0;
-
     z-index: -1;
 }
 .radio {
