@@ -1,5 +1,5 @@
 <template>
-    <div id="main-cart" class="p-3">
+    <div id="main-cart" class="p-3 border border-dark rounded">
         <div id="cart-top" v-if="order.length > 0">
             <h4>Ordine in corso</h4>
             <ul class="list-unstyled">
