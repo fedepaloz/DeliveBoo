@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
         $user->save();
 
         // $user_ids = User::pluck('id')->toArray(); //recupero gli utenti
-        for ($i = 0; $i < 8; $i++) {
+        for ($i = 0; $i < 20; $i++) {
             $user = new User();
             $user->name = $faker->userName();
             $user->email = $faker->email();

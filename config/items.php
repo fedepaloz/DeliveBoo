@@ -194,7 +194,7 @@ return [
     [
         'name' => 'Straccetti di manzo',
         'description' => 'Le classiche scaglie di Parmigiano si trasformano in fragranti cialdine che accompagnano questi favolosi straccetti di carne serviti su un letto di rucola.',
-        'price' => 9.70,
+        'price' => 9.50,
         'image' => 'https://www.giallozafferano.it/images/166-16638/Straccetti-di-manzo_450x300.jpg',
         'visible' => true,
     ],
