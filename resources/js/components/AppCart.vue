@@ -76,7 +76,7 @@ export default {
     name: "AppCart",
     props: {
         order: Array,
-        restaurant: Array,
+        restaurant: Object,
     },
     computed: {
         total() {
