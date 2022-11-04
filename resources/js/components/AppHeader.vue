@@ -28,16 +28,16 @@
                             aziendale
                         </router-link>
                         <router-link class="nav-link" :to="{ name: 'home' }">
-                            <i class="fa-solid fa-house-user"></i>Torna alla
+                            <i class="fa-solid fa-house-user"></i> Torna alla
                             Home
                         </router-link>
                         <a class="nav-link" href="http://127.0.0.1:8000/login"
-                            ><i class="fa-solid fa-right-to-bracket"></i>Accedi
+                            ><i class="fa-solid fa-right-to-bracket"></i> Accedi
                         </a>
                         <a
                             class="nav-link"
                             href="http://127.0.0.1:8000/register"
-                            ><i class="fa-solid fa-user-plus"></i>Registrati
+                            ><i class="fa-solid fa-user-plus"></i> Registrati
                         </a>
                     </div>
                 </div>
