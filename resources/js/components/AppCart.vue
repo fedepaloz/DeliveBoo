@@ -44,7 +44,7 @@
                         <div>{{ item.total }} €</div>
                     </div>
                 </li>
-                <div class="col-12 col-xl-3 text-right py-2 px-0">
+                <div class="py-2 px-0">
                     <div>Totale ordine: {{ total }} €</div>
                 </div>
             </ul>
