@@ -6,6 +6,7 @@
                 :key="item.id"
                 class="item-card col-12 mb-3"
             >
+            <div v-if="item.visible === 1">
                 <div class="row">
                     <div class="col-3">
                         <img :src="item.image" alt="" class="img-fluid py-2" />
@@ -26,6 +27,7 @@
                         ></span>
                     </div>
                 </div>
+            </div>
             </li>
         </ul>
     </div>
