@@ -4,7 +4,7 @@
             <li
                 v-for="item in items"
                 :key="item.id"
-                class="item-card col-12 mb-3"
+                class="item-card col-12 mb-3 border border-dark rounded "
             >
             <div v-if="item.visible === 1">
                 <div class="row">

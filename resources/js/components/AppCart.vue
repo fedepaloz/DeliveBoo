@@ -1,5 +1,5 @@
 <template>
-    <div id="main-cart" class="p-3">
+    <div id="main-cart" class="p-3 border border-dark rounded">
         <div id="cart-top" v-if="order.length > 0">
             <h4>Ordine in corso</h4>
             <ul class="list-unstyled">
@@ -44,7 +44,7 @@
                         <div>{{ item.total }} €</div>
                     </div>
                 </li>
-                <div class="col-12 col-xl-3 text-right py-2 px-0">
+                <div class="py-2 px-0">
                     <div>Totale ordine: {{ total }} €</div>
                 </div>
             </ul>
