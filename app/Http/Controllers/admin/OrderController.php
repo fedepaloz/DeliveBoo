@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use Illuminate\Support\Facades\Auth;
+
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Restaurant;
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -18,7 +18,7 @@ class OrderController extends Controller
     public function index()
     {
         $user_restaurant = Restaurant::where('user_id', Auth::id())->first();
-        $orders = Order::where('restaurant_id', $user_restaurant->id)->orderBy('id', 'desc')->get();
+        $orders = Order::where('restaurant_id', $user_restaurant->id)->orderBy('created_at', 'desc')->get();
         return view('admin.orders.index', compact('orders'));
     }
 
@@ -51,7 +51,25 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        return view('admin.orders.show', compact('order'));
+        $restaurant = Restaurant::where('user_id', Auth::id())->first();
+
+        if ($order->restaurant_id !== $restaurant->id) {
+            return redirect()->route('admin.orders.index')
+                ->with('message', 'La pagina richiesta non esiste')
+                ->with('type', 'danger');
+        }
+
+        $delivery_cost = $restaurant->delivery_cost;
+
+        $total = 0;
+
+        foreach ($order->items as $item) {
+            $total += $item->price * $item->pivot->quantity;
+        }
+
+        $total += $delivery_cost;
+
+        return view('admin.orders.show', compact('order', 'total', 'delivery_cost'));
     }
 
     /**

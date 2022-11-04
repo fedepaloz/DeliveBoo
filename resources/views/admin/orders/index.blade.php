@@ -1,9 +1,16 @@
 @extends('layouts.app')
 @section('content')
-    <table class="table table-info">
+
+    @if (session('message'))
+        <div class="alert alert-{{ session('type') ?? 'info' }}">
+            {{ session('message') }}
+        </div>
+    @endif
+
+    <table class="table table-striped table-dark">
         <thead>
-            <tr class="table-light">
-                <th scope="col">ORDINE N.</th>
+            <tr>
+                <th scope="col">Ordine N.</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Cognome</th>
                 <th scope="col">Email</th>
@@ -21,9 +28,9 @@
                     <td>{{ $order->email }}</td>
                     <td>{{ $order->delivery_address }}</td>
                     <td>{{ $order->created_at }}</td>
-                    <td>
-                        <a href="{{ route('admin.orders.show', $order) }}" class="btn btn-warning mr-3">
-                            <i class="fa-solid fa-eye "></i></a>
+                    <td class="d-flex align-items-center justify-content-center">
+                        <a href="{{ route('admin.orders.show', $order) }}" class="btn btn-warning">
+                            <i class="fa-solid fa-eye "></i> Dettagli</a>
                     </td>
                 </tr>
             @empty
