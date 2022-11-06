@@ -32,12 +32,12 @@
                             Home
                         </router-link>
                         <a class="nav-link" href="http://127.0.0.1:8000/login"
-                            ><i class="fa-solid fa-right-to-bracket"></i> Accedi
+                            ><i class="fa-solid fa-right-to-bracket"></i> Accesso utenti registrati
                         </a>
                         <a
                             class="nav-link"
                             href="http://127.0.0.1:8000/register"
-                            ><i class="fa-solid fa-user-plus"></i> Registrati
+                            ><i class="fa-solid fa-user-plus"></i> Registra la tua attività
                         </a>
                     </div>
                 </div>
