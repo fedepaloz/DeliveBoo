@@ -1,24 +1,24 @@
 <template>
     <div class="row justify-content-center">
         <div
-            v-for="item in categories"
-            :key="item.id"
+            v-for="category in categories"
+            :key="category.id"
             class="list-item col-6 col-md-2 m-1"
         >
             <div class="text-center">
                 <input
                     type="checkbox"
                     class="form-check-input ml-2"
-                    :value="item.id"
+                    :value="category.id"
                     v-model="select_categories"
-                    :id="item.id"
+                    :id="category.id"
                     @change="emitCheckboxInput"
                 />
-                <label :for="item.id">
-                    <h6 class="">{{ item.name }}</h6>
+                <label :for="category.id">
+                    <h6 class="">{{ category.name }}</h6>
                     <img
-                        :src="item.image"
-                        :alt="item.name"
+                        :src="category.image"
+                        :alt="category.name"
                         class="ml-2 img-fluid cat-img d-none d-md-block"
                     />
                 </label>

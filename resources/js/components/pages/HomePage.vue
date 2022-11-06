@@ -14,7 +14,7 @@
 
             <div class="container">
                 <AppLoader v-if="isLoading" />
-                <div v-if="restaurants.length">
+                <div v-if="restaurants">
                     <RestaurantList :restaurants="restaurants" />
                     <AppPagination
                         v-if="pagination.last > 1"
@@ -114,7 +114,7 @@ export default {
                 axios
                     .get(
                         `http://localhost:8000/api/restaurants?${this.select_categories
-                            .map((n, index) => `categories[${index}]=${n}`)
+                            .map((cat, index) => `categories[${index}]=${cat}`)
                             .join("&")}&page=${page}`
                     )
                     .then((res) => {
@@ -139,7 +139,7 @@ export default {
                 axios
                     .get(
                         `http://localhost:8000/api/restaurants?${this.select_categories
-                            .map((n, index) => `categories[${index}]=${n}`)
+                            .map((cat, index) => `categories[${index}]=${cat}`)
                             .join("&")}&page=${value}`
                     )
                     .then((res) => {
