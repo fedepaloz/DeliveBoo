@@ -24,12 +24,14 @@
                         </div>
                         <div class="col-9 offset-3 mb-2">
                             <span
+                                v-if="item.vibile"
                                 class="btn btn-outline-primary btn-sm"
                                 @click="addToCart(item)"
-                                ><i data-v-047541c6=""
-                                    >Aggiungi al carrello</i
-                                ></span
-                            >
+                                >Aggiungi al carrello
+                            </span>
+                            <span v-else class="text-danger"
+                                >Prodotto non disponibile
+                            </span>
                         </div>
                     </div>
                 </div>
