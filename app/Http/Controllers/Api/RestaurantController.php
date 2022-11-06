@@ -26,7 +26,7 @@ class RestaurantController extends Controller
                 $not_unique_restaurants = [];
 
                 foreach ($categories_ids as $category) {
-                    $single_category_restaurants = Category::find($category)->restaurants()->paginate(6);
+                    $single_category_restaurants = Category::find($category)->restaurants()->get();
 
                     foreach ($single_category_restaurants as $restaurant) {
                         $not_unique_restaurants[] = $restaurant->id;
@@ -42,13 +42,7 @@ class RestaurantController extends Controller
                     }
                 }
 
-                $restaurants = [];
-
-                foreach ($unique_restaurants_ids as $id) {
-                    $single_category_restaurant = Restaurant::find($id);
-                    $restaurants[] = $single_category_restaurant;
-                }
-
+                $restaurants = Restaurant::whereIn('id', $unique_restaurants_ids)->paginate(6);
             }
 
         } else {
