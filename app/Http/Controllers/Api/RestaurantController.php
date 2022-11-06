@@ -21,12 +21,12 @@ class RestaurantController extends Controller
             $categories_ids = $request->categories;
 
             if (count($categories_ids) === 1) {
-                $restaurants = Category::find($categories_ids[0])->restaurants()->get();
+                $restaurants = Category::find($categories_ids[0])->restaurants()->paginate(6);
             } else {
                 $not_unique_restaurants = [];
 
                 foreach ($categories_ids as $category) {
-                    $single_category_restaurants = Category::find($category)->restaurants()->get();
+                    $single_category_restaurants = Category::find($category)->restaurants()->paginate(6);
 
                     foreach ($single_category_restaurants as $restaurant) {
                         $not_unique_restaurants[] = $restaurant->id;

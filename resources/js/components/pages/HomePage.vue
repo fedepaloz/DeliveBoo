@@ -2,19 +2,26 @@
     <div>
         <AppSlider />
         <section id="services">
-            <div class="container">
-                <AdvancedSearch @filtered-restaurants="filteredRestaurants" />
+            <div class="container m-auto mt-4">
+                <h2 class="text-danger text-center my-5">
+                    Fame? Di cosa hai voglia?
+                </h2>
+                <AdvancedSearch
+                    :categories="categories"
+                    @selected-categories="fetchFilteredRestaurants"
+                />
             </div>
 
             <div class="container">
                 <AppLoader v-if="isLoading" />
-                <div v-if="restaurants.length >= 1">
+                <div v-if="restaurants.length">
                     <RestaurantList :restaurants="restaurants" />
                     <AppPagination
-                    @change-page="fetchRestaurants"
-                    :lastPage="pagination.last"
-                    :currentPage="pagination.current"
-                />
+                        v-if="pagination.last > 1"
+                        @change-page="fetchRestaurantsByPagination"
+                        :lastPage="pagination.last"
+                        :currentPage="pagination.current"
+                    />
                 </div>
 
                 <div>
@@ -40,7 +47,6 @@
                         <hr class="hr" />
                     </div>
                 </div>
-                
             </div>
         </section>
         <!-- <AppCart /> -->
@@ -61,8 +67,10 @@ export default {
     name: "HomePage",
     data() {
         return {
+            categories: [],
             restaurants: [],
             isLoading: false,
+            select_categories: [],
             pagination: {
                 current: null,
                 last: null,
@@ -98,12 +106,87 @@ export default {
                     this.isLoading = false;
                 });
         },
+        fetchFilteredRestaurants(value, page = 1) {
+            if (value.length) {
+                this.select_categories = value;
+                this.isLoading = true;
 
-        filteredRestaurants(value) {
-            this.restaurants = value;
+                axios
+                    .get(
+                        `http://localhost:8000/api/restaurants?${this.select_categories
+                            .map((n, index) => `categories[${index}]=${n}`)
+                            .join("&")}&page=${page}`
+                    )
+                    .then((res) => {
+                        const { data, current_page, last_page } = res.data;
+                        this.restaurants = data;
+                        this.pagination.current = current_page;
+                        this.pagination.last = last_page;
+                    })
+                    .catch((err) => {
+                        this.error = "Errore durante il fetch dei ristoranti";
+                    })
+                    .then(() => {
+                        this.isLoading = false;
+                    });
+            } else {
+                this.fetchRestaurants();
+            }
+        },
+        fetchRestaurantsByPagination(value) {
+            this.isLoading = true;
+            if (this.select_categories.length) {
+                axios
+                    .get(
+                        `http://localhost:8000/api/restaurants?${this.select_categories
+                            .map((n, index) => `categories[${index}]=${n}`)
+                            .join("&")}&page=${value}`
+                    )
+                    .then((res) => {
+                        const { data, current_page, last_page } = res.data;
+                        this.restaurants = data;
+                        this.pagination.current = current_page;
+                        this.pagination.last = last_page;
+                    })
+                    .catch((err) => {
+                        this.error = "Errore durante il fetch dei ristoranti";
+                    })
+                    .then(() => {
+                        this.isLoading = false;
+                    });
+            } else {
+                axios
+                    .get(`http://localhost:8000/api/restaurants?page=${value}`)
+                    .then((res) => {
+                        const { data, current_page, last_page } = res.data;
+                        this.restaurants = data;
+                        this.pagination.current = current_page;
+                        this.pagination.last = last_page;
+                    })
+                    .catch((err) => {
+                        this.error = "Errore durante il fetch dei post";
+                    })
+                    .then(() => {
+                        this.isLoading = false;
+                    });
+            }
+        },
+        fetchCategories() {
+            axios
+                .get(`http://localhost:8000/api/categories`)
+                .then((res) => {
+                    this.categories = res.data;
+                })
+                .catch((err) => {
+                    this.error = "Errore durante il fetch delle categorie";
+                })
+                .then(() => {
+                    this.isLoading = false;
+                });
         },
     },
     mounted() {
+        this.fetchCategories();
         this.fetchRestaurants();
     },
 };
