@@ -4,30 +4,35 @@
             <li
                 v-for="item in items"
                 :key="item.id"
-                class="item-card col-12 mb-3 border border-dark rounded "
+                class="item-card col-12 mb-3 border border-dark rounded"
             >
-            <div v-if="item.visible === 1">
-                <div class="row">
-                    <div class="col-3">
-                        <img :src="item.image" alt="" class="img-fluid py-2" />
-                    </div>
-                    <div class="col-9 py-2 d-flex flex-column">
-                        <div>
-                            <h3>{{ item.name }}</h3>
-                            <div class="mb-1">{{ item.description }}</div>
+                <div v-if="item.visible === 1">
+                    <div class="row">
+                        <div class="col-3">
+                            <img
+                                :src="item.image"
+                                alt=""
+                                class="img-fluid py-2"
+                            />
                         </div>
-                        <div class="h5 mb-0">{{ item.price }} €</div>
-                    </div>
-                    <div class="col-9 offset-3 mb-2">
-                        
-                        <span
-                            class="btn btn-outline-primary btn-sm"
-                            @click="addToCart(item)"
-                            ><i data-v-047541c6="">Aggiungi al carrello</i
-                        ></span>
+                        <div class="col-9 py-2 d-flex flex-column">
+                            <div>
+                                <h3>{{ item.name }}</h3>
+                                <div class="mb-1">{{ item.description }}</div>
+                            </div>
+                            <div class="h5 mb-0">{{ item.price }} €</div>
+                        </div>
+                        <div class="col-9 offset-3 mb-2">
+                            <span
+                                class="btn btn-outline-primary btn-sm"
+                                @click="addToCart(item)"
+                                ><i data-v-047541c6=""
+                                    >Aggiungi al carrello</i
+                                ></span
+                            >
+                        </div>
                     </div>
                 </div>
-            </div>
             </li>
         </ul>
     </div>
@@ -122,13 +127,13 @@ export default {
                     price: item.price,
                     restaurant: item.restaurant_id,
                     quantity: 1,
+                    total: item.price,
                 };
                 const order = [];
                 order.push(product);
                 this.$emit("change-items", order);
             }
         },
-        
     },
 };
 </script>
