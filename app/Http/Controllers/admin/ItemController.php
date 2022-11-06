@@ -128,7 +128,7 @@ class ItemController extends Controller
                 'description' => 'string',
                 'price' => 'numeric|gt:0',
                 'image' => 'nullable|image|mimes:jpeg,jpg,png',
-                'visible' => 'required|boolean',
+                'visible' => 'boolean',
             ],
             [
                 'name.required' => 'Il titolo è obbligatorio',
@@ -138,7 +138,6 @@ class ItemController extends Controller
                 'price.gt' => 'Il prezzo deve essere maggiore di 0',
                 'image.image' => "Il file non e' del formato corretto",
                 'image.mimes' => "Estensioni ammesse : .png, .jpg e .jpeg",
-                'visible.required' => "Inserisci almeno uno dei campi",
                 'visible.boolean' => "Il campo 'Disponibile' accetta solo si o no",
             ],
         );
@@ -148,7 +147,6 @@ class ItemController extends Controller
             $image_url = Storage::put('item_img', $data['image']);
             $item->image = $image_url;
         }
-        // $data['price'] = Str::price($data['price'], ',');
 
         $item->update($data);
 

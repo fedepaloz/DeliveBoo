@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-md-7">
                     <div class="card-body">
-                        <h1 class="card-title">{{ $item->name }} - €{{ $item->price }}</h1>
+                        <h1 class="card-title">{{ $item->name }} - €{{ number_format($item->price, 2 , ',') }}</h1>
                         <div class="card-text my-3">
                             <p>Descrizione: {{ $item->description }}</p>
                             <h6>Data creazione: {{ $item->created_at }}</h6>

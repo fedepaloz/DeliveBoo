@@ -42,23 +42,23 @@
     </thead>
     <tbody>
         @foreach ($order->items as $item)
-        <tr>
-            <td>{{ $item->pivot->quantity }}x</td>
-            <td>{{ $item->name }}</td>
-            <td>{{ $item->price * $item->pivot->quantity }} €</td>
-        </tr>
+            <tr>
+                <td>{{ $item->pivot->quantity }}x</td>
+                <td>{{ $item->name }}</td>
+                <td>{{ number_format($item->price * $item->pivot->quantity, 2 , ',') }} €</td>
+            </tr>
         @endforeach
         <tr>
             <td colspan="1"></td>
             <td>Spese di spedizione</td>
             <td>
-                {{ $delivery_cost }} €
+                {{ number_format($delivery_cost, 2 , ',') }} €
             </td>
         </tr>
         <tr>
             <td colspan="1"></td>
             <td><strong>Totale</strong></td>
-            <td><strong>{{ $total }} €</strong></td>
+            <td><strong>{{ number_format($total, 2 , ',') }} €</strong></td>
         </tr>
     </tbody>
 </table>

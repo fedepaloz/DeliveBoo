@@ -38,7 +38,7 @@
         <div class="form-check">
             <input class="form-check-input @error('visible') is-invalid @enderror" name="visible" type="checkbox"
                 value="1" id="visible">
-            <label class="form-check-label" for="flexCheckIndeterminate">
+            <label class="form-check-label" for="visible">
                 Disponibile
             </label>
             <div id="visible-feedback" class="invalid-feedback">Selezionare Si o No</div>
