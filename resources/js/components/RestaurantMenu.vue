@@ -58,41 +58,7 @@ export default {
                 }
 
                 if (isAnother) {
-                    document.body.classList.add("overflow-hidden");
-                    document
-                        .getElementById("new-cart-modal")
-                        .classList.add("d-block");
-
-                    document
-                        .getElementById("new-cart-modal-yes")
-                        .addEventListener("click", () => {
-                            const order = [];
-
-                            const newProduct = {
-                                id: item.id,
-                                name: item.name,
-                                price: item.price,
-                                restaurant: item.restaurant_id,
-                                quantity: 1,
-                                total: item.price,
-                            };
-
-                            order.push(newProduct);
-                            this.$emit("change-items", order);
-                            document.body.classList.remove("overflow-hidden");
-                            document
-                                .getElementById("new-cart-modal")
-                                .classList.remove("d-block");
-                        });
-
-                    document
-                        .getElementById("new-cart-modal-no")
-                        .addEventListener("click", function () {
-                            document.body.classList.remove("overflow-hidden");
-                            document
-                                .getElementById("new-cart-modal")
-                                .classList.remove("d-block");
-                        });
+                    this.$emit("is-another", item);
                 } else {
                     const exist = order.find((prod) => {
                         return prod.id == item.id;

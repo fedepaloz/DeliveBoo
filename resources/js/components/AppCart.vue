@@ -64,7 +64,7 @@
                     Procedi al pagamento
                 </button>
                 <button v-else disabled class="btn btn-locked w-100">
-                    Procedi al pagamento
+                    Ordine minimo non raggiunto
                 </button>
             </router-link>
         </div>

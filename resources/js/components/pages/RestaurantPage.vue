@@ -15,16 +15,21 @@
                 <RestaurantMenu
                     :items="restaurant.items"
                     @change-items="getOrder"
+                    @is-another="getModal"
                 />
             </div>
             <!-- Carrello sticky -->
             <div class="col-12 col-md-5">
-                <AppCart :restaurant="restaurant" :order="order" @change-items="getOrder"></AppCart>
+                <AppCart
+                    :restaurant="restaurant"
+                    :order="order"
+                    @change-items="getOrder"
+                ></AppCart>
             </div>
         </div>
 
         <!-- ! MODALE DA AGGIUNGERE DOPO -->
-        <div id="new-cart-modal">
+        <div ref="newCartModal" id="new-cart-modal">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Vuoi creare un nuovo carrello?</h5>
@@ -33,16 +38,18 @@
                         nuovo carrello.
                     </p>
                     <div
+                        @click="closeModal"
                         href="#"
                         class="btn btn-primary mr-2"
-                        id="new-cart-modal-no"
+                        ref="new-cart-modal-no"
                     >
                         Visualizza il menù
                     </div>
                     <div
+                        @click="addNewProduct"
                         href="#"
                         class="btn btn-success"
-                        id="new-cart-modal-yes"
+                        ref="new-cart-modal-yes"
                     >
                         Nuovo carrello
                     </div>
@@ -71,6 +78,7 @@ export default {
             isLoading: false,
             restaurant: {},
             order: [],
+            item: {},
         };
     },
     methods: {
@@ -93,6 +101,31 @@ export default {
         getOrder(value) {
             this.order = value;
             localStorage.setItem("ordine", JSON.stringify(this.order));
+        },
+        addNewProduct() {
+            const order = [];
+
+            const newProduct = {
+                id: this.item.id,
+                name: this.item.name,
+                price: this.item.price,
+                restaurant: this.item.restaurant_id,
+                quantity: 1,
+                total: this.item.price,
+            };
+
+            order.push(newProduct);
+            this.getOrder(order);
+            this.closeModal();
+        },
+        getModal(value) {
+            document.body.classList.add("overflow-hidden");
+            this.$refs.newCartModal.classList.add("d-block");
+            this.item = value;
+        },
+        closeModal() {
+            document.body.classList.remove("overflow-hidden");
+            this.$refs.newCartModal.classList.remove("d-block");
         },
     },
     mounted() {
@@ -120,7 +153,7 @@ export default {
         z-index: 10;
     }
 }
-.container{
+.container {
     background-color: rgb(255, 255, 255);
 }
 </style>
