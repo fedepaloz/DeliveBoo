@@ -142,7 +142,7 @@
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
                         <span>Spese di spedizione</span>
-                        <small class="text-muted">{{ deliveryCost }} €</small>
+                        <small class="text-muted">{{  parseFloat(deliveryCost).toFixed(2).replace(".", ",") }} €</small>
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
                         <span>Totale</span>
