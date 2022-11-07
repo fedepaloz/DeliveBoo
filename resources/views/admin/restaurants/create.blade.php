@@ -25,12 +25,7 @@
                     <label for="name">Nome ristorante *</label>
                     <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
                         name="name" value="{{ old('name', $restaurant->name) }}">
-                    @error('name')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                    <div id="name-feedback" class="invalid-feedback">Il campo "Nome ristorante" non può essere vuoto</div>
+                    <div id="name-feedback" class="invalid-feedback"></div>
                 </div>
             </div>
             <div class="col-6">
@@ -39,19 +34,13 @@
 
                     @foreach ($categories as $category)
                         <input type="checkbox" @if (in_array($category->id, old('categories_ids', $current_categories_ids ?? []))) checked @endif value="{{ $category->id }}"
-                            @error('category') is-invalid @enderror id="category-{{ $category->name }}"
-                            name="categories_ids[]">
+                        @error('category') is-invalid @enderror id="category-{{ $category->name }}"
+                        name="categories_ids[]">
+                        <div class="invalid-feedback checkbox-feedback"></div>
                         <label for="category-{{ $category->name }}">{{ $category->name }}</label>
                         <br>
-                        @error('category')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
                     @endforeach
-
-
-                    <div id="category-feedback" class="invalid-feedback">Selezionare una categoria</div>
+                    <div id="checkbox-feedback" class="invalid-feedback">Il campo "Categoria" non può essere vuoto</div>
                 </div>
 
             </div>
@@ -59,7 +48,6 @@
                 <div class="form-group">
                     <label for="image">Inserisci il Logo del tuo ristorante</label>
                     <input type="file" id="image" name="image">
-
                 </div>
             </div>
             <div class="col-2 mt-5">
@@ -74,13 +62,7 @@
                     <label for="vat_number">Partita IVA *</label>
                     <input type="text" class="form-control @error('vat_number') is-invalid @enderror" id="vat_number"
                         name="vat_number" value="{{ old('vat_number', $restaurant->vat_number) }}">
-                    @error('vat_number')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                    <div id="vat-feedback" class="invalid-feedback">Il campo "Partita IVA" non può essere vuoto</div>
-
+                        <div id="vat-feedback" class="invalid-feedback"></div>
                 </div>
             </div>
             <div class="col-3">
@@ -89,12 +71,7 @@
 
                     <input type="tel" class="form-control @error('phone') is-invalid @enderror" id="phone"
                         name="phone" value="{{ old('phone', $restaurant->phone) }}">
-                    @error('phone')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                    <div id="phone-feedback" class="invalid-feedback">Il campo "Telefono" non può essere vuoto</div>
+                    <div id="phone-feedback" class="invalid-feedback"></div>
 
                 </div>
             </div>
@@ -103,12 +80,7 @@
                     <label for="address">Indirizzo *</label>
                     <input type="text" class="form-control @error('address') is-invalid @enderror" id="address"
                         name="address" value="{{ old('address', $restaurant->address) }}">
-                    @error('address')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                    <div id="address-feedback" class="invalid-feedback">Il campo "Indirizzo" non può essere vuoto</div>
+                    <div id="address-feedback" class="invalid-feedback"></div>
 
                 </div>
             </div>
@@ -117,13 +89,7 @@
                     <label for="opening_time">Orario di apertura *</label>
                     <input type="time" class="form-control @error('opening_time') is-invalid @enderror" id="opening_time"
                         name="opening_time" value="{{ old('opening_time', $restaurant->opening_time) || '11:30' }}">
-                    @error('opening_time')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                    <div id="opening-feedback" class="invalid-feedback">Il campo "Orario di apertura" non può essere vuoto
-                    </div>
+                    <div id="opening-feedback" class="invalid-feedback"></div>
 
                 </div>
             </div>
@@ -132,13 +98,7 @@
                     <label for="closure_time">Orario di chiusura *</label>
                     <input type="time" class="form-control @error('closure_time') is-invalid @enderror" id="closure_time"
                         name="closure_time" value="{{ old('closure_time', $restaurant->closure_time) || '24:00' }}">
-                    @error('closure_time')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                    <div id="closure-feedback" class="invalid-feedback">Il campo "Orario di chiusura" non può essere vuoto
-                    </div>
+                    <div id="closure-feedback" class="invalid-feedback"></div>
                 </div>
             </div>
             <div class="col-3">
@@ -146,12 +106,7 @@
                     <label for="min_order">Ordine minimo * (in euro)</label>
                     <input type="number" class="form-control @error('min_order') is-invalid @enderror" id="min_order"
                         name="min_order" value="{{ old('min_order', $restaurant->min_order) }}">
-                    @error('min_order')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                    <div id="min-feedback" class="invalid-feedback">Il campo "Ordine minimo" non può essere vuoto</div>
+                    <div id="min-feedback" class="invalid-feedback"></div>
                 </div>
             </div>
             <div class="col-3">
@@ -160,13 +115,7 @@
                     <input type="number" class="form-control @error('delivery_cost') is-invalid @enderror"
                         id="delivery_cost" name="delivery_cost"
                         value="{{ old('delivery_cost', $restaurant->delivery_cost) }}">
-                    @error('delivery_cost')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                    <div id="dcost-feedback" class="invalid-feedback">Il campo "Spese di consegna" non può essere vuoto
-                    </div>
+                    <div id="dcost-feedback" class="invalid-feedback"></div>
                 </div>
             </div>
 

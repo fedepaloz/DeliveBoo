@@ -9,9 +9,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
-// ! POSSIBIBLE SOLUTION FOR USER CHECK IF ALREADY HAVE A RESTAURANT [change best article in restaurant] !
-// $saveddata = DB::table('savearticle')->where('user_id', $userID && 'article_id', $bestarticle->id)->get();
-
 class RestaurantController extends Controller
 {
     /**
@@ -34,7 +31,7 @@ class RestaurantController extends Controller
             } else {
                 $categories_string .= $category['name'] . ' - ';
             }
-        }; 
+        };
 
         // Passo a @index il ristorante e la stringa
         return view('admin.restaurants.index', compact('restaurant', 'categories_string'));

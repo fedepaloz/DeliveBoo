@@ -129,16 +129,17 @@ class ItemController extends Controller
     {
         $request->validate(
             [
-                'name' => 'required|string|min:1|regex:/^[a-zA-Z0-9 ]+$/',
-                'description' => 'nullable|string',
+                'name' => 'required|string|max:50|regex:/^[a-zA-Z0-9 ]+$/',
+                'description' => 'nullable|string|max:255',
                 'price' => 'required|numeric|gt:0',
                 'image' => 'nullable|image|mimes:jpeg,jpg,png',
                 'visible' => 'boolean',
             ],
             [
-                'name.required' => 'Il titolo è obbligatorio',
-                'name.min' => 'Il titolo deve avere almeno :min caratteri',
+                'name.required' => 'Il nome è obbligatorio',
+                'name.max' => 'Il nome non deve superare i :max caratteri',
                 'name.regex' => "Il nome non può contenere caratteri speciali",
+                'description.max' => "La descrizione non può superare i :max caratteri",
                 'price.required' => 'Il prezzo è obbligatorio',
                 'price.numeric' => 'Il prezzo deve essere un numero',
                 'price.gt' => 'Il prezzo deve essere maggiore di 0',
