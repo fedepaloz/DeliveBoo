@@ -30,30 +30,34 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md shadow-sm header-backend">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
+                <div class="d-flex align-items-center">
+                    <figure class="figure-backend">
+                        <img src="https://cdn1.iconfinder.com/data/icons/hotel-168/32/1_restaurant_cloche-512.png" alt="logo" class="img-fluid mr-3">
+                    </figure>
+                    <h1 class="navbar-brand">
+                        <h1>{{ config('app.name', 'deliveboo') }}</h1>
+                    </h1>
+                </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     @if (Auth::check() && Auth::user()->restaurant)
-                        <ul class="navbar-nav mr-auto">
-                            <div class="ml-3">
-                                <a href="{{ route('admin.restaurants.index') }}" class="text-muted">MyRestaurant</a>
+                        <ul class="navbar-nav mr-auto nav-list">
+                            <div class="ml-5">
+                                <a href="{{ route('admin.restaurants.index') }}" class="text-white">MyRestaurant</a>
                             </div>
                             <div class="ml-3">
-                                <a href="{{ route('admin.items.index') }}" class="text-muted">MyMenu</a>
+                                <a href="{{ route('admin.items.index') }}" class="text-white">MyMenu</a>
                             </div>
                             <div class="ml-3">
-                                {{-- !!! Da compilare !!! --}}
-                                <a href="{{ route('admin.orders.index') }}" class="text-muted">MyOrders</a>
+                                <a href="{{ route('admin.orders.index') }}" class="text-white">MyOrders</a>
                             </div>
                         </ul>
                     @endif
@@ -67,18 +71,18 @@
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link text-dark" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-dark" href="#" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item text-dark" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
