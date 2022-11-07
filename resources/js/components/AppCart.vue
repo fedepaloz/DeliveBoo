@@ -41,7 +41,7 @@
 
                     <!-- Item total -->
                     <div class="col-6 col-xl-3 text-right">
-                        <div>{{ parseFloat(total).toFixed(2).replace(".", ",") }} €</div>
+                        <div>{{ parseFloat(item.total).toFixed(2).replace(".", ",") }} €</div>
                     </div>
                 </li>
                 <div class="py-2 px-0">
