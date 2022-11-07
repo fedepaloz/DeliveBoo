@@ -46,14 +46,14 @@
                     @if (Auth::check() && Auth::user()->restaurant)
                         <ul class="navbar-nav mr-auto">
                             <div class="ml-3">
-                                <a href="{{ route('admin.restaurants.index') }}" class="text-muted">MyRestaurant</a>
+                                <a href="{{ route('admin.restaurants.index') }}" class="text-muted">Ristorante</a>
                             </div>
                             <div class="ml-3">
-                                <a href="{{ route('admin.items.index') }}" class="text-muted">MyMenu</a>
+                                <a href="{{ route('admin.items.index') }}" class="text-muted">Menù</a>
                             </div>
                             <div class="ml-3">
                                 {{-- !!! Da compilare !!! --}}
-                                <a href="{{ route('admin.orders.index') }}" class="text-muted">MyOrders</a>
+                                <a href="{{ route('admin.orders.index') }}" class="text-muted">Ordini</a>
                             </div>
                         </ul>
                     @endif
