@@ -20,36 +20,36 @@
     <div class="col-12">
         <div class="form-group">
             <label for="name">Nome piatto *</label>
-            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
+            <input type="text" class="form-control" id="name" name="name"
                 value="{{ old('name', $item->name) }}" required minlenght="5" maxlenght="50">
-            <div id="name-feedback" class="invalid-feedback">Il campo "Nome piatto" non é corretto</div>
+            <div id="name-feedback" class="invalid-feedback"></div>
         </div>
     </div>
     <div class="col-12">
         <div class="form-group">
             <label for="description">Descrizione</label>
-            <textarea rows="6" class="form-control @error('description') is-invalid @enderror" id="description"
+            <textarea rows="6" class="form-control" id="description"
                 name="description" required>{{ old('description', $item->description) }}</textarea>
         </div>
     </div>
 
 
-    <div class="col-6">
+    <div class="col-12 mb-2">
         <div class="form-check">
-            <input class="form-check-input @error('visible') is-invalid @enderror" name="visible" type="checkbox"
+            <input class="form-check-input" id="visible" name="visible" type="checkbox"
                 value="1" @if(old('visible', $item->visible)) checked @endif id="visible">
             <label class="form-check-label" for="visible">
                 Disponibile
             </label>
-            <div id="visible-feedback" class="invalid-feedback">Selezionare Si o No</div>
+            <div id="visible-feedback" class="invalid-feedback"></div>
         </div>
     </div>
     <div class="col-12">
         <div class="form-group">
-            <label for="price">Prezzo</label>
-            <input type="number" class="form-control @error('price') is-invalid @enderror" id="price"
+            <label for="price">Prezzo *</label>
+            <input type="number" class="form-control" id="price"
                 name="price" value="{{ old('price', $item->price) }}" required minlenght="5" maxlenght="50">
-            <div id="price-feedback" class="invalid-feedback">Il campo "Prezzo" non può essere vuoto</div>
+            <div id="price-feedback" class="invalid-feedback"></div>
         </div>
     </div>
 

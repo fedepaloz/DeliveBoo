@@ -48,21 +48,22 @@ class ItemController extends Controller
 
         $request->validate(
             [
-                'name' => 'required|string|min:1|regex:/^[a-zA-Z0-9 ]+$/',
-                'description' => 'string',
-                'price' => 'numeric|gt:0',
+                'name' => 'required|string|max:50|regex:/^[a-zA-Z0-9 ]+$/',
+                'description' => 'nullable|string|max:255',
+                'price' => 'required|numeric|gt:0',
                 'image' => 'nullable|image|mimes:jpeg,jpg,png',
                 'visible' => 'boolean',
             ],
             [
-                'name.required' => 'Il titolo è obbligatorio',
-                'name.min' => 'Il titolo deve avere almeno :min caratteri',
+                'name.required' => 'Il nome è obbligatorio',
+                'name.max' => 'Il nome non deve superare i :max caratteri',
                 'name.regex' => "Il nome non può contenere caratteri speciali",
+                'description.max' => "La descrizione non può superare i :max caratteri",
+                'price.required' => 'Il prezzo è obbligatorio',
                 'price.numeric' => 'Il prezzo deve essere un numero',
                 'price.gt' => 'Il prezzo deve essere maggiore di 0',
                 'image.image' => "Il file non e' del formato corretto",
                 'image.mimes' => "Estensioni ammesse : .png, .jpg e .jpeg",
-                // 'visible.required' => "Inserisci almeno uno dei campi",
                 'visible.boolean' => "Il campo 'Disponibile' accetta solo si o no",
             ],
         );
@@ -129,8 +130,8 @@ class ItemController extends Controller
         $request->validate(
             [
                 'name' => 'required|string|min:1|regex:/^[a-zA-Z0-9 ]+$/',
-                'description' => 'string',
-                'price' => 'numeric|gt:0',
+                'description' => 'nullable|string',
+                'price' => 'required|numeric|gt:0',
                 'image' => 'nullable|image|mimes:jpeg,jpg,png',
                 'visible' => 'boolean',
             ],
@@ -138,6 +139,7 @@ class ItemController extends Controller
                 'name.required' => 'Il titolo è obbligatorio',
                 'name.min' => 'Il titolo deve avere almeno :min caratteri',
                 'name.regex' => "Il nome non può contenere caratteri speciali",
+                'price.required' => 'Il prezzo è obbligatorio',
                 'price.numeric' => 'Il prezzo deve essere un numero',
                 'price.gt' => 'Il prezzo deve essere maggiore di 0',
                 'image.image' => "Il file non e' del formato corretto",
@@ -147,11 +149,13 @@ class ItemController extends Controller
         );
 
         $data = $request->all();
+
         if (array_key_exists('visible', $data)) {
             $item->visible = true;
         } else {
             $item->visible = false;
         }
+
         if (array_key_exists('image', $data)) {
             $image_url = Storage::put('item_img', $data['image']);
             $item->image = $image_url;
