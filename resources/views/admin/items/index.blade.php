@@ -14,7 +14,7 @@
         <div class="card my-3">
             <div class="row no-gutters">
                 <div class="col-md-5">
-                    <img src="{{ $item->image }}" alt="{{ $item->name }}" class="p-3 img-fluid">
+                    <img src="{{ str_contains($item->image, 'http') ? $item->image : asset('storage/' . $item->image) }}" class="p-3 img-fluid">
                 </div>
                 <div class="col-md-7">
                     <div class="card-body">

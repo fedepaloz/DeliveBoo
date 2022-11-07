@@ -1,123 +1,120 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <title>Document</title>
-    </head>
-    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
 <body>
-    @foreach ($order as $item)
-        <span class="preheader">Deliveboo automatic reply email</span>
-        <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
-            <tr>
-                <td>&nbsp;</td>
-                <td class="container">
-                    <div class="content">
+    <span class="preheader">Deliveboo automatic reply email</span>
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
+        <tr>
+            <td>&nbsp;</td>
+            <td class="container">
+                <div class="content">
 
-                        <!-- START CENTERED WHITE CONTAINER -->
-                        <table role="presentation" class="main">
-                            <h1>Grazie per aver acquistato da {{ $item['restaurant']->name }}</h1>
-                            <img class="my-3" src="{{ $item['restaurant']->image }}" alt="">
-                            <!-- START MAIN CONTENT AREA -->
+                    <!-- START CENTERED WHITE CONTAINER -->
+                    <table role="presentation" class="main">
+                        <h1>Grazie per aver acquistato da {{ $restaurant->name }}</h1>
+                        <img class="my-3" src="{{ $restaurant->image }}" alt="">
+                        <!-- START MAIN CONTENT AREA -->
+                        <tr>
+                            <td class="wrapper">
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td>
+
+                                            <p>Ciao,</p>
+                                            <p>Grazie mille di aver scelto Deliveboo per i tuoi ordini a domicilio.
+                                            </p>
+                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0"
+                                                class="btn btn-primary">
+                                                <tbody>
+                                                    <tr>
+                                                        <td align="left">
+                                                            <table class="py-4" role="presentation" border="0"
+                                                                cellpadding="0" cellspacing="0">
+                                                                <tbody class="p-3">
+                                                                    <h2>
+                                                                        Hai autorizzato un pagamento di
+                                                                        {{ $order['total'] }}
+                                                                        &euro; a Deliveboo.
+                                                                    </h2>
+                                                                    <tr>
+                                                                        <th class="p-2">
+                                                                            Commerciante
+                                                                        </th>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="p-2">
+                                                                            {{ $restaurant->name }}
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <table class="py-2">
+                                                                <tbody class="p-3">
+                                                                    <tr class="p-2">
+                                                                        <th>Totale ordine - </th>
+                                                                        <th>Costo consegna</th>
+                                                                    </tr>
+                                                                    <tr class="p-2">
+                                                                        <td>{{ $order->total }} &euro;</td>
+                                                                        <td>{{ $restaurant->delivery_cost }}
+                                                                            &euro;</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <span>
+                                                Per qualsiasi problema con l'ordine non esiti a contattare il <a
+                                                    href="">+39 334 4852147</a>
+                                            </span>
+                                            <p>L'acquisto verrà visualizzato come transazione in sospeso finché
+                                                Deliveboo non elaborerà l'ordine. Per vedere tutti i dettagli della
+                                                transazione, accedi al tuo conto. Tieni presente che la transazione
+                                                può
+                                                richiedere alcuni istanti. Grazie per averci scelto. </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <!-- END MAIN CONTENT AREA -->
+                    </table>
+                    <!-- END CENTERED WHITE CONTAINER -->
+
+                    <!-- START FOOTER -->
+                    <div class="footer">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                             <tr>
-                                <td class="wrapper">
-                                    <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                                        <tr>
-                                            <td>
-
-                                                <p>Ciao,</p>
-                                                <p>Grazie mille di aver scelto Deliveboo per i tuoi ordini a domicilio.
-                                                </p>
-                                                <table role="presentation" border="0" cellpadding="0"
-                                                    cellspacing="0" class="btn btn-primary">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td align="left">
-                                                                <table class="py-4" role="presentation" border="0"
-                                                                    cellpadding="0" cellspacing="0">
-                                                                    <tbody class="p-3">
-                                                                        <h2>
-                                                                            Hai autorizzato un pagamento di
-                                                                            {{ $item['total'] }}
-                                                                            &euro; a Deliveboo.
-                                                                        </h2>
-                                                                        <tr>
-                                                                            <th class="p-2">
-                                                                                Commerciante
-                                                                            </th>
-                                                                        </tr>
-
-                                                                        <tr>
-                                                                            <td class="p-2">
-                                                                                {{ $item['restaurant']->name }} -
-                                                                                {{ $item['restaurant']->address }}</td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                                <table class="py-2">
-                                                                    <tbody class="p-3">
-                                                                        <tr class="p-2">
-                                                                            <th>Nome piatto</th>
-                                                                            <th>Qta' - </th>
-                                                                            <th>Totale ordine - </th>
-                                                                            <th>Totale parziale</th>
-                                                                        </tr>
-                                                                        <tr class="p-2">
-                                                                            <td>{{ $item['name'] }}</td>
-                                                                            <td>x{{ $item['quantity'] }}</td>
-                                                                            <td>{{ $item['total'] }} &euro;</td>
-                                                                            <td>{{ $item['total'] }} &euro;</td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                <span>
-                                                    Per qualsiasi problema con l'ordine non esiti a contattare il <a
-                                                        href="">+39 334 4852147</a>
-                                                </span>
-                                                <p>L'acquisto verrà visualizzato come transazione in sospeso finché
-                                                    Deliveboo non elaborerà l'ordine. Per vedere tutti i dettagli della
-                                                    transazione, accedi al tuo conto. Tieni presente che la transazione
-                                                    può
-                                                    richiedere alcuni istanti. Grazie per averci scelto. </p>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                <td class="content-block">
+                                    <span class="apple-link">Deliveboo, Delivery service, San Francisco CA 90210</span>
                                 </td>
                             </tr>
-
-                            <!-- END MAIN CONTENT AREA -->
+                            <tr>
+                                <td class="content-block powered-by">
+                                    <a href="">Powered by Deliveboo</a>.
+                                </td>
+                            </tr>
                         </table>
-                        <!-- END CENTERED WHITE CONTAINER -->
-
-                        <!-- START FOOTER -->
-                        <div class="footer">
-                            <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                                <tr>
-                                    <td class="content-block">
-                                        <span class="apple-link">Deliveboo, Delivery service, San Francisco CA 90210</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="content-block powered-by">
-                                       <a href="">Powered by Deliveboo</a>.
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <!-- END FOOTER -->
-
                     </div>
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
-    @endforeach
+                    <!-- END FOOTER -->
+
+                </div>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
 </body>
 
 </html>
