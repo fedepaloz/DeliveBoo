@@ -1,6 +1,10 @@
 <template>
-    <header id="navbar"  class="header py-3" :class="{ 'is-hidden': !showHeader }">
-        <nav  class="navbar navbar-expand-lg bg-navbar">
+    <header
+        id="navbar"
+        class="header py-3"
+        :class="{ 'is-hidden': !showHeader }"
+    >
+        <nav class="navbar navbar-expand-lg bg-navbar">
             <div class="container px-0">
                 <div class="row">
                     <router-link
@@ -31,13 +35,9 @@
                             <i class="fa-solid fa-house-user"></i> Torna alla
                             Home
                         </router-link>
-                        <a
-                            class="nav-link"
-                            href="http://127.0.0.1:8000/register"
-                            ><i class="fa-solid fa-user-plus"></i> Registra la tua attività
-                        </a>
                         <a class="nav-link" href="http://127.0.0.1:8000/login"
-                            ><i class="fa-solid fa-right-to-bracket"></i> Accesso area riservata
+                            ><i class="fa-solid fa-right-to-bracket"></i>
+                            Accesso area riservata
                         </a>
                     </div>
                 </div>
@@ -72,21 +72,17 @@
                                 class="nav-link dropdown-item text-danger"
                                 :to="{ name: 'home' }"
                             >
-                                <i class="fa-solid fa-house-user"></i> Torna alla
-                                Home
+                                <i class="fa-solid fa-house-user"></i> Torna
+                                alla Home
                             </router-link>
-                            <router-link
-                            class="nav-link dropdown-item text-danger"
-                            :to="{ name: 'register' }"
+
+                            <a
+                                class="nav-link dropdown-item text-danger"
+                                href="http://127.0.0.1:8000/login"
                             >
-                            <i class="fa-solid fa-user-plus"></i> Registra la tua attività
-                        </router-link>
-                        <router-link
-                            class="nav-link dropdown-item text-danger"
-                            :to="{ name: 'admin' }"
-                        >
-                            <i class="fa-solid fa-right-to-bracket"></i> Accesso area riservata
-                        </router-link>
+                                <i class="fa-solid fa-user-plus"></i> Accesso
+                                area riservata
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -178,5 +174,4 @@ export default {
 .header.is-hidden {
     transform: translateY(-100%);
 }
-
 </style>

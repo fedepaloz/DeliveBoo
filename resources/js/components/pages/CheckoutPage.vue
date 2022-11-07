@@ -52,6 +52,7 @@
                             placeholder=""
                             required=""
                             v-model="customer.first_name"
+                            :class="{ 'is-invalid': !customer.first_name }"
                         />
                         <div class="invalid-feedback">
                             Il nome deve essere inserito
@@ -67,6 +68,7 @@
                             placeholder=""
                             required=""
                             v-model="customer.last_name"
+                            :class="{ 'is-invalid': !customer.last_name }"
                         />
                         <div class="invalid-feedback">
                             Il cognome deve essere inserito
@@ -82,6 +84,7 @@
                         class="form-control"
                         id="email"
                         v-model="customer.email"
+                        :class="{ 'is-invalid': !customer.email }"
                     />
                     <div class="invalid-feedback">Inserire una mail valida</div>
                 </div>
@@ -96,6 +99,7 @@
                         placeholder=""
                         required=""
                         v-model="customer.address"
+                        :class="{ 'is-invalid': !customer.address }"
                     />
                     <div class="invalid-feedback">
                         Inserire l'indirizzo di consegna
@@ -202,14 +206,6 @@ export default {
                 .catch(() => {})
                 .then(() => {});
         },
-        completedOrder() {
-            localStorage.clear();
-            this.hasOrdered =
-                "L'ordine è stato inserito correttamente nei nostri sistemi. Controlla l'email per tutte le informazioni sulla consegna. Tra pochi secondi verrai reindirizzato alla homepage del sito!";
-            setTimeout(() => {
-                this.$router.push("/");
-            }, 6000);
-        },
         performPayment() {
             braintree.dropin.create(
                 {
@@ -246,7 +242,7 @@ export default {
                                         ) {
                                             this.transactionErrors = [res.data];
                                         } else {
-                                            this.completedOrder();
+                                            this.completedOrder(res.data);
                                         }
                                     })
                                     .catch(() => {})
@@ -256,6 +252,18 @@ export default {
                     });
                 }
             );
+        },
+        completedOrder(order) {
+            localStorage.clear();
+            this.$router.push({
+                name: "completed",
+                params: {
+                    items: this.order,
+                    order,
+                    total: this.total,
+                    dCost: this.deliveryCost,
+                },
+            });
         },
         getOrder() {
             this.order = JSON.parse(localStorage.getItem("ordine"));
