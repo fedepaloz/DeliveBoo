@@ -8,7 +8,11 @@
     }
 
     a{
-        color: white;     
+        color: white;   
+        
+        &:hover {
+            text-decoration: none;
+        }
     }
 
     .figure-backend{
@@ -20,10 +24,3 @@
     }
 }
 
-.authentication {
-    color: black;
-
-    a {
-        
-    }
-}

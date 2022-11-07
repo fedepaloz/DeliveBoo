@@ -8,7 +8,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-9 m-auto">
+        <div class="col-12 col-lg-8 m-auto">
             <canvas id="myChart" width="400" height="400"></canvas>
         </div>
     </div>
@@ -16,6 +16,9 @@
 
 <script>
 
+  const montSells = {!! json_encode($month_sells) !!};
+  const yearSells = {!! json_encode($year_sells) !!};
+  
   const labels = [
     'Gennaio',
     'Febbraio',
@@ -31,35 +34,47 @@
     'Dicembre',
   ];
 
-  const montSells = {!! json_encode($month_sells) !!};
-  const yearSells = {!! json_encode($year_sells) !!};
-
-  const data = {
-    labels: labels,
-    datasets: [{
+const data = {
+  labels: labels,
+  datasets: [
+    {
       label: 'Fatturato mensile (€)',
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'rgb(255, 99, 132)',
       data: montSells,
+      backgroundColor: '#B1291B',
+      borderColor: '#B1291B',
+      type: 'bar'
     },
     {
-      label: 'Fatturato annuo (€)',
+      label: 'Fatturato annuale (€)',
+      data: yearSells,
       backgroundColor: 'rgb(100, 99, 132)',
       borderColor: 'rgb(100, 99, 132)',
-      data: yearSells,
-    }]
-  };
+    }
+  ]
+};
 
-  const config = {
-    type: 'line',
-    data: data,
-    options: {}
-  };
+const config = {
+  type: 'line',
+  data: data,
+  options: {
+    plugins: {
+      title: {
+        display: false,
+        text: 'Chart.js Stacked Line/Bar Chart'
+      }
+    },
+    scales: {
+      y: {
+        stacked: true
+      }
+    }
+  },
+};
 
 const myChart = new Chart(
     document.getElementById('myChart'),
     config
-);
+  );
 
 </script>
 @endsection
