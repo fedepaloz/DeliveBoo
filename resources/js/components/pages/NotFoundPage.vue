@@ -1,6 +1,7 @@
 <template>
     <div class="container" id="not-found">
         <div id="not-fount-content">
+            <h1>Ti sei perso? Usa il bottone "torna alla home" per tornare indietro</h1>
             <div class="d-flex justify-content-center align-items-center"><h1>404 | Not found</h1></div>
             <div class="d-flex justify-content-center align-items-center"><a href="\">Torna nella Home</a></div>
         </div>

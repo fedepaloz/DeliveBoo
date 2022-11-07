@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Mail\NewOrderMail;
 use App\Models\Order;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -73,6 +74,10 @@ class PaymentController extends Controller
             $new_order->save();
 
             $order = $request->order;
+            $order[0]['restaurant'] =  Restaurant::where('id', $order[0]['restaurant'])->first();
+
+            // dd($order);
+
 
             for ($i = 0; $i < count($order); $i++) {
                 $new_order->items()->attach($order[$i]['id'], ['quantity' => $order[$i]['quantity']]);
@@ -115,7 +120,5 @@ class PaymentController extends Controller
         if ($error === '3000') {
             return response()->json('Problema con il network di pagamento. Si prega di ripetere la transazione: in caso di ripetuti errori, contattaci per maggiori informazioni.');
         }
-
     }
-
 }
