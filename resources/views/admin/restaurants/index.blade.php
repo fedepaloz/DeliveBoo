@@ -10,7 +10,7 @@
     <div class="card mb-3" style="height:400px;">
         <div class="row no-gutters">
             <div class="col-md-4 d-flex align-items-center">
-                <img class="p-4 align-items-center img-fluid"  src="{{ asset('storage/'.$restaurant->image ) }}" alt="{{ $restaurant->name }}">
+                <img class="p-4 align-items-center img-fluid"  src="{{ $restaurant->image }}" alt="{{ $restaurant->name }}">
             </div>
             <div class="col-md-8">
                 <div class="card-body ml-5 mb-3">
