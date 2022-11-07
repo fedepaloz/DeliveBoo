@@ -3,9 +3,9 @@
         <div class="row justify-content-center">
             <div class="col-6 bg-white rounded p-4">
                 <div class="text-center h2">Ordine confermato!</div>
-                <div class="text-center">
-                    Abbiamo appena inviato una email di conferma ordine
-                    all'indirizzo {{ order.email }}
+                <div class="text-center mb-2">
+                    Abbiamo appena inviato una email di riepilogo all'indirizzo
+                    {{ order.email }}
                 </div>
                 <div class="text-center text-black-50 mb-1">Nome</div>
                 <div class="text-center h5 mb-3">{{ order.first_name }}</div>
