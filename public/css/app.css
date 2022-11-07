@@ -20,6 +20,11 @@
 .authentication {
   color: black;
 }
+#header-dashboard {
+  background-color: #b1291b;
+  color: white;
+}
+
 /*!
  * Bootstrap v4.6.2 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
