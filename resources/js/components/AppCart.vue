@@ -1,5 +1,6 @@
 <template>
-    <div id="main-cart" class="p-3 border border-dark rounded">
+    <div id="main-cart" class="p-3 border rounded">
+        <!-- se esiste qualcosa già nel carrello -->
         <div id="cart-top" v-if="order.length > 0">
             <h4>Ordine in corso</h4>
             <ul class="list-unstyled">
@@ -49,7 +50,7 @@
                 </div>
             </ul>
         </div>
-
+        <!-- se non c'è nulla nel carrello -->
         <div v-else id="cart-top" class="pt-3 pb-4 text-center">
             <i class="fa-solid fa-cart-shopping"></i>
             <div class="empty-cart-text">Il carrello è vuoto</div>

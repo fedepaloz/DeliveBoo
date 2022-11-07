@@ -2,6 +2,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-sm-12 col-md-7 col-l-6">
+                <!-- prima sezione con testo e immagine -->
                 <h1 class="font-weight-bold text-danger text-center">
                     I nostri servizi
                 </h1>
@@ -17,6 +18,7 @@
                     <a href="/about"> Scopri di più su di noi</a>
                 </div>
             </div>
+            <!-- seconda sezione con 4 cards -->
             <div class="col-sm-12 col-md-5 col-l-6">
                 <img
                     class="img-fluid"

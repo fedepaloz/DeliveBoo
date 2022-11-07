@@ -1,5 +1,6 @@
 <template>
     <nav aria-label="Page navigation example">
+        <div class="d-flex justify-content-center">
         <ul class="pagination">
             <!-- Previous -->
             <li
@@ -30,9 +31,11 @@
                 v-if="currentPage !== lastPage"
                 @click="changePage(currentPage + 1)"
             >
+            
                 <nav class="page-link" href="#">Avanti</nav>
             </li>
         </ul>
+    </div>
     </nav>
 </template>
 
@@ -52,8 +55,21 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .page-link{
     transition: background-color 1s;
+    color: #b1291b;
+    border: 1px solid #b1291b;
+
+    &:active{
+        background-color: #b1291b;
+        color:white;
+    }
+
+    &:hover {
+        background-color: #b1291b;
+        color:white;
+        font-size: 15px;
+    }
 }
 </style>

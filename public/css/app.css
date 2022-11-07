@@ -1,4 +1,30 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+.header-backend {
+  background-color: #b1291b;
+  height: 100px;
+  transition: 0.3s;
+}
+.header-backend h1 {
+  color: white;
+}
+.header-backend a {
+  color: white;
+}
+.header-backend .figure-backend {
+  width: 50px;
+}
+.header-backend .nav-list a {
+  font-size: 19px;
+}
+
+.authentication {
+  color: black;
+}
+#header-dashboard {
+  background-color: #b1291b;
+  color: white;
+}
+
 /*!
  * Bootstrap v4.6.2 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors

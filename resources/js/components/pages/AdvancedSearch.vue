@@ -5,6 +5,7 @@
             :key="category.id"
             class="list-item col-6 col-md-2 m-1"
         >
+        <!-- categorie -->
             <div class="text-center">
                 <input
                     type="checkbox"

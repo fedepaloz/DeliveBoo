@@ -1,5 +1,5 @@
 <template>
-  <div class="row my-5 border border-dark rounded p-5">
+  <div class="row my-5 p-3 restaurant-card">
     <div class="col-12 d-flex">
       <div class="row align-items-md-center justify-content-md-between">
         <div class="col-12 col-md-4">
@@ -10,14 +10,12 @@
           />
         </div>
 
-        <div class="col-md-7 col-12">
-          <h3 class="card-title">
-            <strong>Nome ristorante: </strong
-            ><span class="riepilogue-text">{{ restaurant.name }}</span>
+        <div class="col-md-7 col-12 text-center">
+          <h3 class="card-title ">
+            <span class="riepilogue-text"> <strong>{{ restaurant.name }}</strong></span>
           </h3>
           <p class="card-text">
-            <strong>Indirizzo: </strong
-            ><span class="riepilogue-text">{{ restaurant.address }}</span>
+            <span class="riepilogue-text">{{ restaurant.address }}</span>
           </p>
           <p class="card-text">
             <strong>Orario Apertura: </strong
@@ -27,11 +25,12 @@
             <strong>Orario Chiusura: </strong
             ><span class="riepilogue-text">{{ restaurant.closure_time.slice(0, -3) }}</span>
           </p>
+          <!-- due cifre dopo la virgola + aggiunta virgola -->
           <p class="card-text">
             <strong>Costo consegna: </strong
             ><span class="riepilogue-text">{{
               parseFloat(restaurant.delivery_cost).toFixed(2).replace(".", ",")
-            }} €</span>
+            }} €</span> 
           </p>
           <p class="card-text">
             <strong>Minimo d'ordine: </strong
@@ -56,6 +55,15 @@ export default {
 
 <style scoped>
 .riepilogue-text {
-  color: #b1291b;
+  color: #f0482e;
+  text-align: center;
+  font-size: 20px;
 }
+
+.restaurant-card{
+    border: 1px solid #f0482e;
+
+}
+
+
 </style>

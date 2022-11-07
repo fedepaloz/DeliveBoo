@@ -1,7 +1,7 @@
 <template>
     <div class="container" id="not-found">
-        <div id="not-fount-content">
-            <h1>Ti sei perso? Usa il bottone "torna alla home" per tornare indietro</h1>
+        <div class="card text-center d-flex justify-content-center p-4" id="not-fount-content">
+            <h1>Ti sei perso? Usa il bottone "Torna alla Home" per tornare indietro</h1>
             <div class="d-flex justify-content-center align-items-center"><h1>404 | Not found</h1></div>
             <div class="d-flex justify-content-center align-items-center"><a href="\">Torna nella Home</a></div>
         </div>
@@ -16,7 +16,7 @@ export default {
 
 <style scoped lang="scss" >
 #not-found {
-    height:90vh;
+    height:50vh;
 }
 
 #not-fount-content {
