@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     return view('guest.home');
@@ -20,10 +20,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
-
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/statistics', 'StatisticController@index')->name('statistic');
     Route::resource('restaurants', 'RestaurantController');
     Route::resource('items', 'ItemController');
     Route::resource('orders', 'OrderController');
