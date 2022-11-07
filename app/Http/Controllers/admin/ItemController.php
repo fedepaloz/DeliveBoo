@@ -48,7 +48,7 @@ class ItemController extends Controller
 
         $request->validate(
             [
-                'name' => 'required|string|min:1|unique:items|regex:/^[a-zA-Z0-9 ]+$/',
+                'name' => 'required|string|min:1|regex:/^[a-zA-Z0-9 ]+$/',
                 'description' => 'string',
                 'price' => 'numeric|gt:0',
                 'image' => 'nullable|image|mimes:jpeg,jpg,png',
@@ -57,7 +57,6 @@ class ItemController extends Controller
             [
                 'name.required' => 'Il titolo è obbligatorio',
                 'name.min' => 'Il titolo deve avere almeno :min caratteri',
-                'name.unique' => "Esiste già un piatto dal nome $request->name",
                 'name.regex' => "Il nome non può contenere caratteri speciali",
                 'price.numeric' => 'Il prezzo deve essere un numero',
                 'price.gt' => 'Il prezzo deve essere maggiore di 0',
@@ -74,6 +73,11 @@ class ItemController extends Controller
         if (array_key_exists('image', $data)) {
             $image_url = Storage::put('item_img', $data['image']);
             $item->image = $image_url;
+        }
+        if (array_key_exists('visible', $data)) {
+            $item->visible = true;
+        } else {
+            $item->visible = false;
         }
         $item->save();
         return redirect()->route('admin.items.show', $item)->with('message', 'Il piatto è stato creato correttamente')->with('type', 'success');
@@ -143,6 +147,11 @@ class ItemController extends Controller
         );
 
         $data = $request->all();
+        if (array_key_exists('visible', $data)) {
+            $item->visible = true;
+        } else {
+            $item->visible = false;
+        }
         if (array_key_exists('image', $data)) {
             $image_url = Storage::put('item_img', $data['image']);
             $item->image = $image_url;

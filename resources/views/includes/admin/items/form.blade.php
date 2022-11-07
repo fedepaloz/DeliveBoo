@@ -37,7 +37,7 @@
     <div class="col-6">
         <div class="form-check">
             <input class="form-check-input @error('visible') is-invalid @enderror" name="visible" type="checkbox"
-                value="1" id="visible">
+                value="1" @if(old('visible', $item->visible)) checked @endif id="visible">
             <label class="form-check-label" for="visible">
                 Disponibile
             </label>
