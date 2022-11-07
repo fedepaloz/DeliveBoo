@@ -202,14 +202,6 @@ export default {
                 .catch(() => {})
                 .then(() => {});
         },
-        completedOrder() {
-            localStorage.clear();
-            this.hasOrdered =
-                "L'ordine è stato inserito correttamente nei nostri sistemi. Controlla l'email per tutte le informazioni sulla consegna. Tra pochi secondi verrai reindirizzato alla homepage del sito!";
-            setTimeout(() => {
-                this.$router.push("/");
-            }, 6000);
-        },
         performPayment() {
             braintree.dropin.create(
                 {
@@ -246,7 +238,7 @@ export default {
                                         ) {
                                             this.transactionErrors = [res.data];
                                         } else {
-                                            this.completedOrder();
+                                            this.completedOrder(res.data);
                                         }
                                     })
                                     .catch(() => {})
@@ -256,6 +248,18 @@ export default {
                     });
                 }
             );
+        },
+        completedOrder(order) {
+            localStorage.clear();
+            this.$router.push({
+                name: "completed",
+                params: {
+                    items: this.order,
+                    order,
+                    total: this.total,
+                    dCost: this.deliveryCost,
+                },
+            });
         },
         getOrder() {
             this.order = JSON.parse(localStorage.getItem("ordine"));
