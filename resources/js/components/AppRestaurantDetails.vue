@@ -5,7 +5,7 @@
         <div class="col-12 col-md-4">
           <img
             class="img-fluid"
-            :src="restaurant.image"
+            :src="restaurant.image.includes('http') ? restaurant.image : 'http://127.0.0.1:8000/storage/' + restaurant.image"
             :alt="restaurant.name"
           />
         </div>

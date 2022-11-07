@@ -11,7 +11,7 @@
                 <!-- card nuova -->
                 <div class="card">
                     <div class="card-header">
-                        <img :src="restaurant.image" alt="rover" />
+                        <img :src="restaurant.image.includes('http') ? restaurant.image : 'http://127.0.0.1:8000/storage/' + restaurant.image" :alt="restaurant.name" />
                     </div>
                     <div class="card-body">
                         <h4 class="card-title text-danger my-3">

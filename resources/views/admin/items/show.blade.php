@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-7">
                 <div class="card-body">
-                    <h1 class="card-title">{{ $item->name }} - <br> Prezzo: €{{ number_format($item->price, 2, ',') }}
+                    <h1 class="card-title">{{ $item->name }} <br> Prezzo: €{{ number_format($item->price, 2, ',') }}
                     </h1>
                     <div class="card-text my-3">
                         <p>Descrizione: {{ $item->description }}</p>
