@@ -19,7 +19,7 @@ class OrderSeeder extends Seeder
         $items = Item::orderBy('id')->pluck('id')->toArray();
         $restaurants = Restaurant::pluck('id')->toArray();
 
-        for ($i = 0; $i < 500; $i++) {
+        for ($i = 0; $i < 50000; $i++) {
 
             $order = new Order();
             $order->restaurant_id = Arr::random($restaurants);
@@ -28,7 +28,7 @@ class OrderSeeder extends Seeder
             $order->email = $faker->safeEmail();
             $order->delivery_address = $faker->streetAddress();
             $order->total = $faker->randomFloat(2, 15, 99);
-            $order->created_at = $faker->dateTimeBetween('-20 days', now());
+            $order->created_at = $faker->dateTimeBetween('-290 days', now());
 
             $order->save();
 

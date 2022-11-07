@@ -55,6 +55,10 @@
                                 {{-- !!! Da compilare !!! --}}
                                 <a href="{{ route('admin.orders.index') }}" class="text-muted">Ordini</a>
                             </div>
+                            <div class="ml-3">
+                                {{-- !!! Da compilare !!! --}}
+                                <a href="{{ route('admin.statistic') }}" class="text-muted">Statistiche</a>
+                            </div>
                         </ul>
                     @endif
 
