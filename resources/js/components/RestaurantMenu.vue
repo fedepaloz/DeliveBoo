@@ -8,7 +8,8 @@
       >
         <div class="row">
           <div class=" col-3">
-            <img :src="item.image" alt="" class="img-fluid py-2" />
+            <!-- {{ item.image.includes('http') ) ? item.image : http://127.0.0.1:8000/storage/item_img/ + item.image }} -->
+            <img :src="item.image.includes('http') ? item.image : 'http://127.0.0.1:8000/storage/' + item.image" alt="" class="img-fluid py-2" />
           </div>
           <div class="col-9 py-2 d-flex flex-column">
             <div>

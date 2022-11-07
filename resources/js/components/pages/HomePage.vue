@@ -14,7 +14,7 @@
 
             <div class="container">
                 <AppLoader v-if="isLoading" />
-                <div v-if="restaurants">
+                <div v-if="restaurants.length">
                     <RestaurantList :restaurants="restaurants" />
                     <AppPagination
                         v-if="pagination.last > 1"
@@ -22,6 +22,9 @@
                         :lastPage="pagination.last"
                         :currentPage="pagination.current"
                     />
+                </div>
+                <div v-else>
+                    <h1 class="notfound-res text-center mt-5">Non ci sono ristoranti con le categorie selezionate</h1>
                 </div>
 
                 <div>
@@ -202,5 +205,9 @@ export default {
 hr {
     border-top: 1px solid #b1291b;
     margin: 30px 0 30px 0;
+}
+
+.notfound-res{
+    color: #b1291b;
 }
 </style>
