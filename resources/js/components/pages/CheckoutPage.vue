@@ -52,6 +52,7 @@
                             placeholder=""
                             required=""
                             v-model="customer.first_name"
+                            :class="{ 'is-invalid': !customer.first_name }"
                         />
                         <div class="invalid-feedback">
                             Il nome deve essere inserito
@@ -67,6 +68,7 @@
                             placeholder=""
                             required=""
                             v-model="customer.last_name"
+                            :class="{ 'is-invalid': !customer.last_name }"
                         />
                         <div class="invalid-feedback">
                             Il cognome deve essere inserito
@@ -82,6 +84,7 @@
                         class="form-control"
                         id="email"
                         v-model="customer.email"
+                        :class="{ 'is-invalid': !customer.email }"
                     />
                     <div class="invalid-feedback">Inserire una mail valida</div>
                 </div>
@@ -96,6 +99,7 @@
                         placeholder=""
                         required=""
                         v-model="customer.address"
+                        :class="{ 'is-invalid': !customer.address }"
                     />
                     <div class="invalid-feedback">
                         Inserire l'indirizzo di consegna
