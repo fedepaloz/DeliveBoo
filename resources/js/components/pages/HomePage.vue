@@ -10,7 +10,7 @@
                 <AppLoader v-if="isLoading" />
                 <div v-if="restaurants.length >= 1">
                     <RestaurantList :restaurants="restaurants" />
-                    <AppPagination
+                    <AppPagination 
                     @change-page="fetchRestaurants"
                     :lastPage="pagination.last"
                     :currentPage="pagination.current"
@@ -19,7 +19,7 @@
 
                 <div>
                     <div class="container card my-5">
-                        <hr class="hr" />
+                        <hr />
                         <div
                             class="row justify-content-center align-items-center my-5"
                         >
@@ -27,17 +27,17 @@
                                 <AppServices />
                             </div>
                         </div>
-                        <hr class="hr" />
+                        <hr />
                     </div>
                     <div class="container card my-5">
-                        <hr class="hr" />
+                        <hr />
                         <AppPartners />
-                        <hr class="hr" />
+                        <hr />
                     </div>
                     <div class="container card my-5">
-                        <hr class="hr" />
+                        <hr />
                         <AppContacts />
-                        <hr class="hr" />
+                        <hr />
                     </div>
                 </div>
                 
@@ -116,7 +116,7 @@ export default {
     background-size: cover;
     background-image: url("https://cdn4.vectorstock.com/i/1000x1000/86/23/online-food-order-and-delivery-process-vector-27208623.jpg");
 }
-.hr {
+hr {
     border-top: 1px solid #b1291b;
     margin: 30px 0 30px 0;
 }

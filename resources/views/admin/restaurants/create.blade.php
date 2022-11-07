@@ -64,7 +64,7 @@
             </div>
             <div class="col-2 mt-5">
                 <img class="img-fluid"
-                    src="{{ asset('storage/'.$restaurant->image) }}"
+                    src="{{ $restaurant->image }}"
                     alt="{{ $restaurant->name }}" id="preview">
 
             </div>
