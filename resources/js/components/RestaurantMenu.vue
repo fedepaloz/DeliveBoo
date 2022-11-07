@@ -15,7 +15,7 @@
               <h3>{{ item.name }}</h3>
               <div class="mb-1">{{ item.description }}</div>
             </div>
-            <div class="h5 mb-0">{{ item.price }} €</div>
+            <div class="h5 mb-0">{{ parseFloat(item.price).toFixed(2).replace(".", ",") }} €</div>
           </div>
           <div class="col-9 offset-3 mb-2">
             <span

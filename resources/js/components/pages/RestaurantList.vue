@@ -19,18 +19,18 @@
                         <h6>{{ restaurant.address }}</h6>
                         <h6>
                             <strong> Costo consegna:</strong> €{{
-                                restaurant.delivery_cost
+                                parseFloat(parseFloat(restaurant.min_order).toFixed(2).replace(".", ",")).toFixed(2).replace(".", ",")
                             }}
                         </h6>
                         <h6>
                             <strong>Mimino ordine:</strong> €{{
-                                restaurant.min_order
+                               parseFloat(restaurant.min_order).toFixed(2).replace(".", ",")
                             }}
                         </h6>
                         <h6>
                             <strong>Orari:</strong>
-                            {{ restaurant.opening_time }} -
-                            {{ restaurant.closure_time }}
+                            {{ restaurant.opening_time.slice(0, -3) }} -
+                            {{ restaurant.closure_time.slice(0, -3) }}
                         </h6>
                         <router-link
                             :to="{
