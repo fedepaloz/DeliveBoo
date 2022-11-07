@@ -51,13 +51,16 @@
                     @if (Auth::check() && Auth::user()->restaurant)
                         <ul class="navbar-nav mr-auto nav-list">
                             <div class="ml-5">
-                                <a href="{{ route('admin.restaurants.index') }}" class="text-white">MyRestaurant</a>
+                                <a href="{{ route('admin.restaurants.index') }}" class="text-white">Ristorante</a>
                             </div>
                             <div class="ml-3">
-                                <a href="{{ route('admin.items.index') }}" class="text-white">MyMenu</a>
+                                <a href="{{ route('admin.items.index') }}" class="text-white">Menù</a>
                             </div>
                             <div class="ml-3">
-                                <a href="{{ route('admin.orders.index') }}" class="text-white">MyOrders</a>
+                                <a href="{{ route('admin.orders.index') }}" class="text-white">Ordini</a>
+                            </div>
+                            <div class="ml-3">
+                                <a href="{{ route('admin.statistic') }}" class="text-white">Statistiche</a>
                             </div>
                         </ul>
                     @endif
