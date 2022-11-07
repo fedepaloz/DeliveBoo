@@ -72,6 +72,16 @@
                                     @endif
                                 </div>
                             </div>
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4 py-1">
+                                    <h4>
+                                        Non sei registrato?
+                                    </h4>
+                                    <a href="{{ route('register') }}" class="btn btn-primary">
+                                        {{ __('Register') }}
+                                    </a>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>

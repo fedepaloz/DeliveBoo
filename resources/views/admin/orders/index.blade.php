@@ -42,6 +42,7 @@
             @endforelse
         </tbody>
     </table>
+    {{ $orders->links() }}
     <style>
         table {
             border-collapse: collapse

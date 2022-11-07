@@ -20,7 +20,7 @@
                     <!-- START CENTERED WHITE CONTAINER -->
                     <table role="presentation" class="main">
                         <h1>Grazie per aver acquistato da {{ $restaurant->name }}</h1>
-                        <img class="my-3" src="{{ $restaurant->image }}" alt="">
+                        <img class="my-3" src="{{ str_contains($restaurant->image, 'http') ? $restaurant->image : asset('storage/' . $restaurant->image) }}" alt="">
                         <!-- START MAIN CONTENT AREA -->
                         <tr>
                             <td class="wrapper">
@@ -46,7 +46,7 @@
                                                                     </h2>
                                                                     <tr>
                                                                         <th class="p-2">
-                                                                            Commerciante
+                                                                            Ristorante
                                                                         </th>
                                                                     </tr>
 

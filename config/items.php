@@ -457,4 +457,18 @@ return [
         'image' => 'https://www.leidonnaweb.it/media/k2/items/cache/9f61d10d254b0dd13d20a8b04bc2ce8a_XL.jpg',
         'visible' => true,
     ],
+    [
+        'name' => 'Marinara',
+        'description' => 'tipica pizza napoletana realizzata solo con pomodoro fresco, olio, aglio e origano',
+        'price' => 5.50,
+        'image' => 'https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/97C2C718-5015-437F-8355-316EE000F57C/Derivates/556409BB-02E0-4BA3-BC16-F409F609FCED.jpg',
+        'visible' => true,
+    ],
+    [
+        'name' => 'Carciofi e pancetta',
+        'description' => 'tipica pizza realizzata con carciofi, olio, aglio e pancetta',
+        'price' => 8.50,
+        'image' => 'https://media-assets.ad-italia.it/photos/60f009487418b0b14e63c64e/16:9/w_1280,c_limit/Schermata-2021-04-17-alle-17.01.36.jpg',
+        'visible' => true,
+    ],
 ];
