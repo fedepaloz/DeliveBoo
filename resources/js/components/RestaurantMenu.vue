@@ -6,7 +6,7 @@
                 :key="item.id"
                 class="item-card col-12 mb-3 border border-dark rounded"
             >
-                <div v-if="item.visible === 1">
+                <div>
                     <div class="row">
                         <div class="col-3">
                             <img
@@ -24,7 +24,7 @@
                         </div>
                         <div class="col-9 offset-3 mb-2">
                             <span
-                                v-if="item.vibile"
+                                v-if="item.visible"
                                 class="btn btn-outline-primary btn-sm"
                                 @click="addToCart(item)"
                                 >Aggiungi al carrello
