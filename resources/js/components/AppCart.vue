@@ -41,11 +41,11 @@
 
                     <!-- Item total -->
                     <div class="col-6 col-xl-3 text-right">
-                        <div>{{ item.total }} €</div>
+                        <div>{{ parseFloat(total).toFixed(2).replace(".", ",") }} €</div>
                     </div>
                 </li>
                 <div class="py-2 px-0">
-                    <div>Totale ordine: {{ total }} €</div>
+                    <div>Totale ordine: {{ parseFloat(total).toFixed(2).replace(".", ",") }} €</div>
                 </div>
             </ul>
         </div>
@@ -86,10 +86,13 @@ export default {
                 total += item.total;
             });
 
-            return total;
+            return (total);
+            
+            
         },
     },
     methods: {
+      
         addToCart(item) {
             const order = JSON.parse(localStorage.getItem("ordine"));
 

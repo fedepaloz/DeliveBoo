@@ -134,7 +134,7 @@
                                 >x{{ item.quantity }}</small
                             >
                         </div>
-                        <span class="text-muted">{{ item.total }} €</span>
+                        <span class="text-muted">{{ parseFloat(item.total).toFixed(2).replace(".", ",") }} €</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
                         <span>Spese di spedizione</span>
@@ -142,7 +142,7 @@
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
                         <span>Totale</span>
-                        <strong>{{ total }} €</strong>
+                        <strong>{{ parseFloat(total).toFixed(2).replace(".", ",") }} €</strong>
                     </li>
                 </ul>
             </div>
