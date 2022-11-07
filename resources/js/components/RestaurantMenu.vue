@@ -24,7 +24,7 @@
                         </div>
                         <div class="col-9 offset-3 mb-2">
                             <span
-                                v-if="item.vibile"
+                                v-if="item.visible"
                                 class="btn btn-outline-primary btn-sm"
                                 @click="addToCart(item)"
                                 >Aggiungi al carrello
