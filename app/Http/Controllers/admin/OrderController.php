@@ -19,7 +19,7 @@ class OrderController extends Controller
     {
         $user_restaurant = Restaurant::where('user_id', Auth::id())->first();
         $orders = Order::where('restaurant_id', $user_restaurant->id)->orderBy('created_at', 'desc')->paginate(10);
-        
+
         return view('admin.orders.index', compact('orders'));
     }
 
@@ -55,9 +55,7 @@ class OrderController extends Controller
         $restaurant = Restaurant::where('user_id', Auth::id())->first();
 
         if ($order->restaurant_id !== $restaurant->id) {
-            return redirect()->route('admin.orders.index')
-                ->with('message', 'La pagina richiesta non esiste')
-                ->with('type', 'danger');
+            abort(404);
         }
 
         $delivery_cost = $restaurant->delivery_cost;

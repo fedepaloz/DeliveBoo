@@ -94,9 +94,7 @@ class ItemController extends Controller
     {
         $user_restaurant = Restaurant::where('user_id', Auth::id())->first();
         if ($item->restaurant_id !== $user_restaurant->id) {
-            return redirect()->route('admin.items.index')
-                ->with('message', 'La pagina richiesta non esiste')
-                ->with('type', 'danger');
+            abort(404);
         }
         return view('admin.items.show', compact('item'));
     }
