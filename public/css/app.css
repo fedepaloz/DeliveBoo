@@ -10,6 +10,9 @@
 .header-backend a {
   color: white;
 }
+.header-backend a:hover {
+  text-decoration: none;
+}
 .header-backend .figure-backend {
   width: 50px;
 }
@@ -17,9 +20,6 @@
   font-size: 19px;
 }
 
-.authentication {
-  color: black;
-}
 #header-dashboard {
   background-color: #b1291b;
   color: white;

@@ -32,7 +32,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-md shadow-sm header-backend">
             <div class="container">
-                <div class="d-flex align-items-center">
+                <a href="/">
+                    <div class="d-flex align-items-center">
                     <figure class="figure-backend">
                         <img src="https://cdn1.iconfinder.com/data/icons/hotel-168/32/1_restaurant_cloche-512.png" alt="logo" class="img-fluid mr-3">
                     </figure>
@@ -40,6 +41,7 @@
                         <h1>{{ config('app.name', 'deliveboo') }}</h1>
                     </h1>
                 </div>
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="{{ __('Toggle navigation') }}">
@@ -71,17 +73,17 @@
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-dark" href="#" role="button"
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-right text-dark" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item text-dark" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
