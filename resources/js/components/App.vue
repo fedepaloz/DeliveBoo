@@ -20,7 +20,7 @@ export default {
 <style>
 .body-bg {
     padding-top: 98px;
-    background-image: url('/../images/bg-bg-bg-bg-bg.webp');
+    background-image: url('/../images/bbgg.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;

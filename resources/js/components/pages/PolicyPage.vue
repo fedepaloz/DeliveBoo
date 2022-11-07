@@ -1,9 +1,7 @@
 <template>
     <div class="container">
         <div class="policy row my-5 align-items-center">
-            <div class="col-4">
-                <AppLogo id="logo-policy" />
-            </div>
+           <div class="d-flex justify-content-center">
             <div class="my-5 col-8">
                 <h1 class="text-danger font-weight-bold">
                     Condizioni Per L’utilizzo Del Sito E Delle Applicazioni Deliveboo:
@@ -38,7 +36,14 @@
                     Sito e al Servizio sono consentiti su base temporanea e
                     Deliveboo si riserva il diritto di escludere o modificare
                     l’accesso al Sito o al Servizio senza preavviso (si veda a
-                    riguardo quanto di seguito previsto). Deliveboo non risponde
+                    riguardo quanto di seguito previsto). </p>
+
+                    <div class="img-size">
+                    <AppLogo id="logo-policy" />
+                    </div>
+                    <p>
+                    
+                    Deliveboo non risponde
                     della mancata disponibilità del Sito o del Servizio,
                     qualunque ne sia la ragione e in qualsiasi momento o per
                     qualsiasi periodo di tempo si sia verificata. In alcune
@@ -86,6 +91,7 @@
             </div>
         </div>
     </div>
+    </div>
 </template>
 
 <script>
@@ -108,5 +114,10 @@ p {
 .policy{
   opacity: .9;
   background-color: white;
+}
+
+.img-size{
+    width: 150px;
+    margin:auto;
 }
 </style>

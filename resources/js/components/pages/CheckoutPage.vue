@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container card my-5">
         <AppLoader v-if="isLoading" />
         <div
             v-if="transactionErrors"
@@ -183,6 +183,8 @@ export default {
         };
     },
     computed: {
+        // totale carrello
+
         total() {
             let total = 0;
 

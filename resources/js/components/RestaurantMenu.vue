@@ -50,14 +50,14 @@ export default {
                 } else {
                     isAnother = false;
                 }
-
+                //aggiungi al cerrello
                 if (isAnother) {
                     this.$emit("is-another", item);
                 } else {
                     const exist = order.find((prod) => {
                         return prod.id == item.id;
                     });
-
+                    //aggiungi +1 quantità al carrello
                     if (exist) {
                         order.forEach((prod) => {
                             if (prod.id == item.id) {
@@ -65,6 +65,7 @@ export default {
                                 prod.total += prod.price;
                             }
                         });
+                    // aggiungi nuovo prodotto al carrello
                     } else {
                         const newProduct = {
                             id: item.id,

@@ -5,7 +5,7 @@
                 <div class="text-center h2">Ordine confermato!</div>
                 <div class="text-center mb-2">
                     Abbiamo appena inviato una email di riepilogo all'indirizzo
-                    {{ order.email }}
+                    {{ order.email }}, il ristorante ti invierà un orario di consegna appena possibile!
                 </div>
                 <div class="text-center text-black-50 mb-1">Nome</div>
                 <div class="text-center h5 mb-3">{{ order.first_name }}</div>
