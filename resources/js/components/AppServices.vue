@@ -6,7 +6,11 @@
                     I nostri servizi
                 </h1>
                 <p class="text-justify my-5">
-                    Da anni lavoriamo sodo per capire cosa vogliono i clienti e per offrire una proposta adatta a loro sia a livello geografico, sia individuale: dagli studenti ai professionisti, passando per le famiglie, e dai centri delle città ai paesi di periferia, grandi e piccoli.
+                    Da anni lavoriamo sodo per capire cosa vogliono i clienti e
+                    per offrire una proposta adatta a loro sia a livello
+                    geografico, sia individuale: dagli studenti ai
+                    professionisti, passando per le famiglie, e dai centri delle
+                    città ai paesi di periferia, grandi e piccoli.
                 </p>
 
                 <div class="d-flex justify-content-center">
@@ -84,14 +88,16 @@
                     </div>
                 </div>
                 <div
-                    class="col-12 col-md-4 offset-md-1 pt-3 d-flex flex-column justify-content-center"
+                    class="col-12 col-md-4 ml-md-3 pt-3 d-flex flex-column justify-content-center"
                 >
-                    <h1 class="font-weight-bold">Ordina subito!</h1>
-                    <p class="mb-4">
-                        Scegli fra una larga varieta' di ristoranti
-                    </p>
-                    <p class="mb-4">Tu ordini e noi te lo portiamo</p>
-                    <a href="#" class="w-50 text-center">Ordina</a>
+                    <div class="d-flex flex-column text-center justify-content-center">
+                        <h1 class="font-weight-bold">Ordina subito!</h1>
+                        <p class="mb-4">
+                            Scegli fra una larga varieta' di ristoranti
+                        </p>
+                        <p class="mb-4">Tu ordini e noi te lo portiamo</p>
+                        <a href="#" class="w-100 text-center">Ordina</a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -100,12 +100,12 @@
                             <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td class="content-block">
-                                        <span class="apple-link">Deliveboo, 3 Abbey Road, San Francisco CA 90210</span>
+                                        <span class="apple-link">Deliveboo, Delivery service, San Francisco CA 90210</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="content-block powered-by">
-                                        Powered by <a href="http://htmlemail.io">HTMLemail</a>.
+                                       <a href="">Powered by Deliveboo</a>.
                                     </td>
                                 </tr>
                             </table>
