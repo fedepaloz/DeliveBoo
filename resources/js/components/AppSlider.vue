@@ -77,7 +77,7 @@ export default {
 
 .image {
     width: 100%;
-    height: 400px;
+    height: 600px;
     position: static;
     top: 100px;
     left: 0;

@@ -3,7 +3,7 @@
     <div class="container my-5">
         <div class="row justify-content-center flex-wrap">
             <div
-                class="col-sm-8 col-md-6 col-lg-4"
+                class="col-12 col-md-6 col-lg-4"
                 v-for="restaurant in restaurants"
                 :key="restaurant.id"
             >
@@ -73,7 +73,7 @@ export default {
   border-radius: 10px;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  width: 300px;
+  max-width: 300px;
   border: 1.5px solid #b1291b;
 }
 .card-header img {
