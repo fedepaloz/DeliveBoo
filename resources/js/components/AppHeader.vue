@@ -72,9 +72,21 @@
                                 class="nav-link dropdown-item text-danger"
                                 :to="{ name: 'home' }"
                             >
-                                <i class="fa-solid fa-house-user"></i>Torna alla
+                                <i class="fa-solid fa-house-user"></i> Torna alla
                                 Home
                             </router-link>
+                            <router-link
+                            class="nav-link dropdown-item text-danger"
+                            :to="{ name: 'register' }"
+                            >
+                            <i class="fa-solid fa-user-plus"></i> Registra la tua attività
+                        </router-link>
+                        <router-link
+                            class="nav-link dropdown-item text-danger"
+                            :to="{ name: 'admin' }"
+                        >
+                            <i class="fa-solid fa-right-to-bracket"></i> Accesso area riservata
+                        </router-link>
                         </div>
                     </div>
                 </div>
