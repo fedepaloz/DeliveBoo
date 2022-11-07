@@ -33,7 +33,12 @@
                                 {{ item.name }}
                             </div>
                             <div class="col-12 col-xl-2">
-                                {{ item.total }} €
+                                {{
+                                    parseFloat(item.total)
+                                        .toFixed(2)
+                                        .replace(".", ",")
+                                }}
+                                €
                             </div>
                         </div>
                     </div>
@@ -41,9 +46,14 @@
                     <div class="col-10 col-xl-9 mt-2 mb-4">
                         Spese di spedizione
                     </div>
-                    <div class="col-2 col-xl-2 mt-2 mb-4">{{ dCost }} €</div>
+                    <div class="col-2 col-xl-2 mt-2 mb-4">
+                        {{ parseFloat(dCost).toFixed(2).replace(".", ",") }} €
+                    </div>
                     <div class="d-none d-xl-block col-1"></div>
-                    <div class="col-9 h5">Totale pagato: {{ total }} €</div>
+                    <div class="col-9 h5">
+                        Totale pagato:
+                        {{ parseFloat(total).toFixed(2).replace(".", ",") }} €
+                    </div>
                 </div>
             </div>
         </div>

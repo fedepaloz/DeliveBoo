@@ -7,7 +7,6 @@ const visibleFeedbackField = document.getElementById("visible-feedback");
 const priceField = document.getElementById("price");
 const priceFeedbackField = document.getElementById("price-feedback");
 
-
 formField.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -15,33 +14,36 @@ formField.addEventListener("submit", (event) => {
     let isVisibleValid = false;
     let isPriceValid = false;
 
+    // Validazione nome
 
     if (nameField.value) {
         isNameValid = true;
         nameField.classList.remove("is-invalid");
     } else {
         nameField.classList.add("is-invalid");
+        nameFeedbackField.innerText = 'Il campo "Nome" non può essere vuoto';
     }
 
-    if (visibleField.value) {
+    // Validazione disponibile
+
+    if (visibleField.checked || !visibleField.checked) {
         isVisibleValid = true;
         visibleField.classList.remove("is-invalid");
     } else {
         visibleField.classList.add("is-invalid");
+        visibleFeedbackField.innerText =
+            'Il campo "Disponibile" accetta solo i valori 0 o 1';
     }
+
+    // Validazione prezzo
 
     if (priceField.value) {
         isPriceValid = true;
         priceField.classList.remove("is-invalid");
     } else {
         priceField.classList.add("is-invalid");
+        priceFeedbackField.innerText = 'Il campo "Prezzo" non può essere vuoto';
     }
 
-
-    if (
-        isNameValid &&
-        isPriceValid &&
-        isVisibleValid
-    )
-        formField.submit();
+    if (isNameValid && isPriceValid && isVisibleValid) formField.submit();
 });
