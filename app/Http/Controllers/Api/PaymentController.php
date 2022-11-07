@@ -74,17 +74,14 @@ class PaymentController extends Controller
             $new_order->save();
 
             $order = $request->order;
-            $order[0]['restaurant'] =  Restaurant::where('id', $order[0]['restaurant'])->first();
-
-            // dd($order);
-
+            $restaurant = Restaurant::select('name', 'image', 'delivery_cost')->find($request->resId);
 
             for ($i = 0; $i < count($order); $i++) {
                 $new_order->items()->attach($order[$i]['id'], ['quantity' => $order[$i]['quantity']]);
             }
 
             // mail of confirmation of publication
-            $mail = new NewOrderMail($order);
+            $mail = new NewOrderMail($new_order, $order, $restaurant);
             $costumer = $request->customer['email'];
             Mail::to($costumer)->send($mail);
 

@@ -12,11 +12,14 @@
     <div class="card my-5">
         <div class="row no-gutters">
             <div class="col-md-5">
-                <img src=" {{ $item->image }}" alt="{{ $item->name }}" class="p-3 img-fluid">
+
+                <img src="{{ str_contains($item->image, 'http') ? $item->image : asset('storage/' . $item->image) }}"
+                    alt="{{ $item->name }}" class="p-3 img-fluid">
             </div>
             <div class="col-md-7">
                 <div class="card-body">
-                    <h1 class="card-title">{{ $item->name }} - <br> Prezzo: €{{ number_format($item->price, 2 , ',') }}</h1>
+                    <h1 class="card-title">{{ $item->name }} - <br> Prezzo: €{{ number_format($item->price, 2, ',') }}
+                    </h1>
                     <div class="card-text my-3">
                         <p>Descrizione: {{ $item->description }}</p>
                         <h6>Data creazione: {{ $item->created_at }}</h6>
@@ -42,8 +45,8 @@
                                 class="btn btn-danger mr-3" type="submit">
                                 <i class="fa-solid fa-trash"></i> Elimina articolo
                             </button> --}}
-                            <button type="button"
-                                class="btn btn-danger" type="submit" data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" class="btn btn-danger" type="submit" data-toggle="modal"
+                                data-target="#exampleModal">
                                 <i class="fa-solid fa-trash"></i> Elimina
                             </button>
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
@@ -51,7 +54,8 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Sei sicuro di voler eliminare il piatto?</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Sei sicuro di voler eliminare il
+                                                piatto?</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>

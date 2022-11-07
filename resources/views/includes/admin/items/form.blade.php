@@ -62,7 +62,7 @@
     </div>
     <div class="col-3">
         <img class="img-fluid"
-            src="{{$item->image ? asset('storage/' . $item->image) : 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png' }}"
+            src="{{ str_contains($item->image, 'http') ? $item->image : asset('storage/' . $item->image) }}"
             alt="{{$item->name}}" id="preview">
     </div>
     {{-- <div class="col-10 my-4">
