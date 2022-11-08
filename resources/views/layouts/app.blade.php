@@ -35,7 +35,7 @@
                 <a href="/">
                     <div class="d-flex align-items-center">
                     <figure class="figure-backend">
-                        <img src="https://cdn1.iconfinder.com/data/icons/hotel-168/32/1_restaurant_cloche-512.png" alt="logo" class="img-fluid mr-3">
+                        <img src="/images/delivelogo.png" alt="logo" class="img-fluid mr-3">
                     </figure>
                     <h1 class="navbar-brand">
                         <h1>{{ config('app.name', 'deliveboo') }}</h1>

@@ -4,7 +4,7 @@
     <section id="services">
       <div class="container mt-4">
         <div class="card mt-5">
-            <hr />
+            <hr class="hr"/>
           <h2 class="h2-homepage text-danger text-center my-3">
             Fame? Di cosa hai voglia?
           </h2>
@@ -12,7 +12,7 @@
             :categories="categories"
             @selected-categories="fetchFilteredRestaurants"
           />
-          <hr />
+          <hr class="hr"/>
         </div>
       </div>
 
